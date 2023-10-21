@@ -1,8 +1,15 @@
-# React + Vite
+# Banking App Group 1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Members:
+- Louise
+- Jean
+- Cyril
+- Donni
 
-Currently, two official plugins are available:
+### How to edit code locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+git clone git@github.com:cyrilcero/Banking-App.git
+npm install
+npm run dev
+```
