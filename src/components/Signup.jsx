@@ -17,7 +17,9 @@ export const Signup = () => {
           <input type="number" />
           <label htmlFor="password"></label>
           <input type="password" />
+          <button>Sign up</button>
         </Form>
+        <div></div>
       </div>
     </div>
   );
