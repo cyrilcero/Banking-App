@@ -1,4 +1,8 @@
 @import "./sass/reset";
+@import "./sass/format",
+"./sass/navbar";
+@import "./sass/signup";
+ 
 
 body {
   margin: 0;
@@ -13,6 +17,3 @@ body {
   position: relative;
 }
 
-@import "./sass/format",
-"./sass/navbar";
- 
