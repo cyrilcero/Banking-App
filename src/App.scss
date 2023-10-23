@@ -1,0 +1,18 @@
+@import "./sass/reset";
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+}
+ 
+.App {
+  display: flex;
+  position: relative;
+}
+
+@import "./sass/format",
+"./sass/navbar";
+ 

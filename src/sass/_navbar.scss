@@ -1,34 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-}
-
-.App {
-  display: flex;
-  position: relative;
-}
-
-.navbar {
+.navbar{
   width: 250px;
   height: 100vh;
-  background-color: #2F3A54;
-  color: white;
+  background-color: $darkBlue;
+  color: #ffff;
   text-wrap: nowrap;
   padding-top: 1.5rem;
   transition: width 0.3s ease-in-out;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -48,9 +26,10 @@ body {
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
-}
-.side-item:hover {
-  opacity: 0.5;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .navbar-icons {
@@ -62,15 +41,15 @@ body {
 }
 
 .menu-btn {
-  color: #EFF1F4;
+  color: $mainGray;
   opacity: 0.5;
   background-color: transparent;
   padding-left: 1.2rem;
   cursor: pointer;
   border: none;
-}
-.menu-btn:hover {
-  opacity: 1;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .img-wrapper {
@@ -87,3 +66,6 @@ body {
   object-fit: cover;
   font-size: 0.5rem;
 }
+
+
+
