@@ -67,35 +67,8 @@ function SideFormContent() {
 
 
 function LogInForm() {
-  const [loginData, setLoginData] = useState(userLoginData)
-  const [found, setFound] = useState(loggedInUser)
-
-  const handleChange = (e) => {
-
-    setLoginData((prevInput) => ({
-      ...prevInput,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = () => {
-    // e.preventDefault()
-    setFound(state => {
-      const existingUser = initialUsers.find(item => item.username === loginData.username && item.password === loginData.password)
-      return (existingUser || state)
-    })
-    // setFound(appUsers.find(item => (item.username === userLoginData.username
-    //   && item.password === userLoginData.password)))
-    // console.log(found)
-  };
-
-  useEffect(() => {
-    console.log("LOGIN DATA", loginData)
-    console.log("LoggedInUser", found)
-  }, [found, loginData])
-
   return (
-    <Form className="login-form" onSubmit={handleSubmit} action="/overview" >
+    <form className="login-form">
       <h1 className="login-form-title">Login</h1>
 
       <label htmlFor="username" className="login-form-label">Username</label>
