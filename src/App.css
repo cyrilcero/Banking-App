@@ -145,6 +145,9 @@
   border: none;
   font-size: clamp(0.5rem, 1vw, 1rem);
   padding: 1rem;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 
 .sign-up-form {
