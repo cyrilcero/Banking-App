@@ -1,7 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Form } from "react-router-dom";
+
 import logo from "../assets/logo.png"
 import login_monitor from "../assets/loginpage_monitor.png"
 import login_bank from "../assets/loginpage_bank.png"
+
+const loggedInUser = []
+
+const userLoginData = {
+  username: "",
+  password: ""
+}
+
+const initialUsers = [
+  {
+    username: "admin",
+    password: "pass"
+  },
+  {
+    username: "user1",
+    password: "pass1"
+  },
+  {
+    username: "user2",
+    password: "pass2"
+  }
+]
+
 
 
 function LogInPage() {
@@ -18,10 +43,10 @@ function LogInPage() {
   )
 }
 
-function LoginPageNavBar(){
-  return(
+function LoginPageNavBar() {
+  return (
     <nav className="login-page-nav-bar">
-      <img src={logo} alt="bank_logo" className="login-page-nav-bar-logo"/>
+      <img src={logo} alt="bank_logo" className="login-page-nav-bar-logo" />
     </nav>
   )
 
@@ -39,17 +64,63 @@ function SideFormContent() {
   )
 }
 
+
+
 function LogInForm() {
+  const [loginData, setLoginData] = useState(userLoginData)
+  const [found, setFound] = useState(loggedInUser)
+
+  const handleChange = (e) => {
+
+    setLoginData((prevInput) => ({
+      ...prevInput,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = () => {
+    // e.preventDefault()
+    setFound(state => {
+      const existingUser = initialUsers.find(item => item.username === loginData.username && item.password === loginData.password)
+      return (existingUser || state)
+    })
+    // setFound(appUsers.find(item => (item.username === userLoginData.username
+    //   && item.password === userLoginData.password)))
+    // console.log(found)
+  };
+
+  useEffect(() => {
+    console.log("LOGIN DATA", loginData)
+    console.log("LoggedInUser", found)
+  }, [found, loginData])
+
   return (
-    <form className="login-form">
+    <Form className="login-form" onSubmit={handleSubmit} action="/overview" >
       <h1 className="login-form-title">Login</h1>
+
       <label htmlFor="username" className="login-form-label">Username</label>
-      <input type="text" placeholder="Enter Username" name="username" className="login-form-input" autoComplete="false"/>
+      <input type="text"
+        placeholder="Enter Username"
+        name="username"
+        className="login-form-input"
+        autoComplete={false}
+        // onChange={(e) => setLoginData(...loginData, loginData.username = e.target.value)} />
+        onChange={handleChange} />
+
       <label htmlFor="password" className="login-form-label">Password</label>
-      <input type="password" placeholder="Enter Password" name="password" className="login-form-input" autoComplete="false"/>
+      <input type="password"
+        placeholder="Enter Password"
+        name="password"
+        className="login-form-input"
+        autoComplete={false}
+        // onChange={(e) => setLoginData(...loginData, loginData.password = e.target.value)} 
+        onChange={handleChange} />
+
       <button type="submit" className="login-form-btn">Log In</button>
-    </form>
+    </Form>
   );
 }
+
+
 
 export default LogInPage;

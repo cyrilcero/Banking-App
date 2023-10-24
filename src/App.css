@@ -90,6 +90,14 @@ body {
   font-size: 0.5rem;
 }
 
+.login-page {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .login-page-nav-bar {
   position: absolute;
   top: 0;
@@ -103,15 +111,6 @@ body {
 }
 .login-page-nav-bar img {
   height: 5vh;
-}
-
-.login-page {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .login-page-container {
