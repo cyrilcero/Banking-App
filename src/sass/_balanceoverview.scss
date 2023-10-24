@@ -1,0 +1,33 @@
+.balance-overview {
+  width: min(520px, 60%);
+  height: auto; 
+  @extend %claymorph;
+  color: $darkBlue;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 2rem 3rem;
+  letter-spacing: 0.3rem;
+
+  h1 {
+    font-weight: 300;
+    text-shadow: none;
+  }
+}
+
+.account-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  padding: 1rem 3rem;
+  letter-spacing: 0.3rem;
+
+  span {
+    font-size: 0.75rem;
+    text-shadow: none;
+  }
+}

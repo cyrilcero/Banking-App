@@ -1,18 +1,22 @@
-@import "./sass/reset";
+@import "./sass/format",
+"./sass/reset";
 
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
  
 .App {
   display: flex;
-  position: relative;
+  position: relative; 
 }
 
-@import "./sass/format",
-"./sass/navbar";
+@import "./sass/navbar",
+"./sass/clientdashboard",
+"./sass/clientoverview",
+"./sass/cashin",
+"./sass/settings",
+"./sass/transfer";
  

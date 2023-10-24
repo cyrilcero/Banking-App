@@ -2,14 +2,14 @@
   width: 250px;
   height: 100vh;
   background-color: $darkBlue;
-  color: #ffff;
+  color: $mainGray;
   text-wrap: nowrap;
   padding-top: 1.5rem;
   transition: width 0.3s ease-in-out;
 
-  position: absolute;
-  top: 0;
-  left: 0;
+  a {
+    color: $mainGray;
+  }
 }
 
 .navbar-closed {
@@ -37,7 +37,7 @@
 }
 
 .link-text-closed {
-  visibility: hidden;
+  display: none;
 }
 
 .menu-btn {

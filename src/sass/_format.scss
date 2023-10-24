@@ -1,10 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended');
 
 // Font
 $fontFamMain: 'Poppins', sans-serif;
+$fontFamCard:  'OCR A Extended';
 
 // Colors
 $darkBlue: #2F3A54;  
 $lightBlue: #3F9DD0;
 $lightGreen: #D1FFBC;
 $mainGray: #EFF1F4;
+
+// Shadows
+
+$txtShadLBlue: 1.2px 1.2px 3px $lightBlue;
+$boxShadBlue: 
+  35px 35px 68px 0px rgba(65, 157, 208, 0.5), 
+  inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), 
+  inset 0px 11px 28px 0px rgb(255, 255, 255);
+
+// Display
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%claymorph {
+  background-color: rgba(255, 255, 255, 0); 
+  border-radius: 50px; 
+  backdrop-filter: blur(6px);
+  box-shadow: $boxShadBlue;
+  color: $mainGray;  
+  text-shadow: $txtShadLBlue;
+}

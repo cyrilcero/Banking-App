@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { NavData } from './Navdata';
+import { Link } from 'react-router-dom';
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
+
+import { NavData } from './Navdata';
 
 
 export default function Navbar() {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   function toggleNavbar () {
     setIsNavbarOpen(!isNavbarOpen);
   };
@@ -16,27 +18,26 @@ export default function Navbar() {
         {isNavbarOpen ? <FaAnglesLeft/> : <FaAnglesRight/>}
       </button>
 
-      <div className='img-wrapper'>
-        <img src="./src/assets/react.svg" alt="" className='navbar-img'/>
-      </div>
+      <div className='side-item-wrapper'>
+        <div className='img-wrapper'>
+          <img src="./src/assets/react.svg" alt="" className='navbar-img'/>
+        </div>
 
-      <div>
         {NavData.map(item =>  {   
           return (
-          <div 
+          <Link 
             key = {item.id} 
             className = "side-item"
-            to = "item.link">
+            to = {item.link}>
               <i className = "navbar-icons">{item.icon}</i>
               <span className ={isNavbarOpen ? "link-text" : "link-text-closed"}>
                 {item.text}
               </span>
-          </div>
+          </Link>
           )
         })}
       </div>
 
-      
     </div>
   )
 }

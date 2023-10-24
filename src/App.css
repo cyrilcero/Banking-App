@@ -1,19 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
+.balance-overview {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+  color: #EFF1F4;
+  text-shadow: 1.2px 1.2px 3px #3F9DD0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .App {
@@ -25,13 +34,13 @@ body {
   width: 250px;
   height: 100vh;
   background-color: #2F3A54;
-  color: white;
+  color: #EFF1F4;
   text-wrap: nowrap;
   padding-top: 1.5rem;
   transition: width 0.3s ease-in-out;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+.navbar a {
+  color: #EFF1F4;
 }
 
 .navbar-closed {
@@ -58,7 +67,7 @@ body {
 }
 
 .link-text-closed {
-  visibility: hidden;
+  display: none;
 }
 
 .menu-btn {
@@ -86,4 +95,149 @@ body {
   border: 1px solid white;
   object-fit: cover;
   font-size: 0.5rem;
+}
+
+.client-dashboard {
+  background: linear-gradient(180deg, rgba(63, 157, 208, 0.5), rgba(255, 255, 255, 0.8)), url("./src/assets/backgroundDash.png");
+  width: 100%;
+  height: 100vh;
+  padding: 1rem 3rem;
+  background-size: contain;
+}
+
+.panels-line1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.bank-card {
+  width: 420px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+  color: #EFF1F4;
+  text-shadow: 1.2px 1.2px 3px #3F9DD0;
+}
+
+.bank-name {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.card-details {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  display: grid;
+  gap: 0.3rem;
+}
+.card-details span {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.card-name {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.card-number, .exp-date {
+  font-family: "OCR A Extended";
+  font-weight: 700;
+}
+
+.card-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.card_chip, .card_indicator {
+  width: 40px;
+}
+
+.mastercard_logo {
+  width: 80px;
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+}
+
+.greeting-dash {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  color: #2F3A54;
+  text-shadow: 1.2px 1.2px 3px #3F9DD0;
+  letter-spacing: 0.25rem;
+  font-size: clamp(0.5rem, 0.4188rem + 1.0833vw, 1.8rem);
+}
+
+.balance-overview {
+  width: min(520px, 60%);
+  height: auto;
+  color: #2F3A54;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 2rem 3rem;
+  letter-spacing: 0.3rem;
+}
+.account-details h1 {
+  font-weight: 300;
+  text-shadow: none;
+}
+
+.account-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  padding: 1rem 3rem;
+  letter-spacing: 0.3rem;
+}
+.account-balance span {
+  font-size: 0.75rem;
+  text-shadow: none;
+}
+
+.client-overview {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cash-in {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transfer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
