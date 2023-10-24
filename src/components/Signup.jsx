@@ -3,16 +3,9 @@ import logo from "../assets/logo.png";
 import image from "../assets/piggybank.png";
 import { Link } from "react-router-dom";
 
-// function FormInput({ type, context, placeholder }) {
-//   return (
-//     <div className="input-container">
-//       <label>{context}</label>
-//       <input type={type} placeholder={placeholder} />
-//     </div>
-//   );
-// }
-
 export const Signup = () => {
+  const storage = [];
+
   const [inputValue, setInputValue] = useState({
     firstName: "",
     lastName: "",
@@ -30,12 +23,14 @@ export const Signup = () => {
     });
   };
 
+  useEffect(() => {
+    storage.push(inputValue);
+    console.log(storage);
+  }, [inputValue]);
 
-
-  useEffect(()=>{
-     localStorage.setItem('items',JSON.stringify(inputValue))
-  },[inputValue])
- 
+  function saveData() {
+    localStorage.setItem("items", JSON.stringify(storage));
+  }
 
   return (
     <div className="sign-up-page">
@@ -98,7 +93,7 @@ export const Signup = () => {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit" >
+            <button type="submit" onClick={saveData}>
               Sign up
             </button>
           </form>
@@ -108,7 +103,6 @@ export const Signup = () => {
               Deposits are insured by PDIC up to PHP 500,000.00 per depositor.
             </p>
             <p>
-              {" "}
               WindBank is supervised by the Bangko Sentral ng Pilipinas (+632
               8708-7087 | consumeraffairs@bsp.gov.ph).
             </p>
