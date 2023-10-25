@@ -139,4 +139,40 @@ function SideFormContent() {
   )
 }
 
+<<<<<<< HEAD
 export default LogInPage;
+=======
+
+
+function LogInForm() {
+  return (
+    <form className="login-form">
+      <h1 className="login-form-title">Login</h1>
+
+      <label htmlFor="username" className="login-form-label">Username</label>
+      <input type="text"
+        placeholder="Enter Username"
+        name="username"
+        className="login-form-input"
+        autoComplete={false}
+        // onChange={(e) => setLoginData(...loginData, loginData.username = e.target.value)} />
+        onChange={handleChange} />
+
+      <label htmlFor="password" className="login-form-label">Password</label>
+      <input type="password"
+        placeholder="Enter Password"
+        name="password"
+        className="login-form-input"
+        autoComplete={false}
+        // onChange={(e) => setLoginData(...loginData, loginData.password = e.target.value)} 
+        onChange={handleChange} />
+
+      <button type="submit" className="login-form-btn">Log In</button>
+    </Form>
+  );
+}
+
+
+
+export default LogInPage;
+>>>>>>> 10edb33d868eb8426d35f68b3e5933d89b284643
