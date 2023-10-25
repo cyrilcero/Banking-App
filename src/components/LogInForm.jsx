@@ -1,33 +1,108 @@
 import React, { useState, useEffect } from "react";
-import { Form } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.png"
 import login_monitor from "../assets/loginpage_monitor.png"
 import login_bank from "../assets/loginpage_bank.png"
 
-const loggedInUser = []
+
 
 const userLoginData = {
   username: "",
-  password: ""
+  password: "",
+  loggedIn: false
 }
 
 const initialUsers = [
   {
     username: "admin",
-    password: "pass"
+    password: "pass",
+    loggedIn: false
   },
   {
     username: "user1",
-    password: "pass1"
+    password: "pass1",
+    loggedIn: false
   },
   {
     username: "user2",
-    password: "pass2"
+    password: "pass2",
+    loggedIn: false
   }
 ]
 
+function LogInForm() {
+  const [loginData, setLoginData] = useState(userLoginData)
+  const [loggedInUser, setLoggedInUser] = useState(userLoginData)
+  const navigate = useNavigate()
 
+  function handleChange(e) {
+    setLoginData((prevInput) => ({
+      ...prevInput,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  function handleSubmit() {
+    // e.preventDefault()
+    const userExists = initialUsers.some(user => user.username === loginData.username && user.password === loginData.password)
+
+    if (userExists) {
+      setLoginData(loginData.loggedIn = true)
+      console.log("logInData", loginData);
+      setLoggedInUser(
+        loggedInUser.username = loginData.username,
+        loggedInUser.password = loginData.password,
+        loggedInUser.loggedIn = loginData.loggedIn,
+      )
+      console.log("logInData", loginData);
+      console.log("loggedInUserData", loggedInUser);
+      // navigate("/overview")
+    } else {
+      console.log("not logged in", loginData);
+    }
+
+    // setLoggedInUser(state => {
+    //   const existingUser = initialUsers.find(item => item.username === loginData.username && item.password === loginData.password)
+    //   console.log("asdasd", existingUser)
+    //   return (existingUser || state)
+    // })
+
+  };
+
+  useEffect(() => {
+    console.log("LOGIN DATA", loginData)
+    // console.log("LOGGEDINUSER", loggedInUser)
+  }, [loginData, loggedInUser])
+
+  return (
+    <Form className="login-form"
+      onSubmit={handleSubmit}
+      action="/overview"
+    >
+      <h1 className="login-form-title">Login</h1>
+
+      <label htmlFor="username" className="login-form-label">Username</label>
+      <input type="text"
+        placeholder="Enter Username"
+        name="username"
+        className="login-form-input"
+        // onChange={(e) => setLoginData(...loginData, loginData.username = e.target.value)} />
+        onChange={handleChange} />
+
+      <label htmlFor="password" className="login-form-label">Password</label>
+      <input type="password"
+        placeholder="Enter Password"
+        name="password"
+        className="login-form-input"
+        // onChange={(e) => setLoginData(...loginData, loginData.password = e.target.value)} 
+        onChange={handleChange} />
+
+      <button type="submit" className="login-form-btn">Log In</button>
+      {!loggedInUser.loggedIn && <p className="login-form-alert">Please enter Username and Password</p>}
+    </Form>
+  );
+}
 
 function LogInPage() {
   return (
@@ -63,64 +138,5 @@ function SideFormContent() {
     </>
   )
 }
-
-
-
-function LogInForm() {
-  const [loginData, setLoginData] = useState(userLoginData)
-  const [found, setFound] = useState(loggedInUser)
-
-  const handleChange = (e) => {
-
-    setLoginData((prevInput) => ({
-      ...prevInput,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = () => {
-    // e.preventDefault()
-    setFound(state => {
-      const existingUser = initialUsers.find(item => item.username === loginData.username && item.password === loginData.password)
-      return (existingUser || state)
-    })
-    // setFound(appUsers.find(item => (item.username === userLoginData.username
-    //   && item.password === userLoginData.password)))
-    // console.log(found)
-  };
-
-  useEffect(() => {
-    console.log("LOGIN DATA", loginData)
-    console.log("LoggedInUser", found)
-  }, [found, loginData])
-
-  return (
-    <Form className="login-form" onSubmit={handleSubmit} action="/overview" >
-      <h1 className="login-form-title">Login</h1>
-
-      <label htmlFor="username" className="login-form-label">Username</label>
-      <input type="text"
-        placeholder="Enter Username"
-        name="username"
-        className="login-form-input"
-        autoComplete={false}
-        // onChange={(e) => setLoginData(...loginData, loginData.username = e.target.value)} />
-        onChange={handleChange} />
-
-      <label htmlFor="password" className="login-form-label">Password</label>
-      <input type="password"
-        placeholder="Enter Password"
-        name="password"
-        className="login-form-input"
-        autoComplete={false}
-        // onChange={(e) => setLoginData(...loginData, loginData.password = e.target.value)} 
-        onChange={handleChange} />
-
-      <button type="submit" className="login-form-btn">Log In</button>
-    </Form>
-  );
-}
-
-
 
 export default LogInPage;

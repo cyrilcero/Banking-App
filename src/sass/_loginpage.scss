@@ -2,7 +2,7 @@
 
 .login-page {
     width: 100vw;
-    // min-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,8 +31,8 @@
     align-items: stretch;
     justify-content: center;
     background-color: format.$darkBlue;
-    border-radius: 1rem;
-    margin-top: 15vh;
+    border-radius: 2rem;
+    // margin-top: 15vh;
 }
 
 .side-form-content {
@@ -97,6 +97,11 @@
         background-color: format.$lightGreen;
         font-weight: 600;
     }
+    .login-form-alert{
+        color: red;
+        padding: 1rem;
+        text-align: center;
+    }
 }
 
 .login-monitor {
@@ -119,6 +124,7 @@
         flex-direction: column;
     }
     .side-form-content {
+        display: none;
         width: 90%;
     }
     .login-form {

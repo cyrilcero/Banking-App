@@ -92,6 +92,7 @@ body {
 
 .login-page {
   width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,8 +121,7 @@ body {
   align-items: stretch;
   justify-content: center;
   background-color: #2F3A54;
-  border-radius: 1rem;
-  margin-top: 15vh;
+  border-radius: 2rem;
 }
 
 .side-form-content {
@@ -185,6 +185,11 @@ body {
   background-color: #D1FFBC;
   font-weight: 600;
 }
+.login-form .login-form-alert {
+  color: red;
+  padding: 1rem;
+  text-align: center;
+}
 
 .login-monitor {
   position: relative;
@@ -205,6 +210,7 @@ body {
     flex-direction: column;
   }
   .side-form-content {
+    display: none;
     width: 90%;
   }
   .login-form {
