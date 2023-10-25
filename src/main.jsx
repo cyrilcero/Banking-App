@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { Signup } from './components/Signup.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +13,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <App/>
-  }
+    element: <Signup/>
+  },
+  {
+    path:"/dashboard",
+    element: <div>Hello</div>,
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
