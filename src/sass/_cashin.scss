@@ -1,7 +1,22 @@
 .cash-in {
+  @extend %clientDashboard;
+}
+
+.panel2-cashin {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
 }
+
+
+.transactions-cashin {
+  width: 420px;
+  height: 250px; 
+  @extend %claymorph;
+  @extend %flex;
+  color: $darkBlue;
+}
+

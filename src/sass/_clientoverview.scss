@@ -1,7 +1,28 @@
 .client-overview {
+  @extend %clientDashboard;  
+}
+
+.panel2-overview {
   width: 100%;
-  height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.expenses-widget {
+  width: 420px;
+  height: 250px; 
+  @extend %claymorph;
+  @extend %flex;
+  color: $darkBlue;
+}
+
+.transactions-widget {
+  width: min(520px, 60%);
+  height: 250px; 
+  @extend %claymorph;
+  @extend %flex;
+  color: $darkBlue;
 }

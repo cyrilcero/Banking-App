@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import Navbar from './components/Navbar';
@@ -9,9 +9,8 @@ import { NavData } from './components/Navdata';
 function App() {
   return (
     <>
-    <main className="App">
-      
-      <Router>
+    <main className="App">         
+    <Router>
         <Navbar />
           <Routes>
             {NavData.map((route, index) => (
@@ -23,9 +22,7 @@ function App() {
             ))}
           </Routes>
       </Router>
-      
     </main>
-      
     </>
   )
 }
