@@ -5,12 +5,19 @@ import { Form, Link } from "react-router-dom";
 import "../App.css";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
-  return(
+  return (
     <div className="signup-input-container">
-    <label>{text}</label>
-    <input type={type} placeholder={placeholder} name={name} value={value} onChange={onChange}/>
-  </div>
-  )
+      <label>{text}</label>
+      <input
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required
+      />
+    </div>
+  );
 }
 
 export const Signup = () => {
@@ -45,17 +52,13 @@ export const Signup = () => {
   return (
     <div className="sign-up-page">
       <div className="sign-up-logo">
-        <Link to="/home">
+        <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
       </div>
       <div className="sign-up-container">
         <div className="signup-form-container">
-          <Form
-            action="/dashboard"
-            method="GET"
-            className="sign-up-form"
-          >
+          <Form action="/dashboard" method="GET" className="sign-up-form">
             <h2>Create Account</h2>
             <Inputs
               text="First Name"
