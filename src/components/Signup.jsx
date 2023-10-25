@@ -38,8 +38,7 @@ export const Signup = () => {
     console.log(inputValue);
   }, [inputValue]);
 
-  function submitHandle(e) {
-   e.preventDefault()
+  function submitHandle() {
     localStorage.setItem("items", JSON.stringify(storage));
   }
 

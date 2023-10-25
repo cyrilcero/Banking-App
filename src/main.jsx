@@ -8,7 +8,7 @@ import { Signup } from './components/Signup.jsx';
 
 const router = createBrowserRouter([
   {
-    path:"/home",
+    path:"/",
     element: <div>Hello</div>,
   },
   {
