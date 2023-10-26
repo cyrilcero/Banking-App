@@ -4,14 +4,15 @@ import './App.css';
 
 import { NavData } from './components/Navdata';
 import Navbar from './components/Navbar';
+import LogoutModal from './components/LogoutModal';
 
-// Test Pages
+// Test Pages -- Remove later
 import CreateAccount from './components/TestPages/CreateAccount';
 import SignUp from './components/TestPages/SignUp';
 import UsersList from './components/TestPages/UsersList';
 import Login from './components/TestPages/Login';
 import LandingPage from './components/TestPages/LandingPage';
-import LogoutModal from './components/LogoutModal';
+
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           {/* Create New Routes here */}
           <Route path="/logout" element={<LogoutModal />} />
 
+          {/* Test Pages -- Remove later */}
           <Route path="/create-account" element={<CreateAccount />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
