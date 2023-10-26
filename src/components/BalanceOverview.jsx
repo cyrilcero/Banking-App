@@ -1,18 +1,19 @@
 import React from 'react';
 
 function BalanceOverview() {
+  const currentUser = JSON.parse(localStorage.getItem('CurrentUser'));
+  const accountID = currentUser.accountID;
+  const accountBal = Number(currentUser.accountBalance).toFixed(2);
   
   return (
     <div className='balance-overview'>
       <div className='account-details'>
         <h1>SAVINGS ACCOUNT</h1>
-        <h2>000123456789</h2>
-        {/* <h2>{accountID}</h2> // to be dynamic*/}
+        <h2 className='account-id'>{accountID}</h2>
       </div>
       
       <div className='account-balance'>
-        <h3><span>PHP</span> 10,000.23</h3>
-        {/* <h3><span>PHP</span> {initialBalance.toFixed(2)}</h3> // to be dynamic */}
+        <h3 className='current-balance'><span>PHP</span>{accountBal}</h3>
         <span>AVAILABLE BALANCE</span>
       </div>
     </div>

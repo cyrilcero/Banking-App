@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 import ClientDashboard from './ClientDashboard';
 import GreetingDash from './GreetingDash';
 
 function ClientOverview() {
+
   return (
     <section className='client-overview'>
-      <GreetingDash />
+      <GreetingDash/>
       <ClientDashboard/>
 
       <div className="panel2-overview">

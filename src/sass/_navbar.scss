@@ -18,7 +18,7 @@
   transition: width 0.3s ease-in-out;
 }
 
-.side-item {
+.side-item, .logout-btn {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -67,5 +67,13 @@
   font-size: 0.5rem;
 }
 
+.logout-btn {
+  color: $mainGray;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  bottom: 30px;
+}
 
 

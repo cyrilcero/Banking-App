@@ -15,6 +15,7 @@
   h1 {
     font-weight: 300;
     text-shadow: none;
+    font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
   }
 }
 
