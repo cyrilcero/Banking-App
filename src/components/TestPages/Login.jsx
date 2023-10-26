@@ -27,11 +27,9 @@ function Login() {
           }
           return prevAccount;
         });
-      
-        console.table(updatedAccounts);
-        return updatedAccounts; // Return the updated state
+           
+        return updatedAccounts; 
       });
-      
 
       const accountID = getAccountID(email);
       navigate(`/overview/${accountID}`);

@@ -21,7 +21,7 @@ const CreateAccount = () => {
       mobileNumber: data.mobileNumber,
       birthday: data.birthday,
       password: data.password,
-      accountBalance: '0.00',
+      accountBalance: '10000.00',
       createdAt: new Date(),
     };
   
@@ -44,7 +44,7 @@ const CreateAccount = () => {
     setValue('password', '');
     setValue('confirmPassword', '');
   
-    navigate('/overview');
+    navigate('/login');
   };
   
   // Function to generate unique random 9-digit numbers

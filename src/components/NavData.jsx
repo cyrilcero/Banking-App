@@ -7,37 +7,34 @@ import CashIn from './CashIn';
 import Transfer from './Transfer';
 import Settings from './Settings';
 
-// retrieve CurrentUser (@ local storage) values
-const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
-const accountID = currentUser.accountID;
 
 export const NavData = [
   {
     id: 0,
     icon: <BsBank />,
     text: "Overview",
-    link: `/overview/${accountID}`, 
+    link: "/overview", 
     elementLabel: <ClientOverview />,
   },
   {
     id: 1,
     icon: <BsFillWalletFill />,
     text: "Cash In",
-    link: `/cash-in/${accountID}`, 
+    link: "/cash-in", 
     elementLabel: <CashIn />,
   },
   {
     id: 2,
     icon: <FaMoneyBillTransfer />,
     text: "Transfer",
-    link: `/transfer/${accountID}`, 
+    link: "/transfer", 
     elementLabel: <Transfer />,
   },
   {
     id: 3,
     icon: <FaGear />,
     text: "Settings",
-    link: `/settings/${accountID}`, 
+    link: "/settings", 
     elementLabel: <Settings />,
   },
 

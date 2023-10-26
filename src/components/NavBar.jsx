@@ -11,6 +11,9 @@ export default function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
+  const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
+  const accountID = currentUser.accountID;
+
   function toggleNavbar () {
     setIsNavbarOpen(!isNavbarOpen);
   };
@@ -40,7 +43,7 @@ export default function Navbar() {
           <Link 
             key = {item.id} 
             className = "side-item"
-            to = {item.link}>
+            to = {`${item.link}/:${accountID}`}>
               <i className = "navbar-icons">{item.icon}</i>
               <span className ={isNavbarOpen ? "link-text" : "link-text-closed"}>
                 {item.text}

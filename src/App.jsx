@@ -16,6 +16,9 @@ import LandingPage from './components/TestPages/LandingPage';
 
 
 function App() {
+  const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
+  const accountID = currentUser.accountID;
+  
   return (
     <>
     <main className="App">
@@ -25,7 +28,7 @@ function App() {
           {NavData.map((route, index) => (
             <Route
               key={index}
-              path={route.link}
+              path={`${route.link}/:${accountID}`}
               element={
                 <>
                   <Navbar />
