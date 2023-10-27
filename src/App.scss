@@ -11,9 +11,10 @@ body {
   height: auto;
   min-height: 100vh;
 }
- 
+
 .App {
   display: flex;
   position: relative;
 }
 
+@import "./sass/format", "./sass/navbar", "./sass/loginpage";
