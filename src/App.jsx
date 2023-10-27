@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 
 import { NavData } from './components/NavData';
@@ -14,6 +14,7 @@ import Login from './components/TestPages/Login';
 import LandingPage from './components/TestPages/LandingPage';
 
 
+import { Signup } from './components/Signup';
 
 function App() {
   const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');

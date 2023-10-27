@@ -1,5 +1,8 @@
+@import "./sass/reset";
 @import "./sass/format",
-"./sass/reset";
+"./sass/navbar";
+@import "./sass/signup";
+ 
 
 body {
   margin: 0;
