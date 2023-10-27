@@ -7,7 +7,7 @@ body {
   width: 100vw;
   height: 100vh;
 }
- 
+
 .App {
   display: flex;
   position: relative; 
@@ -24,8 +24,6 @@ body {
 @import "./sass/navbar",
 "./sass/clientdashboard",
 "./sass/clientoverview",
-"./sass/cashin",
-"./sass/settings",
+"./sass/cashin", "./sass/settings",
 "./sass/transfer",
-"./sass/logoutmodal";
- 
+"./sass/logoutmodal", "./sass/loginpage";
