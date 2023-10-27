@@ -1,0 +1,106 @@
+@use "./format" as *;
+
+//sign-up-page
+@media screen and (max-width: 768px) {
+  .sign-up-logo {
+    position: fixed;
+  }
+  .sign-up-container {
+    min-width: 100%;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .signup-form-container {
+    min-width: 90%;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sign-up-form {
+    min-width: 90%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .signup-input-container {
+    min-width: 80%;
+    min-height: 5vh;
+    font-size: 1rem;
+
+    input {
+      min-width: 100%;
+      min-height: 0.5vh;
+    }
+  }
+
+  .sign-up-text {
+    min-width: 90%;
+    min-height: 50vh;
+  }
+
+  .sign-up-img {
+    width: clamp(1rem, 30vw, 30rem);
+    position: absolute;
+    bottom: -15rem;
+  }
+}
+
+//login-page
+@media only screen and (max-width: 425px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .side-form-content {
+    display: none;
+    width: 90%;
+  }
+  .login-form {
+    width: 90%;
+  }
+}
+
+//dashboard
+@media screen and (max-width: 1024px) {
+  .client-overview {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    .account-details {
+        font-size: 0.5rem;
+    h1{
+        font-size: 1rem;
+    }
+    }
+  }
+  .bank-card{
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+
+  .panel2-overview{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .expenses-widget, .transactions-widget{
+        width: 370px;
+        height: 220px;
+    }
+
+  }
+}
+

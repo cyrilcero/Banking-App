@@ -1,25 +1,15 @@
-@import "./sass/reset";
-@import "./sass/format",
-"./sass/navbar";
-@import "./sass/signup";
- 
+@use "./sass/reset";
+@use "./sass/format";
+@use "./sass/navbar";
+@use "./sass/signup";
+@use "./sass/loginpage";
+@use "./sass/landingpage";
+@use "./sass/clientdashboard";
+@use "./sass/clientoverview";
+@use "./sass/cashin";
+@use "./sass/settings";
+@use "./sass/transfer";
+@use "./sass/logoutmodal";
+@use "./sass/dashboardcontainer";
+@use './sass/mediaqueries';
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-.App {
-  display: flex;
-  position: relative; 
-  min-height: 100vh;
-}
-
-@import "./sass/navbar",
-"./sass/clientdashboard",
-"./sass/clientoverview",
-"./sass/cashin", "./sass/settings",
-"./sass/transfer",
-"./sass/logoutmodal", "./sass/loginpage", "./sass/dashboardcontainer", "./sass/landingpage";

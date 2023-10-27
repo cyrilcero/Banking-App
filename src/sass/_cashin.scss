@@ -1,3 +1,5 @@
+@use "./format" as *;
+
 .cash-in {
   @extend %clientDashboard;
 }
@@ -11,12 +13,10 @@
   padding: 1rem 2.5rem;
 }
 
-
 .transactions-cashin {
   width: 420px;
-  height: 250px; 
+  height: 250px;
   @extend %claymorph;
   @extend %flex;
   color: $darkBlue;
 }
-

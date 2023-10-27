@@ -1,11 +1,13 @@
+@use "./format" as *;
+
 .bank-card {
   width: 420px;
-  height: 250px; 
-  background-color: rgba(255, 255, 255, 0); 
-  border-radius: 50px; 
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
   backdrop-filter: blur(6px);
   box-shadow: $boxShadBlue;
-  color: $mainGray;  
+  color: $mainGray;
   text-shadow: $txtShadLBlue;
   // transform: scale(0.8);
 }
@@ -38,7 +40,8 @@
   letter-spacing: 0.2rem;
 }
 
-.card-number, .exp-date {
+.card-number,
+.exp-date {
   font-family: $fontFamCard;
   font-weight: 700;
 }
@@ -48,7 +51,8 @@
   gap: 1rem;
 }
 
-.card_chip, .card_indicator {
+.card_chip,
+.card_indicator {
   width: 40px;
 }
 

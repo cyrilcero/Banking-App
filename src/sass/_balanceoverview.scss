@@ -1,6 +1,8 @@
+@use "./format" as *;
+
 .balance-overview {
   width: min(520px, 60%);
-  height: auto; 
+  height: auto;
   @extend %claymorph;
   color: $darkBlue;
 }

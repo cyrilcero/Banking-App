@@ -1,3 +1,7 @@
+@use './bankcard';
+@use './greetingdash';
+@use './balanceoverview';
+
 .client-dashboard {
   width: 100%;
   height: auto;
@@ -12,6 +16,3 @@
 }
 
 
-@import "./bankcard",
-"./greetingdash",
-"./balanceoverview";

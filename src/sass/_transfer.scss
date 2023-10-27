@@ -1,3 +1,5 @@
+@use "./format" as *;
+
 .transfer {
   @extend %clientDashboard;
 }
@@ -13,7 +15,7 @@
 
 .transfer-history {
   width: 420px;
-  height: 250px; 
+  height: 250px;
   @extend %claymorph;
   @extend %flex;
   color: $darkBlue;
