@@ -82,9 +82,9 @@ function LogInPage() {
 
 function LoginPageNavBar() {
   return (
-    <nav className="login-page-nav-bar">
+    <Link className="login-page-nav-bar" to={"/"}>
       <img src={logo} alt="bank_logo" className="login-page-nav-bar-logo" />
-    </nav>
+    </Link>
   )
 
 }
