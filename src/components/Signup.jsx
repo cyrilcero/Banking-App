@@ -6,8 +6,6 @@ import "../App.css";
 import { SignUpForm } from "./SignUpForm";
 
 
-
-
 export const Signup = () => {
   return (
     <div className="sign-up-page">
