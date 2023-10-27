@@ -12,29 +12,49 @@ function Login() {
     e.preventDefault();
 
     const storedAccounts = JSON.parse(localStorage.getItem('UserAccounts'));
-
     const account = storedAccounts.find(acc => {
       return acc.email === email && acc.password === password;
     });
 
     if (account) {
-      localStorage.setItem('CurrentUser', JSON.stringify(account));
+      if (account.email === 'admin@email.com' && account.password === 'admin00') {
+        localStorage.setItem('CurrentUser', JSON.stringify(account));
+  
+        setAccounts(prevAccounts => {
+          const updatedAccounts = prevAccounts.map(prevAccount => {
+            if (prevAccount.email === email) {
+              return { ...prevAccount, loggedInEmail: email };
+            }
+            return prevAccount;
+          });
+  
+            return updatedAccounts;
+          });
+    
+          navigate('/admin');
+        }
 
-      setAccounts(prevAccounts => {
-        const updatedAccounts = prevAccounts.map(prevAccount => {
-          if (prevAccount.email === email) {
-            return { ...prevAccount, loggedInEmail: email };
-          }
-          return prevAccount;
-        });
-           
-        return updatedAccounts; 
-      });
-
-      const accountID = getAccountID(email);
-      navigate(`/overview/${accountID}`);
+        else {
+          localStorage.setItem('CurrentUser', JSON.stringify(account));
+    
+          setAccounts(prevAccounts => {
+            const updatedAccounts = prevAccounts.map(prevAccount => {
+              if (prevAccount.email === email) {
+                return { ...prevAccount, loggedInEmail: email };
+              }
+              return prevAccount;
+            });
+               
+            return updatedAccounts; 
+          });
+    
+          const accountID = getAccountID(email);
+          setEmail("");
+          setPassword("");
+          navigate(`/overview/${accountID}`);
+        }
+      }
     }
-  }
 
   return (
     <div>

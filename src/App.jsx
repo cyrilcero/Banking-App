@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
-import { NavData } from './components/Navdata';
-import Navbar from './components/Navbar';
+import { NavData } from './components/NavData';
+import Navbar from './components/NavBar';
 import LogoutModal from './components/LogoutModal';
+import AdminDash from './components/AdminDash';
 
 // Test Pages -- Remove later
 import CreateAccount from './components/TestPages/CreateAccount';
-import SignUp from './components/TestPages/SignUp';
 import UsersList from './components/TestPages/UsersList';
 import Login from './components/TestPages/Login';
 import LandingPage from './components/TestPages/LandingPage';
@@ -18,17 +18,16 @@ import LandingPage from './components/TestPages/LandingPage';
 function App() {
   const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
   const accountID = currentUser.accountID;
-  
+
   return (
     <>
     <main className="App">
-      <Router>
         <Routes>       
           {/* Side Navbar Links  */}
           {NavData.map((route, index) => (
             <Route
               key={index}
-              path={`${route.link}/:${accountID}`}
+              path={`${route.link}/${accountID}`}
               element={
                 <>
                   <Navbar />
@@ -39,16 +38,17 @@ function App() {
 
           {/* Create New Routes here */}
           <Route path="/logout" element={<LogoutModal />} />
+          <Route path="/admin" element={<AdminDash />} />
 
           {/* Test Pages -- Remove later */}
           <Route path="/create-account" element={<CreateAccount />} />
-          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/users-list" element={<UsersList />} />
           <Route path="/" element={<LandingPage />} />
 
+          {/* Reminder to do error page route eme */}
+
         </Routes>
-      </Router>
     </main>
       
     </>

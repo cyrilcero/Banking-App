@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 import { BiLogOutCircle } from "react-icons/bi";
 
-import { NavData } from './Navdata';
+import { NavData } from './NavData';
 import LogoutModal from './LogoutModal';
 
 
@@ -43,7 +43,7 @@ export default function Navbar() {
           <Link 
             key = {item.id} 
             className = "side-item"
-            to = {`${item.link}/:${accountID}`}>
+            to = {`${item.link}/${accountID}`}>
               <i className = "navbar-icons">{item.icon}</i>
               <span className ={isNavbarOpen ? "link-text" : "link-text-closed"}>
                 {item.text}

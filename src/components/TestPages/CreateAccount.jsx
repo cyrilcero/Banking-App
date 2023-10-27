@@ -1,11 +1,22 @@
-// Test Create Account Page -- louise
+// Test Create Account Page
 
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import schema from './schema';
-// import './create-account.css';
+
+const adminAccount = [
+  {
+    email: "admin@email.com",
+    password: "admin00",
+    firstName: "Admin",
+    accountID: Date.now().toString().replace(/^\d{3}/, '00'),
+    isAdmin: true,
+  },
+];
+
+localStorage.setItem("UserAccounts", JSON.stringify(adminAccount));
 
 const CreateAccount = () => {
   const navigate = useNavigate();
