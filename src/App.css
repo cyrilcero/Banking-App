@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -84,6 +85,135 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-page-nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100vw;
+  background-color: #2F3A54;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-page-nav-bar img {
+  height: 5vh;
+}
+
+.login-page-container {
+  width: 90vw;
+  padding: 1rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: #2F3A54;
+  border-radius: 2rem;
+}
+
+.side-form-content {
+  width: 50%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  line-height: 1.3;
+}
+.side-form-content .side-form-title {
+  padding: 1rem;
+  text-align: center;
+  color: #2F3A54;
+  font-weight: 800;
+}
+.side-form-content .side-form-text {
+  padding: 0.5rem;
+  text-align: center;
+  color: #2F3A54;
+}
+
+.login-form {
+  width: 50%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  line-height: 1.3;
+}
+.login-form .login-form-title {
+  padding: 1rem;
+  text-align: center;
+  color: #2F3A54;
+  font-weight: 800;
+}
+.login-form .login-form-label {
+  width: 90%;
+  margin: 1rem 0 0 0;
+  color: #2F3A54;
+}
+.login-form .login-form-input {
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #EFF1F4;
+  border: 0;
+}
+.login-form .login-form-btn {
+  width: 60%;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #D1FFBC;
+  font-weight: 600;
+}
+.login-form .login-form-alert {
+  color: red;
+  padding: 1rem;
+  text-align: center;
+}
+
+.login-monitor {
+  position: relative;
+  bottom: 2%;
+  left: 0;
+  width: 20%;
+}
+
+.login-bank {
+  position: relative;
+  bottom: 2%;
+  right: 0;
+  width: 30%;
+}
+
+@media only screen and (max-width: 425px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .side-form-content {
+    display: none;
+    width: 90%;
+  }
+  .login-form {
+    width: 90%;
+  }
+}/*# sourceMappingURL=App.css.map */
