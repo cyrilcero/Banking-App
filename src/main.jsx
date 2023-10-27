@@ -4,6 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.jsx'
 import LoggedIn from './components/LoggedIn.jsx'
+import AdminPage from './components/AdminPage.jsx'
+
+const userID = JSON.parse(localStorage.getItem("CurrentUser"))
 
 
 const router = createBrowserRouter([
@@ -13,9 +16,14 @@ const router = createBrowserRouter([
     index: true
   },
   {
-    path: "/overview",
+    path: `/overview/${userID.accountID}`,
     element: <LoggedIn />
   },
+  {
+    path: "/admin",
+    element: <AdminPage />
+  },
+  
 ]);
 
 

@@ -1,106 +1,67 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.png"
 import login_monitor from "../assets/loginpage_monitor.png"
 import login_bank from "../assets/loginpage_bank.png"
 
-
-
-const userLoginData = {
-  username: "",
-  password: "",
-  loggedIn: false
-}
-
-const initialUsers = [
-  {
-    username: "admin",
-    password: "pass",
-    loggedIn: false
-  },
-  {
-    username: "user1",
-    password: "pass1",
-    loggedIn: false
-  },
-  {
-    username: "user2",
-    password: "pass2",
-    loggedIn: false
-  }
-]
-
 function LogInForm() {
-  const [loginData, setLoginData] = useState(userLoginData)
-  const [loggedInUser, setLoggedInUser] = useState(userLoginData)
+  const [loginData, setLoginData] = useState({username: "", password: ""})
+  const [errorMessage, setErrorMessage] = useState("")
   const navigate = useNavigate()
 
-  function handleChange(e) {
+  function handleInputChange(e) {
     setLoginData((prevInput) => ({
       ...prevInput,
       [e.target.name]: e.target.value
     }));
-  };
+  }
 
-  function handleSubmit() {
-    // e.preventDefault()
-    const userExists = initialUsers.some(user => user.username === loginData.username && user.password === loginData.password)
+  function handleSubmit(e) {
+    e.preventDefault()
+    const listOfUsers = JSON.parse(localStorage.getItem("UserAccounts"))
+    const userExists = listOfUsers.find(user => user.email === loginData.username && user.password === loginData.password)
 
     if (userExists) {
-      setLoginData(loginData.loggedIn = true)
-      console.log("logInData", loginData);
-      setLoggedInUser(
-        loggedInUser.username = loginData.username,
-        loggedInUser.password = loginData.password,
-        loggedInUser.loggedIn = loginData.loggedIn,
-      )
-      console.log("logInData", loginData);
-      console.log("loggedInUserData", loggedInUser);
-      // navigate("/overview")
+      localStorage.setItem("CurrentUser", JSON.stringify(userExists))
+      if (userExists.isAdmin === true) {
+        navigate("/admin")
+        setLoginData("")
+      } else {
+        navigate(`/overview/${userExists.accountID}`)
+        setLoginData("")
+      }
     } else {
-      console.log("not logged in", loginData);
+      setErrorMessage("Invalid credentials")
+      alert("Invalid credentials")
+      setLoginData({username: "", password: ""})
     }
-
-    // setLoggedInUser(state => {
-    //   const existingUser = initialUsers.find(item => item.username === loginData.username && item.password === loginData.password)
-    //   console.log("asdasd", existingUser)
-    //   return (existingUser || state)
-    // })
-
-  };
+  }
 
   useEffect(() => {
     console.log("LOGIN DATA", loginData)
-    // console.log("LOGGEDINUSER", loggedInUser)
-  }, [loginData, loggedInUser])
+  }, [loginData])
 
   return (
-    <Form className="login-form"
-      onSubmit={handleSubmit}
-      action="/overview"
-    >
+    <form className="login-form" onSubmit={handleSubmit}>
       <h1 className="login-form-title">Login</h1>
-
       <label htmlFor="username" className="login-form-label">Username</label>
       <input type="text"
-        placeholder="Enter Username"
+        placeholder="juandelacruz@gmail.com"
         name="username"
         className="login-form-input"
-        // onChange={(e) => setLoginData(...loginData, loginData.username = e.target.value)} />
-        onChange={handleChange} />
-
+        value={loginData.username}
+        onChange={handleInputChange} />
       <label htmlFor="password" className="login-form-label">Password</label>
       <input type="password"
         placeholder="Enter Password"
         name="password"
         className="login-form-input"
-        // onChange={(e) => setLoginData(...loginData, loginData.password = e.target.value)} 
-        onChange={handleChange} />
-
+        value={loginData.password}
+        onChange={handleInputChange} />
       <button type="submit" className="login-form-btn">Log In</button>
-      {!loggedInUser.loggedIn && <p className="login-form-alert">Please enter Username and Password</p>}
-    </Form>
+      {errorMessage && <p className="login-form-alert">{errorMessage}</p>}
+    </form>
   );
 }
 
@@ -111,6 +72,7 @@ function LogInPage() {
       <div className="login-page-container">
         <SideFormContent />
         <LogInForm />
+        {/* <LoginForm /> */}
       </div>
       {/* <img src={login_monitor} alt="login_monitor" className="login-monitor"/> */}
       {/* <img src={login_bank} alt="login_monitor" className="login-bank"/> */}
