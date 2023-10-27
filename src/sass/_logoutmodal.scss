@@ -1,0 +1,47 @@
+.logout-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.logout-modal-content {
+  @extend %claymorph;
+  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  color: $darkBlue;
+}
+
+.logout-modal h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.logout-modal p {
+  font-size: 1rem;
+}
+
+.logout-modal button {
+  background-color: $darkBlue;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 0.3rem 0;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.logout-modal button:hover {
+  background-color: $lightBlue;
+  transform: scale(1.1);
+}
