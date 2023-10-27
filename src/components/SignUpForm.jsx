@@ -55,15 +55,20 @@ export const SignUpForm = () => {
     
       useEffect(() => {
         localStorage.setItem("initial", JSON.stringify(initialUserData))
-     const userEmail = JSON.parse(localStorage.getItem("items"))
-        const userData = initialUserData.map(items=>items.email) 
-        inputValue.includes()
       }, [inputValue]);
     
       function submitHandle(e) {
         e.preventDefault();
-      }
 
+        const initialUserData = JSON.parse(localStorage.getItem("initial"));
+        const isEmailTaken = initialUserData.some(user => user.email === inputValue.email);
+        
+        if (isEmailTaken) {
+          console.log("Email is already taken. Please choose a different email.");
+        } else {
+          console.log("Sign-up successful!");
+        }
+      }
   return (
     <>
         <Form action="/dashboard" method="GET" className="sign-up-form">
