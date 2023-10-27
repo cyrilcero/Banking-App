@@ -4,7 +4,7 @@
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
-.transfer-history, .transactions-cashin, .transactions-widget, .expenses-widget, .landing-page {
+.transfer-history, .transactions-cashin, .transactions-widget, .expenses-widget {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,8 @@
 .logout-modal-content, .transfer-history, .transactions-cashin, .transactions-widget, .expenses-widget, .balance-overview {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
   color: #EFF1F4;
   text-shadow: 1.2px 1.2px 3px #3F9DD0;
@@ -40,7 +41,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.transfer-history, .transactions-cashin, .transactions-widget, .expenses-widget, .landing-page {
+.transfer-history, .transactions-cashin, .transactions-widget, .expenses-widget {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +50,8 @@
 .logout-modal-content, .transfer-history, .transactions-cashin, .transactions-widget, .expenses-widget, .balance-overview {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
   color: #EFF1F4;
   text-shadow: 1.2px 1.2px 3px #3F9DD0;
@@ -130,7 +132,8 @@
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -333,12 +336,6 @@ body {
   min-height: 100vh;
 }
 
-.landing-page {
-  width: 100%;
-  height: 100vh;
-  border: 5px solid pink;
-}
-
 .navbar {
   width: 250px;
   height: 100vh;
@@ -402,7 +399,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -433,7 +431,8 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
   color: #EFF1F4;
   text-shadow: 1.2px 1.2px 3px #3F9DD0;
@@ -635,7 +634,7 @@ body {
   transform: scale(1.1);
 }
 
-.landing-page, .expenses-widget, .transactions-widget, .transactions-cashin, .transfer-history {
+.expenses-widget, .transactions-widget, .transactions-cashin, .transfer-history {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -644,7 +643,8 @@ body {
 .balance-overview, .expenses-widget, .transactions-widget, .transactions-cashin, .transfer-history, .logout-modal-content {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
   color: #EFF1F4;
   text-shadow: 1.2px 1.2px 3px #3F9DD0;
@@ -789,3 +789,12 @@ body {
     width: 90%;
   }
 }
+.dashboard-container {
+  display: flex;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=App.css.map */

@@ -33,7 +33,7 @@ function LogInForm() {
       }
     } else {
       setErrorMessage("Invalid credentials")
-      alert("Invalid credentials")
+      // alert("Invalid credentials")
       setLoginData({username: "", password: ""})
     }
   }

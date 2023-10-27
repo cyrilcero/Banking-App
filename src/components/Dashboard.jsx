@@ -4,7 +4,7 @@ import { Outlet } from 'react-router';
 
 function Dashboard() {
   return (
-    <div>
+    <div className='dashboard-container'>
         <Navbar />
         <Outlet />
     </div>

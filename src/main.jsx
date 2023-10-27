@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <ClientDashboard />,
+        element: <ClientOverview />,
         loader: ({params}) => params.id,
       },
     ],

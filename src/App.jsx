@@ -6,11 +6,10 @@ import LandingPage from "./components/TestPages/LandingPage";
 
 function App() {
   return (
-    <div style={{display:"flex", flexDirection:"column"}}>
+    <div className="landing-page">
       <LandingPage />
       <Link to={"/create-account"}>GO TO CREATE ACCOUNT</Link>
       <Link to={"/login"}>GO TO LOGIN</Link>
-
     </div>
   );
 }
