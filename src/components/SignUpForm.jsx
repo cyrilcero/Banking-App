@@ -32,7 +32,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-export const SignUpForm = () => {
+export default function SignUpForm(){
   const navigate = useNavigate();
   const [emailTaken, setEmailTaken] = useState(false);
   const [inputValue, setInputValue] = useState({
@@ -105,7 +105,7 @@ export const SignUpForm = () => {
         password: "",
       });
 
-      navigate("/dashboard"); // change to login path
+      navigate("/login"); // change to login path
     }
   }
 

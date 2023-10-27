@@ -2,11 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import App from './App.jsx'
-import LoggedIn from './components/LoggedIn.jsx'
-import AdminPage from './components/AdminPage.jsx'
 
-const userID = JSON.parse(localStorage.getItem("CurrentUser"))
+import App from './App.jsx'
+import ClientOverview from './components/ClientOverview.jsx'
+import LogInPage from './components/LoginPage.jsx'
+import AdminDash from './components/AdminDash.jsx'
+import Signup from './components/Signup.jsx'
+import Navbar from './components/NavBar.jsx'
+import Dashboard from './components/Dashboard.jsx'
+import ClientDashboard from './components/ClientDashboard.jsx'
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
+const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
+const accountID = currentUser.accountID;
+
 
 
 const router = createBrowserRouter([
@@ -16,18 +25,37 @@ const router = createBrowserRouter([
     index: true
   },
   {
-    path: `/overview/${userID.accountID}`,
-    element: <LoggedIn />
+    path: "/overview/:id",
+    element: <Dashboard />,
+    children: [
+      {
+        index: true,
+        element: <ClientDashboard />,
+        loader: ({params}) => params.id,
+      },
+    ],
   },
   {
     path: "/admin",
-    element: <AdminPage />
+    element: <AdminDash />
+  },
+  {
+    path: "/test",
+    element: <ClientDashboard />
+  },
+  {
+    path: "/create-account",
+    element: <Signup />
+  },
+  {
+    path: "/login",
+    element: <LogInPage />
   },
   
 ]);
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
