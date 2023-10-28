@@ -1,5 +1,3 @@
-import '../../home.css';
-
 export default function Insurance(){
 
     const centerStyles = {

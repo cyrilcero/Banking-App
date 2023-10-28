@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
@@ -36,7 +37,6 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-
 
 body {
   margin: 0;
@@ -684,5 +684,170 @@ body {
   .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
     width: 370px;
     height: 220px;
+  }
+}
+.home-navbar {
+  background-color: #313953;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  white-space: nowrap;
+}
+
+.home-navbar img {
+  margin-left: 2vw;
+  margin-right: 20vw; /*clamp(10vw, 15vw, 20vw);*/
+  width: 50%;
+}
+
+/*width: */
+.home-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-nav-menu {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  grid-gap: 1vw;
+  list-style: none;
+  text-align: center;
+  width: 60vw;
+  justify-content: end;
+}
+
+.home-nav-item {
+  height: 80px;
+}
+
+.home-nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  height: 100%;
+}
+
+.home-nav-links:hover {
+  border-bottom: 4px solid #fff;
+  transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.otherButton {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .buttons1 {
+    display: none;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    position: absolute;
+    top: 85px;
+    background: #1f293b;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+  .home-nav-links {
+    font-size: 20px;
+    margin-left: 20px;
+    color: rgb(195, 196, 206);
+  }
+  .otherButton {
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    grid-gap: 1vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .otherButton {
+    display: none;
+  }
+  .NavbarItems {
+    position: relative;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+  }
+  .home-nav-menu.active {
+    background: #1f293b;
+    left: 0;
+    z-index: 1;
+  }
+  .home-nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+  .home-nav-links:hover {
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
+  }
+  .home-navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    padding: 14px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+  }
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
   }
 }/*# sourceMappingURL=App.css.map */

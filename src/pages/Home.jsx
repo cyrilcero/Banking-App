@@ -1,4 +1,3 @@
-import '../../home.css';
 import './styles.css';
 
 export default function Home(){
@@ -13,7 +12,7 @@ export default function Home(){
         <img src="src/images/guy.png" alt="" />
         <span>“You need a bank partner who believes in you and is able to keep up with your financial needs. 
           Wind Bank believed in me through the years. To me, that’s BetterBanking”</span>
-         <p> {"\n"} Donni Ahas Nietes - Boxer turn vlogger </p>
+         <p> {"\n"} Donni Ahas Nietes - Boxer turned vlogger </p>
         </div>
         <div id="testimonials">
         <img src="src/images/guy.png" alt="" />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import image from "../assets/piggybank.png";
 import "../App.css";
-import SignUpForm from "./SignUpForm";
+import SignUpForm from "../components/SignUpForm";
 
 function Signup() {
   return (

@@ -1,6 +1,4 @@
-import '../../home.css';
-
-export default function Cards(){
+export default function PromAndRe(){
 
     const centerStyles = {
         display: 'flex',
@@ -10,7 +8,7 @@ export default function Cards(){
       };
 
       return (
-        <h1 style={centerStyles}>Cards</h1>
+        <h1 style={centerStyles}>Promos and Rewards</h1>
       );
     }
     

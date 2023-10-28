@@ -1,6 +1,4 @@
-import '../../home.css';
-
-export default function Investments(){
+export default function Loans(){
 
     const centerStyles = {
         display: 'flex',
@@ -10,7 +8,7 @@ export default function Investments(){
       };
 
       return (
-        <h1 style={centerStyles}>Investments</h1>
+        <h1 style={centerStyles}>Loans</h1>
       );
     }
     

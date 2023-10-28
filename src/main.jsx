@@ -2,15 +2,21 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-
-import App from './App.jsx'
 import ClientOverview from './components/ClientOverview.jsx'
-import LogInPage from './components/LoginPage.jsx'
+import LogInPage from './pages/LoginPage.jsx'
 import AdminDash from './components/AdminDash.jsx'
-import Signup from './components/Signup.jsx'
+import Signup from './pages/Signup.jsx'
 import Navbar from './components/NavBar.jsx'
 import Dashboard from './components/Dashboard.jsx'
 import ClientDashboard from './components/ClientDashboard.jsx'
+import Home from './pages/Home.jsx'
+import Loans from './pages/Loans.jsx'
+import Cards from './pages/Cards.jsx'
+import Insurance from './pages/Insurance.jsx'
+import Investments from './pages/Investments.jsx'
+import PromAndRe from './pages/PromAndRe.jsx'
+import App from './App.jsx'
+import AdminPage from './components/AdminPage.jsx'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
@@ -22,7 +28,32 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    index: true
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "loans",
+        element: <Loans />,
+      },
+      {
+        path: "cards",
+        element: <Cards />,
+      },
+      {
+        path: "insurance",
+        element: <Insurance />,
+      },
+      {
+        path: "investments",
+        element: <Investments />,
+      },
+      {
+        path: "promos-rewards",
+        element: <PromAndRe />,
+      },
+    ],
   },
   {
     path: "/overview/:id",
@@ -51,7 +82,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LogInPage />
   },
-  
 ]);
 
 
