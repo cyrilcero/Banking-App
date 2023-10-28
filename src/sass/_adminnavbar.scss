@@ -1,0 +1,80 @@
+@use "./format" as *;
+
+.anavbar {
+  margin: 0 0.35rem;
+  width: 250px;
+  height: 98vh;
+  text-wrap: nowrap;
+  padding-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0.5rem;
+  transition: width 0.3s ease-in-out;
+
+  a {
+    color: $darkBlue;
+  }
+}
+
+.anavbar-closed {
+  width: 60px;
+  text-wrap: nowrap;
+  transition: width 0.3s ease-in-out;
+}
+
+.side-item, .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.navbar-icons {
+  font-size: 1.2rem;
+}
+
+.link-text-closed {
+  display: none;
+}
+
+.menu-btn {
+  color: $darkBlue;
+  opacity: 0.5;
+  background-color: transparent;
+  padding-left: 1.2rem;
+  cursor: pointer;
+  border: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.img-wrapper {
+  width: min(75%, 8rem);
+  aspect-ratio: 1;
+  margin: 1rem auto 0.5rem;
+}
+
+.navbar-img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid $darkBlue;
+  object-fit: cover;
+  font-size: 0.5rem;
+}
+
+.logout-btn {
+  color: $darkBlue;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  bottom: 30px;
+}

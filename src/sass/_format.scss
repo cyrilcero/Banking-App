@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap');
 
   
-
 // Font
 $fontFamMain: "Poppins", sans-serif;
 $fontFamCard: "OCR A Extended";
@@ -17,9 +16,14 @@ $mainGray: #eff1f4;
 // Shadows
 
 $txtShadLBlue: 1.2px 1.2px 3px $lightBlue;
-$boxShadBlue: 35px 35px 68px 0px rgba(65, 157, 208, 0.5),
-  inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6),
-  inset 0px 11px 28px 0px rgb(255, 255, 255);
+$boxShadBlue: 
+  35px 35px 68px 0 rgba(65, 157, 208, 0.5),
+  inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6),
+  inset 0px 11px 28px 0 rgb(255, 255, 255);
+$boxShadBlue2: 
+  0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5),
+  inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6),
+  inset 0px 11px 28px 0 rgb(255, 255, 255);
 
 // Display
 %flex {

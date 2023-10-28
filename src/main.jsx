@@ -2,13 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+// Components
+import Navbar from './components/NavBar.jsx'
 
+
+// Pages
 import App from './App.jsx'
 import ClientOverview from './pages/ClientOverview.jsx'
 import LogInPage from './pages/LoginPage.jsx'
 import AdminDash from './pages/AdminDash.jsx'
 import Signup from './pages/Signup.jsx'
-import Navbar from './components/NavBar.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ClientDashboard from './components/ClientDashboard.jsx'
 import Home from './pages/Home.jsx'
@@ -17,14 +20,12 @@ import Cards from './pages/Cards.jsx'
 import Insurance from './pages/Insurance.jsx'
 import Investments from './pages/Investments.jsx'
 import PromAndRe from './pages/PromAndRe.jsx'
-import App from './App.jsx'
-import AdminPage from './components/AdminPage.jsx'
+import AdminCreateAccount from './pages/AdminCreateAccount.jsx'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
 const accountID = currentUser.accountID;
-
-
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LogInPage />
+  },
+  {
+    path: "/create-new-account",
+    element: <AdminCreateAccount />
   },
 ]);
 
