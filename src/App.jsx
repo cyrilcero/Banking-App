@@ -1,6 +1,4 @@
-import './App.css';
-import "./home.css";
-// import "./components/Navbar.css";
+
 
 import { HomeNavBar } from './components/HomeNavBar';
 import Home from "./pages/Home";

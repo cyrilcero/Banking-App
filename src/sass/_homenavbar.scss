@@ -1,4 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@use './format' as *;
+
+.btn{
+    padding:8px 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor:pointer;
+    font-weight: 600;
+    
+}
+
+.btn--primary{
+    background-color: var(--primary);
+    color: #242424;
+    border: 1 px solid var(--primary);   
+}
+
+.btn--outline{
+    background-color: #D1FFBC;
+    width: 100%;
+    color: black;
+    padding: 0.5rem 1rem;
+    border: 1 px solid var(--primary);   
+    margin-right: 1rem;
+    transition: all 0.3s ease-out;
+  
+}
+
+.btn--medium{
+    padding: 8px 20px;
+    margin-top: 2.5vh;
+    font-size: clamp(.5rem, 1vw, 2rem); 
+}
+
+.btn--large{
+    padding: 8px 20px;
+    font-size: 20px
+}
+
+.btn--medium:hover, .btn--large:hover{
+    background: #fff;
+    color: #242424;
+    transition: all 0.3s ease-out;
+}
+
+
 
 .home-navbar{
     background-color:#313953;

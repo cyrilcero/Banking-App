@@ -1,12 +1,6 @@
-/* styles.css */
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap');
-:root {
-    --main-radius: 16px;
-    --main-padding: 5px;
-  }
-  
- 
-  .container {
+@use './format' as *;
+
+.container {
     display: grid;
     margin-top: 13vh;
     margin-left: 3vw;
