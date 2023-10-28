@@ -1,0 +1,22 @@
+@use "./format" as *;
+
+.transfer {
+  @extend %clientDashboard;
+}
+
+.panel2-transfer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.transfer-history {
+  width: 420px;
+  height: 250px;
+  @extend %claymorph;
+  @extend %flex;
+  color: $darkBlue;
+}

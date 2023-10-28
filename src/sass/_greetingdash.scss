@@ -1,0 +1,11 @@
+@use './format' as *;
+
+.greeting-dash {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  color: $darkBlue;
+  text-shadow: $txtShadLBlue;
+  letter-spacing: 0.25rem;
+  font-size: clamp(0.5rem, 0.4188rem + 1.0833vw, 1.8rem);
+  text-transform: capitalize;
+}

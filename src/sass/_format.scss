@@ -1,10 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 
 // Font
-$fontFamMain: 'Poppins', sans-serif;
+$fontFamMain: "Poppins", sans-serif;
+$fontFamCard: "OCR A Extended";
 
 // Colors
-$darkBlue: #2F3A54;  
-$lightBlue: #3F9DD0;
-$lightGreen: #D1FFBC;
-$mainGray: #EFF1F4;
+$darkBlue: #2f3a54;
+$lightBlue: #3f9dd0;
+$lightGreen: #d1ffbc;
+$mainGray: #eff1f4;
+
+// Shadows
+
+$txtShadLBlue: 1.2px 1.2px 3px $lightBlue;
+$boxShadBlue: 35px 35px 68px 0px rgba(65, 157, 208, 0.5),
+  inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6),
+  inset 0px 11px 28px 0px rgb(255, 255, 255);
+
+// Display
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%claymorph {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  box-shadow: $boxShadBlue;
+  color: $mainGray;
+  text-shadow: $txtShadLBlue;
+}
+
+%clientDashboard {
+  background: linear-gradient(
+      180deg,
+      rgba(63, 157, 208, 0.5),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("../src/assets/backgroundDash.png");
+  background-size: contain;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem;
+}

@@ -1,0 +1,36 @@
+@use "./format" as *;
+
+.balance-overview {
+  width: min(520px, 60%);
+  height: auto;
+  @extend %claymorph;
+  color: $darkBlue;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 2rem 3rem;
+  letter-spacing: 0.3rem;
+
+  h1 {
+    font-weight: 300;
+    text-shadow: none;
+    font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+  }
+}
+
+.account-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  padding: 2rem 3rem 1rem;
+  letter-spacing: 0.3rem;
+
+  span {
+    font-size: 0.75rem;
+    text-shadow: none;
+  }
+}

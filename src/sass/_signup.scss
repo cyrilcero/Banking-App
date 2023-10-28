@@ -1,0 +1,139 @@
+@use "./format" as *;
+
+.sign-up-page {
+  min-width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.sign-up-logo {
+  min-width: 100%;
+  min-height: 10vh;
+  max-width: 100%;
+  max-height: auto;
+  @extend %flex;
+  background-color: $darkBlue;
+
+  img {
+    width: clamp(3rem, 25vw, 25rem);
+  }
+}
+
+.sign-up-container {
+  min-width: 100%;
+  min-height: 90vh;
+  max-width: 100%;
+  max-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.signup-form-container {
+  min-width: 60%;
+  min-height: 70vh;
+  max-width: 60%;
+  max-height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 20px;
+  background-color: $darkBlue;
+  color: $darkBlue;
+  label {
+    font-size: clamp(1rem, 1vw, 1rem);
+  }
+  h2 {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+  }
+}
+
+.signup-input-container {
+  min-width: 80%;
+  min-height: 8vh;
+  max-width: 80%;
+  max-height: 8vh;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input {
+    min-width: 100%;
+    min-height: 3vh;
+    max-width: 100%;
+    max-height: auto;
+    border-radius: 10px;
+    background-color: $mainGray;
+    border: none;
+    font-size: clamp(1rem, 1vw, 1rem);
+    padding: 0.5rem;
+  }
+}
+
+.sign-up-form {
+  min-width: 40%;
+  min-height: 60vh;
+  max-width: 40%;
+  max-height: auto;
+  @extend %flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: white;
+
+  button {
+    min-width: 60%;
+    min-height: 5vh;
+    max-width: 60%;
+    max-height: auto;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    background-color: $lightGreen;
+    border: none;
+    margin-top: 1rem;
+  }
+  .errorMessage {
+    font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+    color: red;
+    padding: 0.5rem;
+  }
+}
+
+.sign-up-text {
+  min-width: 40%;
+  min-height: 60vh;
+  max-width: 40%;
+  max-height: auto;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+  word-wrap: break-word;
+
+  h3 {
+    font-size: clamp(1rem, 3vw, 3rem);
+    font-weight: bolder;
+  }
+  p {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+  }
+}
+
+.sign-up-img {
+  width: clamp(1rem, 30vw, 30rem);
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}

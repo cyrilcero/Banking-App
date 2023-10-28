@@ -1,0 +1,18 @@
+@use './bankcard';
+@use './greetingdash';
+@use './balanceoverview';
+
+.client-dashboard {
+  width: 100%;
+  height: auto;
+}
+
+.panel1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+

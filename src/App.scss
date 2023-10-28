@@ -1,18 +1,15 @@
-@import "./sass/reset";
+@use "./sass/reset";
+@use "./sass/format";
+@use "./sass/navbar";
+@use "./sass/signup";
+@use "./sass/loginpage";
+@use "./sass/landingpage";
+@use "./sass/clientdashboard";
+@use "./sass/clientoverview";
+@use "./sass/cashin";
+@use "./sass/settings";
+@use "./sass/transfer";
+@use "./sass/logoutmodal";
+@use "./sass/dashboardcontainer";
+@use './sass/mediaqueries';
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-}
- 
-.App {
-  display: flex;
-  position: relative;
-}
-
-@import "./sass/format",
-"./sass/navbar";
- 

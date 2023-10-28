@@ -1,10 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
+.transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-modal-content, .transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .balance-overview {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+  color: #eff1f4;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+}
+
+.transfer, .cash-in, .client-overview {
+  background: linear-gradient(180deg, rgba(63, 157, 208, 0.5), rgba(255, 255, 255, 0.8)), url("../src/assets/backgroundDash.png");
+  background-size: contain;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
 
@@ -13,26 +42,26 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .App {
   display: flex;
   position: relative;
+  min-height: 100vh;
 }
 
 .navbar {
   width: 250px;
   height: 100vh;
-  background-color: #2F3A54;
-  color: white;
+  background-color: #2f3a54;
+  color: #eff1f4;
   text-wrap: nowrap;
   padding-top: 1.5rem;
   transition: width 0.3s ease-in-out;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+.navbar a {
+  color: #eff1f4;
 }
 
 .navbar-closed {
@@ -41,7 +70,8 @@ body {
   transition: width 0.3s ease-in-out;
 }
 
-.side-item {
+.side-item,
+.logout-btn {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -50,7 +80,8 @@ body {
   font-size: 1rem;
   cursor: pointer;
 }
-.side-item:hover {
+.side-item:hover,
+.logout-btn:hover {
   opacity: 0.5;
 }
 
@@ -59,11 +90,11 @@ body {
 }
 
 .link-text-closed {
-  visibility: hidden;
+  display: none;
 }
 
 .menu-btn {
-  color: #EFF1F4;
+  color: #eff1f4;
   opacity: 0.5;
   background-color: transparent;
   padding-left: 1.2rem;
@@ -85,6 +116,573 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
+
+.logout-btn {
+  color: #eff1f4;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  bottom: 30px;
+}
+
+.sign-up-page {
+  min-width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.sign-up-logo {
+  min-width: 100%;
+  min-height: 10vh;
+  max-width: 100%;
+  max-height: auto;
+  background-color: #2f3a54;
+}
+.sign-up-logo img {
+  width: clamp(3rem, 25vw, 25rem);
+}
+
+.sign-up-container {
+  min-width: 100%;
+  min-height: 90vh;
+  max-width: 100%;
+  max-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.signup-form-container {
+  min-width: 60%;
+  min-height: 70vh;
+  max-width: 60%;
+  max-height: 70vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 20px;
+  background-color: #2f3a54;
+  color: #2f3a54;
+}
+.signup-form-container label {
+  font-size: clamp(1rem, 1vw, 1rem);
+}
+.signup-form-container h2 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.signup-input-container {
+  min-width: 80%;
+  min-height: 8vh;
+  max-width: 80%;
+  max-height: 8vh;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+.signup-input-container input::-webkit-outer-spin-button,
+.signup-input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.signup-input-container input {
+  min-width: 100%;
+  min-height: 3vh;
+  max-width: 100%;
+  max-height: auto;
+  border-radius: 10px;
+  background-color: #eff1f4;
+  border: none;
+  font-size: clamp(1rem, 1vw, 1rem);
+  padding: 0.5rem;
+}
+
+.sign-up-form {
+  min-width: 40%;
+  min-height: 60vh;
+  max-width: 40%;
+  max-height: auto;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: white;
+}
+.sign-up-form button {
+  min-width: 60%;
+  min-height: 5vh;
+  max-width: 60%;
+  max-height: auto;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  background-color: #d1ffbc;
+  border: none;
+  margin-top: 1rem;
+}
+.sign-up-form .errorMessage {
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+  color: red;
+  padding: 0.5rem;
+}
+
+.sign-up-text {
+  min-width: 40%;
+  min-height: 60vh;
+  max-width: 40%;
+  max-height: auto;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+  word-wrap: break-word;
+}
+.sign-up-text h3 {
+  font-size: clamp(1rem, 3vw, 3rem);
+  font-weight: bolder;
+}
+.sign-up-text p {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+.sign-up-img {
+  width: clamp(1rem, 30vw, 30rem);
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.login-page-nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100vw;
+  background-color: #2f3a54;
+}
+.login-page-nav-bar img {
+  height: 5vh;
+}
+
+.login-page-container {
+  width: 90vw;
+  padding: 1rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: #2f3a54;
+  border-radius: 2rem;
+}
+
+.side-form-content {
+  width: 50%;
+  margin: 1rem;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1rem;
+  line-height: 1.3;
+}
+.side-form-content .side-form-title {
+  padding: 1rem;
+  text-align: center;
+  color: #2f3a54;
+  font-weight: 800;
+}
+.side-form-content .side-form-text {
+  padding: 0.5rem;
+  text-align: center;
+  color: #2f3a54;
+}
+
+.login-form {
+  width: 50%;
+  margin: 1rem;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1rem;
+  line-height: 1.3;
+}
+.login-form .login-form-title {
+  padding: 1rem;
+  text-align: center;
+  color: #2f3a54;
+  font-weight: 800;
+}
+.login-form .login-form-label {
+  width: 90%;
+  margin: 1rem 0 0 0;
+  color: #2f3a54;
+}
+.login-form .login-form-input {
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #eff1f4;
+  border: 0;
+}
+.login-form .login-form-btn {
+  width: 60%;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #d1ffbc;
+  font-weight: 600;
+}
+.login-form .login-form-alert {
+  color: red;
+  padding: 1rem;
+  text-align: center;
+}
+
+.login-monitor {
+  position: relative;
+  bottom: 2%;
+  left: 0;
+  width: 20%;
+}
+
+.login-bank {
+  position: relative;
+  bottom: 2%;
+  right: 0;
+  width: 30%;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bank-card {
+  width: 420px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  box-shadow: 35px 35px 68px 0px rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0px rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+  color: #eff1f4;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+}
+
+.bank-name {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.card-details {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  display: grid;
+  gap: 0.3rem;
+}
+.card-details span {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-name {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-number,
+.exp-date {
+  font-family: "OCR A Extended";
+  font-weight: 700;
+}
+
+.card-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.card_chip,
+.card_indicator {
+  width: 40px;
+}
+
+.mastercard_logo {
+  width: 80px;
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+}
+
+.greeting-dash {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  letter-spacing: 0.25rem;
+  font-size: clamp(0.5rem, 0.4188rem + 1.0833vw, 1.8rem);
+  text-transform: capitalize;
+}
+
+.balance-overview {
+  width: min(520px, 60%);
+  height: auto;
+  color: #2f3a54;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 2rem 3rem;
+  letter-spacing: 0.3rem;
+}
+.account-details h1 {
+  font-weight: 300;
+  text-shadow: none;
+  font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+}
+
+.account-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  padding: 2rem 3rem 1rem;
+  letter-spacing: 0.3rem;
+}
+.account-balance span {
+  font-size: 0.75rem;
+  text-shadow: none;
+}
+
+.client-dashboard {
+  width: 100%;
+  height: auto;
+}
+
+.panel1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.panel2-overview {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.expenses-widget {
+  width: 420px;
+  height: 250px;
+  color: #2f3a54;
+}
+
+.transactions-widget {
+  width: min(520px, 60%);
+  height: 250px;
+  color: #2f3a54;
+}
+
+.panel2-cashin {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.transactions-cashin {
+  width: 420px;
+  height: 250px;
+  color: #2f3a54;
+}
+
+.settings {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel2-transfer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.transfer-history {
+  width: 420px;
+  height: 250px;
+  color: #2f3a54;
+}
+
+.logout-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.logout-modal-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  color: #2f3a54;
+}
+
+.logout-modal h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.logout-modal p {
+  font-size: 1rem;
+}
+
+.logout-modal button {
+  background-color: #2f3a54;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 0.3rem 0;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.logout-modal button:hover {
+  background-color: #3f9dd0;
+  transform: scale(1.1);
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .sign-up-logo {
+    position: fixed;
+  }
+  .sign-up-container {
+    min-width: 100%;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .signup-form-container {
+    min-width: 90%;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .sign-up-form {
+    min-width: 90%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+  }
+  .signup-input-container {
+    min-width: 80%;
+    min-height: 5vh;
+    font-size: 1rem;
+  }
+  .signup-input-container input {
+    min-width: 100%;
+    min-height: 0.5vh;
+  }
+  .sign-up-text {
+    min-width: 90%;
+    min-height: 50vh;
+  }
+  .sign-up-img {
+    width: clamp(1rem, 30vw, 30rem);
+    position: absolute;
+    bottom: -15rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .side-form-content {
+    display: none;
+    width: 90%;
+  }
+  .login-form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .client-overview {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .panel2-overview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
+    width: 370px;
+    height: 220px;
+  }
+}/*# sourceMappingURL=App.css.map */
