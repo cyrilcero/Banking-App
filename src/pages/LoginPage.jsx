@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.png"
-import login_monitor from "../assets/loginpage_monitor.png"
-import login_bank from "../assets/loginpage_bank.png"
 
 function LogInForm() {
-  const [loginData, setLoginData] = useState({username: "", password: ""})
+  const [loginData, setLoginData] = useState({username: "", password: "", isLoggedIn: false})
   const [errorMessage, setErrorMessage] = useState("")
   const navigate = useNavigate()
 
@@ -23,6 +21,7 @@ function LogInForm() {
     const userExists = listOfUsers.find(user => user.email === loginData.username && user.password === loginData.password)
 
     if (userExists) {
+      // setLoginData({...loginData, loginData.isLoggedIn=true})
       localStorage.setItem("CurrentUser", JSON.stringify(userExists))
       if (userExists.isAdmin === true) {
         navigate("/admin")
@@ -33,7 +32,7 @@ function LogInForm() {
       }
     } else {
       setErrorMessage("Invalid credentials")
-      alert("Invalid credentials")
+      // alert("Invalid credentials")
       setLoginData({username: "", password: ""})
     }
   }
@@ -82,9 +81,9 @@ function LogInPage() {
 
 function LoginPageNavBar() {
   return (
-    <nav className="login-page-nav-bar">
+    <Link className="login-page-nav-bar" to={"/"}>
       <img src={logo} alt="bank_logo" className="login-page-nav-bar-logo" />
-    </nav>
+    </Link>
   )
 
 }

@@ -1,5 +1,7 @@
+@use "./format" as *;
+
 .client-overview {
-  @extend %clientDashboard;  
+  @extend %clientDashboard;
 }
 
 .panel2-overview {
@@ -13,7 +15,7 @@
 
 .expenses-widget {
   width: 420px;
-  height: 250px; 
+  height: 250px;
   @extend %claymorph;
   @extend %flex;
   color: $darkBlue;
@@ -21,7 +23,7 @@
 
 .transactions-widget {
   width: min(520px, 60%);
-  height: 250px; 
+  height: 250px;
   @extend %claymorph;
   @extend %flex;
   color: $darkBlue;

@@ -1,4 +1,6 @@
-.navbar{
+@use "./format" as *;
+
+.navbar {
   width: 250px;
   height: 100vh;
   background-color: $darkBlue;
@@ -18,7 +20,8 @@
   transition: width 0.3s ease-in-out;
 }
 
-.side-item, .logout-btn {
+.side-item,
+.logout-btn {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -75,5 +78,3 @@
   position: absolute;
   bottom: 30px;
 }
-
-
