@@ -1,0 +1,60 @@
+.bank-card {
+  width: 420px;
+  height: 250px; 
+  background-color: rgba(255, 255, 255, 0); 
+  border-radius: 50px; 
+  backdrop-filter: blur(6px);
+  box-shadow: $boxShadBlue;
+  color: $mainGray;  
+  text-shadow: $txtShadLBlue;
+  // transform: scale(0.8);
+}
+
+.bank-name {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.card-details {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  display: grid;
+  gap: 0.3rem;
+
+  span {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
+.card-name {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-number, .exp-date {
+  font-family: $fontFamCard;
+  font-weight: 700;
+}
+
+.card-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.card_chip, .card_indicator {
+  width: 40px;
+}
+
+.mastercard_logo {
+  width: 80px;
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+}
