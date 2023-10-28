@@ -1297,7 +1297,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  z-index: 2;
+  z-index: -1;
 }
 .admindash::before {
   content: "";
@@ -1306,6 +1306,7 @@ body {
   background: rgba(63, 157, 208, 0.5);
   position: fixed;
   right: 0;
+  z-index: -1;
 }
 .admindash::after {
   content: "";
@@ -1316,13 +1317,13 @@ body {
   position: fixed;
   bottom: 0px;
   right: 0px;
+  z-index: -1;
 }
 
 .admindash-content {
   height: 90vh;
   width: auto;
   flex-direction: column;
-  z-index: 7;
 }
 
 .panel-admindash {

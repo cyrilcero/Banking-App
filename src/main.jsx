@@ -86,7 +86,7 @@ const router = createBrowserRouter([
     element: <LogInPage />
   },
   {
-    path: "/create-new-account",
+    path: "admin/create-new-account",
     element: <AdminCreateAccount />
   },
 ]);

@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import GreetingDash from '../components/GreetingDash';
 import AdminNavBar from '../components/AdminNavbar';
 import addUserImg from '../assets/admindashAddUser.png'
 
 function AdminDash() {
+  const nav = useNavigate();
+
+  const handleClick = () => {
+    nav("/admin/create-new-account");
+  };
+
   return (
     <>
       <section className='admindash'>
@@ -17,7 +24,7 @@ function AdminDash() {
           <div className="panel-admindash">
             <div className="content1">
               <img id='add-user-img' src= {addUserImg}  alt="add_user_img" />
-              <button>
+              <button onClick={handleClick}>
                 <h3>Create New Account</h3>
               </button>
             </div>

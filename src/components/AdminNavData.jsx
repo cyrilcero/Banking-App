@@ -3,33 +3,35 @@ import { HiUserPlus, HiUserGroup } from "react-icons/hi2";
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaGear } from "react-icons/fa6";
 
+import AdminCreateAccount from '../pages/AdminCreateAccount.jsx'
+
 export const AdminNavData = [
   {
     id: 0,
     icon: <MdSpaceDashboard />,
     text: "Dashboard",
-    link: "/dashboard", 
+    link: "/admin", 
     elementLabel: "",
   },
   {
     id: 1,
     icon: <HiUserPlus />,
     text: "Create Account",
-    link: "/create-new-account", 
-    elementLabel: "",
+    link: "/admin/create-new-account", 
+    elementLabel: <AdminCreateAccount />,
   },
   {
     id: 2,
     icon: <HiUserGroup />,
     text: "All Accounts",
-    link: "/all-accounts", 
+    link: "/admin/all-accounts", 
     elementLabel: "",
   },
   {
     id: 3,
     icon: <FaGear />,
     text: "Settings",
-    link: "/settings", 
+    link: "/admin/settings", 
     elementLabel: "",
   },
 
