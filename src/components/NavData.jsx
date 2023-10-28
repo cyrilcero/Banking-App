@@ -2,10 +2,10 @@ import React from 'react';
 import { FaMoneyBillTransfer, FaGear } from "react-icons/fa6";
 import { BsBank, BsFillWalletFill } from "react-icons/bs";
 
-import ClientOverview from './ClientOverview';
-import CashIn from './CashIn';
-import Transfer from './Transfer';
-import Settings from './Settings';
+import ClientOverview from '../pages/ClientOverview';
+import CashIn from '../pages/CashIn';
+import Transfer from '../pages/Transfer';
+import Settings from '../pages/Settings';
 
 
 export const NavData = [

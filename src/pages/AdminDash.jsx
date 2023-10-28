@@ -3,9 +3,9 @@ import GreetingDash from '../components/GreetingDash';
 
 function AdminDash() {
   return (
-    <section className='admin-dash'>
+    <section className='transfer'>
       <GreetingDash />
-      <div className="panel2-admin-dash"></div>
+      <div className="panel2-transfer"></div>
     </section>
   )
 }

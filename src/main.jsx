@@ -4,12 +4,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 
 import App from './App.jsx'
-import ClientOverview from './components/ClientOverview.jsx'
-import LogInPage from './components/LoginPage.jsx'
-import AdminDash from './components/AdminDash.jsx'
-import Signup from './components/Signup.jsx'
+import ClientOverview from './pages/ClientOverview.jsx'
+import LogInPage from './pages/LoginPage.jsx'
+import AdminDash from './pages/AdminDash.jsx'
+import Signup from './pages/Signup.jsx'
 import Navbar from './components/NavBar.jsx'
-import Dashboard from './components/Dashboard.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 import ClientDashboard from './components/ClientDashboard.jsx'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
