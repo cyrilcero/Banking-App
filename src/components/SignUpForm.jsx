@@ -87,7 +87,9 @@ export default function SignUpForm(){
         mobile: "",
         password: "",
       });
-    } else {
+    } 
+    
+    else {
       const accountID = Date.now()
         .toString()
         .replace(/^\d{3}/, "00");
@@ -105,7 +107,7 @@ export default function SignUpForm(){
         password: "",
       });
 
-      navigate("/login"); // change to login path
+      navigate("/login"); 
     }
   }
 

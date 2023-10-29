@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import GreetingDash from '../components/GreetingDash';
 import AdminNavBar from '../components/AdminNavbar';
+import CashInForm from '../components/CashInForm';
 import addUserImg from '../assets/admindashAddUser.png'
 
 function AdminDash() {
@@ -23,14 +24,22 @@ function AdminDash() {
 
           <div className="panel-admindash">
             <div className="content1">
-              <img id='add-user-img' src= {addUserImg}  alt="add_user_img" />
-              <button onClick={handleClick}>
-                <h3>Create New Account</h3>
-              </button>
+              <CashInForm />
             </div>
 
-            <div className="content2"></div>
-            <div className="content3"></div>
+            <div className="content2">Newly Created Client Accounts</div>
+
+            <div className="content3">
+              <img id='add-user-img' src= {addUserImg}  alt="add_user_img" />
+              <div className="text-box">
+                <h2>Not a client yet?</h2>
+                <button onClick={handleClick}>
+                  <h3>Create New Account</h3>
+                </button>
+              </div>
+              
+            </div>
+
           </div>
         </div>
       </section>
