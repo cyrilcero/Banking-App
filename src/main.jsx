@@ -21,6 +21,7 @@ import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import {
+  LoggedInRoute,
   SecuredRoute,
   SecuredAdminRoute,
 } from "./components/SecuredRoute.jsx";
@@ -93,7 +94,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LogInPage />,
+    element: (
+      <LoggedInRoute>
+        <LogInPage />
+      </LoggedInRoute>
+    ),
   },
   {
     path: "admin/create-new-account",
