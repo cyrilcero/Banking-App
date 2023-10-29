@@ -1349,6 +1349,7 @@ body {
   margin-bottom: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
+  text-align: center;
 }
 .content1 button {
   margin-top: 1.2rem;
@@ -1371,7 +1372,8 @@ body {
 .content1 .cashin-form {
   width: 100%;
   height: auto;
-  padding: 1rem;
+  max-height: 100%;
+  padding: 1.5rem 1rem;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -1381,6 +1383,18 @@ body {
   font-size: small;
   text-align: justify;
   padding: 1rem 0.5rem 0;
+}
+.content1 .cashin-form h5 {
+  color: #2f3a54;
+  font-size: small;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 1rem 0;
+  cursor: pointer;
+}
+.content1 .cashin-form h5:hover {
+  color: #3f9dd0;
+  transform: scale(1.1);
 }
 .content1 .cashin-form .cashin-input-container {
   display: flex;

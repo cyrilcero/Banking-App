@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import GreetingDash from '../components/GreetingDash';
 import AdminNavBar from '../components/AdminNavbar';
 import CashInForm from '../components/CashInForm';
-import addUserImg from '../assets/admindashAddUser.png'
+import addUserImg from '../assets/admindashAddUser.png';
 
 function AdminDash() {
   const nav = useNavigate();

@@ -18,7 +18,6 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 }
 
 function CashInForm() {
-  const [existingAccount, setExistingAccount] = useState(true);
   const [inputValue, setInputValue] = useState({
     lastTopUp: "",
     firstName: "",
@@ -26,6 +25,13 @@ function CashInForm() {
     email: "",
     accountBalance: "",
   });
+  const [existingAccount, setExistingAccount] = useState(true);
+  const [negativeAmount, setNegativeAmount] = useState(false);
+  const [isWithdrawal, setIsWithdrawal] = useState(false);
+
+  const handleWithdrawalToggle = () => {
+    setIsWithdrawal(!isWithdrawal);
+  };
 
   const handleChange = (e) => {
     setInputValue((prev) => ({
@@ -34,6 +40,7 @@ function CashInForm() {
     }));
 
     setExistingAccount(true);
+    setNegativeAmount(false);
   };
 
   useEffect(() => { 
@@ -44,8 +51,21 @@ function CashInForm() {
     }
   }, []);
 
+  function validateInput(inputValue) {
+    const { accountBalance } = inputValue;
+    if (Number.isNaN(accountBalance) || parseFloat(accountBalance) < 0) {
+      setNegativeAmount(true);
+      return false;
+    }
+    return true;
+  }
+
   function submitHandle(e) {
     e.preventDefault();
+
+    if (!validateInput(inputValue)) {
+      return;
+    }
 
     const userAccount = { ...inputValue };
     const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
@@ -58,17 +78,34 @@ function CashInForm() {
     if (isExistingAccount) {
       setExistingAccount(true);
       const focusedUser = userAccounts.find((user) => user.email === userAccount.email);
-      if (focusedUser) {
-        focusedUser.accountBalance = (parseFloat(focusedUser.accountBalance) + parseFloat(userAccount.accountBalance)).toFixed(2);
 
+      if (focusedUser) {
+        const existingBalance = parseFloat(focusedUser.accountBalance);
+        const inputBalance = parseFloat(userAccount.accountBalance);
         const localDate = new Date().toLocaleString("en-US", { timeZone: "Asia/Manila", hour12: false });
-        focusedUser.lastTopUp = localDate;
+
+        if (isNaN(inputBalance) || inputBalance < 0) {
+          setNegativeAmount(true);
+
+          console.log("Amount cannot be negative.");
+          return;
+        }
+
+        if (isWithdrawal) {
+          focusedUser.accountBalance = (existingBalance - inputBalance).toFixed(2);
+          focusedUser.lastWithdrawal = localDate;
+        } 
+        
+        else {
+          focusedUser.accountBalance = (existingBalance + inputBalance).toFixed(2);
+          focusedUser.lastTopUp = localDate;
+        }          
 
         localStorage.setItem("FocusedUser", JSON.stringify(focusedUser));
       }
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-      console.log("Account exists. Proceeding with the deposit.");
+      console.log("Account exists. Account balance has been updated.");
     } 
     
     else {
@@ -92,7 +129,7 @@ function CashInForm() {
       className="cashin-form"
       onSubmit={submitHandle}
     >
-      <h2>Cash Deposit</h2>
+      <h2>{isWithdrawal ? "Withdraw" : "Deposit"}</h2>
       <Inputs
         text="Date Today"
         type="text"
@@ -133,14 +170,22 @@ function CashInForm() {
         value={inputValue.accountBalance}
         onChange={handleChange}
       />
+      {negativeAmount && (
+        <span>
+          *Amount must be a positive number.
+        </span>
+      )}
       <button type="submit">
-        <h3>Top-Up</h3>
+        <h3>{isWithdrawal ? "Withdraw" : "Top-Up"}</h3>
       </button>
       {!existingAccount && (
         <span>
           *Account does not exist. Create a new account.
         </span>
       )}
+      <h5 onClick={handleWithdrawalToggle}>
+        {isWithdrawal ? "Cash-in account?" : "Withdraw funds instead?"}
+      </h5>
     </Form>
   );
 }

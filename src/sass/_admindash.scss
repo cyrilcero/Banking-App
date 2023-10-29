@@ -71,6 +71,7 @@
     margin-bottom: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+    text-align: center;
   }
   
   button {
@@ -96,7 +97,8 @@
   .cashin-form {
     width: 100%;
     height: auto;
-    padding: 1rem;
+    max-height: 100%;
+    padding: 1.5rem 1rem;
     @extend %flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -107,6 +109,20 @@
       font-size: small;
       text-align: justify;
       padding: 1rem 0.5rem 0;
+    }
+
+    h5 {
+      color: $darkBlue;
+      font-size: small;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 1rem 1rem 0;
+      cursor: pointer;
+
+      &:hover {
+        color: $lightBlue;
+        transform: scale(1.1);
+      }
     }
 
     .cashin-input-container {
