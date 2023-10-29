@@ -1,18 +1,21 @@
-import React from 'react'
-import GreetingDash from './GreetingDash';
-import ClientDashboard from './ClientDashboard';
+import React from "react";
+import GreetingDash from "./GreetingDash";
+import ClientDashboard from "./ClientDashboard";
+import { CashInFunc } from "./CashInFunc";
+
 
 function CashIn() {
   return (
-    <section className='cash-in'>
+    <section className="cash-in">
       <GreetingDash />
-      <ClientDashboard/>
+      <ClientDashboard />
       <div className="panel2-cashin">
-        <div className="transactions-cashin">CASH IN TRANSACTIONS</div>
+        <div className="transactions-cashin">
+         <CashInFunc/>
+        </div>
       </div>
-      
     </section>
-  )
+  );
 }
 
-export default CashIn
+export default CashIn;

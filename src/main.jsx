@@ -17,6 +17,8 @@ import Investments from './pages/Investments.jsx'
 import PromAndRe from './pages/PromAndRe.jsx'
 import App from './App.jsx'
 import AdminPage from './components/AdminPage.jsx'
+import CashIn from './components/CashIn.jsx'
+import { CashInAdmin } from './components/CashInAdmin.jsx'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
@@ -64,7 +66,17 @@ const router = createBrowserRouter([
         element: <ClientOverview />,
         loader: ({params}) => params.id,
       },
+      
     ],
+  },
+  {
+    path: "/cash-in/:id",
+    element: <CashIn />,
+    loader: ({params}) => params.id,
+  },
+  {
+    path: '/cashinadmin',
+    element: <CashInAdmin/>
   },
   {
     path: "/admin",

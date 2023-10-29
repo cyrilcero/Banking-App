@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.transfer-history, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,8 +46,10 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100vh;
+  min-width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  max-height: 100vh;
 }
 
 .App {
@@ -438,7 +440,7 @@ body {
 }
 
 .greeting-dash {
-  width: 100%;
+  min-width: 100%;
   padding: 0.5rem 2rem;
   color: #2f3a54;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -493,7 +495,7 @@ body {
 }
 
 .panel2-overview {
-  width: 100%;
+  min-width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -502,7 +504,7 @@ body {
 }
 
 .expenses-widget {
-  width: 420px;
+  width: 20vw;
   height: 250px;
   color: #2f3a54;
 }
@@ -514,7 +516,8 @@ body {
 }
 
 .panel2-cashin {
-  width: 100%;
+  min-width: 100%;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -523,9 +526,49 @@ body {
 }
 
 .transactions-cashin {
-  width: 420px;
-  height: 250px;
+  min-width: 60%;
+  max-height: 50vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   color: #2f3a54;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.cashin-history {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.cashin-btn {
+  min-width: 5rem;
+  min-height: 2rem;
+  background-color: #2f3a54;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.cashin-lines {
+  width: 100%;
+  border: 2px solid;
+}
+
+.cashin-list {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .settings {
@@ -600,6 +643,8 @@ body {
 
 .dashboard-container {
   display: flex;
+  min-width: 100%;
+  min-height: 100vh;
 }
 
 .btn {
