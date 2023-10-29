@@ -1,30 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
-import Navbar from './components/NavBar.jsx'
-
+import Navbar from "./components/NavBar.jsx";
 
 // Pages
-import App from './App.jsx'
-import ClientOverview from './pages/ClientOverview.jsx'
-import LogInPage from './pages/LoginPage.jsx'
-import AdminDash from './pages/AdminDash.jsx'
-import Signup from './pages/Signup.jsx'
-import Dashboard from './pages/Dashboard.jsx'
-import ClientDashboard from './components/ClientDashboard.jsx'
-import Home from './pages/Home.jsx'
-import Loans from './pages/Loans.jsx'
-import Cards from './pages/Cards.jsx'
-import Insurance from './pages/Insurance.jsx'
-import Investments from './pages/Investments.jsx'
-import PromAndRe from './pages/PromAndRe.jsx'
-import AdminCreateAccount from './pages/AdminCreateAccount.jsx'
+import App from "./App.jsx";
+import ClientOverview from "./pages/ClientOverview.jsx";
+import LogInPage from "./pages/LoginPage.jsx";
+import AdminDash from "./pages/AdminDash.jsx";
+import Signup from "./pages/Signup.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import ClientDashboard from "./components/ClientDashboard.jsx";
+import Home from "./pages/Home.jsx";
+import Loans from "./pages/Loans.jsx";
+import Cards from "./pages/Cards.jsx";
+import Insurance from "./pages/Insurance.jsx";
+import Investments from "./pages/Investments.jsx";
+import PromAndRe from "./pages/PromAndRe.jsx";
+import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
+import CashIn from "./pages/CashIn.jsx";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
-const currentUser = JSON.parse(localStorage.getItem('CurrentUser') || '{}');
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
 const accountID = currentUser.accountID;
 
 const router = createBrowserRouter([
@@ -65,35 +64,40 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <ClientOverview />,
-        loader: ({params}) => params.id,
+        loader: ({ params }) => params.id,
       },
     ],
   },
   {
+    path: "/cash-in/:id",
+    element: <CashIn />,
+    loader: ({ params }) => params.id,
+    
+  },
+  {
     path: "/admin",
-    element: <AdminDash />
+    element: <AdminDash />,
   },
   {
     path: "/test",
-    element: <ClientDashboard />
+    element: <ClientDashboard />,
   },
   {
     path: "/create-account",
-    element: <Signup />
+    element: <Signup />,
   },
   {
     path: "/login",
-    element: <LogInPage />
+    element: <LogInPage />,
   },
   {
     path: "admin/create-new-account",
-    element: <AdminCreateAccount />
+    element: <AdminCreateAccount />,
   },
 ]);
-
 
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

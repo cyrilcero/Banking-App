@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .transfer-history, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,8 @@
 .logout-modal-content, .transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .balance-overview {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -120,7 +121,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -378,7 +380,8 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -511,7 +514,8 @@ body {
 }
 
 .panel2-cashin {
-  width: 100%;
+  min-width: 100%;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -520,9 +524,49 @@ body {
 }
 
 .transactions-cashin {
-  width: 420px;
-  height: 250px;
+  min-width: 60%;
+  max-height: 50vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   color: #2f3a54;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.cashin-history {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.cashin-btn {
+  min-width: 5rem;
+  min-height: 2rem;
+  background-color: #2f3a54;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.cashin-lines {
+  width: 100%;
+  border: 2px solid;
+}
+
+.cashin-list {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .settings {
@@ -1526,7 +1570,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid #2f3a54;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1537,4 +1582,4 @@ body {
   outline: none;
   position: absolute;
   bottom: 30px;
-}
+}/*# sourceMappingURL=App.css.map */

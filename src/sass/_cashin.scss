@@ -1,11 +1,15 @@
 @use "./format" as *;
+// * {
+//   border: 1px solid red;
+// }
 
 .cash-in {
   @extend %clientDashboard;
 }
 
 .panel2-cashin {
-  width: 100%;
+  min-width: 100%;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -14,9 +18,46 @@
 }
 
 .transactions-cashin {
-  width: 420px;
-  height: 250px;
+  min-width: 60%;
+  max-height: 50vh;
   @extend %claymorph;
-  @extend %flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   color: $darkBlue;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.cashin-history {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.cashin-btn{
+  min-width: 5rem;
+  min-height: 2rem;
+  background-color: $darkBlue;
+  color: white;
+  border: none;
+  border-radius: 5px;;
+  
+}
+.cashin-lines {
+  width: 100%;
+  border: 2px solid;
+}
+.cashin-list {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
