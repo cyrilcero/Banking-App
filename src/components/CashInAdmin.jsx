@@ -13,8 +13,8 @@ export const CashInAdmin = () => {
       const newBalance = balance + cashToAdd;
 
       const transaction = {
-        userId: currentUser.id,
-        date: new Date().toISOString(),
+        userId: currentUser.accountID,
+        date: Date.now(),
         amount: cashToAdd,
       };
 
@@ -25,7 +25,7 @@ export const CashInAdmin = () => {
       currentUser.accountBalance = newBalance;
 
       const updatedUserAccounts = userAccounts.map(account => {
-        if (account.id === currentUser.id && !account.isAdmin) {
+        if (account.accountID === currentUser.accountID && !account.isAdmin) {
           return { ...account, accountBalance: newBalance };
         }
         return account;
@@ -39,16 +39,27 @@ export const CashInAdmin = () => {
     }
   };
 
+  const handleUserChange = (event) => {
+
+    const selectedUserId = event.target.value;
+
+    const selectedUser = userAccounts.find((account) => account.accountID === selectedUserId);
+    
+
+    setBalance(selectedUser.accountBalance);
+  };
+
+
   useEffect(() => {
     console.log(balance);
   }, [balance]);
 
   return (
     <div>
-      <select>
+      <select onChange={handleUserChange}>
         {userAccounts.map((account, index) => (
-          <option key={index} value={account.firstName}>
-            {account.firstName}
+          <option key={index} value={account.isAdmin === false && account.accountID}>
+            {account.isAdmin === false && account.firstName}
           </option>
         ))}
       </select>

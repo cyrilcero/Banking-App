@@ -10,7 +10,13 @@ function CashInHistory({ amount }) {
 }
 
 export const CashInFunc = () => {
-  const cashInHistory = JSON.parse(localStorage.getItem('CashInHistory')) || [];
+  const currentUser = JSON.parse(localStorage.getItem("CurrentUser")) || {};
+  const userId = currentUser.accountID || "";
+
+  const cashInHistory = JSON.parse(localStorage.getItem("CashInHistory")) || [];
+
+  // Filter the history to only show entries for the current user
+  const userHistory = cashInHistory.filter((entry) => entry.userId === userId);
 
   return (
     <>
@@ -20,8 +26,8 @@ export const CashInFunc = () => {
       </div>
       <hr className="cashin-lines" />
 
-      {cashInHistory.map((balance, index) => (
-        <CashInHistory key={index} amount={balance.amount} />
+      {userHistory.map((entry, index) => (
+        <CashInHistory key={index} amount={entry.amount} />
       ))}
     </>
   );
