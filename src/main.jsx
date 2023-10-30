@@ -21,6 +21,7 @@ import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import CashIn from "./pages/CashIn.jsx";
+import Transfer from "./pages/Transfer.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
@@ -72,6 +73,12 @@ const router = createBrowserRouter([
   {
     path: "/cash-in/:id",
     element: <CashIn />,
+    loader: ({ params }) => params.id,
+    
+  },
+  {
+    path: "/transfer/:id",
+    element: <Transfer/>,
     loader: ({ params }) => params.id,
     
   },

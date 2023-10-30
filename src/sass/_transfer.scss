@@ -1,22 +1,104 @@
 @use "./format" as *;
+// * {
+//   border: 1px solid brown;
+// }
 
 .transfer {
   @extend %clientDashboard;
 }
 
-.panel2-transfer {
-  width: 100%;
+.transfer-page {
+  min-width: 100%;
+  min-height: auto;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.transfer-history {
-  width: 420px;
-  height: 250px;
+.transfer-form-container {
+  min-width: 25%;
+  min-height: 80vh;
+  @extend %flex;
+}
+
+.transfer-form {
+  min-width: 100%;
+  min-height: 70vh;
   @extend %claymorph;
   @extend %flex;
   color: $darkBlue;
+  flex-direction: column;
+}
+.transfer-form-inputs {
+  min-width: 80%;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  input {
+    min-width: 100%;
+    min-height: 4vh;
+    padding-left: 1rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid $darkBlue;
+    color: $darkBlue;
+    font-weight: bold;
+ 
+  }
+  label{
+    font-size: clamp(0.5rem, 1vw, 1rem);
+    font-weight: bolder;
+  }
+}
+.transfer-btn{
+  min-width: 60%;
+    min-height: 5vh;
+    max-width: 60%;
+    max-height: auto;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    background-color: $lightGreen;
+    color: $darkBlue;
+    border: none;
+    margin-top: 1rem;
+}
+
+.panel2-transfer {
+  min-width: 30%;
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.transfer-history {
+  width: 100%;
+  height: 40vh;
+  @extend %claymorph;
+  display: flex;
+  align-items: flex-start;
+  color: $darkBlue;
+  flex-direction: column;
+  overflow: auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.transfer-history-list{
+  width: 100%;
+  height: 2vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }

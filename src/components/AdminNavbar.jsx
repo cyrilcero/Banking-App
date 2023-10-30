@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <div className={`anavbar ${isNavbarOpen ? "anavbar" : "anavbar-closed"}`}>
-      <button className="menu-btn" onClick={toggleNavbar}>
+      <button className="admin-menu-btn" onClick={toggleNavbar}>
         {isNavbarOpen ? <FaAnglesLeft /> : <FaAnglesRight />}
       </button>
 
@@ -53,7 +53,7 @@ export default function Navbar() {
         })}
 
         {/* Logout */}
-        <button className="logout-btn" onClick={openLogoutModal}>
+        <button className="admin-logout-btn" onClick={openLogoutModal}>
           <i className="navbar-icons logout-icon">
             <BiLogOutCircle />
           </i>
