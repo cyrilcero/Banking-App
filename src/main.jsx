@@ -1,12 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
-import Navbar from "./components/NavBar.jsx";
 import Navbar from "./components/NavBar.jsx";
 
 // Pages
@@ -29,6 +25,7 @@ import {
   SecuredRoute,
   SecuredAdminRoute,
 } from "./components/SecuredRoute.jsx";
+import CashIn from "./pages/CashIn.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
