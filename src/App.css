@@ -985,9 +985,32 @@ body {
   transform: scale(0.9);
 }
 
-.login-page-container {
-  width: 90vw;
-  padding: 1rem;
+#six:hover {
+  transform: scale(0.9);
+}
+
+#testimonials {
+  display: none;
+  background: #083d31;
+  grid-area: testimonials;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+
+#testimonialsText {
+  display: none;
+  grid-area: testimonialsText;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+}
+
+#two img {
+  margin-top: -0.4vw;
+  height: 70%;
+  width: 100%;
+}
+
+#two span {
   display: flex;
   align-items: stretch;
   justify-content: center;
