@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
-import getLocalstorage from "../utils/getLocalstorage";
+import getLocalstorage from "../utils/getLocalStorage";
 
 export function SecuredRoute({ children }) {
   const currentUser = getLocalstorage("CurrentUser");
@@ -25,8 +25,10 @@ export function SecuredAdminRoute({ children }) {
 export function LoggedInRoute({ children }) {
   const currentUser = getLocalstorage("CurrentUser");
 
-  if (currentUser) {
+  if (currentUser && currentUser.isAdmin === true) {
     // insert toast/alert here
+    return <Navigate to={`/admin`} replace={true} />;
+  } else if (currentUser && currentUser.isAdmin === false) {
     return (
       <Navigate to={`/overview/${currentUser.accountID}`} replace={true} />
     );

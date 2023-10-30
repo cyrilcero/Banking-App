@@ -1,10 +1,10 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import GreetingDash from "../components/GreetingDash";
 import AdminNavBar from "../components/AdminNavbar";
 import CashInForm from "../components/CashInForm";
-import addUserImg from "../assets/admindashAddUser.png";
 import ClientList from "../components/ClientList";
+
+import addUserImg from "../assets/admindashAddUser.png";
 
 function AdminDash() {
   const nav = useNavigate();
