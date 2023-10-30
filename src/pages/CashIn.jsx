@@ -1,7 +1,7 @@
 import React from "react";
-import GreetingDash from "./GreetingDash";
-import ClientDashboard from "./ClientDashboard";
-import { CashInFunc } from "./CashInFunc";
+import GreetingDash from "../components/GreetingDash";
+import ClientDashboard from "../components/ClientDashboard";
+import CashInFunc  from "../components/CashInFunc";
 
 
 function CashIn() {
@@ -11,7 +11,7 @@ function CashIn() {
       <ClientDashboard />
       <div className="panel2-cashin">
         <div className="transactions-cashin">
-         <CashInFunc/>
+        <CashInFunc/>
         </div>
       </div>
     </section>
@@ -19,4 +19,3 @@ function CashIn() {
 }
 
 export default CashIn;
-

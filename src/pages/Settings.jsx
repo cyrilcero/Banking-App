@@ -1,5 +1,5 @@
 import React from 'react';
-import ClientDashboard from './ClientDashboard';
+import ClientDashboard from '../components/ClientDashboard';
 
 function Settings() {
   return (

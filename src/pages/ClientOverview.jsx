@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ClientDashboard from './ClientDashboard';
-import GreetingDash from './GreetingDash';
+import ClientDashboard from '../components/ClientDashboard';
+import GreetingDash from '../components/GreetingDash';
 import { useNavigate } from 'react-router-dom';
 
 function ClientOverview() {

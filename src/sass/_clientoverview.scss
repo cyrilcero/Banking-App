@@ -1,5 +1,7 @@
 @use "./format" as *;
 
+@use "./format" as *;
+
 .client-overview {
   @extend %clientDashboard;
 }

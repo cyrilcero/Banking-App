@@ -1,0 +1,205 @@
+@use "./format" as *;
+
+.admindash {
+  background: linear-gradient(
+      180deg,
+      rgba(63, 157, 208, 0.2),
+      rgba(255, 255, 255, 0.8)
+    );
+  background-size: contain;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+
+  &::before {
+    content: "";
+    width: 20vw;
+    height: 100%;
+    background: rgba(63, 157, 208, 0.5);
+    position: absolute;
+    right: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    width: 25vw;
+    aspect-ratio: 1;
+    background-image: url("../src/assets/admindashBankDesign.png");
+    background-size: 115%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+  }
+}
+
+.admindash-content {
+  // border: 1px solid pink;
+  height: 90vh;
+  width: auto;
+  @extend %flex;
+  flex-direction: column;
+}
+
+.panel-admindash {
+  width: 75vw;
+  height: 100%;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
+  grid-template-rows: 0.8fr 1fr;
+  gap: 1.2rem;
+}
+
+.content1 {
+
+  grid-area: 1 / 1 / 3 / 2;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+
+  @extend %flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h2 {
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+  }
+  
+  button {
+    margin-top: 1.2rem;
+    width: 80%;
+    height: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    border: $lightGreen;
+    outline: none;
+    background: $lightGreen;
+    color: $darkBlue;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:hover{
+      background: $lightBlue;
+      box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+      color: $mainGray;
+    }
+  }
+
+  .cashin-form {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding: 1.5rem 1rem;
+    @extend %flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    span {
+      width: 80%;
+      color: $lightBlue;
+      font-size: small;
+      text-align: justify;
+      padding: 1rem 0.5rem 0;
+    }
+
+    h5 {
+      color: $darkBlue;
+      font-size: small;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 1rem 1rem 0;
+      cursor: pointer;
+
+      &:hover {
+        color: $lightBlue;
+        transform: scale(1.1);
+      }
+    }
+
+    .cashin-input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      width: 80%;
+      font-size: small;
+      color: gray;
+
+      input {
+        height: 1.75rem;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid $darkBlue;
+        padding-left: 0.2rem;
+      }
+    }
+  }
+}
+
+.content2 {
+  grid-area: 1 / 2 / 2 / 5;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+
+  @extend %flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.content3 {
+  grid-area: 2 / 2 / 3 / 4;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+
+  @extend %flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  img {
+    width: 40%;
+    height: auto;
+  }
+
+  .text-box {
+    @extend %flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+
+    h2 {
+      text-transform: uppercase;
+      color: $darkBlue;
+      letter-spacing: 0.12rem;
+    }
+
+    button {
+      width: 100%;
+      height: auto;
+      padding: 0.5rem 1rem;
+      border-radius: 0.8rem;
+      border: $lightGreen;
+      outline: none;
+      background: $lightGreen;
+      color: $darkBlue;
+      cursor: pointer;
+  
+      &:hover{
+        background: $lightBlue;
+        box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+        color: $mainGray;
+      }
+    }
+  }
+}
