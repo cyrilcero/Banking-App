@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
+import Navbar from "./components/NavBar.jsx";
 import Navbar from "./components/NavBar.jsx";
 
 // Pages
@@ -20,7 +24,11 @@ import Insurance from "./pages/Insurance.jsx";
 import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
-import CashIn from "./pages/CashIn.jsx";
+import {
+  LoggedInRoute,
+  SecuredRoute,
+  SecuredAdminRoute,
+} from "./components/SecuredRoute.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
@@ -63,7 +71,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <ClientOverview />,
+        element: (
+          <SecuredRoute>
+            <ClientOverview />
+          </SecuredRoute>
+        ),
         loader: ({ params }) => params.id,
       },
     ],
@@ -76,7 +88,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminDash />,
+    element: (
+      <SecuredAdminRoute>
+        <AdminDash />
+      </SecuredAdminRoute>
+    ),
   },
   {
     path: "/test",
@@ -88,11 +104,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LogInPage />,
+    element: (
+      <LoggedInRoute>
+        <LogInPage />
+      </LoggedInRoute>
+    ),
   },
   {
     path: "admin/create-new-account",
-    element: <AdminCreateAccount />,
+    element: (
+      <SecuredAdminRoute>
+        <AdminCreateAccount />
+      </SecuredAdminRoute>
+    ),
   },
 ]);
 

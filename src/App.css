@@ -10,8 +10,7 @@
 .logout-modal-content, .transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .balance-overview {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -121,8 +120,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -380,8 +378,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1570,8 +1567,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1582,4 +1578,4 @@ body {
   outline: none;
   position: absolute;
   bottom: 30px;
-}/*# sourceMappingURL=App.css.map */
+}
