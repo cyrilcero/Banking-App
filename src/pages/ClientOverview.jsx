@@ -43,7 +43,7 @@ function ClientOverview() {
         <div className="transactions-widget">
           <h3>Transaction History</h3>
           <hr />
-          {cashInHistory.map((entry, index) => (
+          {transactionHistory.map((entry, index) => (
             <AllTransaction
               key={index}
               amount={entry.amount}
