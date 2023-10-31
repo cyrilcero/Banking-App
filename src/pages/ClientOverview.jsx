@@ -3,6 +3,17 @@ import ClientDashboard from '../components/ClientDashboard';
 import GreetingDash from '../components/GreetingDash';
 import { useNavigate } from 'react-router-dom';
 
+
+function AllTransaction({ amount }) {
+  return (
+    <ul className="transaction-list">
+      <li>Cash In</li>
+      <li>+{amount}</li>
+    </ul>
+  );
+}
+
+
 function ClientOverview() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -29,8 +40,7 @@ function ClientOverview() {
       <ClientDashboard/>
 
       <div className="panel2-overview">
-      <div className='expenses-widget'>for expenses</div>
-      <div className="transactions-widget">for transactions</div>
+      <div className="transactions-widget">All transaction</div>
      </div>
     </section>
   )
