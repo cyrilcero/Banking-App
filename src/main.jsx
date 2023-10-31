@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
+import Navbar from "./components/NavBar.jsx";
 import Navbar from "./components/NavBar.jsx";
 
 // Pages
@@ -20,13 +24,19 @@ import Insurance from "./pages/Insurance.jsx";
 import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
-import CashIn from "./pages/CashIn.jsx";
-import Transfer from "./pages/Transfer.jsx";
+import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
+
+import {
+  LoggedInRoute,
+  SecuredRoute,
+  SecuredAdminRoute,
+} from "./components/SecuredRoute.jsx";
+
+
+import "./App.css"
+import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
-const accountID = currentUser.accountID;
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,17 +69,37 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/create-account",
+    element: <Signup />,
+  },
+  {
+    path: "/login",
+    element: (
+      <LoggedInRoute>
+        <LogInPage />
+      </LoggedInRoute>
+    ),
+  },
+
+  // CLIENT SIDE
+  {
     path: "/overview/:id",
     element: <Dashboard />,
     children: [
       {
         index: true,
-        element: <ClientOverview />,
-        loader: ({params}) => params.id,
+        element: (
+          <SecuredRoute>
+            <ClientOverview />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
       },
       
     ],
   },
+
+  // ADMIN SIDE
   {
     path: "/cash-in/:id",
     element: <CashIn />,
@@ -84,23 +114,37 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminDash />,
-  },
-  {
-    path: "/test",
-    element: <ClientDashboard />,
-  },
-  {
-    path: "/create-account",
-    element: <Signup />,
-  },
-  {
-    path: "/login",
-    element: <LogInPage />,
-  },
-  {
-    path: "admin/create-new-account",
-    element: <AdminCreateAccount />,
+    element: (
+      <SecuredAdminRoute>
+        <AdminDash />
+      </SecuredAdminRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <SecuredAdminRoute>
+            <AdminOverviewContent />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: "create-new-account",
+        element: (
+          <SecuredAdminRoute>
+            <AdminCreateAccount />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: "all-accounts",
+        element: (
+          <SecuredAdminRoute>
+            <AdminAllAccounts />
+          </SecuredAdminRoute>
+        ),
+      },
+    ],
   },
 ]);
 

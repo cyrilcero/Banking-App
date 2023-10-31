@@ -1,0 +1,25 @@
+@use "./format" as *;
+
+.client-list-table {
+    overflow-x: auto;
+    h1{
+        text-align: center;
+        padding: 1rem;
+    }
+    thead tr th {
+        font-weight: 600;
+        color: $mainGray;
+        background-color: $darkBlue;
+        padding: 0.5rem;
+    }
+    tbody tr {
+        text-align: center;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: $mainGray;
+    }
+    tbody tr:nth-child(even) {
+        background-color: white;
+    }
+}
