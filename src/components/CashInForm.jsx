@@ -67,7 +67,7 @@ function CashInForm() {
     return true;
   }
 
-  //onSubmit form
+
   //onSubmit form
   function submitHandle(e) {
     e.preventDefault();
@@ -116,12 +116,10 @@ function CashInForm() {
           focusedUser.accountBalance = (existingBalance - inputBalance).toFixed(
             2
           );
-          focusedUser.lastWithdrawal = localDate;
         } else {
           focusedUser.accountBalance = (existingBalance + inputBalance).toFixed(
             2
           );
-          focusedUser.lastTopUp = localDate;
         }
 
         const transaction = {

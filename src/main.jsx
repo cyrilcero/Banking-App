@@ -26,6 +26,7 @@ import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import CashIn from "./pages/CashIn.jsx";
+import Transfer from "./pages/Transfer.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -33,32 +34,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "loans",
-        element: <Loans />,
-      },
-      {
-        path: "cards",
-        element: <Cards />,
-      },
-      {
-        path: "insurance",
-        element: <Insurance />,
-      },
-      {
-        path: "investments",
-        element: <Investments />,
-      },
-      {
-        path: "promos-rewards",
-        element: <PromAndRe />,
-      },
-    ],
     children: [
       {
         index: true,
@@ -112,8 +87,8 @@ const router = createBrowserRouter([
     element: <CashInAdmin />
   },
   {
-    path: "/cash-in/:id",
-    element: <CashIn />,
+    path: "/transfer/:id",
+    element: <Transfer/>,
     loader: ({ params }) => params.id,
     
   },
