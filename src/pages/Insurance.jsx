@@ -1,14 +1,12 @@
-export default function Insurance(){
+import React from 'react';
+import UnderConstr from './UnderConstr';
 
-    const centerStyles = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center', 
-        height: '100vh',     
-      };
+function Insurance() {
+  return (
+    <section>
+      <UnderConstr />
+    </section>
+  )
+}
 
-      return (
-        <h1 style={centerStyles}>Insurance</h1>
-      );
-    }
-    
+export default Insurance

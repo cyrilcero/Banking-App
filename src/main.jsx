@@ -6,11 +6,7 @@ import App from "./App.jsx";
 // Components
 import CashInAdmin from "./components/CashInAdmin.jsx";
 import ClientDashboard from "./components/ClientDashboard.jsx";
-import {
-  LoggedInRoute,
-  SecuredRoute,
-  SecuredAdminRoute,
-} from "./components/SecuredRoute.jsx";
+import SecuredRoute, { LoggedInRoute, SecuredAdminRoute } from "./components/SecuredRoute.jsx";
 
 // Pages
 import ClientOverview from "./pages/ClientOverview.jsx";
@@ -27,6 +23,7 @@ import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

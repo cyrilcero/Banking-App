@@ -1,0 +1,47 @@
+@use './format' as *;
+
+.underconstruction {
+  @extend %flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  text-decoration: none;
+
+  .image-underconst {
+    width: 20vw;
+    aspect-ratio: 1;
+  }
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  button {
+    width: 10%;
+    height: auto;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    border: $lightGreen;
+    outline: none;
+    background: $lightGreen;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover{
+      background: $lightBlue;
+      box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+    }
+  }
+
+  span {
+    color: $darkBlue;
+
+    &:hover {
+      color: $mainGray;
+    }
+  }
+}

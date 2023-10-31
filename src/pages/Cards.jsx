@@ -1,14 +1,12 @@
-export default function Cards(){
+import React from 'react';
+import UnderConstr from './UnderConstr';
 
-    const centerStyles = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center', 
-        height: '100vh',     
-      };
+function Cards() {
+  return (
+    <section>
+      <UnderConstr />
+    </section>
+  )
+}
 
-      return (
-        <h1 style={centerStyles}>Cards</h1>
-      );
-    }
-    
+export default Cards

@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
-import getLocalstorage from "../utils/getLocalstorage";
+import { getLocalStorage } from "../utils/localStorage";
 
-export function SecuredRoute({ children }) {
-  const currentUser = getLocalstorage("CurrentUser");
+function SecuredRoute({ children }) {
+  const currentUser = getLocalStorage("CurrentUser");
   const paramID = useLoaderData();
 
   if (!currentUser || paramID !== currentUser.accountID) {
@@ -33,3 +33,5 @@ export function LoggedInRoute({ children }) {
   }
   return <>{children}</>;
 }
+
+export default SecuredRoute

@@ -1,5 +1,6 @@
 import React from "react";
-import getLocalStorage from "../utils/getLocalStorage";
+import { getLocalStorage } from "../utils/localStorage";
+
 
 function ClientList() {
   const userList = getLocalStorage("UserAccounts");
