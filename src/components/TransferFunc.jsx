@@ -21,6 +21,10 @@ const TransferFunc = () => {
 
     const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
   const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
+  const localDate = new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Manila",
+    hour12: false,
+  });
 
   const [moneySended, setMoneySended] = useState(true);
   const [amountSufficient, setAmountSufficient] = useState(true);
@@ -29,7 +33,7 @@ const TransferFunc = () => {
     amount: "",
     email: "",
     accountName: "",
-    date: Date.now().toString(),
+    date: localDate,
     transfer: moneySended,
   });
 

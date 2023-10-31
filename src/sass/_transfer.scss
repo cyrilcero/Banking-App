@@ -30,6 +30,10 @@
   @extend %flex;
   color: $darkBlue;
   flex-direction: column;
+
+  p{
+    font-size: clamp(0.5rem, 1vw, 1rem);
+  }
 }
 .transfer-form-inputs {
   min-width: 80%;

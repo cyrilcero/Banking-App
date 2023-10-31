@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .expenses-widget, .transactions-widget, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.logout-modal-content, .transfer-form, .transfer-history, .transactions-cashin, .cashin-modal .cashin-modal-content, .expenses-widget, .transactions-widget, .balance-overview {
+.logout-modal-content, .transfer-form, .transfer-history, .transactions-cashin, .cashin-modal .cashin-modal-content, .transactions-widget, .balance-overview {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
   -webkit-backdrop-filter: blur(6px);
@@ -511,6 +511,7 @@ body {
 
 .panel2-overview {
   min-width: 100%;
+  min-height: 50vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -518,16 +519,35 @@ body {
   padding: 1rem 2.5rem;
 }
 
-.expenses-widget {
-  width: 20vw;
-  height: 250px;
+.transactions-widget {
+  min-width: 60%;
+  max-height: 50vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   color: #2f3a54;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.transactions-widget h3 {
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+}
+.transactions-widget hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #2f3a54;
+  padding-bottom: 0.5rem;
 }
 
-.transactions-widget {
-  width: min(520px, 60%);
-  height: 250px;
-  color: #2f3a54;
+.transaction-list {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .panel2-cashin {
@@ -699,6 +719,9 @@ body {
   min-height: 70vh;
   color: #2f3a54;
   flex-direction: column;
+}
+.transfer-form p {
+  font-size: clamp(0.5rem, 1vw, 1rem);
 }
 
 .transfer-form-inputs {
