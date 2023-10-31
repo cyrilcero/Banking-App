@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
 import Navbar from "./components/NavBar.jsx";
+import CashInAdmin from "./components/CashInAdmin.jsx";
 
 // Pages
 import App from "./App.jsx";
@@ -111,7 +112,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/cashinadmin',
-    element: <CashInAdmin/>
+    element: <CashInAdmin />
   },
   {
     path: "/cash-in/:id",

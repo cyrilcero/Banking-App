@@ -1,7 +1,5 @@
 @use "./format" as *;
-@use "./format" as *;
 
-* {
 * {
   margin: 0;
   padding: 0;
@@ -29,9 +27,6 @@ body {
   display: flex;
   position: relative;
   min-height: 100vh;
-}
-
-
 }
 
 :root {

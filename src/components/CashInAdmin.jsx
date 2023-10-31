@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export const CashInAdmin = () => {
+function CashInAdmin() {
   const userAccounts = JSON.parse(localStorage.getItem('UserAccounts')) || [];
   const currentUser = JSON.parse(localStorage.getItem('CurrentUser')) || {};
   const initialBalance = currentUser.accountBalance || 0;
@@ -73,3 +73,5 @@ export const CashInAdmin = () => {
     </div>
   );  
 };
+
+export default CashInAdmin

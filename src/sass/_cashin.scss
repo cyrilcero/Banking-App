@@ -3,11 +3,6 @@
 //   border: 1px solid red;
 // }
 
-@use "./format" as *;
-// * {
-//   border: 1px solid red;
-// }
-
 .cash-in {
   @extend %clientDashboard;
 }
@@ -71,9 +66,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
   padding: 2rem;
   overflow: auto;
 }
