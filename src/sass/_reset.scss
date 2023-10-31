@@ -1,5 +1,7 @@
 @use "./format" as *;
+@use "./format" as *;
 
+* {
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +9,28 @@
   list-style: none;
   text-decoration: none;
   font-family: $fontFamMain;
+}
+
+:root {
+  --main-radius: 16px;
+  --main-padding: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  max-height: 100vh;
+}
+
+.App {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+}
+
   // outline: 1px solid pink;
 }
 

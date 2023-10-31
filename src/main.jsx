@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Components
+import Navbar from "./components/NavBar.jsx";
 import Navbar from "./components/NavBar.jsx";
 
 // Pages
@@ -91,10 +95,23 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
+      
     ],
   },
 
   // ADMIN SIDE
+  {
+    path: "/cash-in/:id",
+    element: <CashIn />,
+    loader: ({ params }) => params.id,
+    
+  },
+  {
+    path: "/transfer/:id",
+    element: <Transfer/>,
+    loader: ({ params }) => params.id,
+    
+  },
   {
     path: "/admin",
     element: (
