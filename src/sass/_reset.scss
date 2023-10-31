@@ -7,7 +7,7 @@
   list-style: none;
   text-decoration: none;
   font-family: $fontFamMain;
-
+  // outline: 1px solid pink;
 }
 
 :root {
@@ -18,7 +18,7 @@
 body {
   margin: 0;
   padding: 0;
- width: 100%;
+  width: 100%;
   height: 100vh;
 }
 

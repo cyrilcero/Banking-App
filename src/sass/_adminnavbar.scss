@@ -2,14 +2,13 @@
 
 .anavbar {
   margin: 0 0.35rem;
-  width: 250px;
+  width: 200px;
   height: 98vh;
   text-wrap: nowrap;
   padding-top: 1.5rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 0.5rem;
   transition: width 0.3s ease-in-out;
-
   a {
     color: $darkBlue;
   }

@@ -20,16 +20,19 @@ import Insurance from "./pages/Insurance.jsx";
 import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
+import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
+
 import {
   LoggedInRoute,
   SecuredRoute,
   SecuredAdminRoute,
 } from "./components/SecuredRoute.jsx";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
-const accountID = currentUser.accountID;
 
+import "./App.css"
+import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,6 +65,20 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/create-account",
+    element: <Signup />,
+  },
+  {
+    path: "/login",
+    element: (
+      <LoggedInRoute>
+        <LogInPage />
+      </LoggedInRoute>
+    ),
+  },
+
+  // CLIENT SIDE
+  {
     path: "/overview/:id",
     element: <Dashboard />,
     children: [
@@ -76,6 +93,8 @@ const router = createBrowserRouter([
       },
     ],
   },
+
+  // ADMIN SIDE
   {
     path: "/admin",
     element: (
@@ -83,30 +102,32 @@ const router = createBrowserRouter([
         <AdminDash />
       </SecuredAdminRoute>
     ),
-  },
-  {
-    path: "/test",
-    element: <ClientDashboard />,
-  },
-  {
-    path: "/create-account",
-    element: <Signup />,
-  },
-  {
-    path: "/login",
-    element: (
-      <LoggedInRoute>
-        <LogInPage />
-      </LoggedInRoute>
-    ),
-  },
-  {
-    path: "admin/create-new-account",
-    element: (
-      <SecuredAdminRoute>
-        <AdminCreateAccount />
-      </SecuredAdminRoute>
-    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <SecuredAdminRoute>
+            <AdminOverviewContent />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: "create-new-account",
+        element: (
+          <SecuredAdminRoute>
+            <AdminCreateAccount />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: "all-accounts",
+        element: (
+          <SecuredAdminRoute>
+            <AdminAllAccounts />
+          </SecuredAdminRoute>
+        ),
+      },
+    ],
   },
 ]);
 
