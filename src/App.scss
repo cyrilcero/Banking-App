@@ -14,6 +14,24 @@
 @use './sass/homenavbar';
 @use './sass/home';
 @use './sass/mediaqueries';
+
+
+@use "./sass/reset";
+@use "./sass/format";
+@use "./sass/navbar";
+@use "./sass/signup";
+@use "./sass/loginpage";
+@use "./sass/landingpage";
+@use "./sass/clientdashboard";
+@use "./sass/clientoverview";
+@use "./sass/cashin";
+@use "./sass/settings";
+@use "./sass/transfer";
+@use "./sass/logoutmodal";
+@use "./sass/dashboardcontainer";
+@use './sass/homenavbar';
+@use './sass/home';
+@use './sass/mediaqueries';
 @use './sass/admindash';
 @use "./sass/adminnavbar";
 

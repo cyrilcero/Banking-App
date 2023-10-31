@@ -6,8 +6,14 @@
 // Font
 $fontFamMain: "Poppins", sans-serif;
 $fontFamCard: "OCR A Extended";
+$fontFamMain: "Poppins", sans-serif;
+$fontFamCard: "OCR A Extended";
 
 // Colors
+$darkBlue: #2f3a54;
+$lightBlue: #3f9dd0;
+$lightGreen: #d1ffbc;
+$mainGray: #eff1f4;
 $darkBlue: #2f3a54;
 $lightBlue: #3f9dd0;
 $lightGreen: #d1ffbc;
@@ -35,13 +41,22 @@ $boxShadBlue2:
 %claymorph {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
   backdrop-filter: blur(6px);
   box-shadow: $boxShadBlue;
+  color: $mainGray;
   color: $mainGray;
   text-shadow: $txtShadLBlue;
 }
 
 %clientDashboard {
+  background: linear-gradient(
+      180deg,
+      rgba(63, 157, 208, 0.5),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("../src/assets/backgroundDash.png");
   background: linear-gradient(
       180deg,
       rgba(63, 157, 208, 0.5),

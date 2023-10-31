@@ -61,6 +61,32 @@ const router = createBrowserRouter([
         element: <PromAndRe />,
       },
     ],
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "loans",
+        element: <Loans />,
+      },
+      {
+        path: "cards",
+        element: <Cards />,
+      },
+      {
+        path: "insurance",
+        element: <Insurance />,
+      },
+      {
+        path: "investments",
+        element: <Investments />,
+      },
+      {
+        path: "promos-rewards",
+        element: <PromAndRe />,
+      },
+    ],
   },
   {
     path: "/overview/:id",
@@ -75,7 +101,17 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
+      
     ],
+  },
+  {
+    path: "/cash-in/:id",
+    element: <CashIn />,
+    loader: ({params}) => params.id,
+  },
+  {
+    path: '/cashinadmin',
+    element: <CashInAdmin/>
   },
   {
     path: "/cash-in/:id",

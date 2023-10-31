@@ -1,11 +1,13 @@
 @use "./format" as *;
 
+@use "./format" as *;
+
 .client-overview {
   @extend %clientDashboard;
 }
 
 .panel2-overview {
-  width: 100%;
+  min-width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,7 +16,7 @@
 }
 
 .expenses-widget {
-  width: 420px;
+  width: 20vw;
   height: 250px;
   @extend %claymorph;
   @extend %flex;
