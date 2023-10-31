@@ -10,7 +10,8 @@
 .logout-modal-content, .transfer-history, .transactions-cashin, .expenses-widget, .transactions-widget, .balance-overview {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -120,7 +121,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -378,7 +380,8 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1418,7 +1421,7 @@ body {
   border-radius: 1rem;
   border: 0.5px solid rgba(65, 157, 208, 0.5);
   box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
-  flex-direction: column;
+  overflow-x: auto;
   gap: 0.5rem;
 }
 
@@ -1526,7 +1529,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid #2f3a54;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1538,3 +1542,26 @@ body {
   position: absolute;
   bottom: 30px;
 }
+
+.client-list-table {
+  overflow-x: auto;
+}
+.client-list-table h1 {
+  text-align: center;
+  padding: 1rem;
+}
+.client-list-table thead tr th {
+  font-weight: 600;
+  color: #eff1f4;
+  background-color: #2f3a54;
+  padding: 0.5rem;
+}
+.client-list-table tbody tr {
+  text-align: center;
+}
+.client-list-table tbody tr:nth-child(odd) {
+  background-color: #eff1f4;
+}
+.client-list-table tbody tr:nth-child(even) {
+  background-color: white;
+}/*# sourceMappingURL=App.css.map */

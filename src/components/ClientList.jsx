@@ -1,22 +1,18 @@
+import { useState } from "react";
 import getLocalStorage from "../utils/getLocalStorage";
 
 function ClientList() {
   const userList = getLocalStorage("UserAccounts");
   const clientList = userList.filter((item) => item.isAdmin === false);
-
+  const recentAccounts = clientList
+    .slice(userList.length - 4, userList.length)
+    .slice()
+    .reverse();
+    
   return (
-    <>
-      <select name="clients" defaultValue={"Choose Account"}>
-        <option disabled={true} value={"Choose Account"}>
-          Choose Account
-        </option>
-        {clientList.map((item) => (
-          <option value={item.accountID} key={item.email}>
-            {`${item.firstName} ${item.lastName} - ${item.email}`}
-          </option>
-        ))}
-      </select>
-      <table className="client-list-table">
+    <div className="client-list-table">
+      <h1>Newly Created Accounts</h1>
+      <table>
         <thead>
           <tr>
             <th>First Name</th>
@@ -28,7 +24,7 @@ function ClientList() {
           </tr>
         </thead>
         <tbody>
-          {clientList.map((user, idx) => (
+          {recentAccounts.map((user, idx) => (
             <tr key={idx}>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
@@ -40,7 +36,7 @@ function ClientList() {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 

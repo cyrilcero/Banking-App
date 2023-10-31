@@ -150,9 +150,9 @@
   border-radius: 1rem;
   border: 0.5px solid rgba(65, 157, 208, 0.5);
   box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
-
+  overflow-x: auto;
   @extend %flex;
-  flex-direction: column;
+  // flex-direction: column;
   gap: 0.5rem;
 }
 
