@@ -1,13 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-// Components
-import Navbar from "./components/NavBar.jsx";
-import Navbar from "./components/NavBar.jsx";
 
 // Pages
 import App from "./App.jsx";
@@ -16,7 +9,6 @@ import LogInPage from "./pages/LoginPage.jsx";
 import AdminDash from "./pages/AdminDash.jsx";
 import Signup from "./pages/Signup.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
-import ClientDashboard from "./components/ClientDashboard.jsx";
 import Home from "./pages/Home.jsx";
 import Loans from "./pages/Loans.jsx";
 import Cards from "./pages/Cards.jsx";
@@ -25,6 +17,8 @@ import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
+import CashIn from "./pages/CashIn.jsx";
+import Transfer from "./pages/Transfer.jsx";
 
 import {
   LoggedInRoute,
@@ -32,8 +26,7 @@ import {
   SecuredAdminRoute,
 } from "./components/SecuredRoute.jsx";
 
-
-import "./App.css"
+import "./App.css";
 import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -82,6 +75,7 @@ const router = createBrowserRouter([
   },
 
   // CLIENT SIDE
+
   {
     path: "/overview/:id",
     element: <Dashboard />,
@@ -95,23 +89,30 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
+      {
+        path: "cash-in/:id",
+        element: (
+          <SecuredRoute>
+            <CashIn />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
+      {
+        path: "transfer/:id",
+        element: (
+          <SecuredRoute>
+            <Transfer />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
       
     ],
   },
 
   // ADMIN SIDE
-  {
-    path: "/cash-in/:id",
-    element: <CashIn />,
-    loader: ({ params }) => params.id,
-    
-  },
-  {
-    path: "/transfer/:id",
-    element: <Transfer/>,
-    loader: ({ params }) => params.id,
-    
-  },
+
   {
     path: "/admin",
     element: (
