@@ -1,19 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App.jsx";
 
 // Components
-import Navbar from "./components/NavBar.jsx";
 import CashInAdmin from "./components/CashInAdmin.jsx";
+import ClientDashboard from "./components/ClientDashboard.jsx";
+import {
+  LoggedInRoute,
+  SecuredRoute,
+  SecuredAdminRoute,
+} from "./components/SecuredRoute.jsx";
 
 // Pages
-import App from "./App.jsx";
 import ClientOverview from "./pages/ClientOverview.jsx";
 import LogInPage from "./pages/LoginPage.jsx";
 import AdminDash from "./pages/AdminDash.jsx";
 import Signup from "./pages/Signup.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
-import ClientDashboard from "./components/ClientDashboard.jsx";
 import Home from "./pages/Home.jsx";
 import Loans from "./pages/Loans.jsx";
 import Cards from "./pages/Cards.jsx";
@@ -21,16 +25,9 @@ import Insurance from "./pages/Insurance.jsx";
 import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
-import {
-  LoggedInRoute,
-  SecuredRoute,
-  SecuredAdminRoute,
-} from "./components/SecuredRoute.jsx";
 import CashIn from "./pages/CashIn.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const currentUser = JSON.parse(localStorage.getItem("CurrentUser") || "{}");
-const accountID = currentUser.accountID;
 
 const router = createBrowserRouter([
   {
