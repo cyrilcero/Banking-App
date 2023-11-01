@@ -8,6 +8,7 @@ import ClientOverview from '../pages/ClientOverview';
 import CashIn from '../pages/CashIn';
 import Transfer from '../pages/Transfer';
 import Settings from '../pages/Settings';
+import BudgetApp from '../pages/BudgetApp';
 
 
 export const NavData = [
@@ -37,7 +38,7 @@ export const NavData = [
     icon: <BiSolidWallet />,
     text: "Budget App",
     link: "/budget-app", 
-    elementLabel: <Settings />,
+    elementLabel: <BudgetApp />,
   },
   {
     id: 4,

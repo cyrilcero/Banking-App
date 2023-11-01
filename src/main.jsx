@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { createBrowserRouter, RouterProvider, useActionData } from "react-router-dom";
 import App from "./App.jsx";
+import 'react-toastify/dist/ReactToastify.css'; 
 
 // Components
 import CashInAdmin from "./components/CashInAdmin.jsx";
-import ClientDashboard from "./components/ClientDashboard.jsx";
 import SecuredRoute, { LoggedInRoute, SecuredAdminRoute } from "./components/SecuredRoute.jsx";
 
 // Pages
@@ -23,6 +24,10 @@ import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
+import BudgetApp, { budgetAppAction, budgetAppLoader } from "./pages/BudgetApp.jsx";
+import ExpensesOverview, { expensesAction, expensesLoader } from "./pages/ExpensesOverview.jsx";
+import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
+import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -32,6 +37,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "create-account",
+        element: <Signup />,
+      },
+      {
+        path: "login",
+        element: (
+          <LoggedInRoute>
+            <LogInPage />
+          </LoggedInRoute>
+        ),
+      },
       {
         index: true,
         element: <Home />,
@@ -71,24 +88,21 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
-      
     ],
   },
+
   {
-    path: "/cash-in/:id",
+    path: "cash-in/:id",
     element: <CashIn />,
     loader: ({params}) => params.id,
   },
   {
-    path: '/cashinadmin',
-    element: <CashInAdmin />
-  },
-  {
-    path: "/transfer/:id",
+    path: "transfer/:id",
     element: <Transfer/>,
     loader: ({ params }) => params.id,
     
-  },
+  },      
+
   {
     path: "/admin",
     element: (
@@ -96,35 +110,54 @@ const router = createBrowserRouter([
         <AdminDash />
       </SecuredAdminRoute>
     ),
-  },
+    children: [
+      {
+        path: "create-new-account",
+        element: (
+          <SecuredAdminRoute>
+            <AdminCreateAccount />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: 'cashinadmin',
+        element: <CashInAdmin />
+      },
+    ],
+  }, 
+
+  // Budget App Test Route
   {
-    path: "/test",
-    element: <ClientDashboard />,
+    path: 'budget-app', // mother page
+    element: <BudgetAppLayout />,
+    children: [
+      {
+        index: true,
+        element: <BudgetApp />,
+        loader: budgetAppLoader,
+        action: budgetAppAction,
+      },
+      {
+        path: 'expenses',
+        element: <ExpensesOverview />,
+        loader: expensesLoader,
+        action: expensesAction,
+      },
+      {
+        path: 'wallet/:id',
+        element: <WalletPage />,
+        loader: walletLoader,
+        action: walletAction,
+      },
+    
+    ],
   },
-  {
-    path: "/create-account",
-    element: <Signup />,
-  },
-  {
-    path: "/login",
-    element: (
-      <LoggedInRoute>
-        <LogInPage />
-      </LoggedInRoute>
-    ),
-  },
-  {
-    path: "admin/create-new-account",
-    element: (
-      <SecuredAdminRoute>
-        <AdminCreateAccount />
-      </SecuredAdminRoute>
-    ),
-  },
+
 ]);
 
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </React.StrictMode>
 );

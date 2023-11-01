@@ -16,7 +16,7 @@ function UnderConstr() {
           to="/"
           onClick={() => navigate(-1)}
         >
-          <span>Go back</span>
+          <h5>Go back</h5>
         </Link>
       </button>      
     </section>

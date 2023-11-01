@@ -14,7 +14,7 @@ function SecuredRoute({ children }) {
 }
 
 export function SecuredAdminRoute({ children }) {
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
 
   if (!currentUser || currentUser.isAdmin === false) {
     // insert toast/alert here
@@ -23,7 +23,7 @@ export function SecuredAdminRoute({ children }) {
   return <>{children}</>;
 }
 export function LoggedInRoute({ children }) {
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
 
   if (currentUser) {
     // insert toast/alert here

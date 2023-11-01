@@ -1,16 +1,16 @@
 @use './format' as *;
 
 .underconstruction {
+  position: fixed;
   @extend %flex;
+  padding: 2rem;
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  position: absolute;
-  top: 0;
   text-decoration: none;
 
   .image-underconst {
-    width: 20vw;
+    width: max(25%, 180px);
     aspect-ratio: 1;
   }
 
@@ -19,9 +19,9 @@
   }
 
   button {
-    width: 10%;
+    width: max(10%, 150px);
     height: auto;
-    margin-top: 1rem;
+    margin-top: 1rem; 
     padding: 0.5rem 1rem;
     border-radius: 0.8rem;
     border: $lightGreen;
@@ -37,11 +37,11 @@
     }
   }
 
-  span {
+  h5 {
     color: $darkBlue;
 
     &:hover {
-      color: $mainGray;
+      color: $mainGray; 
     }
   }
 }

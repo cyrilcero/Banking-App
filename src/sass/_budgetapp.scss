@@ -1,0 +1,5 @@
+@use "./format" as *;
+
+.budget-app {
+  @extend %clientDashboard;
+}
