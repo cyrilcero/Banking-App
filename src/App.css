@@ -11,7 +11,6 @@
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
   -webkit-backdrop-filter: blur(6px);
-          -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
@@ -530,15 +529,10 @@ body {
   flex-direction: column;
   padding: 1.5rem;
 }
-.transactions-widget h3 {
-  font-size: 1rem;
-  padding-bottom: 0.5rem;
-}
 .transactions-widget hr {
-  width: 100%;
   border: none;
-  border-bottom: 1px solid #2f3a54;
-  padding-bottom: 0.5rem;
+  width: 100%;
+  border: 2px solid;
 }
 
 .transaction-list {
@@ -592,11 +586,6 @@ body {
   border-radius: 5px;
 }
 
-.cashin-lines {
-  width: 100%;
-  border: 2px solid;
-}
-
 .cashin-list {
   min-width: 100%;
   min-height: 5vh;
@@ -613,8 +602,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .cashin-btn {
@@ -686,10 +675,6 @@ body {
 .cashin-modal button:hover {
   background-color: #3f9dd0;
   transform: scale(1.1);
-}
-
-.none {
-  display: none;
 }
 
 .settings {
@@ -1825,4 +1810,4 @@ body {
 }
 .client-list-table tbody tr:nth-child(even) {
   background-color: white;
-}/*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
