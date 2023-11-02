@@ -9,10 +9,10 @@ function ExpenseForm({ wallets }) {
       <h2>Add an expense</h2>
       <Form
         method='post'
-        className='expense-form'
+        className='budgetapp-form'
       >
         <div className="expense-inputs">
-          <div>
+          <div className='budget-form-item'>
             <label htmlFor="newExpense">Expense Name</label>
             <input 
               type="text" 
@@ -21,7 +21,7 @@ function ExpenseForm({ wallets }) {
               placeholder='e.g. coffee'
             />
           </div>
-          <div>
+          <div className='budget-form-item'>
             <label htmlFor="newExpenseAmount">Expense Amount</label>
             <input 
               type="number" 
@@ -35,31 +35,35 @@ function ExpenseForm({ wallets }) {
           </div>
         </div>
 
-        <div className="wallet-categ" hidden={wallets.length === 1}>
-          <label htmlFor="newExpenseWallet">
-            Wallet:
-          </label>
-          <select 
-            name="newExpenseWallet" 
-            id="newExpenseWallet" 
-            required
-          >
-            {
-              wallets
-                .sort((a, b) => a.createdAt - b.createdAt)
-                .map((wallet) => {
-                  return (
-                    <option
-                      key={wallet.id}
-                      value={wallet.id}
-                    >
-                      {wallet.name}
-                    </option>
-                  )
-                })
-            }
-          </select>
-        </div>
+        {
+          wallets && wallets.length > 1 && (
+            <div className="wallet-categ">
+              <label htmlFor="newExpenseWallet">
+                Wallet Label
+              </label>
+              <select 
+                name="newExpenseWallet" 
+                id="newExpenseWallet" 
+                required
+              >
+                {
+                  wallets
+                    .sort((a, b) => a.createdAt - b.createdAt)
+                    .map((wallet) => {
+                      return (
+                        <option
+                          key={wallet.id}
+                          value={wallet.id}
+                        >
+                          {wallet.name}
+                        </option>
+                      )
+                    })
+                }
+              </select>
+            </div>
+          )
+        }
 
         <input 
           type="hidden" 

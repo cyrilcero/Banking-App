@@ -1,15 +1,13 @@
 import React from 'react';
-import Navbar from '../components/AdminNavbar';
+import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
 
 function BudgetAppLayout() {
   return (
-    <div className='dashboard-container'>
+    <main className='dashboard-container budget-app-layout'>
         <Navbar />
-      <main>
         <Outlet />
-      </main>
-    </div>
+    </main>
   )
 }
 

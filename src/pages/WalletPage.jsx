@@ -68,14 +68,14 @@ function WalletPage() {
   const { wallet, expenses } = useLoaderData();
 
   return (
-    <div>
+    <div className='budget-app wallet-page'>
       <h2>
         <span className='accent'>{wallet.name} </span>
         Overview
       </h2>
 
       <div>
-        <WalletItem wallet={wallet} showDeleteBtn={false} />
+        <WalletItem wallet={wallet} />
         <ExpenseForm wallets={[wallet]} />
       </div>
 

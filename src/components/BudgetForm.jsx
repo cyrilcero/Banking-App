@@ -9,15 +9,15 @@ function BudgetForm() {
       <h2>Create a wallet</h2>
       <Form
         method="post"
-        className="wallet-form"
+        className="budgetapp-form"
       >
-        <div className='wallet-form-item'>
+        <div className='budget-form-item'>
           <label htmlFor="newWallet">Wallet Name</label>
           <input 
             type="text" 
             name="newWallet"
             id="newWallet"
-            placeholder="e.g. Food"
+            placeholder="e.g. food"
             required
           />
         </div>
@@ -42,7 +42,6 @@ function BudgetForm() {
 
         <button 
           type="submit" 
-          className="button-main"
         >
           <span className="btn-text">Create</span>
         </button>

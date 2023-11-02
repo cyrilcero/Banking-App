@@ -1,9 +1,5 @@
 @use "./format" as *;
 
-// * {
-//   border: 1px solid red;
-// }
-
 .client-overview {
   @extend %clientDashboard;
 }
@@ -17,7 +13,6 @@
   gap: 2rem;
   padding: 1rem 2.5rem;
 }
-
 
 .transactions-widget {
   min-width: 60%;

@@ -2,6 +2,7 @@ import React from 'react'
 import { getAllItems } from '../utils/localStorage'
 import { Form, Link } from 'react-router-dom';
 import { formatCreatedAt, formatCurrency } from '../utils/helpers';
+import { FaTrashCan } from "react-icons/fa6";
 
 function ExpenseItem({ expense, showWallet }) {
   const wallet = getAllItems({
@@ -19,7 +20,7 @@ function ExpenseItem({ expense, showWallet }) {
       <td>
         {formatCurrency(expense.amount)}
       </td>
-
+    
       <td>
         {formatCreatedAt(expense.createdAt)}
       </td>
@@ -29,6 +30,7 @@ function ExpenseItem({ expense, showWallet }) {
           <td>
             <Link
               to={`budget-app/wallet/${wallet.id}`}
+              className='link-text'
             >
               {wallet.name}
             </Link>
@@ -55,9 +57,9 @@ function ExpenseItem({ expense, showWallet }) {
 
           <button 
             type='submit'
-            aria-label={`Delete ${expense.name} expense`}
+            className='delete-btn'
           >
-            Delete
+            <FaTrashCan />
           </button>
 
         </Form>

@@ -1,23 +1,18 @@
 import React from 'react';
 import { calcSpentPerWallet, formatCurrency, formatPercentage } from '../utils/helpers';
 import { Form, Link } from 'react-router-dom';
+import { FaRegEye, FaTrashCan } from "react-icons/fa6";
 
 
-function WalletItem({ wallet, showDeleteBtn = false }) {
+function WalletItem({ wallet }) {
   const { id, name, amount } = wallet;
   const spent = calcSpentPerWallet(id);
 
-  function handleSubmit(e) {
-    if (!confirm('Are you sure you want to delete this wallet?')) {
-      e.preventDefault();
-    }
-  };
-
   return (
-    <div className='wallet'>
+    <div className='wallet-card'>
       <div className="progress-text">
-        <h3>{name}</h3>
-        <p>{formatCurrency(amount)} alloted</p>
+        <h4 className='wallet-name'>{name}</h4>
+        <h4>{formatCurrency(amount)} alloted</h4>
       </div>
 
       <progress max={amount} value={spent}>
@@ -29,33 +24,40 @@ function WalletItem({ wallet, showDeleteBtn = false }) {
         <h6>{formatCurrency(amount - spent)} left</h6>
       </div>
 
-      {
-        showDeleteBtn ? 
-        (
-          <div>
-            <Form
-              method='post'
-              action='delete'
-              onSubmit={handleSubmit()}
-            >
-              <button type='submit'>
-                <span>Delete Wallet</span>
-              </button>
-            </Form>
-          </div>
-        ) // ...else
-        : (
-          <div>
-            <Link
-              to={`budget-app/wallet/${id}`}
-              className='btn'
-            >
-              <span>View Details</span>
-            </Link>
-          </div>
-        )
-      }
-     
+      <div className='wallet-btns'>
+      <div>
+          <Link
+            to={`budget-app/wallet/${id}`}
+            className='btn'
+          >
+            <button><FaRegEye /></button>
+          </Link>
+        </div>
+
+        <div>
+          <Form
+            method='post'
+            // action='delete'
+          >
+            <input 
+              type="hidden" 
+              name="_action"
+              value="deleteWallet"
+            />
+
+            <input 
+              type="hidden" 
+              name='walletID'
+              value={wallet.id}
+            />
+
+            <button type='submit'>
+              <FaTrashCan />
+            </button>
+          </Form>
+        </div>
+      </div>     
+      
     </div>
   )
 }

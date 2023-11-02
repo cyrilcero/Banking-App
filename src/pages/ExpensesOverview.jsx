@@ -40,27 +40,28 @@ function ExpensesOverview() {
 
   return (
     <div className='expenses-overview'>
-      <h1>All Expenses</h1>
-      {
-        expenses && expenses.length > 0 
-        ? ( 
-          <div>
-            <h3>My Expenses</h3>
-            <h6>({expenses.length} total)</h6>
-            <TableExpenses expenses={expenses} />
-          </div>
-        ) // ...else
-        : <p>No expenses to show.</p>
-      }
+      <h2>My Expenses</h2>
+      <h4>({expenses.length} total)</h4>
 
-      <button>
-        <Link
-          to="/"
-          onClick={() => navigate(-1)}
-        >
-          <h5>Go back</h5>
-        </Link>
-      </button>     
+      <div className='recent-expenses-wrapper'>
+        {
+          expenses && expenses.length > 0 
+          ? ( 
+            <div className='expenses-table'>
+              <TableExpenses expenses={expenses} />
+            </div>
+          ) // ...else
+          : <p>No expenses to show.</p>
+        }
+
+        <button className='back-btn'>
+          <Link
+            onClick={() => navigate(-1)}
+          >
+            <h5>Go back</h5>
+          </Link>
+        </button>    
+      </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 import { toast } from 'react-toastify';
-import { getLocalStorage } from '../utils/localStorage';
+import { getAllItems, getLocalStorage } from '../utils/localStorage';
 import { Link, useLoaderData } from 'react-router-dom';
 
 // Components
@@ -74,6 +74,11 @@ export async function budgetAppAction({ request }) {
 
 function BudgetApp() {
   const { wallets, expenses } = useLoaderData();
+  const [isBudgetForm, setIsBudgetForm] = useState(false);
+
+  const handleForm = () => {
+    setIsBudgetForm(!isBudgetForm);
+  };
 
   return (
     <section className='budget-app'>
@@ -81,61 +86,73 @@ function BudgetApp() {
       <p>
         Welcome to Wind Bank's Budget App! Create a wallet for each of your budget category and start tracking your expenses.
       </p>
+      <div>
+        {
+          wallets && wallets.length > 0 ?
+            (
+              <div className='budget-app-wrapper'>
+                <div className="mywallets-wrapper">
+                  <h2>
+                    {wallets && wallets.length > 1 ? "My Wallets" : "My Wallet"}
+                  </h2>
 
-      {
-        wallets && wallets.length > 0 ?
-          (
-            <div>
-              <div>
-                <BudgetForm />
-                <ExpenseForm wallets={wallets} />
-              </div>
+                  <div className="wallet-wrapper">
+                    {
+                      wallets.map((wallet) => (
+                        <WalletItem 
+                          key={wallet.id} 
+                          wallet={wallet} 
+                        />
+                      ))
+                    }
+                  </div>
+                </div>
+                <div className='forms-wrapper'>
 
-              <h2>
-                {wallets && wallets.length > 1 ? "My Wallets" : "My Wallet"}
-              </h2>
+                  {
+                    isBudgetForm ? (<BudgetForm />) : (<ExpenseForm wallets={wallets} />)
+                  }
 
-              <div className="wallets-wrapper">
+                  <h5 onClick={handleForm}>
+                    { isBudgetForm ? "Add an expense here" : "Create new wallet here" }
+                  </h5>
+                </div>
+
+                <div className='overall-expenses'>
+                  Progress bar here
+                </div>
+
                 {
-                  wallets.map((wallet) => (
-                    <WalletItem 
-                      key={wallet.id} 
-                      wallet={wallet} 
-                    />
-                  ))
+                  expenses && expenses.length > 0 &&
+                  (
+                    <div className='recent-expenses-wrapper'>
+                      <h3>Recent Expenses</h3>
+                      <TableExpenses
+                        expenses={expenses
+                          .sort((a, b) => b.createdAt - a.createdAt)
+                          .slice(0, 3)}
+                      />
+                      {expenses.length > 3 && (
+                        <Link
+                          to='/budget-app/expenses'
+                          className='btn-text'
+                        >
+                          View all expenses
+                        </Link>
+                      )}
+                    </div>
+                  )
                 }
               </div>
-              {
-                expenses && expenses.length > 0 &&
-                (
-                  <div>
-                    <h3>Recent Expenses</h3>
-                    <TableExpenses
-                      expenses={expenses
-                        .sort((a, b) => b.createdAt - a.createdAt)
-                        .slice(0, 5)}
-                    />
-                    {expenses.length > 5 && (
-                      <Link
-                        to='/budget-app/expenses'
-                        className='btn-text'
-                      >
-                        View all expenses
-                      </Link>
-                    )}
-                  </div>
-                )
-              }
-            </div>
-          )
-          // ...else
-          : (
-            <div>
-              <BudgetForm />
-            </div>
-          )
-      }
-      
+            )
+            // ...else
+            : (
+              <div>
+                <BudgetForm />
+              </div>
+            )
+        }
+      </div>
     </section>
   )
 }
