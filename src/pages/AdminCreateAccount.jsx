@@ -1,10 +1,10 @@
-import SignUpForm from "../components/SignUpForm";
+import AdminSignUpForm from "../components/AdminSignUpForm";
 
 function AdminCreateAccount() {
   return (
     <div className="panel-admindash">
       <div className="admin-create-account">
-        <SignUpForm />
+        <AdminSignUpForm />
       </div>
     </div>
   );
