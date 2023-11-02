@@ -46,16 +46,18 @@
 
 
 
-.home-navbar{
-    background-color:#313953;
+.home-navbar {
+    position: fixed;
+    top: 0;
+    background-color: #313953;
     height: 10vh;
-    width: 100vw;
-    display:flex;
-    justify-content: space-between;;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: clamp(.8rem, 1vw, 1.2rem);
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
     white-space: nowrap;
-}
+  }
 
 .home-navbar img{
     margin-left:2vw;

@@ -10,17 +10,9 @@ export default function Home(){
         </div>
         <div id="two">
         <img src="src/images/guy.png" alt="" />
-        <span>“You need a bank partner who believes in you and is able to keep up with your financial needs. 
-          Wind Bank believed in me through the years. To me, that’s BetterBanking”</span>
-         <p> {"\n"} Donni Ahas Nietes - Boxer turned vlogger </p>
-        </div>
-        <div id="testimonials">
-        <img src="src/images/guy.png" alt="" />
-        </div>
-        <div id="testimonialsText">
-        <span>“You need a bank partner who believes in you and is able to keep up with your financial needs. 
-          Wind Bank believed in me through the years. To me, that’s BetterBanking”</span>
-         <span> Donni Ahas Nietes - Boxer turn vlogger </span>
+        <p>“You need a bank partner who believes in you and is able to keep up with your financial needs. 
+          Wind Bank believed in me through the years. To me, that’s BetterBanking”</p>
+         <span> {"\n"} Donni Ahas Nietes - Boxer turned vlogger </span>
         </div>
     
         <div id="three">
