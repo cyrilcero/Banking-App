@@ -1,6 +1,8 @@
 import { Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../App.css";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialUserData = [
   {
@@ -32,7 +34,17 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 }
 
 export default function AdminSignUpForm() {
-  const navigate = useNavigate();
+  const notify = () =>
+    toast.success("Account Created", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "colored",
+    });
   const [emailTaken, setEmailTaken] = useState(false);
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -95,9 +107,7 @@ export default function AdminSignUpForm() {
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
 
-      alert(
-        `Created account for ${inputValue.firstName} ${inputValue.lastName}`
-      );
+      notify();
 
       setInputValue({
         firstName: "",
@@ -168,12 +178,25 @@ export default function AdminSignUpForm() {
           onChange={handleChange}
         />
         <button type="submit">Sign up</button>
+
         {emailTaken && (
           <p className="errorMessage">
             *Email is already taken. Please choose a different email.
           </p>
         )}
       </Form>
+      <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+          theme="colored"
+        />
     </>
   );
 }
