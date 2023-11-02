@@ -1,5 +1,12 @@
 import { toast } from "react-toastify";
 
+/**
+ * Usage: used to call *SUCCESS* toastify toast with param as message
+ * 
+ * @param {string} text
+ * 
+ * Toast message
+ */
 function toastSuccess(text) {
   toast.success(text, {
     position: "top-center",
