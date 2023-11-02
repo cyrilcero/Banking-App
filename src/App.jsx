@@ -1,13 +1,23 @@
-
-import React from 'react';
-import { HomeNavBar } from './components/HomeNavBar';
-import Home from "./pages/Home";
-import { Outlet } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import { HomeNavBar } from "./components/HomeNavBar";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
       <HomeNavBar />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="colored"
+      />
       <Outlet />
     </>
   );

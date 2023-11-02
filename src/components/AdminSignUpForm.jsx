@@ -1,8 +1,9 @@
 import { Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../App.css";
-import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import toastSuccess from "../utils/toastSuccess";
+import toastError from "../utils/toastError";
 
 const initialUserData = [
   {
@@ -34,18 +35,6 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 }
 
 export default function AdminSignUpForm() {
-  const notify = () =>
-    toast.success("Account Created", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-    });
-  const [emailTaken, setEmailTaken] = useState(false);
   const [inputValue, setInputValue] = useState({
     firstName: "",
     lastName: "",
@@ -53,22 +42,32 @@ export default function AdminSignUpForm() {
     mobile: "",
     password: "",
     accountBalance: 0,
-    accountID: Date.now()
-      .toString()
-      .replace(/^\d{3}/, "00"),
     isAdmin: false,
+    accountID: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setInputValue((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
 
-    setEmailTaken(false);
+  const handlePasswordChange = (e) => {
+    setInputValue((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    if (inputValue.password.length >= 6) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Password is less than 6 characters");
+    }
   };
 
   useEffect(() => {
+    console.log(inputValue);
     const existingUserAccounts = JSON.parse(
       localStorage.getItem("UserAccounts")
     );
@@ -76,7 +75,7 @@ export default function AdminSignUpForm() {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify(initialUserData));
     }
-  }, []);
+  }, [inputValue]);
 
   function submitHandle(e) {
     e.preventDefault();
@@ -88,15 +87,16 @@ export default function AdminSignUpForm() {
     );
 
     if (isEmailTaken) {
-      setEmailTaken(true);
-      console.log("Email is already taken. Please choose a different email.");
-
+      toastError("Email is already taken. Please choose a different email.");
       setInputValue({
         firstName: "",
         lastName: "",
         email: "",
         mobile: "",
         password: "",
+        accountBalance: 0,
+        isAdmin: false,
+        accountID: "",
       });
     } else {
       const accountID = Date.now()
@@ -107,7 +107,9 @@ export default function AdminSignUpForm() {
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
 
-      notify();
+      toastSuccess(
+        `Created account for ${newUser.firstName} ${newUser.lastName}`
+      );
 
       setInputValue({
         firstName: "",
@@ -115,19 +117,16 @@ export default function AdminSignUpForm() {
         email: "",
         mobile: "",
         password: "",
-        accountBalance: "",
+        accountBalance: 0,
+        isAdmin: false,
+        accountID: "",
       });
     }
   }
 
   return (
     <>
-      <Form
-        action="/dashboard"
-        method="GET"
-        className="sign-up-form"
-        onSubmit={submitHandle}
-      >
+      <Form className="sign-up-form" onSubmit={submitHandle}>
         <h2>Create Account</h2>
         <Inputs
           text="First Name"
@@ -167,7 +166,7 @@ export default function AdminSignUpForm() {
           placeholder="***********"
           name="password"
           value={inputValue.password}
-          onChange={handleChange}
+          onChange={handlePasswordChange}
         />
         <Inputs
           text="Initial Balance"
@@ -179,24 +178,20 @@ export default function AdminSignUpForm() {
         />
         <button type="submit">Sign up</button>
 
-        {emailTaken && (
-          <p className="errorMessage">
-            *Email is already taken. Please choose a different email.
-          </p>
-        )}
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
       </Form>
       <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-          theme="colored"
-        />
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }
