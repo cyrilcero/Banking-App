@@ -545,6 +545,16 @@ body {
   padding-right: 2rem;
 }
 
+.select-input {
+  width: 80%;
+}
+
+.css-1u9des2-indicatorSeparator {
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .panel2-cashin {
   min-width: 100%;
   min-height: 50vh;

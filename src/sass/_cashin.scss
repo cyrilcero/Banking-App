@@ -1,5 +1,14 @@
 @use "./format" as *;
 
+.select-input {
+  width: 80%;
+}
+
+.css-1u9des2-indicatorSeparator {
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
 .cash-in {
   @extend %clientDashboard;
@@ -100,23 +109,23 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
- 
-.cashin-modal-content{
-  @extend %claymorph;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 2.5rem;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  color: $darkBlue;
-  @extend %flex;
-  flex-direction: column;
-}
+
+  .cashin-modal-content {
+    @extend %claymorph;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2.5rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    color: $darkBlue;
+    @extend %flex;
+    flex-direction: column;
+  }
 
   h1 {
     font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
   }
   p {
     font-size: 1rem;
@@ -124,19 +133,18 @@
   img {
     width: 20rem;
   }
-button{
-  width: 5rem;
-  background-color: $darkBlue;
-  color: #fff;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  margin: 1rem 0.3rem 0;
-  border-radius: 0.3rem;
-  cursor: pointer;
-
-}
-button:hover{
-  background-color: $lightBlue;
-  transform: scale(1.1);
-}
+  button {
+    width: 5rem;
+    background-color: $darkBlue;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    margin: 1rem 0.3rem 0;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: $lightBlue;
+    transform: scale(1.1);
+  }
 }

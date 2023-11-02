@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
+import Select from "react-select";
+import getLocalStorage from "../utils/getLocalStorage";
+import { flushSync } from "react-dom";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -25,11 +28,25 @@ function CashInForm() {
     lastName: "",
     email: "",
     accountBalance: "",
+    accountID: "",
   });
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
-
+  const dropDownOverAllSelection = getLocalStorage("UserAccounts");
+  const dropDownClientSelection = dropDownOverAllSelection.filter(
+    (items) => items.isAdmin === false
+  );
+  const dropDownItems = dropDownClientSelection.map((items) => ({
+    value: [
+      items.accountID,
+      items.email,
+      items.firstName,
+      items.lastName,
+      items.accountBalance,
+    ],
+    label: `${items.firstName} ${items.lastName} - ${items.email} `,
+  }));
   //toggle
   const handleWithdrawalToggle = () => {
     setIsWithdrawal(!isWithdrawal);
@@ -46,6 +63,17 @@ function CashInForm() {
     setNegativeAmount(false);
   };
 
+  function handleSelect(inputValue) {
+    setInputValue((prev) => ({
+      ...prev,
+      accountID: inputValue.value[0],
+      email: inputValue.value[1],
+      firstName: inputValue.value[2],
+      lastName: inputValue.value[3],
+      accountBalance: inputValue.value[4],
+    }));
+  }
+
   //useEffect
   useEffect(() => {
     const existingUserAccounts = JSON.parse(
@@ -55,7 +83,8 @@ function CashInForm() {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify([]));
     }
-  }, []);
+    console.log(inputValue);
+  }, [inputValue]);
 
   //onclick
   function validateInput(inputValue) {
@@ -66,7 +95,6 @@ function CashInForm() {
     }
     return true;
   }
-
 
   //onSubmit form
   function submitHandle(e) {
@@ -122,7 +150,7 @@ function CashInForm() {
           );
         }
 
-        const type = !isWithdrawal ? "Cash In" : "Withdrawal"
+        const type = !isWithdrawal ? "Cash In" : "Withdrawal";
 
         const transaction = {
           userId: inputValue.email,
@@ -132,7 +160,6 @@ function CashInForm() {
           type: type,
         };
 
-       
         const cashInHistory =
           JSON.parse(localStorage.getItem("CashInHistory")) || [];
         cashInHistory.push(transaction);
@@ -170,37 +197,18 @@ function CashInForm() {
       onSubmit={submitHandle}
     >
       <h2>{isWithdrawal ? "Withdraw" : "Deposit"}</h2>
-      <Inputs
-        text="Date Today"
-        type="text"
-        placeholder="mm/dd/yyyy"
-        name="lastTopUp"
-        value={inputValue.lastTopUp}
-        onChange={handleChange}
-      />
-      <Inputs
-        text="First Name"
-        type="text"
-        placeholder="juan"
-        name="firstName"
-        value={inputValue.firstName}
-        onChange={handleChange}
-      />
-      <Inputs
-        text="Last Name"
-        type="text"
-        placeholder="dela cruz"
-        name="lastName"
-        value={inputValue.lastName}
-        onChange={handleChange}
-      />
-      <Inputs
-        text="Email"
-        type="email"
-        placeholder="juandelacruz@gmail.com"
-        name="email"
-        value={inputValue.email}
-        onChange={handleChange}
+
+      <label htmlFor="accountSelector">Select Account</label>
+      <Select
+        className="select-input"
+        onChange={handleSelect}
+        options={dropDownItems}
+        isDisabled={false}
+        isLoading={false}
+        isClearable={false}
+        isRtl={false}
+        isSearchable={true}
+        name="accountID"
       />
       <Inputs
         text="Amount"
