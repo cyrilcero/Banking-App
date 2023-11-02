@@ -122,11 +122,14 @@ function CashInForm() {
           );
         }
 
+        const type = !isWithdrawal ? "Cash In" : "Withdrawal"
+
         const transaction = {
           userId: inputValue.email,
           date: localDate,
           amount: inputValue.accountBalance,
           deposit: isWithdrawal,
+          type: type,
         };
 
        

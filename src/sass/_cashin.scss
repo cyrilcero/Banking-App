@@ -45,10 +45,7 @@
   border: none;
   border-radius: 5px;
 }
-.cashin-lines {
-  width: 100%;
-  border: 2px solid;
-}
+
 .cashin-list {
   min-width: 100%;
   min-height: 5vh;
@@ -65,8 +62,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .cashin-btn {
   min-width: 5rem;
@@ -142,8 +139,4 @@ button:hover{
   background-color: $lightBlue;
   transform: scale(1.1);
 }
-}
-
-.none{
-  display: none;
 }

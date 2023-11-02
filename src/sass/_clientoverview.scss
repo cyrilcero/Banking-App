@@ -30,16 +30,11 @@
   flex-direction: column;
   padding: 1.5rem;
 
-  h3{
-    font-size: 1rem;
-    padding-bottom: 0.5rem;
-
-  }
+ 
   hr{
-    width: 100%;
     border: none;
-    border-bottom: 1px solid $darkBlue;
-    padding-bottom: 0.5rem;
+    width: 100%;
+  border: 2px solid;
   }
 }
 

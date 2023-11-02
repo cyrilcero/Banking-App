@@ -35,6 +35,7 @@ const TransferFunc = () => {
     accountName: "",
     date: localDate,
     transfer: moneySended,
+    type: "Money Transfer",
   });
 
 
@@ -88,7 +89,6 @@ const TransferFunc = () => {
           localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
 
           setMoneySended(true);
-          window.onload()
         } else {
           setAmountSufficient(false);
         }
