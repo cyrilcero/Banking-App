@@ -73,7 +73,6 @@ function ExpenseForm({ wallets }) {
 
         <button 
           type="submit" 
-          className="button-main"
         >
           <span className="btn-text">Add</span>
         </button>

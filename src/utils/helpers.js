@@ -17,8 +17,10 @@ export const deleteItem = ({ key, id }) => {
 export const wait = () => new Promise(response => setTimeout(response, Math.random() * 1000));
 
 // create wallet
-export const createWallet = ({ name, amount }) => {
+export const createWallet = ({ email, name, amount }) => {
+
   const newItem = {
+    email,
     id: crypto.randomUUID(),
     name,
     createdAt: Date.now(),
@@ -30,13 +32,14 @@ export const createWallet = ({ name, amount }) => {
 };
 
 // create expense
-export const addExpense = ({ name, amount, walletID }) => {
+export const addExpense = ({ email, name, amount, walletID }) => {
   const newItem = {
+    email,
     id: crypto.randomUUID(),
     name,
     createdAt: Date.now(),
     amount: +amount,
-    walletID: walletID,
+    walletID,
   }    
 
   const existingExpenses = getLocalStorage('expenses') ?? [];
@@ -55,6 +58,16 @@ export const calcSpentPerWallet = (walletID) => {
   }, 0);
 
   return walletSpent;
+};
+
+// total spent per user
+export const calcSpentPerUser = (email) => {
+  const expenses = getLocalStorage('expenses') ?? [];
+  const totalExpenses = expenses
+    .filter(expense => expense.email === email)
+    .reduce((acc, expense) => acc + expense.amount, 0);
+
+  return totalExpenses;
 };
 
 // Format percentage

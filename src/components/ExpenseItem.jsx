@@ -20,7 +20,7 @@ function ExpenseItem({ expense, showWallet }) {
       <td>
         {formatCurrency(expense.amount)}
       </td>
-    
+
       <td>
         {formatCreatedAt(expense.createdAt)}
       </td>

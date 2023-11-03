@@ -12,7 +12,7 @@ function WalletItem({ wallet }) {
     <div className='wallet-card'>
       <div className="progress-text">
         <h4 className='wallet-name'>{name}</h4>
-        <h4>{formatCurrency(amount)} alloted</h4>
+        <h4 className='align-left'>{formatCurrency(amount)} alloted</h4>
       </div>
 
       <progress max={amount} value={spent}>
@@ -21,14 +21,13 @@ function WalletItem({ wallet }) {
 
       <div className="progress-text">
         <h6>{formatCurrency(spent)} spent</h6>
-        <h6>{formatCurrency(amount - spent)} left</h6>
+        <h6 className='align-left'>{formatCurrency(amount - spent)} left</h6>
       </div>
 
       <div className='wallet-btns'>
       <div>
           <Link
             to={`budget-app/wallet/${id}`}
-            className='btn'
           >
             <button><FaRegEye /></button>
           </Link>
@@ -37,7 +36,7 @@ function WalletItem({ wallet }) {
         <div>
           <Form
             method='post'
-            // action='delete'
+            action='delete'
           >
             <input 
               type="hidden" 

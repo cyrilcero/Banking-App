@@ -6,7 +6,6 @@
 }
 
 .budget-app, .expenses-overview {
-  // border: 4px dotted red;
   width: 100%;
   max-height: 100vh;
   display: flex;  
@@ -173,8 +172,8 @@
   }
 
   .wallet-wrapper {
-    border: 2px dotted yellowgreen;
     @extend %flex;
+    width: 100%;
     flex-direction: column;
     gap: 1rem;
     padding: 0.5rem;  
@@ -197,8 +196,6 @@
     &::-webkit-scrollbar-thumb:hover {
       background: $darkBlue;
     }
-
-    
   }
 }
 
@@ -208,7 +205,7 @@
   flex-direction: column;
   gap: 0.2rem;
   padding: 1.5rem;
-  width: max(350px, 100%);
+  width: max(250px, 100%);
   height: 165px;
 
   progress {
@@ -244,6 +241,10 @@
       width: 100%;
     }
 
+    .align-left {
+      text-align: end;
+    }
+
     .wallet-name {
       font-weight: 700;
       text-transform: capitalize;
@@ -251,28 +252,72 @@
   }
 
   .wallet-btns {
-    border: 1px solid yellowgreen;
     width: 100%;
+    margin-top: 0.5rem;
     @extend %flex;
+    gap: 1rem;
 
-    &:hover {
-      opacity: 0.65;
-      transform: scale(1.1);
-    }
-
-    span {
-      font-weight: 400;
-      font-size: 1.5vmin;
+    button {
+      width: 100%;
+      height: max(100%, 2rem);
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.5rem;
+      border: $lightGreen;
+      outline: none;
+      background: $lightGreen;
+      box-shadow: $txtShadLBlue;
+      font-weight: 700;
       text-transform: uppercase;
       color: $darkBlue;
+      cursor: pointer;
+
+      &:hover{
+        color: $mainGray;
+        background: $lightBlue;
+        box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+      }
     }
+
   }
 }
 
 .overall-expenses {
+  border: 2px dotted black;
   grid-area: 2 / 2 / 4 / 4; 
-  border: 2px dotted red;
+  @extend %claymorph;
+  @extend %flex; 
   width: 100%;
+  height: min(100%, 280px);
+  padding: 1.5rem;
+  
+  .expensesvsbalance{
+    @extend %flex; 
+    gap: 1rem;
+    padding: 2rem;  
+    width: 100%;  
+
+    .circprogress {
+      width: min(100%, 150px);
+    }
+
+    .progress-text{
+      color: $darkBlue;
+      letter-spacing: 0.2rem;
+
+      h4, h5 {
+        font-weight: 400;
+      }
+
+      h3 {
+        font-size: 3.5vmin;
+        margin: 0.5rem 0 0.8rem;
+      }
+
+      h4 {
+        text-transform: uppercase;
+      }
+    }
+  }
 }
 
 .recent-expenses-wrapper {

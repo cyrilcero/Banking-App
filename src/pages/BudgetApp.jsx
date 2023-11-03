@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { toast } from 'react-toastify';
-import { getAllItems, getLocalStorage } from '../utils/localStorage';
+import { getLocalStorage } from '../utils/localStorage';
 import { Link, useLoaderData } from 'react-router-dom';
 
 // Components
@@ -11,6 +11,7 @@ import { addExpense, createWallet, deleteItem } from '../utils/helpers';
 import ExpenseForm from '../components/ExpenseForm';
 import WalletItem from '../components/WalletItem';
 import TableExpenses from '../components/TableExpenses';
+import ExpensesVsBalance from '../components/ExpensesVsBalance';
 
 // Loaders
 export function budgetAppLoader() {
@@ -24,6 +25,7 @@ export function budgetAppLoader() {
 export async function budgetAppAction({ request }) {
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);
+  const user = getLocalStorage('CurrentUser');
 
   // create a wallet
   if (_action === 'createWallet') {
@@ -31,6 +33,7 @@ export async function budgetAppAction({ request }) {
       createWallet({
         name: values.newWallet,
         amount: values.newWalletAmount,
+        email: user.email,
       });
 
       return toast.success(`Wallet ${values.newWallet.toLowerCase()} created!`);
@@ -44,9 +47,10 @@ export async function budgetAppAction({ request }) {
   if (_action === 'addExpense') {
     try {
       addExpense({
+        email: user.email,
         name: values.newExpense,
         amount: values.newExpenseAmount,
-        walletID: values.newExpenseWallet,
+        walletID: values.newExpenseWallet,  
       });
 
       return toast.success(`Expense ${values.newExpense.toLowerCase()} added!`);
@@ -69,6 +73,7 @@ export async function budgetAppAction({ request }) {
       throw new Error("There was a problem deleting your expense.")
     }
   }
+  
 };
 
 
@@ -110,7 +115,7 @@ function BudgetApp() {
                 <div className='forms-wrapper'>
 
                   {
-                    isBudgetForm ? (<BudgetForm />) : (<ExpenseForm wallets={wallets} />)
+                    isBudgetForm ? (<BudgetForm/>) : (<ExpenseForm wallets={wallets} />)
                   }
 
                   <h5 onClick={handleForm}>
@@ -119,7 +124,7 @@ function BudgetApp() {
                 </div>
 
                 <div className='overall-expenses'>
-                  Progress bar here
+                  <ExpensesVsBalance />
                 </div>
 
                 {

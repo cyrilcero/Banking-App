@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ToastContainer } from "react-toastify";
-import { createBrowserRouter, RouterProvider, useActionData } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-circular-progressbar/dist/styles.css';
 
 // Components
 import CashInAdmin from "./components/CashInAdmin.jsx";
@@ -12,7 +13,7 @@ import SecuredRoute, { LoggedInRoute, SecuredAdminRoute } from "./components/Sec
 // Pages
 import ClientOverview from "./pages/ClientOverview.jsx";
 import LogInPage from "./pages/LoginPage.jsx";
-import AdminDash from "./pages/AdminDash.jsx";
+import AdminDash from "./pages/AdminDash.jsx"; 
 import Signup from "./pages/Signup.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Home from "./pages/Home.jsx";
