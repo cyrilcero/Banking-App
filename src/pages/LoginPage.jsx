@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import toastError from "../utils/toastError";
 
 const initialUserData = [
   {
@@ -38,13 +41,16 @@ function LogInForm() {
       if (userExists.isAdmin === true) {
         navigate("/admin")
         setLoginData("")
+        
       } else {
         navigate(`/overview/${userExists.accountID}`)
         setLoginData("")
+
       }
     } else {
       setErrorMessage("Invalid credentials")
       // alert("Invalid credentials")
+      toastError('Login Failed.');
       setLoginData({username: "", password: ""})
     }
   }
@@ -61,6 +67,7 @@ function LogInForm() {
   }, [loginData])
 
   return (
+    <>
     <form className="login-form" onSubmit={handleSubmit}>
       <h1 className="login-form-title">Login</h1>
       <label htmlFor="username" className="login-form-label">Username</label>
@@ -80,6 +87,19 @@ function LogInForm() {
       <button type="submit" className="login-form-btn">Log In</button>
       {errorMessage && <p className="login-form-alert">{errorMessage}</p>}
     </form>
+    <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="colored"
+      />
+    </>
   );
 }
 
