@@ -1,7 +1,19 @@
 import { useState, useEffect } from "react";
 import { Form, Link, useNavigate } from "react-router-dom";
-
 import logo from "../assets/logo.png"
+
+const initialUserData = [
+  {
+    firstName: "admin",
+    lastName: "",
+    email: "admin@email.com",
+    mobile: "",
+    password: "admin00",
+    accountBalance: 0,
+    accountID: "admin",
+    isAdmin: true,
+  },
+];
 
 function LogInForm() {
   const [loginData, setLoginData] = useState({username: "", password: "", isLoggedIn: false})
@@ -39,6 +51,13 @@ function LogInForm() {
 
   useEffect(() => {
     console.log("LOGIN DATA", loginData)
+    const existingUserAccounts = JSON.parse(
+      localStorage.getItem("UserAccounts")
+    );
+
+    if (!existingUserAccounts) {
+      localStorage.setItem("UserAccounts", JSON.stringify(initialUserData));
+    }
   }, [loginData])
 
   return (

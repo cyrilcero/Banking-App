@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.logout-modal-content, .transfer-form, .transfer-history, .transactions-cashin, .cashin-modal .cashin-modal-content, .transactions-widget, .balance-overview {
+.logout-modal-content, .transfer-form, .transfer-history, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
   -webkit-backdrop-filter: blur(6px);
@@ -29,30 +29,13 @@
   padding: 3rem;
 }
 
-* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-}
-* :root {
-  --main-radius: 16px;
-  --main-padding: 5px;
-}
-* body {
-  margin: 0;
-  padding: 0;
-  min-width: 100%;
-  min-height: 100vh;
-  max-width: 100%;
-  max-height: 100vh;
-}
-* .App {
-  display: flex;
-  position: relative;
-  min-height: 100vh;
 }
 
 :root {
@@ -61,10 +44,11 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
+  display: grid;
+  min-width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  max-height: 100vh;
 }
 
 .App {
@@ -261,7 +245,7 @@ body {
   min-width: 40%;
   min-height: 60vh;
   max-width: 40%;
-  max-height: auto;
+  max-height: 60vh;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
@@ -272,15 +256,15 @@ body {
   word-wrap: break-word;
 }
 .sign-up-text h3 {
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(0.8rem, 3vw, 3rem);
   font-weight: bolder;
 }
 .sign-up-text p {
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 }
 
 .sign-up-img {
-  width: clamp(1rem, 30vw, 30rem);
+  width: clamp(0.5rem, 30vw, 30rem);
   position: absolute;
   bottom: 0;
   right: 1rem;
@@ -395,6 +379,55 @@ body {
   align-items: center;
 }
 
+.client-dashboard {
+  width: 100%;
+  height: auto;
+}
+
+.panel1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.panel2-overview {
+  min-width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.transactions-widget {
+  min-width: 60%;
+  max-height: 50vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #2f3a54;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.transactions-widget hr {
+  border: none;
+  width: 100%;
+  border: 2px solid;
+}
+
+.transaction-list {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .bank-card {
   width: 420px;
   height: 250px;
@@ -499,55 +532,6 @@ body {
   text-shadow: none;
 }
 
-.client-dashboard {
-  width: 100%;
-  height: auto;
-}
-
-.panel1 {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1rem 2.5rem;
-}
-
-.panel2-overview {
-  min-width: 100%;
-  min-height: 50vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2.5rem;
-}
-
-.transactions-widget {
-  min-width: 60%;
-  max-height: 50vh;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: #2f3a54;
-  flex-direction: column;
-  padding: 1.5rem;
-}
-.transactions-widget hr {
-  border: none;
-  width: 100%;
-  border: 2px solid;
-}
-
-.transaction-list {
-  min-width: 100%;
-  min-height: 5vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .select-input {
   width: 80%;
 }
@@ -617,6 +601,9 @@ body {
   align-items: center;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+.cashin-history h1 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .cashin-btn {
@@ -742,7 +729,7 @@ body {
   font-weight: bold;
 }
 .transfer-form-inputs label {
-  font-size: clamp(0.5rem, 1vw, 1rem);
+  font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: bolder;
 }
 
@@ -781,8 +768,14 @@ body {
   color: #2f3a54;
   flex-direction: column;
   overflow: auto;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+.transfer-history h1 {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+}
+.transfer-history hr {
+  width: 100%;
+  border: 2px solid;
 }
 
 .transfer-history-list {
@@ -838,10 +831,6 @@ body {
 .logout-modal button:hover {
   background-color: #3f9dd0;
   transform: scale(1.1);
-}
-
-.dashboard-container {
-  display: flex;
 }
 
 .dashboard-container {
@@ -903,6 +892,7 @@ body {
   align-items: center;
   font-size: clamp(0.8rem, 1vw, 1.2rem);
   white-space: nowrap;
+  z-index: 1;
 }
 
 .home-navbar img {
@@ -962,103 +952,6 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 1100px) {
-  .buttons1 {
-    display: none;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    position: absolute;
-    top: 85px;
-    background: #1f293b;
-    left: 0;
-    opacity: 1;
-    z-index: 1;
-  }
-  .home-nav-links {
-    font-size: 20px;
-    margin-left: 20px;
-    color: rgb(195, 196, 206);
-  }
-  .otherButton {
-    display: grid;
-    grid-template-columns: repeat(9, auto);
-    grid-gap: 1vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .otherButton {
-    display: none;
-  }
-  .NavbarItems {
-    position: relative;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 80px;
-    left: -100%;
-  }
-  .home-nav-menu.active {
-    background: #1f293b;
-    left: 0;
-    z-index: 1;
-  }
-  .home-nav-links {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-  }
-  .home-nav-links:hover {
-    background-color: #fff;
-    color: #242424;
-    border-radius: 0;
-  }
-  .home-navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
-  }
-  .menu-icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-  .fa-times {
-    color: #fff;
-    font-size: 2rem;
-  }
-  .nav-links-mobile {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
-    font-size: 1.5rem;
-    background-color: transparent;
-    color: #fff;
-    padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
-  }
-  .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
-  }
-}
 .container {
   display: grid;
   margin-top: 22vh;
@@ -1250,218 +1143,6 @@ body {
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #two {
-    background-color: white;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  .container {
-    margin-top: 13vh;
-    grid-gap: 0.5rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-/* Add media queries if needed */
-@media screen and (min-width: 769px) and (max-width: 979px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  #two {
-    background-color: white;
-  }
-  .container {
-    grid-gap: 0.5rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-@media screen and (min-width: 980px) and (max-width: 1300px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #two img {
-    width: 75%;
-    border-radius: 1rem;
-  }
-  #two p {
-    width: 75%;
-    margin-left: 5vw;
-  }
-  #two {
-    background-color: white;
-  }
-  #five img {
-    margin-top: 0vh;
-    height: 42vh;
-    margin-left: -2vw;
-  }
-  #six {
-    height: 75%;
-    margin-top: 5vh;
-  }
-  .container {
-    gap: 0.5rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
-  }
-}
-@media screen and (max-width: 1301px) {
-  #three span {
-    margin-left: 2.5vw;
-    font-size: 2rem;
-    line-height: 3.7vh;
-  }
-  #four h1 {
-    font-size: 2vw;
-    margin-bottom: 1vw;
-  }
-  #four p {
-    font-size: 1.4vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sign-up-logo {
-    position: fixed;
-  }
-  .sign-up-container {
-    min-width: 100%;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-  .signup-form-container {
-    min-width: 90%;
-    min-height: 120vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .sign-up-form {
-    min-width: 90%;
-    min-height: 50vh;
-    display: flex;
-    justify-content: center;
-  }
-  .signup-input-container {
-    min-width: 80%;
-    min-height: 5vh;
-    font-size: 1rem;
-  }
-  .signup-input-container input {
-    min-width: 100%;
-    min-height: 0.5vh;
-  }
-  .sign-up-text {
-    min-width: 90%;
-    min-height: 50vh;
-  }
-  .sign-up-img {
-    width: clamp(1rem, 30vw, 30rem);
-    position: absolute;
-    bottom: -15rem;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .login-page-container {
-    flex-direction: column;
-  }
-  .side-form-content {
-    display: none;
-    width: 90%;
-  }
-  .login-form {
-    width: 90%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .client-overview {
-    display: block;
-  }
-  .panel1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .balance-overview {
-    width: 370px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .balance-overview .account-details {
-    font-size: 0.5rem;
-  }
-  .balance-overview .account-details h1 {
-    font-size: 1rem;
-  }
-  .bank-card {
-    width: 370px;
-    height: 220px;
-    font-size: 0.5rem;
-  }
-  .panel2-overview {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
-    width: 370px;
-    height: 220px;
-  }
-}
 .admindash {
   background: linear-gradient(180deg, rgba(63, 157, 208, 0.2), rgba(255, 255, 255, 0.8));
   background-size: contain;
@@ -1744,4 +1425,356 @@ body {
 }
 .client-list-table tbody tr:nth-child(even) {
   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .sign-up-logo {
+    position: fixed;
+  }
+  .sign-up-container {
+    min-width: 100%;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .signup-form-container {
+    min-width: 90%;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .sign-up-form {
+    min-width: 90%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+  }
+  .signup-input-container {
+    min-width: 80%;
+    min-height: 5vh;
+    font-size: 1rem;
+  }
+  .signup-input-container input {
+    min-width: 100%;
+    min-height: 0.5vh;
+  }
+  .sign-up-text {
+    min-width: 90%;
+    min-height: 50vh;
+  }
+  .sign-up-img {
+    width: clamp(1rem, 30vw, 30rem);
+    position: absolute;
+    bottom: -15rem;
+  }
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
+  .cash-in {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .transfer {
+    display: block;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .transfer-page {
+    display: flex;
+    flex-direction: column;
+  }
+  .transfer-form-container {
+    width: 60%;
+  }
+  .panel2-transfer {
+    padding: 0;
+    min-height: 40vh;
+  }
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #two {
+    background-color: white;
+  }
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  .container {
+    margin-top: 13vh;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+  .otherButton {
+    display: none;
+  }
+  .NavbarItems {
+    position: relative;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+  }
+  .home-nav-menu.active {
+    background: #1f293b;
+    left: 0;
+    z-index: 1;
+  }
+  .home-nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+  .home-nav-links:hover {
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
+  }
+  .home-navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    padding: 14px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+  }
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+  }
+}
+@media screen and (max-width: 425px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .side-form-content {
+    display: none;
+    width: 90%;
+  }
+  .login-form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .client-overview {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .panel2-overview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
+    width: 370px;
+    height: 220px;
+  }
+}
+/* Add media queries if needed */
+@media screen and (min-width: 769px) and (max-width: 979px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  #two {
+    background-color: white;
+  }
+  .container {
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+}
+@media screen and (min-width: 980px) and (max-width: 1300px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #two img {
+    width: 75%;
+    border-radius: 1rem;
+  }
+  #two p {
+    width: 75%;
+    margin-left: 5vw;
+  }
+  #two {
+    background-color: white;
+  }
+  #five img {
+    margin-top: 0vh;
+    height: 42vh;
+    margin-left: -2vw;
+  }
+  #six {
+    height: 75%;
+    margin-top: 5vh;
+  }
+  .container {
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
+  }
+}
+@media screen and (max-width: 1301px) {
+  #three span {
+    margin-left: 2.5vw;
+    font-size: 2rem;
+    line-height: 3.7vh;
+  }
+  #four h1 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+  #four p {
+    font-size: 1.4vw;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .buttons1 {
+    display: none;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    position: absolute;
+    top: 85px;
+    background: #1f293b;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+  .home-nav-links {
+    font-size: 20px;
+    margin-left: 20px;
+    color: rgb(195, 196, 206);
+  }
+  .otherButton {
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    grid-gap: 1vw;
+  }
 }/*# sourceMappingURL=App.css.map */
