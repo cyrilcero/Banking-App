@@ -87,7 +87,8 @@ export default function AdminSignUpForm() {
     );
 
     if (isEmailTaken) {
-      toastError("Email is already taken. Please choose a different email.");
+      toastError(`Email ${inputValue.email}
+      is already taken. Please choose a different email.`);
       setInputValue({
         firstName: "",
         lastName: "",
