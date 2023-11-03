@@ -5,7 +5,7 @@ function ClientList() {
   const userList = getLocalStorage("UserAccounts");
   const clientList = userList.filter((item) => item.isAdmin === false);
   const recentAccounts = clientList
-    .slice(userList.length - 4, userList.length)
+    .slice(userList.length - 10, userList.length)
     .slice()
     .reverse();
     

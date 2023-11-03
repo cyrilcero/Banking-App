@@ -109,6 +109,9 @@ body {
 
 .navbar-icons {
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .link-text-closed {
@@ -543,6 +546,16 @@ body {
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.select-input {
+  width: 80%;
+}
+
+.css-1u9des2-indicatorSeparator {
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .panel2-cashin {
