@@ -35,36 +35,32 @@ function ExpenseForm({ wallets }) {
           </div>
         </div>
 
-        {
-          wallets.length > 1 && (
-            <div className="wallet-categ">
-              <label htmlFor="newExpenseWallet">
-                Wallet Label
-              </label>
-              <select 
-                name="newExpenseWallet" 
-                id="newExpenseWallet" 
-                required
-              >
-                {
-                  wallets
-                    .sort((a, b) => a.createdAt - b.createdAt)
-                    .map((wallet) => {
-                      return (
-                        <option
-                          key={wallet.id}
-                          value={wallet.id}
-                        >
-                          {wallet.name}
-                        </option>
-                      )
-                    })
-                }
-              </select>
-            </div>
-          )
-        }
-
+        <div className="wallet-categ">
+          <label htmlFor="newExpenseWallet">
+            Wallet Label
+          </label>
+          <select 
+            name="newExpenseWallet" 
+            id="newExpenseWallet" 
+            required
+          >
+            {
+              wallets
+                .sort((a, b) => a.createdAt - b.createdAt)
+                .map((wallet) => {
+                  return (
+                    <option
+                      key={wallet.id}
+                      value={wallet.id}
+                    >
+                      {wallet.name}
+                    </option>
+                  )
+                })
+            }
+          </select>
+        </div>
+    
         <input 
           type="hidden" 
           name="_action"

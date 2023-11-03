@@ -23,7 +23,12 @@
   }
 }
 
-.budget-app-wrapper {
+.budget-app-container {
+  height: 100%;
+  @extend %flex;
+}
+
+.budget-app-wrapper, {
   border: 4px dotted orange;
   padding: 1rem;
   width: 100%;

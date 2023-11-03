@@ -103,7 +103,7 @@ function BudgetApp() {
       <p>
         Welcome to Wind Bank's Budget App! Create a wallet for each of your budget category and start tracking your expenses.
       </p>
-      <div>
+      <div className='budget-app-container'>
         {
           wallets && wallets.length > 0 ?
             (
