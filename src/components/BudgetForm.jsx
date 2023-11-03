@@ -36,7 +36,7 @@ function BudgetForm() {
 
         <input 
           type="hidden" 
-          name="_action"
+          name="formAction"
           value="createWallet"
         />
 

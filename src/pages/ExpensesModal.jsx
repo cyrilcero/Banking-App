@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import { getLocalStorage } from '../utils/localStorage';
 import { deleteItem } from '../utils/helpers';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import TableExpenses from '../components/TableExpenses';
 
 
@@ -36,7 +36,6 @@ export async function expensesAction(request) {
 
 function ExpensesOverview() {
   const { expenses } = useLoaderData();
-  const navigate = useNavigate();
 
   return (
     <div className='expenses-overview'>
@@ -52,18 +51,28 @@ function ExpensesOverview() {
             </div>
           ) // ...else
           : <p>No expenses to show.</p>
-        }
-
-        <button className='back-btn'>
-          <Link
-            onClick={() => navigate(-1)}
-          >
-            <h5>Go back</h5>
-          </Link>
-        </button>    
+        }   
       </div>
     </div>
   )
 }
 
-export default ExpensesOverview
+function ExpensesModal({ isOpen, onClose }) {
+  if (!isOpen) {
+    return null;
+  }
+  
+  return (
+    <div className="expenses-modal">
+      <div className="expenses-modal-content">
+        <ExpensesOverview />
+        <button className="back-btn" onClick={onClose}>
+          Close
+        </button>
+      </div>
+    </div>
+  );
+
+};
+
+export default ExpensesModal

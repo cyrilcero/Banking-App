@@ -45,7 +45,7 @@ function ExpenseItem({ expense, showWallet }) {
         >
           <input 
             type="hidden" 
-            name='_action' 
+            name='formAction' 
             value='deleteExpense' 
           />
 
@@ -57,6 +57,7 @@ function ExpenseItem({ expense, showWallet }) {
 
           <button 
             type='submit'
+            className='delete-btn'
           >
             <FaTrashCan />
           </button>

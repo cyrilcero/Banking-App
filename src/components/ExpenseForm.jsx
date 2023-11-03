@@ -63,7 +63,7 @@ function ExpenseForm({ wallets }) {
     
         <input 
           type="hidden" 
-          name="_action"
+          name="formAction"
           value="addExpense"
         />
 

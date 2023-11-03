@@ -26,7 +26,6 @@ import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
 import BudgetApp, { budgetAppAction, budgetAppLoader } from "./pages/BudgetApp.jsx";
-import ExpensesOverview, { expensesAction, expensesLoader } from "./pages/ExpensesOverview.jsx";
 import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
 import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 
@@ -137,12 +136,6 @@ const router = createBrowserRouter([
         element: <BudgetApp />,
         loader: budgetAppLoader,
         action: budgetAppAction,
-      },
-      {
-        path: 'expenses',
-        element: <ExpensesOverview />,
-        loader: expensesLoader,
-        action: expensesAction,
       },
       {
         path: 'wallet/:id',

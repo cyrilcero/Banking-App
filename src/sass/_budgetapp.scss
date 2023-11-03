@@ -212,6 +212,12 @@
   padding: 1.5rem;
   width: max(250px, 100%);
   height: 165px;
+  opacity: 0.75;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
 
   progress {
     width: 100%;
@@ -338,7 +344,7 @@
   h3 {
     color: $darkBlue;
     text-shadow: $txtShadLBlue;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.2rem;
   }

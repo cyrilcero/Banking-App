@@ -1,14 +1,12 @@
 import React from 'react';
+import { getLocalStorage } from '../utils/localStorage';
+import { calcSpentPerUser } from '../utils/helpers';
 
 function BalanceOverview() {
-  const currentUser = JSON.parse(localStorage.getItem('CurrentUser'));
-  const accountID = currentUser.accountID;
-  const accountBal = Number(currentUser.accountBalance).toLocaleString(
-    "en-US", { 
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2 
-    });
-  
+  const user = getLocalStorage('CurrentUser');
+  const totalExpenses = calcSpentPerUser(user.email);
+  const remainingBalance = user.accountBalance - totalExpenses; 
+  const accountID = user.accountID;
     
   return (
     <div className='balance-overview'>
@@ -18,7 +16,7 @@ function BalanceOverview() {
       </div>
       
       <div className='account-balance'>
-        <h3 className='current-balance'><span>PHP </span>{accountBal}</h3>
+        <h3 className='current-balance'><span>PHP </span>{remainingBalance}</h3>
         <span>AVAILABLE BALANCE</span>
       </div>
     </div>

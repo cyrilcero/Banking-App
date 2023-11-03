@@ -12,6 +12,7 @@ import ExpenseForm from '../components/ExpenseForm';
 import WalletItem from '../components/WalletItem';
 import TableExpenses from '../components/TableExpenses';
 import ExpensesVsBalance from '../components/ExpensesVsBalance';
+import ExpensesModal from './ExpensesModal';
 
 // Loaders
 export function budgetAppLoader() {
@@ -24,11 +25,11 @@ export function budgetAppLoader() {
 // Action
 export async function budgetAppAction({ request }) {
   const data = await request.formData();
-  const { _action, ...values } = Object.fromEntries(data);
+  const { formAction, ...values } = Object.fromEntries(data);
   const user = getLocalStorage('CurrentUser');
 
   // create a wallet
-  if (_action === 'createWallet') {
+  if (formAction === 'createWallet') {
     try {
       createWallet({
         name: values.newWallet,
@@ -44,7 +45,7 @@ export async function budgetAppAction({ request }) {
   };
 
   // add an expense
-  if (_action === 'addExpense') {
+  if (formAction === 'addExpense') {
     try {
       addExpense({
         email: user.email,
@@ -61,7 +62,7 @@ export async function budgetAppAction({ request }) {
   };
 
   // delete expense item
-  if (_action === 'deleteExpense') {
+  if (formAction === 'deleteExpense') {
     try {
       deleteItem({
         key: 'expenses',
@@ -75,7 +76,7 @@ export async function budgetAppAction({ request }) {
   }
 
   // delete wallet
-  if (_action === 'deleteWallet') {
+  if (formAction === 'deleteWallet') {
     try {
       deleteWallet(values.walletID);
       
@@ -92,9 +93,18 @@ export async function budgetAppAction({ request }) {
 function BudgetApp() {
   const { wallets, expenses } = useLoaderData();
   const [isBudgetForm, setIsBudgetForm] = useState(false);
+  const [isExpensesModalOpen, setIsExpensesModalOpen] = useState(false);
 
   const handleForm = () => {
     setIsBudgetForm(!isBudgetForm);
+  };
+
+  const openExpensesModal = () => {
+    setIsExpensesModalOpen(true);
+  };
+
+  const closeExpensesModal = () => {
+    setIsExpensesModalOpen(false);
   };
 
   return (
@@ -150,16 +160,20 @@ function BudgetApp() {
                           .slice(0, 3)}
                       />
                       {expenses.length > 3 && (
-                        <Link
-                          to='/budget-app/expenses'
+                        <button
                           className='btn-text'
+                          onClick={openExpensesModal}
                         >
                           View all expenses
-                        </Link>
+                        </button>
                       )}
                     </div>
-                  )
-                }
+                  )}
+
+                  <ExpensesModal 
+                    isOpen={isExpensesModalOpen} 
+                    onClose={closeExpensesModal}
+                  />
               </div>
             )
             // ...else
