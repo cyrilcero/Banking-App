@@ -1,17 +1,44 @@
-import React from 'react';
-import ClientDashboard from '../components/ClientDashboard';
-import GreetingDash from '../components/GreetingDash';
+import React from "react";
+import GreetingDash from "../components/GreetingDash";
+import BalanceOverview from "../components/BalanceOverview";
+import TransferFunc from "../components/TransferFunc";
 
-function Transfer() {
+function TransferHistory({ amount, receiver }) {
   return (
-    <section className='transfer'>
-      <GreetingDash/>
-      <ClientDashboard/>
-      <div className="panel2-transfer">
-        <div className="transfer-history">THIS IS FOR TRANSFER HISTORY</div>
-      </div>
-    </section>
-  )
+    <ul className="transfer-history-list">
+      <li>Money Transfered</li>
+      <li>{receiver}</li>
+      <li>&#8369;{amount}</li>
+    </ul>
+  );
 }
 
-export default Transfer
+function Transfer() {
+  const currentUser = JSON.parse(localStorage.getItem("CurrentUser")) || {};
+  const email = currentUser.email || "";
+
+  const cashInHistory = JSON.parse(localStorage.getItem("CashInHistory")) || [];
+  const transferHistory = cashInHistory.filter((entry) => entry.sender === email && entry.transfer === true);
+
+  return (
+    <section className="transfer">
+      <GreetingDash />
+      <div className="transfer-page">
+        <div className="transfer-form-container">
+          <TransferFunc/>
+        </div>
+        <div className="panel2-transfer">
+            <BalanceOverview />
+          <div className="transfer-history">
+          <h1>Transfer In History</h1>
+          <hr/>
+            {transferHistory.map((entry, index) => (
+        <TransferHistory key={index} amount={entry.amount} receiver={entry.accountName}/>
+      ))}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Transfer;

@@ -1,32 +1,23 @@
-@import "./sass/reset";
-@import "./sass/format",
-"./sass/navbar";
-@import "./sass/signup";
- 
+@use "./sass/reset";
+@use "./sass/format";
+@use "./sass/navbar";
+@use "./sass/signup";
+@use "./sass/loginpage";
+@use "./sass/landingpage";
+@use "./sass/clientdashboard";
+@use "./sass/clientoverview";
+@use './sass/bankcard';
+@use './sass/greetingdash';
+@use './sass/balanceoverview';
+@use "./sass/cashin";
+@use "./sass/settings";
+@use "./sass/transfer";
+@use "./sass/logoutmodal";
+@use "./sass/dashboardcontainer";
+@use './sass/homenavbar';
+@use './sass/home';
+@use './sass/admindash';
+@use "./sass/adminnavbar";
+@use "./sass/clientoverviewlist";
+@use './sass/mediaqueries';
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-}
-
-.App {
-  display: flex;
-  position: relative; 
-  min-height: 100vh;
-}
-
-.landing-page {
-  @extend %flex;
-  width: 100%;
-  height: 100vh;
-  border: 5px solid pink;
-}
-
-@import "./sass/navbar",
-"./sass/clientdashboard",
-"./sass/clientoverview",
-"./sass/cashin", "./sass/settings",
-"./sass/transfer",
-"./sass/logoutmodal", "./sass/loginpage";

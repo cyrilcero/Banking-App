@@ -2,6 +2,10 @@ import React from "react";
 import { Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import toastSuccess from "../utils/toastSuccess";
+import toastError from "../utils/toastError";
 
 const initialUserData = [
   {
@@ -32,7 +36,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-export default function SignUpForm(){
+export default function SignUpForm() {
   const navigate = useNavigate();
   const [emailTaken, setEmailTaken] = useState(false);
   const [inputValue, setInputValue] = useState({
@@ -79,7 +83,7 @@ export default function SignUpForm(){
     if (isEmailTaken) {
       setEmailTaken(true);
       console.log("Email is already taken. Please choose a different email.");
-
+      toastError("Email Taken.");
       setInputValue({
         firstName: "",
         lastName: "",
@@ -105,7 +109,8 @@ export default function SignUpForm(){
         password: "",
       });
 
-      navigate("/login"); // change to login path
+      navigate("/login");
+      toastSuccess('Created Account Successfully.');
     }
   }
 
@@ -165,6 +170,18 @@ export default function SignUpForm(){
           </p>
         )}
       </Form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
-};
+}

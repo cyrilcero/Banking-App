@@ -1,0 +1,203 @@
+@use './format' as *;
+
+.container {
+    display: grid;
+    margin-top: 22vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.8fr 1.2fr 1.2fr 1.5fr;
+    grid-template-areas:
+      "one two three three"
+      "one two three three"
+      "five two six four"
+      "five two six four";
+    grid-gap: 1rem;
+    grid-row-gap: 2rem;
+    color: #004d40;
+    text-align: center;
+    height:60vh;
+   
+   
+  }
+  
+  
+  /* Styles for individual elements go here */
+  #one {
+    background: #F8EECD;
+    grid-area: one;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    transition: transform 0.5s;
+  }
+
+    #one span{
+        
+        font-size: clamp(1rem, 2.5rem, 3rem);
+        font-weight: 800;
+        font-style: normal;
+        line-height:2rem;
+        display: flex;
+        margin-left: 2vw;
+        color: #2F3A54;
+        margin-top: 1vw;
+    }
+
+    #one img{
+        display: flex;
+        width:clamp(100px, 1vw, 200px);
+        margin-left: 2vw;
+        margin-top: 1.5vw;
+
+    }
+  
+  #two {
+    background: #CDE3DE;
+    grid-area: two;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    transition: transform 0.5s;
+  }
+  #one:hover{
+    transform: scale(0.9);
+  }
+  #two:hover{
+    transform: scale(0.9);
+  }
+  #three:hover{
+    transform: scale(0.9);
+  }
+  #four:hover{
+    transform: scale(0.9);
+  }
+  #five:hover{
+    transform: scale(0.9);
+  }
+  #six:hover{
+    transform: scale(0.9);
+  }
+
+
+
+
+  #two img{
+    margin-top: -.4vw;
+    height: 70%;
+    width: 100%;
+  }
+
+  #two p {
+    display: flex;
+    margin-top: 1vh;
+    color: #2F3A54;
+    font-family: "League Spartan", sans-serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    margin-left: 1vw;
+    margin-top: -0.1vw;
+  }
+  
+  #two span {
+    margin-top: 1vh;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #2F3A54;
+    font-family: "League Spartan", sans-serif;
+  }
+  
+  
+  #three {
+    background: #DACCEF;
+    grid-area: three;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    text-align: left;
+    line-height: 4.5vh;
+    font-family: 'League Spartan', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #2F3A54;
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s;
+  
+  }
+  #three span{
+    margin-left: 2.5vw;
+    font-size: clamp(.5rem, 2.3rem, 3rem);
+  }
+
+
+  #three button{    
+    margin-right: clamp(2vw, 3vw, 10vw);
+        margin-top: 10vh;
+        background: #D1FFBC;
+        border-radius: 16px;
+        width:20vw;
+        padding:10px 30px;
+  }
+  #four {
+    background: #F3DBC6;
+    grid-area: four;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    font-family: 'League Spartan', sans-serif;
+    color: #2F3A54;
+    transition: transform 0.5s;
+  }
+
+  #four h1{
+    margin-top: 1vw;
+    margin-left: 1vw;
+    line-height: 2vw;
+    margin-bottom: 3vw; 
+    font-weight: 600;
+    text-align: left;
+  }
+
+  #four p{
+    text-align: left;
+    margin-left: 1vw;
+  }
+  
+  #five {
+    background: #CADDF0;
+    grid-area: five;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    transition: transform 0.5s;
+  }
+
+    #five img{
+        display: flex;
+        margin-top: -10.7vh;
+        height: 42vh;
+        margin-left: -2vw;
+    }
+  
+  #six {
+    background: #EDC7DE;
+    grid-area: six;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    transition: transform 0.5s;
+  }
+
+  #tree {
+    display:none;
+    background: none;
+    grid-area: tree;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+  }
+
+  #six img{
+  
+    height: 100%;
+    width:100%;
+    
+  }
+  
+  

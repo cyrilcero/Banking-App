@@ -1,3 +1,5 @@
+@use "./format" as *;
+
 .sign-up-page {
   min-width: 100%;
   min-height: 100vh;
@@ -10,9 +12,7 @@
   min-height: 10vh;
   max-width: 100%;
   max-height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flex;
   background-color: $darkBlue;
 
   img {
@@ -43,7 +43,7 @@
   border-radius: 20px;
   background-color: $darkBlue;
   color: $darkBlue;
-  label{
+  label {
     font-size: clamp(1rem, 1vw, 1rem);
   }
   h2 {
@@ -83,9 +83,7 @@
   min-height: 60vh;
   max-width: 40%;
   max-height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flex;
   flex-direction: column;
   border-radius: 20px;
   background-color: white;
@@ -103,7 +101,7 @@
     border: none;
     margin-top: 1rem;
   }
-  .errorMessage{
+  .errorMessage {
     font-size: clamp(0.5rem, 0.8vw, 0.8rem);
     color: red;
     padding: 0.5rem;
@@ -114,7 +112,7 @@
   min-width: 40%;
   min-height: 60vh;
   max-width: 40%;
-  max-height: auto;
+  max-height: 60vh;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
@@ -125,67 +123,17 @@
   word-wrap: break-word;
 
   h3 {
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(0.8rem, 3vw, 3rem);
     font-weight: bolder;
   }
   p {
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   }
 }
 
 .sign-up-img {
-  width: clamp(1rem, 30vw, 30rem);
+  width: clamp(0.5rem, 30vw, 30rem);
   position: absolute;
   bottom: 0;
   right: 1rem;
-}
-
-@media screen and (max-width: 768px) {
-  .sign-up-logo {
-    position: fixed;
-  }
-  .sign-up-container {
-    min-width: 100%;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
-  .signup-form-container {
-    min-width: 90%;
-    min-height: 120vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sign-up-form {
-    min-width: 90%;
-    min-height: 50vh;
-    display: flex;
-    justify-content: center;
-
-  
-  }
-
-  .signup-input-container {
-    min-width: 80%;
-    min-height: 5vh;
-    font-size: 1rem;
-
-    input {
-      min-width: 100%;
-      min-height: 0.5vh;
-    }
-  }
-
-  .sign-up-text {
-    min-width: 90%;
-    min-height: 50vh;
-  }
-
-  .sign-up-img {
-    width: clamp(1rem, 30vw, 30rem);
-    position: absolute;
-    bottom: -15rem;
-  
-  }
 }

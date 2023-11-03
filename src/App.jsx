@@ -1,17 +1,25 @@
-import "./App.css";
-import { Link } from "react-router-dom";
-
-// Test Pages -- Remove later
-import LandingPage from "./components/TestPages/LandingPage";
+import { ToastContainer } from "react-toastify";
+import { HomeNavBar } from "./components/HomeNavBar";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div style={{display:"flex", flexDirection:"column"}}>
-      <LandingPage />
-      <Link to={"/create-account"}>GO TO CREATE ACCOUNT</Link>
-      <Link to={"/login"}>GO TO LOGIN</Link>
-
-    </div>
+    <>
+      <HomeNavBar />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="colored"
+      />
+      <Outlet />
+    </>
   );
 }
 
