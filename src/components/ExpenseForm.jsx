@@ -36,7 +36,7 @@ function ExpenseForm({ wallets }) {
         </div>
 
         {
-          wallets && wallets.length > 1 && (
+          wallets.length > 1 && (
             <div className="wallet-categ">
               <label htmlFor="newExpenseWallet">
                 Wallet Label

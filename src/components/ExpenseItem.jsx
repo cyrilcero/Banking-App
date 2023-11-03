@@ -57,7 +57,6 @@ function ExpenseItem({ expense, showWallet }) {
 
           <button 
             type='submit'
-            className='delete-btn'
           >
             <FaTrashCan />
           </button>

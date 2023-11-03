@@ -36,23 +36,25 @@ function WalletItem({ wallet }) {
         <div>
           <Form
             method='post'
-            action='delete'
           >
             <input 
               type="hidden" 
-              name="_action"
-              value="deleteWallet"
+              name='_action' 
+              value='deleteWallet' 
             />
 
             <input 
               type="hidden" 
               name='walletID'
               value={wallet.id}
-            />
+            />  
 
-            <button type='submit'>
+            <button 
+              type='submit'
+            >
               <FaTrashCan />
             </button>
+
           </Form>
         </div>
       </div>     

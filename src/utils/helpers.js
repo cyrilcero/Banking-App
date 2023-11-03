@@ -13,6 +13,18 @@ export const deleteItem = ({ key, id }) => {
   return localStorage.removeItem(key)
 }
 
+// delete wallet
+export function deleteWallet(walletID) {
+  const wallets = getLocalStorage('wallets');
+  const expenses = getLocalStorage('expenses');
+
+  const updatedWallets = wallets.filter(w => w.id !== walletID);
+  const updatedExpenses = expenses.filter(e => e.walletID !== walletID);
+
+  localStorage.setItem('wallets', JSON.stringify(updatedWallets));
+  localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+}
+
 // wait for response effect
 export const wait = () => new Promise(response => setTimeout(response, Math.random() * 1000));
 

@@ -7,7 +7,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 // Components
 import GreetingDash from '../components/GreetingDash';
 import BudgetForm from '../components/BudgetForm';
-import { addExpense, createWallet, deleteItem } from '../utils/helpers';
+import { addExpense, createWallet, deleteItem, deleteWallet } from '../utils/helpers';
 import ExpenseForm from '../components/ExpenseForm';
 import WalletItem from '../components/WalletItem';
 import TableExpenses from '../components/TableExpenses';
@@ -73,7 +73,19 @@ export async function budgetAppAction({ request }) {
       throw new Error("There was a problem deleting your expense.")
     }
   }
-  
+
+  // delete wallet
+  if (_action === 'deleteWallet') {
+    try {
+      deleteWallet(values.walletID);
+      
+      toast.success('Wallet deleted!');
+    } catch (error) {
+      throw new Error('There was a problem deleting your wallet.'); 
+    }
+  }
+
+  return null;   
 };
 
 
