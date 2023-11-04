@@ -11,6 +11,12 @@ function ExpenseItem({ expense, showWallet }) {
     value: expense.walletID,
   })[0];
 
+  function handleSubmit(e) {
+    if (!confirm("Are you sure you want to permanently delete this item?")) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <>
       <td>
@@ -41,15 +47,7 @@ function ExpenseItem({ expense, showWallet }) {
       <td>
         <Form
           method='post'
-          onSubmit={(e) => {
-            if (
-              !confirm(
-                "Are you sure you want to permanently delete this item?"
-              )
-            ) {
-              e.preventDefault();
-            }
-          }}
+          onSubmit={handleSubmit}
         >
           <input 
             type="hidden" 

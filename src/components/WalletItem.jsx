@@ -8,6 +8,12 @@ function WalletItem({ wallet }) {
   const { id, name, amount } = wallet;
   const spent = calcSpentPerWallet(id);
 
+  function handleSubmit(e) {
+    if (!confirm("Are you sure you want to permanently delete this item?")) {
+      e.preventDefault();
+    }
+  }
+
   return (
     
     <div className='wallet-card'>
@@ -30,15 +36,7 @@ function WalletItem({ wallet }) {
       <div className='wallet-btns'>
         <Form
           method='post'
-          onSubmit={(e) => {
-            if (
-              !confirm(
-                "Are you sure you want to permanently delete this wallet?"
-              )
-            ) {
-              e.preventDefault();
-            }
-          }}
+          onSubmit={handleSubmit}
         >
           <input 
             type="hidden" 
