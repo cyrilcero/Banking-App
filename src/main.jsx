@@ -19,6 +19,7 @@ import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
+import Settings from "./pages/Settings.jsx";
 
 import {
   LoggedInRoute,
@@ -103,6 +104,16 @@ const router = createBrowserRouter([
         element: (
           <SecuredRoute>
             <Transfer />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
+      
+      {
+        path: "settings/:id",
+        element: (
+          <SecuredRoute>
+            <Settings />
           </SecuredRoute>
         ),
         loader: ({ params }) => params.id,
