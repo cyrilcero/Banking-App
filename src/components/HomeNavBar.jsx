@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
-//----------------------------DOnni Rhey---------------------------------------------------------------------------
+import logo from '../assets/Group_2.png'
 
 
 export const HomeNavBar = () => {
@@ -31,7 +31,7 @@ export const HomeNavBar = () => {
         <nav className="home-navbar">
           <div className="home-navbar-container">
             <Link to="/" className="navbar-logo">
-              <img src="src/images/Group_2.png" alt="Logo" />
+              <img src={logo} alt="Logo" />
             </Link>
             <div className="menu-icon" onClick={handleClick}>
               <i className={click ? "fas fa-times" : "fas fa-bars"} />

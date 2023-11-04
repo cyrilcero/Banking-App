@@ -6,6 +6,9 @@
 @use "./sass/landingpage";
 @use "./sass/clientdashboard";
 @use "./sass/clientoverview";
+@use './sass/bankcard';
+@use './sass/greetingdash';
+@use './sass/balanceoverview';
 @use "./sass/cashin";
 @use "./sass/settings";
 @use "./sass/transfer";
@@ -13,8 +16,8 @@
 @use "./sass/dashboardcontainer";
 @use './sass/homenavbar';
 @use './sass/home';
-@use './sass/mediaqueries';
 @use './sass/admindash';
 @use "./sass/adminnavbar";
 @use "./sass/clientoverviewlist";
+@use './sass/mediaqueries';
 

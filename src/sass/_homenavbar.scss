@@ -57,6 +57,7 @@
     align-items: center;
     font-size: clamp(0.8rem, 1vw, 1.2rem);
     white-space: nowrap;
+    z-index: 1;
   }
 
 .home-navbar img{
@@ -116,121 +117,4 @@
 
 .otherButton{
     display: none;
-}
-@media screen and (max-width: 1100px){
-   .buttons1{
-    display: none;
-   }
-    .home-nav-menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        width:100%;
-        position:absolute;
-        top: 85px;
-        background: #1f293b;
-        left: 0;
-        opacity: 1;
-        z-index: 1;
-    }
-
-    .home-nav-links{
-    font-size: 20px;
-    margin-left: 20px;
-    color:rgb(195, 196, 206);
-    }
-
-    .otherButton{
-        display: grid;
-        grid-template-columns: repeat(9,auto);
-        grid-gap: 1vw;
-     
-    }
-
-}
-
-
-@media screen and (max-width: 768px){
-  
-    .otherButton{
-        display: none;
-    }
-
-    .NavbarItems{
-        position: relative;
-    }
-
-    .home-nav-menu{
-        display: flex;
-        flex-direction: column;
-        width:100%;
-        position:absolute;
-        top: 80px;
-        left: -100%;
-        
-    }
-
-
-    .home-nav-menu.active{
-        background: #1f293b;
-        left: 0;
-        z-index: 1;
-    }
-
-    .home-nav-links{
-        text-align: center;
-        padding: 2rem;
-        width: 100%;
-        display: table;
-    }
-
-    .home-nav-links:hover{
-        background-color: #fff;
-        color: #242424;
-        border-radius: 0;
-    }
-
-    .home-navbar-logo{
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(25%, 50%);
-    }
-
-
-    .menu-icon{
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        cursor: pointer;
-    }
-
-    .fa-times{
-        color: #fff;
-        font-size: 2rem;
-    }
-
-    .nav-links-mobile{
-        display: block;
-        text-align: center;
-        margin: 2rem auto;
-        border-radius: 4px;
-        width: 80%;
-        text-decoration: none;
-        font-size: 1.5rem;
-        background-color: transparent;
-        color: #fff;
-        padding: 14px 20px;
-        border: 1px solid #fff;
-        transition: all 0.3s ease-out;
-    }
-
-    .nav-links-mobile:hover{
-        background:#fff;
-        color: #242424;
-        transition: 250ms;
-    }
 }

@@ -1,18 +1,24 @@
 import '../App.css';
+import guy from '../assets/guy.png';
+import wing from '../assets/pngwing1.png';
+import girl from '../assets/clapping.png';
+import hands from '../assets/giving.png';
+import tree from '../assets/growWith-us.png';
+
 
 export default function Home(){
       return (
         <div className="container"> {/* Apply the CSS class directly */}
         <div id="one">
-        <img src="src/images/pngwing1.png" alt="" />
+        <img src={wing} alt="logo" />
           <span>Welcome to </span>
           <span>WindBank!</span>
         </div>
         <div id="two">
-        <img src="src/images/guy.png" alt="" />
+        <img src={guy} alt="erwan-img" />
         <p>“You need a bank partner who believes in you and is able to keep up with your financial needs. 
           Wind Bank believed in me through the years. To me, that’s BetterBanking”</p>
-         <span> {"\n"} Donni Ahas Nietes - Boxer turned vlogger </span>
+         <span> {"\n"} Erwan Heussaff </span>
         </div>
     
         <div id="three">
@@ -25,13 +31,13 @@ export default function Home(){
           <p>WindBank offers real-time tracking of your spending habits. It categorizes your expenses automatically, making it easy to see where your money is going.</p>
         </div>
         <div id="five">
-        <img src="src/images/clapping.png" alt="" />
+        <img src={girl} alt="3d-girl" />
         </div>
         <div id="six">
-        <img src="src/images/giving.png" alt="" />
+        <img src={hands} alt="hand with coins" />
         </div>
         <div id="tree">
-        <img src="src/images/growWith-us.png" alt="" />
+        <img src={tree} alt="tree" />
         <span>Grow your money with us!</span>
         </div>
       </div>
