@@ -38,10 +38,18 @@ function ExpenseItem({ expense, showWallet }) {
         )
       }
 
-      {/* delete expense item */}
       <td>
         <Form
           method='post'
+          onSubmit={(e) => {
+            if (
+              !confirm(
+                "Are you sure you want to permanently delete this item?"
+              )
+            ) {
+              e.preventDefault();
+            }
+          }}
         >
           <input 
             type="hidden" 
