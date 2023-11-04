@@ -6,10 +6,11 @@ export async function budgetAppAction({ request }) {
   const data = await request.formData();
   const { formAction, ...values } = Object.fromEntries(data);
   const user = getLocalStorage('CurrentUser');
+  const form = document.querySelector('.budgetapp-form');
 
-  // create a wallet
-  if (formAction === 'createWallet') {
-    try {
+  try {
+    // create a wallet
+    if (formAction === 'createWallet') {
       createWallet({
         name: values.newWallet,
         amount: values.newWalletAmount,
@@ -17,15 +18,10 @@ export async function budgetAppAction({ request }) {
       });
 
       return toast.success(`Wallet ${values.newWallet.toLowerCase()} created!`);
-      
-    } catch (error) {
-      throw new Error('Hmm, seems like there is a problem creating your wallet.');
     }
-  };
 
-  // add an expense
-  if (formAction === 'addExpense') {
-    try {
+    // add an expense
+    if (formAction === 'addExpense') {
       addExpense({
         email: user.email,
         name: values.newExpense,
@@ -34,34 +30,31 @@ export async function budgetAppAction({ request }) {
       });
 
       return toast.success(`Expense ${values.newExpense.toLowerCase()} added!`);
-      
-    } catch (error) {
-      throw new Error('Hmm, seems like there is a problem adding your expense.');
     }
-  };
 
-  // delete expense item
-  if (formAction === 'deleteExpense') {
-    try {
+    // delete expense item
+    if (formAction === 'deleteExpense') {
       deleteItem({
         key: 'expenses',
         id: values.expenseID,
       });
 
       return toast.success('Expense deleted!')
-    } catch (error) {
-      throw new Error("There was a problem deleting your expense.")
     }
-  }
 
-  // delete wallet
-  if (formAction === 'deleteWallet') {
-    try {
+    // delete wallet
+    if (formAction === 'deleteWallet') {
       deleteWallet(values.walletID);
       
       toast.success('Wallet deleted!');
-    } catch (error) {
-      throw new Error('There was a problem deleting your wallet.'); 
+    }
+  } catch (error) {
+
+    throw new Error('Hmm, seems like there was a problem doing this action.')
+  } finally {
+    
+    if (form) {
+      form.reset();
     }
   }
 
