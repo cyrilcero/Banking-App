@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { getLocalStorage } from "../utils/localStorage";
 import ClientDashboard from "../components/ClientDashboard";
 import GreetingDash from "../components/GreetingDash";
-import { useNavigate } from "react-router-dom";
+
 
 function AllTransaction({ amount, type, date }) {
   return (
@@ -14,9 +16,9 @@ function AllTransaction({ amount, type, date }) {
 }
 
 function ClientOverview() {
-  const currentUser = JSON.parse(localStorage.getItem("CurrentUser")) || {};
+  const currentUser = getLocalStorage("CurrentUser") || {};
   const email = currentUser.email || "";
-  const cashInHistory = JSON.parse(localStorage.getItem("CashInHistory")) || [];
+  const cashInHistory = getLocalStorage("CashInHistory") || [];
   const transactionHistory = cashInHistory.filter((entry) => entry.userId === email || entry.sender === email);
 
   const [user, setUser] = useState(null);

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { Form, Link, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toastError } from "../utils/toastify";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png"
+import { getLocalStorage, setLocalstorage } from "../utils/localStorage";
+
 
 const initialUserData = [
   {
@@ -32,7 +34,7 @@ function LogInForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    const listOfUsers = JSON.parse(localStorage.getItem("UserAccounts"))
+    const listOfUsers = getLocalStorage("UserAccounts")
     const userExists = listOfUsers.find(user => user.email === loginData.username && user.password === loginData.password)
 
     if (userExists) {
@@ -57,12 +59,10 @@ function LogInForm() {
 
   useEffect(() => {
     console.log("LOGIN DATA", loginData)
-    const existingUserAccounts = JSON.parse(
-      localStorage.getItem("UserAccounts")
-    );
+    const existingUserAccounts = getLocalStorage("UserAccounts");
 
     if (!existingUserAccounts) {
-      localStorage.setItem("UserAccounts", JSON.stringify(initialUserData));
+      setLocalstorage({ UserAccounts, initialUserData })
     }
   }, [loginData])
 

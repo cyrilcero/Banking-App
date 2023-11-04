@@ -11,7 +11,7 @@ import ExpenseForm from '../components/ExpenseForm';
 import WalletItem from '../components/WalletItem';
 import TableExpenses from '../components/TableExpenses';
 import ExpensesVsBalance from '../components/ExpensesVsBalance';
-import ExpensesModal from './ExpensesModal';
+import ExpensesModal from '../components/ExpensesModal';
 
 // Loaders
 export function budgetAppLoader() {

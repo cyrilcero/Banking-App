@@ -1,7 +1,9 @@
 import React from "react";
+import { getLocalStorage } from "../utils/localStorage";
 import GreetingDash from "../components/GreetingDash";
 import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
+
 
 function TransferHistory({ amount, receiver }) {
   return (
@@ -14,10 +16,10 @@ function TransferHistory({ amount, receiver }) {
 }
 
 function Transfer() {
-  const currentUser = JSON.parse(localStorage.getItem("CurrentUser")) || {};
+  const currentUser = getLocalStorage("CurrentUser") || {};
   const email = currentUser.email || "";
 
-  const cashInHistory = JSON.parse(localStorage.getItem("CashInHistory")) || [];
+  const cashInHistory = getLocalStorage("CashInHistory") || [];
   const transferHistory = cashInHistory.filter((entry) => entry.sender === email && entry.transfer === true);
 
   return (

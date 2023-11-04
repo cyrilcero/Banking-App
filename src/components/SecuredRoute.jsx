@@ -16,7 +16,7 @@ export function SecuredRoute({ children }) {
 
 export function SecuredAdminRoute({ children }) {
   const paramID = useLoaderData();
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
   console.log(paramID);
   if (!currentUser || currentUser.isAdmin === false) {
     // insert toast/alert here
@@ -27,7 +27,7 @@ export function SecuredAdminRoute({ children }) {
 }
 
 export function LoggedInRoute({ children }) {
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
   const paramID = useLoaderData();
   console.log(paramID);
   if (currentUser && currentUser.isAdmin === true) {
