@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Link, useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import { FaTrashCan } from "react-icons/fa6";
 import { calcSpentPerWallet, formatCurrency, formatPercentage } from '../utils/helpers';
 

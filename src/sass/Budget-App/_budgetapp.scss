@@ -1,4 +1,4 @@
-@use "./format" as *;
+@use "../format" as *;
 
 .budget-app-layout {
   width: 100%;
@@ -28,7 +28,7 @@
   @extend %flex;
 }
 
-.budget-app-wrapper, {
+.budget-app-wrapper {
   border: 4px dotted orange;
   padding: 1rem;
   width: 100%;
@@ -334,7 +334,6 @@
 
 .recent-expenses-wrapper {
   grid-area: 1 / 3 / 2 / 4;
-  border: 2px dotted blue;
   @extend %claymorph;
   @extend %flex;
   flex-direction: column;
@@ -423,17 +422,6 @@
         }
       }
     }
-  }
-}
-
-.expenses-overview {
-  @extend %flex;
-  gap: 0.5rem;
-
-  h2, h4 {
-    color: $darkBlue;
-    text-shadow: $txtShadLBlue;
-    letter-spacing: 0.25rem;
   }
 }
 

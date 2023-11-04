@@ -1,34 +1,60 @@
-@use "./format" as *;
+@use "../format" as *;
 
 .expenses-modal {
+  background: rgba(255, 255, 255, 0.4);
+  @extend %flex;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent background overlay */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000; 
+
+  .expenses-modal-content {
+    @extend %flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 3px dotted $darkBlue;
+    background: linear-gradient(180deg,  rgba(255, 255, 255, 0.8), rgba(63, 157, 208, 0.5));
+    width: min(750px, 80%);
+    height: 70vh;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .close-btn {
+    width: 20%;
+    height: auto;
+    margin-top: 0.5rem; 
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.8rem;
+    border: $lightGreen;
+    outline: none;
+    background: $lightGreen;
+    box-shadow: $txtShadLBlue;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $darkBlue;
+    z-index: 2;
+    cursor: pointer;
+
+    &:hover{
+      color: $mainGray;
+      background: $lightBlue;
+      box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+    }
+  }
 }
 
-.expenses-modal-content {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  max-width: 80%; /* Adjust the width as needed */
-}
+.expenses-overview {
+  background: transparent;
+  @extend %flex;
+  gap: 0.5rem;
 
-.expenses-modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
+  h2, h4 {
+    color: $darkBlue;
+    text-shadow: $txtShadLBlue;
+    letter-spacing: 0.25rem;
+  }
 }

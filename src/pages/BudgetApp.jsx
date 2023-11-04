@@ -29,18 +29,9 @@ export function budgetAppActions({ request }) {
 function BudgetApp() {
   const { wallets, expenses } = useLoaderData();
   const [isBudgetForm, setIsBudgetForm] = useState(false);
-  const [isExpensesModalOpen, setIsExpensesModalOpen] = useState(false);
 
   const changeFormType = () => {
     setIsBudgetForm(!isBudgetForm);
-  };
-
-  const openExpensesModal = () => {
-    setIsExpensesModalOpen(true);
-  };
-
-  const closeExpensesModal = () => {
-    setIsExpensesModalOpen(false);
   };
 
   return (
@@ -81,14 +72,14 @@ function BudgetApp() {
                     .sort((a, b) => b.createdAt - a.createdAt)
                     .slice(0, 3)}
                 />
-                {expenses.length > 3 && (
-                  <button className='btn-text' onClick={openExpensesModal}>
+                {/* {expenses.length > 3 && (
+                  <button className='btn-text'>
                     View all expenses
                   </button>
-                )}
+                )} */}
               </div>
             )}
-            <ExpensesModal isOpen={isExpensesModalOpen} onClose={closeExpensesModal} />
+            
           </div>
         ) : (
           <div>

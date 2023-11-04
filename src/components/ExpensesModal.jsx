@@ -1,61 +1,56 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { getLocalStorage } from '../utils/localStorage';
-import { deleteItem } from '../utils/helpers';
-import TableExpenses from './TableExpenses';
+// import { useLoaderData } from 'react-router-dom';
+// import { getAllItems, getLocalStorage } from '../utils/localStorage';
+// import { budgetAppAction } from '../utils/budgetAppAction';
+// import TableExpenses from './TableExpenses';
+import WalletPage from '../pages/WalletPage';
 
 
-// Loader
-export function expensesLoader() {
-  const expenses = getLocalStorage('expenses');
+// // Loader
+// export function walletLoader() {
+//   const wallet = getAllItems({
+//     category: 'wallets',
+//     key: 'id',
+//     value: params.id,
+//   })[0];
 
-  return { expenses };
-};
+//   const expenses = getAllItems({
+//     category: 'expenses',
+//     key: 'walletID',
+//     value: params.id,
+//   });
 
-// Action
-export async function expensesAction(request) {
-  const data = await request.formData();
-  const {_action, ...values} = Object.fromEntries(data);
-  
-  // delete expense item submission
-  if (_action === 'deleteExpense') {
-    try {
-      deleteItem({
-        key: 'expenses',
-        id: values.expenseID,
-      });
+//   return { wallet, expenses };
+// };
 
-      return toast.success('Expense deleted!')
-    } catch (e) {
-      throw new Error("There was a problem deleting your expense.")
-    }
-  }
-};
+// // Action
+// export async function expensesAction(request) {
+//   return budgetAppAction({ request });
+// };
 
 
-function ExpensesOverview() {
-  const { expenses } = useLoaderData();
+// function ExpensesOverview() {
+//   const { expenses } = useLoaderData();
 
-  return (
-    <div className='expenses-overview'>
-      <h2>My Expenses</h2>
-      <h4>({expenses.length} total)</h4>
+//   return (
+//     <div className='expenses-overview'>
+//       <h2>My Expenses</h2>
+//       <h4>({expenses.length} total)</h4>
 
-      <div className='recent-expenses-wrapper'>
-        {
-          expenses && expenses.length > 0 
-          ? ( 
-            <div className='expenses-table'>
-              <TableExpenses expenses={expenses} />
-            </div>
-          ) // ...else
-          : <p>No expenses to show.</p>
-        }   
-      </div>
-    </div>
-  )
-}
+//       <div className='recent-expenses-wrapper'>
+//         {
+//           expenses && expenses.length > 0 
+//           ? ( 
+//             <div className='expensesoview-table'>
+//               <TableExpenses expenses={expenses} />
+//             </div>
+//           ) // ...else
+//           : <p>No expenses to show.</p>
+//         }   
+//       </div>
+//     </div>
+//   )
+// }
 
 function ExpensesModal({ isOpen, onClose }) {
   if (!isOpen) {
@@ -65,8 +60,8 @@ function ExpensesModal({ isOpen, onClose }) {
   return (
     <div className="expenses-modal">
       <div className="expenses-modal-content">
-        <ExpensesOverview />
-        <button className="back-btn" onClick={onClose}>
+        <WalletPage />
+        <button className="close-btn" onClick={onClose}>
           Close
         </button>
       </div>

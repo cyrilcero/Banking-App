@@ -1,12 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { getAllItems } from '../utils/localStorage';
-import { addExpense, deleteItem } from '../utils/helpers';
-import { toastSuccess } from '../utils/toastify';
-
+import { budgetAppAction } from '../utils/budgetAppAction';
 import WalletItem from '../components/WalletItem';
 import ExpenseForm from '../components/ExpenseForm';
 import TableExpenses from '../components/TableExpenses';
+
 
 
 // Loader
@@ -32,39 +31,9 @@ export function walletLoader({params}) {
 
 // Action
 export async function walletAction({ request }) {
-  const data = await request.formData();
-  const {_action, ...values} = Object.fromEntries(data);
-
-  // add an expense
-  if (_action === 'addExpense') {
-    try {
-      addExpense({
-        name: values.newExpense,
-        amount: values.newExpenseAmount,
-        walletID: values.newExpenseWallet,
-      });
-
-      return toastSuccess(`Expense ${values.newExpense.toLowerCase()} added!`);
-      
-    } catch (error) {
-      throw new Error('Hmm, seems like there is a problem adding your expense.');
-    }
+  return budgetAppAction({ request });
   };
 
-  // delete expense item
-  if (_action === 'deleteExpense') {
-    try {
-      deleteItem({
-        key: 'expenses',
-        id: values.expenseID,
-      });
-
-      return toastSuccess('Expense deleted!')
-    } catch (error) {
-      throw new Error("There was a problem deleting your expense.")
-    }
-  }
-};
 
 function WalletPage() {
   const { wallet, expenses } = useLoaderData();

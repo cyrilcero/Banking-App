@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllItems } from '../utils/localStorage'
-import { Form, Link } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 import { formatCreatedAt, formatCurrency } from '../utils/helpers';
 import { FaTrashCan } from "react-icons/fa6";
 
@@ -34,12 +34,7 @@ function ExpenseItem({ expense, showWallet }) {
       {
         showWallet && (
           <td>
-            <Link
-              to={`budget-app/wallet/${wallet.id}`}
-              className='link-text'
-            >
-              {wallet.name}
-            </Link>
+            {wallet.name}
           </td>
         )
       }
