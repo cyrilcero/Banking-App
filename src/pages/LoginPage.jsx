@@ -3,7 +3,7 @@ import { Form, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import toastError from "../utils/toastError";
+import { toastError } from "../utils/toastify";
 
 const initialUserData = [
   {

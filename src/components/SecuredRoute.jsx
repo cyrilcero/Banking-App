@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 import { getLocalStorage } from "../utils/localStorage";
 
-function SecuredRoute({ children }) {
+export function SecuredRoute({ children }) {
   const currentUser = getLocalStorage("CurrentUser");
   const paramID = useLoaderData();
 
@@ -42,5 +42,3 @@ export function LoggedInRoute({ children }) {
   }
   return <>{children}</>;
 }
-
-export default SecuredRoute

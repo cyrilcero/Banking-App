@@ -1,9 +1,8 @@
-import { Form, useNavigate } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import toastSuccess from "../utils/toastSuccess";
-import toastError from "../utils/toastError";
+import { toastSuccess, toastError } from "../utils/toastify";
 
 const initialUserData = [
   {

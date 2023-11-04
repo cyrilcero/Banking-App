@@ -1,6 +1,6 @@
-import { toast } from "react-toastify";
 import { getLocalStorage } from "./localStorage";
 import { addExpense, createWallet, deleteItem, deleteWallet } from "./helpers";
+import { toastSuccess } from "./toastify";
 
 export async function budgetAppAction({ request }) {
   const data = await request.formData();
@@ -17,7 +17,7 @@ export async function budgetAppAction({ request }) {
         email: user.email,
       });
 
-      return toast.success(`Wallet ${values.newWallet.toLowerCase()} created!`);
+      return toastSuccess(`Wallet ${values.newWallet.toLowerCase()} created!`);
     }
 
     // add an expense
@@ -29,7 +29,7 @@ export async function budgetAppAction({ request }) {
         walletID: values.newExpenseWallet,  
       });
 
-      return toast.success(`Expense ${values.newExpense.toLowerCase()} added!`);
+      return toastSuccess(`Expense ${values.newExpense.toLowerCase()} added!`);
     }
 
     // delete expense item
@@ -39,14 +39,14 @@ export async function budgetAppAction({ request }) {
         id: values.expenseID,
       });
 
-      return toast.success('Expense deleted!')
+      return toastSuccess('Expense deleted!')
     }
 
     // delete wallet
     if (formAction === 'deleteWallet') {
       deleteWallet(values.walletID);
       
-      toast.success('Wallet deleted!');
+      toastSuccess('Wallet deleted!');
     }
   } catch (error) {
 

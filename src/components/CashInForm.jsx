@@ -31,7 +31,7 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
-  const dropDownOverAllSelection = getLocalStorage("UserAccounts");
+  const dropDownOverAllSelection = JSON.parse(localStorage.getItem("UserAccounts"));
   const dropDownClientSelection = dropDownOverAllSelection.filter(
     (items) => items.isAdmin === false
   );

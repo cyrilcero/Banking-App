@@ -1,11 +1,13 @@
 import React from 'react';
-import { getAllItems } from '../utils/localStorage';
-import { toast } from 'react-toastify';
-import { addExpense, deleteItem } from '../utils/helpers';
 import { useLoaderData } from 'react-router-dom';
+import { getAllItems } from '../utils/localStorage';
+import { addExpense, deleteItem } from '../utils/helpers';
+import { toastSuccess } from '../utils/toastify';
+
 import WalletItem from '../components/WalletItem';
 import ExpenseForm from '../components/ExpenseForm';
 import TableExpenses from '../components/TableExpenses';
+
 
 // Loader
 export function walletLoader({params}) {
@@ -42,7 +44,7 @@ export async function walletAction({ request }) {
         walletID: values.newExpenseWallet,
       });
 
-      return toast.success(`Expense ${values.newExpense.toLowerCase()} added!`);
+      return toastSuccess(`Expense ${values.newExpense.toLowerCase()} added!`);
       
     } catch (error) {
       throw new Error('Hmm, seems like there is a problem adding your expense.');
@@ -57,7 +59,7 @@ export async function walletAction({ request }) {
         id: values.expenseID,
       });
 
-      return toast.success('Expense deleted!')
+      return toastSuccess('Expense deleted!')
     } catch (error) {
       throw new Error("There was a problem deleting your expense.")
     }

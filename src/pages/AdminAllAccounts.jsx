@@ -1,4 +1,4 @@
-import getLocalStorage from "../utils/localStorage";
+import { getLocalStorage } from "../utils/localStorage";
 
 function AdminAllAccounts() {
   const allAccounts = getLocalStorage("UserAccounts");

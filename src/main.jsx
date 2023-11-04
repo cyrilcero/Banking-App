@@ -29,11 +29,7 @@ import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
 import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 
-import {
-  LoggedInRoute,
-  SecuredRoute,
-  SecuredAdminRoute,
-} from "./components/SecuredRoute.jsx";
+import { LoggedInRoute, SecuredRoute, SecuredAdminRoute,} from "./components/SecuredRoute.jsx";
 
 import "./App.css";
 import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
