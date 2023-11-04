@@ -1,7 +1,5 @@
-import React from "react";
 import { Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import toastSuccess from "../utils/toastSuccess";
@@ -36,9 +34,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-export default function SignUpForm() {
-  const navigate = useNavigate();
-  const [emailTaken, setEmailTaken] = useState(false);
+export default function AdminSignUpForm() {
   const [inputValue, setInputValue] = useState({
     firstName: "",
     lastName: "",
@@ -46,22 +42,32 @@ export default function SignUpForm() {
     mobile: "",
     password: "",
     accountBalance: 0,
-    accountID: Date.now()
-      .toString()
-      .replace(/^\d{3}/, "00"),
     isAdmin: false,
+    accountID: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setInputValue((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
 
-    setEmailTaken(false);
+  const handlePasswordChange = (e) => {
+    setInputValue((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    if (inputValue.password.length >= 6) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Password is less than 6 characters");
+    }
   };
 
   useEffect(() => {
+    console.log(inputValue);
     const existingUserAccounts = JSON.parse(
       localStorage.getItem("UserAccounts")
     );
@@ -69,7 +75,7 @@ export default function SignUpForm() {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify(initialUserData));
     }
-  }, []);
+  }, [inputValue]);
 
   function submitHandle(e) {
     e.preventDefault();
@@ -81,15 +87,17 @@ export default function SignUpForm() {
     );
 
     if (isEmailTaken) {
-      setEmailTaken(true);
-      console.log("Email is already taken. Please choose a different email.");
-      toastError("Email Taken.");
+      toastError(`Email ${inputValue.email}
+      is already taken. Please choose a different email.`);
       setInputValue({
         firstName: "",
         lastName: "",
         email: "",
         mobile: "",
         password: "",
+        accountBalance: 0,
+        isAdmin: false,
+        accountID: "",
       });
     } else {
       const accountID = Date.now()
@@ -99,7 +107,10 @@ export default function SignUpForm() {
       newUser.accountID = accountID;
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-      // localStorage.setItem("CurrentUser", JSON.stringify(newUser));
+
+      toastSuccess(
+        `Created account for ${newUser.firstName} ${newUser.lastName}`
+      );
 
       setInputValue({
         firstName: "",
@@ -107,21 +118,16 @@ export default function SignUpForm() {
         email: "",
         mobile: "",
         password: "",
+        accountBalance: 0,
+        isAdmin: false,
+        accountID: "",
       });
-      
-      toastSuccess('Created Account Successfully.');
-      navigate("/login");
     }
   }
 
   return (
     <>
-      <Form
-        action="/dashboard"
-        method="GET"
-        className="sign-up-form"
-        onSubmit={submitHandle}
-      >
+      <Form className="sign-up-form" onSubmit={submitHandle}>
         <h2>Create Account</h2>
         <Inputs
           text="First Name"
@@ -161,14 +167,19 @@ export default function SignUpForm() {
           placeholder="***********"
           name="password"
           value={inputValue.password}
+          onChange={handlePasswordChange}
+        />
+        <Inputs
+          text="Initial Balance"
+          type="text"
+          placeholder="0.00"
+          name="accountBalance"
+          value={inputValue.accountBalance}
           onChange={handleChange}
         />
         <button type="submit">Sign up</button>
-        {emailTaken && (
-          <p className="errorMessage">
-            *Email is already taken. Please choose a different email.
-          </p>
-        )}
+
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
       </Form>
       <ToastContainer
         position="top-center"

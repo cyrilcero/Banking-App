@@ -10,27 +10,26 @@ import Transfer from '../pages/Transfer';
 import Settings from '../pages/Settings';
 import BudgetApp from '../pages/BudgetApp';
 
-
 export const NavData = [
   {
     id: 0,
     icon: <BsBank />,
     text: "Overview",
-    link: "/overview", 
+    link: `/overview`, 
     elementLabel: <ClientOverview />,
   },
   {
     id: 1,
     icon: <BsFillWalletFill />,
     text: "Cash In",
-    link: "/cash-in", 
+    link: "cash-in", 
     elementLabel: <CashIn />,
   },
   {
     id: 2,
     icon: <FaMoneyBillTransfer />,
     text: "Transfer",
-    link: "/transfer", 
+    link: "transfer", 
     elementLabel: <Transfer />,
   },
   {
@@ -44,7 +43,7 @@ export const NavData = [
     id: 4,
     icon: <FaGear />,
     text: "Settings",
-    link: "/settings", 
+    link: "settings", 
     elementLabel: <Settings />,
   },
 

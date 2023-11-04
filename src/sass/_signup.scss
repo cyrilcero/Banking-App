@@ -112,7 +112,7 @@
   min-width: 40%;
   min-height: 60vh;
   max-width: 40%;
-  max-height: auto;
+  max-height: 60vh;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
@@ -123,16 +123,16 @@
   word-wrap: break-word;
 
   h3 {
-    font-size: clamp(1rem, 3vw, 3rem);
+    font-size: clamp(0.8rem, 3vw, 3rem);
     font-weight: bolder;
   }
   p {
-    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
   }
 }
 
 .sign-up-img {
-  width: clamp(1rem, 30vw, 30rem);
+  width: clamp(0.5rem, 30vw, 30rem);
   position: absolute;
   bottom: 0;
   right: 1rem;

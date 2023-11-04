@@ -29,6 +29,19 @@ import BudgetApp, { budgetAppActions, budgetAppLoader } from "./pages/BudgetApp.
 import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
 import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 
+import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
+import CashIn from "./pages/CashIn.jsx";
+import Transfer from "./pages/Transfer.jsx";
+import { ToastContainer } from "react-toastify";
+
+import {
+  LoggedInRoute,
+  SecuredRoute,
+  SecuredAdminRoute,
+} from "./components/SecuredRoute.jsx";
+
+import "./App.css";
+import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -76,6 +89,21 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/create-account",
+    element: <Signup />,
+  },
+  {
+    path: "/login",
+    element: (
+      <LoggedInRoute>
+        <LogInPage />
+      </LoggedInRoute>
+    ),
+  },
+
+  // CLIENT SIDE
+
+  {
     path: "/overview/:id",
     element: <Dashboard />,
     children: [
@@ -88,6 +116,29 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
+      {
+        path: "cash-in/:id",
+        element: (
+          <SecuredRoute>
+            <CashIn />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
+      {
+        path: "transfer/:id",
+        element: (
+          <SecuredRoute>
+            <Transfer />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
+    ],
+  },
+
+  // ADMIN SIDE
+
     ],
   },
 
@@ -110,6 +161,33 @@ const router = createBrowserRouter([
         <AdminDash />
       </SecuredAdminRoute>
     ),
+    children: [
+      {
+        index: true,
+        element: (
+          <SecuredAdminRoute>
+            <AdminOverviewContent />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: "create-new-account",
+        element: (
+          <SecuredAdminRoute>
+            <AdminCreateAccount />
+          </SecuredAdminRoute>
+        ),
+      },
+      {
+        path: "all-accounts",
+        element: (
+          <SecuredAdminRoute>
+            <AdminAllAccounts />
+          </SecuredAdminRoute>
+        ),
+      },
+    ],
+  },
     children: [
       {
         path: "create-new-account",
@@ -150,7 +228,7 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
     <ToastContainer />
   </React.StrictMode>

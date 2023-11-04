@@ -1,27 +1,13 @@
-import React from 'react';
-import SignUpForm from '../components/SignUpForm';
-import AdminNavBar from '../components/AdminNavbar';
-import GreetingDash from '../components/GreetingDash';
+import AdminSignUpForm from "../components/AdminSignUpForm";
 
 function AdminCreateAccount() {
   return (
-    <>
-      <section className='admindash'>
-        <div className='admin-navbar'>
-          <AdminNavBar />
-        </div>
-
-        <div className="admindash-content">
-          <GreetingDash />
-          <SignUpForm />
-
-          <div className="panel-admindash">
-            
-          </div>
-        </div>
-      </section>
-    </>
-  )
+    <div className="panel-admindash">
+      <div className="admin-create-account">
+        <AdminSignUpForm />
+      </div>
+    </div>
+  );
 }
 
-export default AdminCreateAccount
+export default AdminCreateAccount;

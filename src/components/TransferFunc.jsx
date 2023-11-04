@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Form } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import toastSuccess from "../utils/toastSuccess";
+import toastError from "../utils/toastError";
+
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -35,6 +40,7 @@ const TransferFunc = () => {
     accountName: "",
     date: localDate,
     transfer: moneySended,
+    type: "Money Transfer",
   });
 
 
@@ -61,6 +67,7 @@ const TransferFunc = () => {
   const submitHandle = () => {
     if (!isExistingAccount) {
       setMoneySended(false);
+      toastError('Transfer Failed.');
     } else {
       const recipientAccount = userAccounts.find(
         (user) => user.email === inputValue.email
@@ -87,9 +94,13 @@ const TransferFunc = () => {
           cashInHistory.push(inputValue);
           localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
 
+          toastSuccess(
+           "Transfer Successful."
+          );
+
           setMoneySended(true);
-          window.onload()
         } else {
+          toastError('Transfer Failed.');
           setAmountSufficient(false);
         }
       }
@@ -102,6 +113,7 @@ const TransferFunc = () => {
   };
 
   return (
+    <>
     <Form className="transfer-form" onSubmit={submitHandle}>
       <Inputs
         type="number"
@@ -131,6 +143,19 @@ const TransferFunc = () => {
       {!moneySended ? <p>*Account not existing</p> : null}
       {!amountSufficient ? <p>*Insufficient balance</p> : null}
     </Form>
+    <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="colored"
+      />
+    </>
   );
 };
 

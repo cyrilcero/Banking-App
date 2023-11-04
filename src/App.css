@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .mywallets-wrapper, .mywallets-wrapper .wallet-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .expenses-overview, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .mywallets-wrapper, .mywallets-wrapper .wallet-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .expenses-overview, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .admin-create-account, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .transactions-cashin, .cashin-modal .cashin-modal-content, .transactions-widget, .balance-overview {
+.budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
   backdrop-filter: blur(6px);
@@ -29,6 +29,7 @@
 }
 
 * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -38,6 +39,8 @@
 }
 
 :root {
+
+:root {
   --main-radius: 16px;
   --main-padding: 5px;
 }
@@ -45,6 +48,9 @@
 body {
   margin: 0;
   padding: 0;
+
+body {
+  display: grid;
   min-width: 100%;
   min-height: 100vh;
   max-width: 100%;
@@ -111,6 +117,9 @@ body {
 
 .navbar-icons {
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .link-text-closed {
@@ -259,7 +268,7 @@ body {
   min-width: 40%;
   min-height: 60vh;
   max-width: 40%;
-  max-height: auto;
+  max-height: 60vh;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
@@ -270,15 +279,15 @@ body {
   word-wrap: break-word;
 }
 .sign-up-text h3 {
-  font-size: clamp(1rem, 3vw, 3rem);
+  font-size: clamp(0.8rem, 3vw, 3rem);
   font-weight: bolder;
 }
 .sign-up-text p {
-  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-size: clamp(0.8rem, 1.2vw, 1.2rem);
 }
 
 .sign-up-img {
-  width: clamp(1rem, 30vw, 30rem);
+  width: clamp(0.5rem, 30vw, 30rem);
   position: absolute;
   bottom: 0;
   right: 1rem;
@@ -393,6 +402,55 @@ body {
   align-items: center;
 }
 
+.client-dashboard {
+  width: 100%;
+  height: auto;
+}
+
+.panel1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.panel2-overview {
+  min-width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2.5rem;
+}
+
+.transactions-widget {
+  min-width: 60%;
+  max-height: 50vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #2f3a54;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.transactions-widget hr {
+  border: none;
+  width: 100%;
+  border: 2px solid;
+}
+
+.transaction-list {
+  min-width: 100%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .bank-card {
   width: 420px;
   height: 250px;
@@ -496,58 +554,14 @@ body {
   text-shadow: none;
 }
 
-.client-dashboard {
-  width: 100%;
-  height: auto;
+.select-input {
+  width: 80%;
 }
 
-.panel1 {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1rem 2.5rem;
-}
-
-.panel2-overview {
-  min-width: 100%;
-  min-height: 50vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 2.5rem;
-}
-
-.transactions-widget {
-  min-width: 60%;
-  max-height: 50vh;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: #2f3a54;
-  flex-direction: column;
-  padding: 1.5rem;
-}
-.transactions-widget h3 {
-  font-size: 1rem;
-  padding-bottom: 0.5rem;
-}
-.transactions-widget hr {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #2f3a54;
-  padding-bottom: 0.5rem;
-}
-
-.transaction-list {
-  min-width: 100%;
-  min-height: 5vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+.css-1u9des2-indicatorSeparator {
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .panel2-cashin {
@@ -591,11 +605,6 @@ body {
   border-radius: 5px;
 }
 
-.cashin-lines {
-  width: 100%;
-  border: 2px solid;
-}
-
 .cashin-list {
   min-width: 100%;
   min-height: 5vh;
@@ -612,8 +621,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.cashin-history h1 {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .cashin-btn {
@@ -687,10 +699,6 @@ body {
   transform: scale(1.1);
 }
 
-.none {
-  display: none;
-}
-
 .settings {
   width: 100%;
   height: 100vh;
@@ -743,7 +751,7 @@ body {
   font-weight: bold;
 }
 .transfer-form-inputs label {
-  font-size: clamp(0.5rem, 1vw, 1rem);
+  font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: bolder;
 }
 
@@ -782,8 +790,14 @@ body {
   color: #2f3a54;
   flex-direction: column;
   overflow: auto;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+.transfer-history h1 {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+}
+.transfer-history hr {
+  width: 100%;
+  border: 2px solid;
 }
 
 .transfer-history-list {
@@ -890,14 +904,17 @@ body {
 }
 
 .home-navbar {
+  position: fixed;
+  top: 0;
   background-color: #313953;
   height: 10vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: clamp(0.8rem, 1vw, 1.2rem);
   white-space: nowrap;
+  z-index: 1;
 }
 
 .home-navbar img {
@@ -957,106 +974,9 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 1100px) {
-  .buttons1 {
-    display: none;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    position: absolute;
-    top: 85px;
-    background: #1f293b;
-    left: 0;
-    opacity: 1;
-    z-index: 1;
-  }
-  .home-nav-links {
-    font-size: 20px;
-    margin-left: 20px;
-    color: rgb(195, 196, 206);
-  }
-  .otherButton {
-    display: grid;
-    grid-template-columns: repeat(9, auto);
-    grid-gap: 1vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .otherButton {
-    display: none;
-  }
-  .NavbarItems {
-    position: relative;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 80px;
-    left: -100%;
-  }
-  .home-nav-menu.active {
-    background: #1f293b;
-    left: 0;
-    z-index: 1;
-  }
-  .home-nav-links {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-  }
-  .home-nav-links:hover {
-    background-color: #fff;
-    color: #242424;
-    border-radius: 0;
-  }
-  .home-navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
-  }
-  .menu-icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-  .fa-times {
-    color: #fff;
-    font-size: 2rem;
-  }
-  .nav-links-mobile {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
-    font-size: 1.5rem;
-    background-color: transparent;
-    color: #fff;
-    padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
-  }
-  .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
-  }
-}
 .container {
   display: grid;
-  margin-top: 13vh;
+  margin-top: 22vh;
   margin-left: 3vw;
   margin-right: 3vw;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -1128,33 +1048,18 @@ body {
   transform: scale(0.9);
 }
 
-#testimonials {
-  display: none;
-  background: #083d31;
-  grid-area: testimonials;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-
-#testimonialsText {
-  display: none;
-  grid-area: testimonialsText;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
-
 #two img {
   margin-top: -0.4vw;
   height: 70%;
   width: 100%;
 }
 
-#two span {
+#two p {
   display: flex;
   margin-top: 1vh;
   color: #2F3A54;
   font-family: "League Spartan", sans-serif;
-  font-size: clamp(0.5rem, 1vw + 0.5rem, 1.5rem);
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   text-align: left;
@@ -1162,9 +1067,10 @@ body {
   margin-top: -0.1vw;
 }
 
-#two p {
+#two span {
   margin-top: 1vh;
   font-size: 0.7rem;
+  font-style: italic;
   color: #2F3A54;
   font-family: "League Spartan", sans-serif;
 }
@@ -1259,302 +1165,14 @@ body {
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  .container {
-    margin-top: 1vw;
-    grid-gap: 0.5rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-/* Add media queries if needed */
-@media screen and (min-width: 769px) and (max-width: 850px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  .container {
-    margin-top: 10vw;
-    grid-gap: 0.5rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-@media screen and (min-width: 851px) and (max-width: 979px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 5rem, 5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #five, #six {
-    display: none;
-  }
-  #two {
-    display: none;
-    align-items: center;
-    height: 50%;
-    width: 50%;
-  }
-  #two img {
-    height: 100%;
-    width: 100%;
-  }
-  #testimonials {
-    display: flex;
-    background: none;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-  }
-  #testimonials img {
-    height: 100%;
-    width: 100%;
-    border-radius: 1rem;
-  }
-  #testimonialsText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    color: #2F3A54;
-    font-family: "League Spartan", sans-serif;
-  }
-  #testimonialsText span {
-    margin-top: 10vw;
-  }
-  #tree {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  #tree img {
-    height: 100%;
-  }
-  #tree span {
-    white-space: nowrap;
-    font-size: 1rem;
-    margin-right: 0vw;
-    font-family: "League Spartan", sans-serif;
-  }
-  .container {
-    gap: 0.5rem;
-    margin-top: 11vw;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one tree tree tree" "three tree tree tree" "four tree tree tree" "two tree tree tree" "testimonials testimonialsText testimonialsText testimonialsText";
-  }
-}
-@media screen and (min-width: 980px) and (max-width: 1300px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #two img {
-    width: 75%;
-    border-radius: 1rem;
-  }
-  #two span {
-    width: 75%;
-    margin-left: 5vw;
-  }
-  #five img {
-    margin-top: 0vh;
-    height: 42vh;
-    margin-left: -2vw;
-  }
-  .container {
-    gap: 0.5rem;
-    margin-top: 11vw;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
-  }
-}
-@media screen and (max-width: 1301px) {
-  #three span {
-    margin-left: 2.5vw;
-    font-size: 2rem;
-    line-height: 3.7vh;
-  }
-  #two span {
-    font-size: 1.2rem;
-  }
-  #four h1 {
-    font-size: 2vw;
-    margin-bottom: 1vw;
-  }
-  #four p {
-    font-size: 1.4vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sign-up-logo {
-    position: fixed;
-  }
-  .sign-up-container {
-    min-width: 100%;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-  .signup-form-container {
-    min-width: 90%;
-    min-height: 120vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .sign-up-form {
-    min-width: 90%;
-    min-height: 50vh;
-    display: flex;
-    justify-content: center;
-  }
-  .signup-input-container {
-    min-width: 80%;
-    min-height: 5vh;
-    font-size: 1rem;
-  }
-  .signup-input-container input {
-    min-width: 100%;
-    min-height: 0.5vh;
-  }
-  .sign-up-text {
-    min-width: 90%;
-    min-height: 50vh;
-  }
-  .sign-up-img {
-    width: clamp(1rem, 30vw, 30rem);
-    position: absolute;
-    bottom: -15rem;
-  }
-}
-@media only screen and (max-width: 425px) {
-  .login-page-container {
-    flex-direction: column;
-  }
-  .side-form-content {
-    display: none;
-    width: 90%;
-  }
-  .login-form {
-    width: 90%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .client-overview {
-    display: block;
-  }
-  .panel1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .balance-overview {
-    width: 370px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .balance-overview .account-details {
-    font-size: 0.5rem;
-  }
-  .balance-overview .account-details h1 {
-    font-size: 1rem;
-  }
-  .bank-card {
-    width: 370px;
-    height: 220px;
-    font-size: 0.5rem;
-  }
-  .panel2-overview {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
-    width: 370px;
-    height: 220px;
-  }
-}
 .admindash {
   background: linear-gradient(180deg, rgba(63, 157, 208, 0.2), rgba(255, 255, 255, 0.8));
   background-size: contain;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
-}
-.admindash::before {
-  content: "";
-  width: 20vw;
-  height: 100%;
-  background: rgba(63, 157, 208, 0.5);
-  position: absolute;
-  right: 0;
-  z-index: -1;
 }
 .admindash::after {
   content: "";
@@ -1570,22 +1188,22 @@ body {
 
 .admindash-content {
   height: 90vh;
-  width: auto;
+  width: 100%;
   flex-direction: column;
 }
 
 .panel-admindash {
-  width: 75vw;
+  width: 100%;
   height: 100%;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr 0.5fr;
-  grid-template-rows: 0.8fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 1.2rem;
 }
 
 .content1 {
-  grid-area: 1/1/3/2;
+  grid-area: 1/1/3/3;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
   border: 0.5px solid rgba(65, 157, 208, 0.5);
@@ -1661,17 +1279,17 @@ body {
 }
 
 .content2 {
-  grid-area: 1/2/2/5;
+  grid-area: 1/3/2/6;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
   border: 0.5px solid rgba(65, 157, 208, 0.5);
   box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
-  flex-direction: column;
+  overflow-x: auto;
   gap: 0.5rem;
 }
 
 .content3 {
-  grid-area: 2/2/3/4;
+  grid-area: 2/3/3/6;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
   border: 0.5px solid rgba(65, 157, 208, 0.5);
@@ -1710,9 +1328,29 @@ body {
   color: #eff1f4;
 }
 
+.client-list {
+  grid-area: 1/1/2/6;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+  overflow-y: auto;
+  gap: 0.5rem;
+}
+
+.admin-create-account {
+  grid-area: 1/1/3/6;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+  overflow-y: auto;
+  gap: 0.5rem;
+}
+
 .anavbar {
   margin: 0 0.35rem;
-  width: 250px;
+  width: 200px;
   height: 98vh;
   text-wrap: nowrap;
   padding-top: 1.5rem;
@@ -1785,6 +1423,381 @@ body {
   outline: none;
   position: absolute;
   bottom: 30px;
+}
+
+.client-list-table {
+  overflow-x: auto;
+}
+.client-list-table h1 {
+  text-align: center;
+  padding: 1rem;
+}
+.client-list-table thead tr th {
+  font-weight: 600;
+  color: #eff1f4;
+  background-color: #2f3a54;
+  padding: 0.5rem;
+}
+.client-list-table tbody tr {
+  text-align: center;
+}
+.client-list-table tbody tr:nth-child(odd) {
+  background-color: #eff1f4;
+}
+.client-list-table tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .sign-up-logo {
+    position: fixed;
+  }
+  .sign-up-container {
+    min-width: 100%;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .signup-form-container {
+    min-width: 90%;
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .sign-up-form {
+    min-width: 90%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+  }
+  .signup-input-container {
+    min-width: 80%;
+    min-height: 5vh;
+    font-size: 1rem;
+  }
+  .signup-input-container input {
+    min-width: 100%;
+    min-height: 0.5vh;
+  }
+  .sign-up-text {
+    min-width: 90%;
+    min-height: 50vh;
+  }
+  .sign-up-img {
+    width: clamp(1rem, 30vw, 30rem);
+    position: absolute;
+    bottom: -15rem;
+  }
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
+  .cash-in {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .transfer {
+    display: block;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .transfer-page {
+    display: flex;
+    flex-direction: column;
+  }
+  .transfer-form-container {
+    width: 60%;
+  }
+  .panel2-transfer {
+    padding: 0;
+    min-height: 40vh;
+  }
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #two {
+    background-color: white;
+  }
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  .container {
+    margin-top: 13vh;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+  .otherButton {
+    display: none;
+  }
+  .NavbarItems {
+    position: relative;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+  }
+  .home-nav-menu.active {
+    background: #1f293b;
+    left: 0;
+    z-index: 1;
+  }
+  .home-nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+  .home-nav-links:hover {
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
+  }
+  .home-navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    padding: 14px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+  }
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+  }
+}
+@media screen and (max-width: 425px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .side-form-content {
+    display: none;
+    width: 90%;
+  }
+  .login-form {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .client-overview {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .panel2-overview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
+    width: 370px;
+    height: 220px;
+  }
+}
+/* Add media queries if needed */
+@media screen and (min-width: 769px) and (max-width: 979px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  #two {
+    background-color: white;
+  }
+  .container {
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+}
+@media screen and (min-width: 980px) and (max-width: 1300px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #two img {
+    width: 75%;
+    border-radius: 1rem;
+  }
+  #two p {
+    width: 75%;
+    margin-left: 5vw;
+  }
+  #two {
+    background-color: white;
+  }
+  #five img {
+    margin-top: 0vh;
+    height: 42vh;
+    margin-left: -2vw;
+  }
+  #six {
+    height: 75%;
+    margin-top: 5vh;
+  }
+  .container {
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
+  }
+}
+@media screen and (max-width: 1301px) {
+  #three span {
+    margin-left: 2.5vw;
+    font-size: 2rem;
+    line-height: 3.7vh;
+  }
+  #four h1 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+  #four p {
+    font-size: 1.4vw;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .buttons1 {
+    display: none;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    position: absolute;
+    top: 85px;
+    background: #1f293b;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+  .home-nav-links {
+    font-size: 20px;
+    margin-left: 20px;
+    color: rgb(195, 196, 206);
+  }
+  .otherButton {
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    grid-gap: 1vw;
+  }
 }
 
 .underconstruction {
