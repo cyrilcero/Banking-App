@@ -85,7 +85,7 @@ function WalletPage() {
           ? (
             <div>
               <h2>
-                <span className='accent'>{wallet.name} </span>
+                <span>{wallet.name} </span>
                 Expenses
               </h2>
               <TableExpenses expenses={expenses} showWallet={false} />
