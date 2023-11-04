@@ -19,6 +19,7 @@ import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
+import { ToastContainer } from "react-toastify";
 
 import {
   LoggedInRoute,
@@ -107,7 +108,6 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
-      
     ],
   },
 
@@ -150,7 +150,8 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
-  </React.StrictMode>
+    <ToastContainer />
+  </>
 );
