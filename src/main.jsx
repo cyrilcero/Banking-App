@@ -8,7 +8,6 @@ import 'react-circular-progressbar/dist/styles.css';
 
 // Components
 import CashInAdmin from "./components/CashInAdmin.jsx";
-import SecuredRoute, { LoggedInRoute, SecuredAdminRoute } from "./components/SecuredRoute.jsx";
 
 // Pages
 import ClientOverview from "./pages/ClientOverview.jsx";
@@ -28,11 +27,7 @@ import Transfer from "./pages/Transfer.jsx";
 import BudgetApp, { budgetAppActions, budgetAppLoader } from "./pages/BudgetApp.jsx";
 import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
 import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
-
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
-import CashIn from "./pages/CashIn.jsx";
-import Transfer from "./pages/Transfer.jsx";
-import { ToastContainer } from "react-toastify";
 
 import {
   LoggedInRoute,
@@ -138,22 +133,16 @@ const router = createBrowserRouter([
   },
 
   // ADMIN SIDE
-
-    ],
-  },
-
   {
     path: "cash-in/:id",
     element: <CashIn />,
-    loader: ({params}) => params.id,
+    loader: ({ params }) => params.id,
   },
   {
     path: "transfer/:id",
     element: <Transfer/>,
     loader: ({ params }) => params.id,
-    
-  },      
-
+  },
   {
     path: "/admin",
     element: (
@@ -185,24 +174,23 @@ const router = createBrowserRouter([
             <AdminAllAccounts />
           </SecuredAdminRoute>
         ),
+        children: [
+          {
+            path: "create-new-account",
+            element: (
+              <SecuredAdminRoute>
+                <AdminCreateAccount />
+              </SecuredAdminRoute>
+            ),
+          },
+          {
+            path: 'cashinadmin',
+            element: <CashInAdmin />
+          },
+        ],
       },
     ],
   },
-    children: [
-      {
-        path: "create-new-account",
-        element: (
-          <SecuredAdminRoute>
-            <AdminCreateAccount />
-          </SecuredAdminRoute>
-        ),
-      },
-      {
-        path: 'cashinadmin',
-        element: <CashInAdmin />
-      },
-    ],
-  }, 
 
   // Budget App Test Route
   {
@@ -221,14 +209,13 @@ const router = createBrowserRouter([
         loader: walletLoader,
         action: walletAction,
       },
-    
     ],
   },
 
 ]);
 
 root.render(
-  <>
+  <React.StrictMode>
     <RouterProvider router={router} />
     <ToastContainer />
   </React.StrictMode>

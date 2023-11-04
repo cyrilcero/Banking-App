@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import Select from "react-select";
-import getLocalStorage from "../utils/getLocalStorage";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
