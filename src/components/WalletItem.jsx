@@ -27,7 +27,7 @@ function WalletItem({ wallet }) {
         <h4 className='align-left'>{formatCurrency(amount)} alloted</h4>
       </div>
 
-      <progress max={amount} value={spent}>
+      <progress max={amount} value={spent} onClick={goToWalletPage}>
         {formatPercentage(spent / amount)}
       </progress>
 

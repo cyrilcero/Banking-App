@@ -224,6 +224,7 @@
     width: 100%;
     padding: 0.2rem;
     -webkit-appearance: none;
+    cursor: pointer;
 
     &::-webkit-progress-bar {
       height: 0.5rem;
@@ -246,6 +247,7 @@
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
+    cursor: pointer;
 
     h4, h6, span {
       font-weight: 400;
@@ -340,6 +342,7 @@
   gap: 0.5rem;
   padding: 2rem;
   width: min(650px, 100%);
+  height: auto;
 
   h3 {
     color: $darkBlue;
@@ -388,64 +391,65 @@
       box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
     }
   }
+}
+
+.table-expenses {
 
   table {
-    border-spacing: 1.3rem 0;
+    @extend %flex;
+    flex-direction: column;
     padding-bottom: 1.25rem;
 
     th {
       font-weight: 500;
       color: $darkBlue;
-      text-transform: uppercase;
-      padding: 1rem;
+      text-transform: capitalize;
     }
 
     tr {
-      font-weight: 300;
+      font-weight: 400;
       color: $darkBlue;
-      text-transform: capitalize;
-      padding: 1rem;
+      text-transform: uppercase;
+      padding: 1rem 0;
     }
 
     td {
       padding: 0 0.2rem;
       font-size: small;
-      text-align: center;
+    }
 
-      .link-text {
-        color: $darkBlue;
-        font-weight: 400;
+    .table-head{
+      width: 100%;
+      display: flex;
+      border-spacing: 2rem 0;
+    }
 
-        &:hover {
-          font-weight: 600;
-          opacity: 0.45;
-        }
+    .table-body {
+      height: 130px;
+      overflow-y: scroll;
+      padding: 0.5rem 0;
+      border-spacing: 1.45rem 0;
+    
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        background: $mainGray;
+        border-radius: 0.3rem;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background: $lightBlue;
+        border-radius: 0.3rem;
+      }
+  
+      &::-webkit-scrollbar-thumb:hover {
+        background: $darkBlue;
       }
     }
   }
-}
 
-.expenses-table {
-  height: max(650px, 65%);
-  overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: $mainGray;
-      border-radius: 0.3rem;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: $lightBlue;
-      border-radius: 0.3rem;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: $darkBlue;
-    }
 }
 
 .back-btn {

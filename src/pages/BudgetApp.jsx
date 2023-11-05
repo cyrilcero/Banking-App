@@ -69,14 +69,8 @@ function BudgetApp() {
                 <h3>Recent Expenses</h3>
                 <TableExpenses
                   expenses={expenses
-                    .sort((a, b) => b.createdAt - a.createdAt)
-                    .slice(0, 3)}
+                    .sort((a, b) => b.createdAt - a.createdAt)}
                 />
-                {/* {expenses.length > 3 && (
-                  <button className='btn-text'>
-                    View all expenses
-                  </button>
-                )} */}
               </div>
             )}
             

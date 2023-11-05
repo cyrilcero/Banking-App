@@ -5,34 +5,37 @@ function TableExpenses({ expenses, showWallet = true }) {
   return (
     <div className='table-expenses'>
       <table>
-        <thead>
-          <tr>
+        <div className="table-head">
+          <thead>
+            <tr>
+              {
+                [
+                  'Name',
+                  'Amount',
+                  'Date',
+                  showWallet ? 'Wallet' : '',
+                ].map((i, index) => (
+                  <th key={index}>{i}</th>
+                ))
+              }
+            </tr>
+          </thead>
+        </div>
+
+        <div className="table-body">
+          <tbody>
             {
-              [
-                'Name',
-                'Amount',
-                'Date',
-                showWallet ? 'Wallet' : '',
-              ].map((i, index) => (
-                <th key={index}>{i}</th>
+              expenses.map((expense) => (
+                <tr key={expense.id}>
+                  <ExpenseItem
+                    expense={expense}
+                    showWallet={showWallet}
+                  />
+                </tr>
               ))
             }
-          </tr>
-        </thead>
-
-        <tbody>
-          {
-            expenses.map((expense) => (
-              <tr key={expense.id}>
-                <ExpenseItem
-                  expense={expense}
-                  showWallet={showWallet}
-                />
-              </tr>
-            ))
-          }
-        </tbody>
-
+          </tbody>
+        </div>
       </table> 
     </div>
   )

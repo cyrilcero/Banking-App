@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .mywallets-wrapper, .mywallets-wrapper .wallet-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .admin-create-account, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.wallet-page, .wallet-page .wallet-page-content, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .mywallets-wrapper, .mywallets-wrapper .wallet-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .table-expenses table, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .admin-create-account, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2017,6 +2017,7 @@ body {
   width: 100%;
   padding: 0.2rem;
   -webkit-appearance: none;
+  cursor: pointer;
 }
 .wallet-card progress::-webkit-progress-bar {
   height: 0.5rem;
@@ -2036,6 +2037,7 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
+  cursor: pointer;
 }
 .wallet-card .progress-text h4, .wallet-card .progress-text h6, .wallet-card .progress-text span {
   font-weight: 400;
@@ -2110,6 +2112,7 @@ body {
   gap: 0.5rem;
   padding: 2rem;
   width: min(650px, 100%);
+  height: auto;
 }
 .recent-expenses-wrapper h3 {
   color: #2f3a54;
@@ -2153,52 +2156,49 @@ body {
   background: #3f9dd0;
   box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
 }
-.recent-expenses-wrapper table {
-  border-spacing: 1.3rem 0;
+
+.table-expenses table {
+  flex-direction: column;
   padding-bottom: 1.25rem;
 }
-.recent-expenses-wrapper table th {
+.table-expenses table th {
   font-weight: 500;
   color: #2f3a54;
-  text-transform: uppercase;
-  padding: 1rem;
-}
-.recent-expenses-wrapper table tr {
-  font-weight: 300;
-  color: #2f3a54;
   text-transform: capitalize;
-  padding: 1rem;
 }
-.recent-expenses-wrapper table td {
+.table-expenses table tr {
+  font-weight: 400;
+  color: #2f3a54;
+  text-transform: uppercase;
+  padding: 1rem 0;
+}
+.table-expenses table td {
   padding: 0 0.2rem;
   font-size: small;
-  text-align: center;
 }
-.recent-expenses-wrapper table td .link-text {
-  color: #2f3a54;
-  font-weight: 400;
+.table-expenses table .table-head {
+  width: 100%;
+  display: flex;
+  border-spacing: 2rem 0;
 }
-.recent-expenses-wrapper table td .link-text:hover {
-  font-weight: 600;
-  opacity: 0.45;
-}
-
-.expenses-table {
-  height: max(650px, 65%);
+.table-expenses table .table-body {
+  height: 130px;
   overflow-y: scroll;
+  padding: 0.5rem 0;
+  border-spacing: 1.45rem 0;
 }
-.expenses-table::-webkit-scrollbar {
+.table-expenses table .table-body::-webkit-scrollbar {
   width: 5px;
 }
-.expenses-table::-webkit-scrollbar-track {
+.table-expenses table .table-body::-webkit-scrollbar-track {
   background: #eff1f4;
   border-radius: 0.3rem;
 }
-.expenses-table::-webkit-scrollbar-thumb {
+.table-expenses table .table-body::-webkit-scrollbar-thumb {
   background: #3f9dd0;
   border-radius: 0.3rem;
 }
-.expenses-table::-webkit-scrollbar-thumb:hover {
+.table-expenses table .table-body::-webkit-scrollbar-thumb:hover {
   background: #2f3a54;
 }
 
@@ -2278,4 +2278,54 @@ body {
   color: #2f3a54;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
   letter-spacing: 0.25rem;
+}
+
+.wallet-page {
+  background: linear-gradient(180deg, rgba(63, 157, 208, 0.5), rgba(255, 255, 255, 0.8)), url("../src/assets/backgroundDash.png");
+  background-size: contain;
+  width: 100%;
+  height: 100vh;
+}
+.wallet-page::after {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(63, 157, 208, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.7rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+.wallet-page .wallet-page-content {
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999;
+  padding: 2rem;
+}
+.wallet-page .wallet-page-content h2 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.wallet-page .wallet-page-content .close-btn {
+  width: min(2rem, 20%);
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50%;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  color: #2f3a54;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 999;
+}
+.wallet-page .wallet-page-content .close-btn:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
 }

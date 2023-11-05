@@ -1,11 +1,8 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { getAllItems } from '../utils/localStorage';
 import { budgetAppAction } from '../utils/budgetAppAction';
-import WalletItem from '../components/WalletItem';
-import ExpenseForm from '../components/ExpenseForm';
 import TableExpenses from '../components/TableExpenses';
-
 
 
 // Loader
@@ -22,10 +19,8 @@ export function walletLoader({params}) {
     value: params.id,
   });
 
-  if (!wallet) {
-    throw new Error('The wallet you are looking for does not exist.')
-  }
-
+  console.log('Wallet Data', wallet);
+  console.log('Expenses Data', expenses);
   return { wallet, expenses };
 };
 
@@ -37,34 +32,32 @@ export async function walletAction({ request }) {
 
 function WalletPage() {
   const { wallet, expenses } = useLoaderData();
+  const navigate = useNavigate();
 
   return (
-    <div className='budget-app wallet-page'>
-      <h2>
-        <span className='accent'>{wallet.name} </span>
-        Overview
-      </h2>
+    <div className='wallet-page'>
+      {
+        expenses && expenses.length > 0
+        ? (
+          <div className='wallet-page-content'>
+            <h2>
+              <span>{wallet.name} </span>
+              Expenses
+            </h2>
 
-      <div>
-        <WalletItem wallet={wallet} />
-        <ExpenseForm wallets={[wallet]} />
-      </div>
-
-      <div>
-        {
-          expenses && expenses.length > 0
-          ? (
-            <div>
-              <h2>
-                <span>{wallet.name} </span>
-                Expenses
-              </h2>
+            <div className="recent-expenses-wrapper">
               <TableExpenses expenses={expenses} showWallet={false} />
             </div>
-          ) : <p>No expenses to show for this wallet.</p>
-        }
-      </div>
-      
+
+            <button 
+              className="close-btn"
+              onClick={() => navigate(-1)}
+            >
+              X
+            </button>
+          </div>
+        ) : <p>No expenses to show for this wallet.</p>
+      }     
     </div>
   )
 }
