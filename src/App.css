@@ -7,9 +7,9 @@
   justify-content: center;
 }
 
-.logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
+.exchange-rate-container, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
-  border-radius: 50px;
+  border-radius: 2rem;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
@@ -1825,4 +1825,30 @@ body {
     grid-template-columns: repeat(9, auto);
     grid-gap: 1vw;
   }
+}
+.exchange-rate-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.exchange-rate-container .exchange-rate-title {
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+  color: #2f3a54;
+  padding: 1rem 2rem;
+  font-weight: 300;
+}
+.exchange-rate-container .exchange-rate-value {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  color: #2f3a54;
+}
+.exchange-rate-container .exchange-rate-update {
+  padding: 1rem 2rem;
+  text-align: right;
+  font-weight: 300;
+  font-style: italic;
+  color: #2f3a54;
 }/*# sourceMappingURL=App.css.map */
