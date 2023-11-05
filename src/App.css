@@ -1452,6 +1452,10 @@ body {
   bottom: 30px;
 }
 
+.client-barchart {
+  width: 100%;
+}
+
 .client-list-table {
   overflow-x: auto;
 }

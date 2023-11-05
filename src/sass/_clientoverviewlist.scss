@@ -1,5 +1,9 @@
 @use "./format" as *;
 
+.client-barchart{
+    width: 100%;
+}
+
 .client-list-table {
     overflow-x: auto;
     h1{
