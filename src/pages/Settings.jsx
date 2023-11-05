@@ -72,21 +72,6 @@ function Settings() {
     return newPassword.length >= 6;
   }
 
-  function Inputs({ type, name, placeholder, text, value, onChange }) {
-    return (
-      <div className="signup-input-container">
-        <label>{text}</label>
-        <input
-          type={type}
-          placeholder={placeholder}
-          name={name}
-          value={value}
-          onChange={onChange}
-          required
-        />
-      </div>
-    );
-  }
 
   return (
     <section className='settings'>
@@ -96,11 +81,41 @@ function Settings() {
       <ChangePassModal show={showChangePassword} onClose={closeChangePassword}>
         <h3>Change Password</h3>
         <p>Your password must be at least 6 characters.</p>
-        <Form action="/dashboard" method="GET" style={{display: 'flex', alignItems: 'center', flexDirection:'column' }}>
-          <Inputs text="Current Password" type="password" placeholder="***********" name="currentPassword" value={currentPassword} onChange={handleChange} />
-          <Inputs text="New Password" type="password" placeholder="***********" name="newPassword" value={newPassword} onChange={handleChange} />
-          <Inputs text="Confirm Password" type="password" placeholder="***********" name="confirmPassword" value={confirmPassword} onChange={handleChange} />
-        </Form>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+          <div className="signup-input-container">
+            <label>Current Password</label>
+            <input
+              type="password"
+              placeholder="***********"
+              name="currentPassword"
+              value={currentPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="signup-input-container">
+            <label>New Password</label>
+            <input
+              type="password"
+              placeholder="***********"
+              name="newPassword"
+              value={newPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="signup-input-container">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              placeholder="***********"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
         <button onClick={handleChangePassword}>Change Password</button>
         <button onClick={closeChangePassword}>Close</button>
         {passwordChangeError && <p className="errorMessage">{passwordChangeError}</p>}
