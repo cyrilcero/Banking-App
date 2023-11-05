@@ -1453,7 +1453,7 @@ body {
 }
 
 .client-barchart {
-  width: 100%;
+  grid-area: 2/1/2/6;
 }
 
 .client-list-table {
@@ -1467,7 +1467,7 @@ body {
   font-weight: 600;
   color: #eff1f4;
   background-color: #2f3a54;
-  padding: 0.5rem;
+  padding: 0.5rem 3rem;
 }
 .client-list-table tbody tr {
   text-align: center;

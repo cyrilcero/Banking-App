@@ -41,7 +41,7 @@ const data = {
     {
       label: "Account Balance",
       data: balance,
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      backgroundColor: "rgba(62, 157, 208, 1)",
     },
   ],
 };
