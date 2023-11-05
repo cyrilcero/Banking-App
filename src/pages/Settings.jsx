@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ChangePassModal from "../components/changePassModal";
 import { Form } from "react-router-dom";
+import toastInfo from "../utils/toastInfo";
 
 function Settings() {
   const [showChangePassword, setShowChangePassword] = useState(false);
@@ -51,8 +52,12 @@ function Settings() {
 
 
       localStorage.setItem('UserAccounts', JSON.stringify(updatedUserAccounts));
+      toastInfo("Password changed successfully"); 
 
-      setPasswordChangeError("Password changed successfully");
+      setTimeout(function() {
+        closeChangePassword();
+      }, 6000); 
+    
     } else {
       setPasswordChangeError("Password change failed. Please check your input.");
     }
@@ -97,6 +102,7 @@ function Settings() {
           <Inputs text="Confirm Password" type="password" placeholder="***********" name="confirmPassword" value={confirmPassword} onChange={handleChange} />
         </Form>
         <button onClick={handleChangePassword}>Change Password</button>
+        <button onClick={closeChangePassword}>Close</button>
         {passwordChangeError && <p className="errorMessage">{passwordChangeError}</p>}
       </ChangePassModal>
     </section>

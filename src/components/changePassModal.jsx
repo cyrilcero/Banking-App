@@ -1,12 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const ChangePassModal = ({ show, onClose, children }) => {
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.removeItem('CurrentUser');
-    navigate('/');
-  }
+ 
 
   if (!show) {
     return null;
@@ -17,9 +12,6 @@ const ChangePassModal = ({ show, onClose, children }) => {
       <div className="changePass-modal-content">
         
         {children}
-    
-        <button onClick={onClose}>Cancel</button>
-        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );
