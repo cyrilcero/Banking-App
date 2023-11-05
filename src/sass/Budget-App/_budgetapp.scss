@@ -5,9 +5,9 @@
   min-height: 100vh;
 }
 
-.budget-app, .expenses-overview {
+.budget-app {
   width: 100%;
-  max-height: 100vh;
+  height: 100vh;
   display: flex;  
   flex-direction: column;
   background: linear-gradient(
@@ -50,15 +50,12 @@
   }
 }
 
-
-
 .budget-app-container {
   height: 100%;
   @extend %flex;
 }
 
 .budget-app-wrapper {
-  border: 4px dotted orange;
   padding: 1rem;
   width: 100%;
   display: grid;
@@ -345,7 +342,7 @@
     width: 100%;  
 
     .circprogress {
-      width: max(100%, 180px);
+      width: min(100%, 180px);
     }
 
     .progress-text{

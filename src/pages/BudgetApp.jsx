@@ -17,7 +17,7 @@ export function budgetAppLoader() {
   const wallets = getLocalStorage('wallets');
   const expenses = getLocalStorage('expenses');
 
-  return { wallets, expenses };
+  return { wallets, expenses};
 }
 
 // Actions

@@ -125,6 +125,20 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
+      // {
+      //   path: 'budget-app/:id',
+      //   element: <BudgetApp />,
+      //   loader: budgetAppLoader,
+      //   action: budgetAppActions,
+      //   children: [
+      //     {
+      //       path: 'wallet/:id',
+      //       element: <WalletPage />,
+      //       loader: walletLoader,
+      //       action: walletAction,
+      //     },
+      //   ],
+      // },
     ],
   },
 

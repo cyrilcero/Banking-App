@@ -19,8 +19,6 @@ export function walletLoader({params}) {
     value: params.id,
   });
 
-  console.log('Wallet Data', wallet);
-  console.log('Expenses Data', expenses);
   return { wallet, expenses };
 };
 
