@@ -99,7 +99,7 @@ export default function SignUpForm() {
       newUser.accountID = accountID;
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-      localStorage.setItem("CurrentUser", JSON.stringify(newUser));
+      // localStorage.setItem("CurrentUser", JSON.stringify(newUser));
 
       setInputValue({
         firstName: "",
@@ -108,9 +108,9 @@ export default function SignUpForm() {
         mobile: "",
         password: "",
       });
-
-      navigate("/login");
+      
       toastSuccess('Created Account Successfully.');
+      navigate("/login");
     }
   }
 
