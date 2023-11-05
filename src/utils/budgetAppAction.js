@@ -39,14 +39,14 @@ export async function budgetAppAction({ request }) {
         id: values.expenseID,
       });
 
-      return toastSuccess('Expense deleted!')
+      return toastSuccess('Expense deleted!');
     }
 
     // delete wallet
     if (formAction === 'deleteWallet') {
       deleteWallet(values.walletID);
       
-      toastSuccess('Wallet deleted!');
+      return toastSuccess('Wallet deleted!');
     }
   } catch (error) {
 
@@ -56,7 +56,7 @@ export async function budgetAppAction({ request }) {
     if (form) {
       form.reset();
     }
-  }
 
-  return null;   
+    return null;   
+  }
 };

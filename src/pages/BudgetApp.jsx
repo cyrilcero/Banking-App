@@ -11,7 +11,6 @@ import ExpenseForm from '../components/ExpenseForm';
 import WalletItem from '../components/WalletItem';
 import TableExpenses from '../components/TableExpenses';
 import ExpensesVsBalance from '../components/ExpensesVsBalance';
-import ExpensesModal from '../components/ExpensesModal';
 
 // Loaders
 export function budgetAppLoader() {
@@ -37,9 +36,6 @@ function BudgetApp() {
   return (
     <section className='budget-app'>
       <GreetingDash />
-      <p>
-        Welcome to Wind Bank's Budget App! Create a wallet for each of your budget category and start tracking your expenses.
-      </p>
       <div className='budget-app-container'>
         {wallets && wallets.length > 0 ? (
           <div className='budget-app-wrapper'>
@@ -76,8 +72,16 @@ function BudgetApp() {
             
           </div>
         ) : (
-          <div>
-            <BudgetForm />
+          <div className='welcome-budget-app'>
+            <div className='text-box'>
+              <h2>Welcome to Wind Bank's Budget App!</h2>
+              <p>
+              Create a wallet for each of your budget category and start tracking your expenses.
+              </p>
+            </div>
+            <div className="form-box">
+              <BudgetForm />
+            </div>
           </div>
         )}
       </div>

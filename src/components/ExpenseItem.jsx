@@ -18,55 +18,64 @@ function ExpenseItem({ expense, showWallet }) {
   };
 
   return (
-    <>
+    <div className='td-line'>
       <td>
+      <div className='td-text'>
         {expense.name}
+      </div>
       </td>
 
       <td>
-        {formatCurrency(expense.amount)}
+        <div className="td-numbers">
+          {formatCurrency(expense.amount)}
+        </div>
       </td>
 
       <td>
-        {formatCreatedAt(expense.createdAt)}
+        <div className="td-numbers">
+          {formatCreatedAt(expense.createdAt)}
+        </div>
       </td>
 
       {
         showWallet && (
           <td>
-            {wallet.name}
+            <div className='td-text'>
+             {wallet.name}
+            </div>
           </td>
         )
       }
 
       <td>
-        <Form
-          method='post'
-          onSubmit={handleSubmit}
-        >
-          <input 
-            type="hidden" 
-            name='formAction' 
-            value='deleteExpense' 
-          />
-
-          <input 
-            type="hidden" 
-            name='expenseID'
-            value={expense.id}
-          />
-
-          <button 
-            type='submit'
-            className='delete-btn'
+        <div className="td-btn">
+          <Form
+            method='post'
+            onSubmit={handleSubmit}
           >
-            <FaTrashCan />
-          </button>
+            <input 
+              type="hidden" 
+              name='formAction' 
+              value='deleteExpense' 
+            />
 
-        </Form>
+            <input 
+              type="hidden" 
+              name='expenseID'
+              value={expense.id}
+            />
+
+            <button 
+              type='submit'
+              className='delete-btn'
+            >
+              <FaTrashCan />
+            </button>
+          </Form>
+        </div>
       </td>
 
-    </>
+    </div>
   )
 }
 

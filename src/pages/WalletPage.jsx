@@ -45,7 +45,7 @@ function WalletPage() {
               Expenses
             </h2>
 
-            <div className="recent-expenses-wrapper">
+            <div className="expenses-wrapper">
               <TableExpenses expenses={expenses} showWallet={false} />
             </div>
 
@@ -56,7 +56,18 @@ function WalletPage() {
               X
             </button>
           </div>
-        ) : <p>No expenses to show for this wallet.</p>
+        ) 
+        : (
+          <div className="no-wallet">
+            <h4>Hmm, no expenses to show for this wallet.</h4>
+            <button 
+              className="close-btn"
+              onClick={() => navigate(-1)}
+            >
+              X
+            </button>
+          </div>
+          )
       }     
     </div>
   )
