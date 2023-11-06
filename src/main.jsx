@@ -2,11 +2,13 @@ import ReactDOM from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
+import "./App.css";
 import 'react-toastify/dist/ReactToastify.css'; 
 import 'react-circular-progressbar/dist/styles.css';
 
 // Components
 import CashInAdmin from "./components/CashInAdmin.jsx";
+import { LoggedInRoute, SecuredRoute, SecuredAdminRoute,} from "./components/SecuredRoute.jsx";
 
 // Pages
 import ClientOverview from "./pages/ClientOverview.jsx";
@@ -28,11 +30,9 @@ import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
 import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 import Settings from "./pages/Settings.jsx";
-
-import { LoggedInRoute, SecuredRoute, SecuredAdminRoute,} from "./components/SecuredRoute.jsx";
-
-import "./App.css";
 import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

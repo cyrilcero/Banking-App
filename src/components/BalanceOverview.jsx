@@ -15,10 +15,10 @@ function BalanceOverview() {
     return account;
   });
   
-  setLocalstorage('UserAccounts', updatedAllAccounts);
+  setLocalStorage('UserAccounts', updatedAllAccounts);
 
   user.accountBalance = remainingBalance;
-  setLocalstorage('CurrentUser', user); 
+  setLocalStorage('CurrentUser', user); 
     
   return (
     <div className='balance-overview'>

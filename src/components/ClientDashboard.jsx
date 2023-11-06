@@ -11,7 +11,7 @@ function ClientDashboard() {
     <section className="client-dashboard">
       <div className="panel1">
         <BalanceOverview />
-        <ExchangeRate />
+        {/* <ExchangeRate /> */}
       </div>
     </section>
   );

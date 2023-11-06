@@ -2,6 +2,7 @@ import { setLocalStorage, getLocalStorage }from "../utils/localStorage";
 
 
 import { useState } from "react";
+import { setLocalStorage, getLocalStorage } from '../utils/localStorage';
 
 const API_KEY = "032687021c8940b7865c86f833f34523";
 

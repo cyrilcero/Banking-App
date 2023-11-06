@@ -34,7 +34,7 @@ export default function Navbar() {
 
       <div className="side-item-wrapper">
         <div className="img-wrapper">
-          <img src="../src/assets/react.svg" alt="" className="navbar-img" />
+          <img src="../src/assets/react.svg" alt="" className="client-navbar-img" />
         </div>
 
         <div className="side-items">

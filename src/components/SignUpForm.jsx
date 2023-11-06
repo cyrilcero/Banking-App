@@ -1,11 +1,6 @@
-import React from "react";
 import { Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../App.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { toastSuccess, toastError } from "../utils/toastify";
-
 
 const initialUserData = [
   {
@@ -170,18 +165,6 @@ export default function SignUpForm() {
           </p>
         )}
       </Form>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-        theme="colored"
-      />
     </>
   );
 }
