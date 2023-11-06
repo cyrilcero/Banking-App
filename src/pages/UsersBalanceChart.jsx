@@ -29,7 +29,8 @@ const adminAccount = [
   },
 ];
 
-const createUsers = setLocalStorage("UserAccounts", adminAccount)
+setLocalStorage("UserAccounts", adminAccount)
+
 const allUsers = getLocalStorage("UserAccounts");
 const users = allUsers.filter((item) => item.isAdmin === false);
 const users_email = users.map((item) => item.email);
