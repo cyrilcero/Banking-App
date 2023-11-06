@@ -137,7 +137,7 @@ body {
   margin: 1rem auto 0.5rem;
 }
 
-.navbar-img {
+.client-navbar-img {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -305,7 +305,7 @@ body {
 }
 
 .login-page-container {
-  width: 90vw;
+  width: 80%;
   padding: 1rem;
   display: flex;
   align-items: stretch;
@@ -373,6 +373,9 @@ body {
   color: red;
   padding: 1rem;
   text-align: center;
+}
+.login-form button {
+  cursor: pointer;
 }
 
 .login-monitor {
@@ -1476,7 +1479,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid #2f3a54;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
