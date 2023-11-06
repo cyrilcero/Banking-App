@@ -27,13 +27,13 @@ export const AdminNavData = [
     link: "/admin/all-accounts", 
     elementLabel: "",
   },
-  {
-    id: 3,
-    icon: <FaGear />,
-    text: "Settings",
-    link: "/admin/settings", 
-    elementLabel: "",
-  },
+  // {
+  //   id: 3,
+  //   icon: <FaGear />,
+  //   text: "Settings",
+  //   link: "/admin/settings", 
+  //   elementLabel: "",
+  // },
 
 ];
 

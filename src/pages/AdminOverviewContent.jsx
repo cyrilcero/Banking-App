@@ -16,7 +16,7 @@ export default function AdminOverviewContent() {
             <CashInForm />
           </div>
   
-          <div className="content2">
+          <div className="client-list-createdaccount">
             <ClientList />
           </div>
   
