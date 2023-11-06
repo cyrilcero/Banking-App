@@ -215,16 +215,16 @@
 }
 
 //login-page
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .login-page-container {
     flex-direction: column;
   }
   .side-form-content {
     display: none;
-    width: 90%;
+    width: 100%;
   }
   .login-form {
-    width: 90%;
+    width: 100%;
   }
 }
 

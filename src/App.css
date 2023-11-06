@@ -36,7 +36,6 @@
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  outline: 1px solid green;
 }
 
 :root {
@@ -309,17 +308,18 @@ body {
 
 .login-page-container {
   width: 80%;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   align-items: stretch;
   justify-content: center;
   background-color: #2f3a54;
   border-radius: 2rem;
+  gap: 2rem;
 }
 
 .side-form-content {
   width: 50%;
-  margin: 1rem;
+  padding: 2rem;
   flex-direction: column;
   background-color: white;
   border-radius: 1rem;
@@ -338,8 +338,8 @@ body {
 }
 
 .login-form {
-  width: 50%;
-  margin: 1rem;
+  width: 100%;
+  padding: 2rem;
   flex-direction: column;
   background-color: white;
   border-radius: 1rem;
@@ -1738,16 +1738,16 @@ body {
     transition: 250ms;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .login-page-container {
     flex-direction: column;
   }
   .side-form-content {
     display: none;
-    width: 90%;
+    width: 100%;
   }
   .login-form {
-    width: 90%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 1024px) {

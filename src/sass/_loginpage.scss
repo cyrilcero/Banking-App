@@ -22,19 +22,20 @@
 
 .login-page-container {
   width: 80%;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   align-items: stretch;
   justify-content: center;
   background-color: $darkBlue;
   border-radius: 2rem;
+  gap: 2rem;
   // margin-top: 15vh;
 }
 
 .side-form-content {
   width: 50%;
   // height: 50vh;
-  margin: 1rem;
+  padding: 2rem;
   flex-direction: column;
   @extend %flex;
   background-color: white;
@@ -54,10 +55,11 @@
 }
 
 .login-form {
-  width: 50%;
+  width: 100%;
   // height: 50vh;
-  margin: 1rem;
+  padding: 2rem;
   flex-direction: column;
+
   @extend %flex;
   background-color: white;
   border-radius: 1rem;
