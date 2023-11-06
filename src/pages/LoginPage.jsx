@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toastError } from "../utils/toastify";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
-import { getLocalStorage, setLocalstorage } from "../utils/localStorage";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 
 
 const initialUserData = [
@@ -68,7 +68,7 @@ function LogInForm() {
     const existingUserAccounts = getLocalStorage("UserAccounts");
 
     if (!existingUserAccounts) {
-      setLocalstorage({ UserAccounts, initialUserData })
+      setLocalStorage({ UserAccounts, initialUserData })
     }
   }, [loginData]);
 
