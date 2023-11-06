@@ -68,6 +68,7 @@
     @extend %claymorph;
     @extend %flex;
     flex-direction: column;
+    height: 100%;
 
     h5 {
       padding: 0.5rem 1rem 1.5rem;
@@ -410,7 +411,7 @@
 
 table {
   width: 100%;
-  display: flex;
+  display: table;
   justify-content: center;
 
   .table-expenses {

@@ -66,7 +66,7 @@ function LogInForm() {
     const existingUserAccounts = getLocalStorage("UserAccounts");
 
     if (!existingUserAccounts) {
-      setLocalStorage("UserAccounts", initialUserData)
+      setLocalStorage('UserAccounts', initialUserData)
     }
   }, [loginData]);
 
