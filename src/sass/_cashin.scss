@@ -12,6 +12,7 @@
 
 .cash-in {
   @extend %clientDashboard;
+  display: block;
 }
 
 .panel2-cashin {
@@ -26,7 +27,7 @@
 
 .transactions-cashin {
   min-width: 60%;
-  max-height: 50vh;
+  min-height: 40vh;
   @extend %claymorph;
   display: flex;
   justify-content: flex-start;
@@ -152,3 +153,5 @@
     transform: scale(1.1);
   }
 }
+
+
