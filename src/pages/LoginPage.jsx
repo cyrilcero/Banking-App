@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { toastError, toastSuccess } from "../utils/toastify";
 import { Form, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
@@ -39,7 +38,7 @@ function LogInForm() {
     e.preventDefault()
     const listOfUsers = getLocalStorage("UserAccounts")
     const userExists = listOfUsers.find(user => user.email === loginData.username && user.password === loginData.password)
-
+    console.log(userExists);
     if (userExists) {
       // setLoginData({...loginData, loginData.isLoggedIn=true})
       setLocalStorage("CurrentUser", userExists);

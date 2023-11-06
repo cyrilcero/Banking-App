@@ -8,7 +8,7 @@ function AdminAllAccounts() {
     <>
       <div className="panel-admindash">
         <div className="client-barchart">
-          <UsersBalanceChart />
+          {/* <UsersBalanceChart /> */}
         </div>
         <div className="client-list">
           <div className="client-list-table">
