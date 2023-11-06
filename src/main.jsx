@@ -1,6 +1,6 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 // Pages
 import App from "./App.jsx";
@@ -20,7 +20,6 @@ import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
 import Settings from "./pages/Settings.jsx";
-import { ToastContainer } from "react-toastify";
 
 import {
   LoggedInRoute,
@@ -118,7 +117,6 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
-      
     ],
   },
 
