@@ -2,12 +2,15 @@ import React from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import { FaTrashCan } from "react-icons/fa6";
 import { calcSpentPerWallet, formatCurrency, formatPercentage } from '../utils/helpers';
+import { getLocalStorage } from '../utils/localStorage';
 
 
 function WalletItem({ wallet }) {
   const { id, name, amount } = wallet;
   const spent = calcSpentPerWallet(id);
   const navigate = useNavigate();
+  const user = getLocalStorage('CurrentUser');
+  const accountID = user.accountID;
 
   function handleSubmit(e) {
     if (!confirm("Are you sure you want to permanently delete this item?")) {
@@ -16,7 +19,7 @@ function WalletItem({ wallet }) {
   }
 
   function goToWalletPage() {
-    navigate(`/budget-app/wallet/${id}`);
+    navigate(`wallet/${id}`);
   };
 
   return (

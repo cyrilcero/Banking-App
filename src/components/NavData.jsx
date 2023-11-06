@@ -36,7 +36,7 @@ export const NavData = [
     id: 3,
     icon: <BiSolidWallet />,
     text: "Budget App",
-    link: "/budget-app", 
+    link: "budget-app", 
     elementLabel: <BudgetApp />,
   },
   {

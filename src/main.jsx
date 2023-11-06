@@ -125,20 +125,24 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
-      // {
-      //   path: 'budget-app/:id',
-      //   element: <BudgetApp />,
-      //   loader: budgetAppLoader,
-      //   action: budgetAppActions,
-      //   children: [
-      //     {
-      //       path: 'wallet/:id',
-      //       element: <WalletPage />,
-      //       loader: walletLoader,
-      //       action: walletAction,
-      //     },
-      //   ],
-      // },
+      {
+        path: 'budget-app/:id',
+        element: <BudgetAppLayout />,
+        children: [
+          {
+            index: true,
+            element: <BudgetApp />,
+            loader: budgetAppLoader,
+            action: budgetAppActions,
+          },
+          {
+            path: 'wallet/:id',
+            element: <WalletPage />,
+            loader: walletLoader,
+            action: walletAction,
+          },
+        ],
+      },
     ],
   },
 
@@ -203,30 +207,31 @@ const router = createBrowserRouter([
   },
 
   // Budget App Test Route
-  {
-    path: 'budget-app', // mother page
-    element: <BudgetAppLayout />,
-    children: [
-      {
-        index: true,
-        element: <BudgetApp />,
-        loader: budgetAppLoader,
-        action: budgetAppActions,
-      },
-      {
-        path: 'wallet/:id',
-        element: <WalletPage />,
-        loader: walletLoader,
-        action: walletAction,
-      },
-    ],
-  },
+  // {
+  //   path: 'budget-app', // mother page
+  //   element: <BudgetAppLayout />,
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: <BudgetApp />,
+  //       loader: budgetAppLoader,
+  //       action: budgetAppActions,
+  //     },
+  //     {
+  //       path: 'wallet/:id',
+  //       element: <WalletPage />,
+  //       loader: walletLoader,
+  //       action: walletAction,
+  //     },
+  //   ],
+  // },
 
 ]);
 
 root.render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
     <ToastContainer />
-  </React.StrictMode>
+  </>
+
 );

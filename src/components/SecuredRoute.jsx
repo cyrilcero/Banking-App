@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 import { getLocalStorage } from "../utils/localStorage";
+import { toastInfo, toastError } from "../utils/toastify";
 
 export function SecuredRoute({ children }) {
   const currentUser = getLocalStorage("CurrentUser");
