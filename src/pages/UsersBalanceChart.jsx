@@ -19,7 +19,7 @@ ChartJS.register(
   Legend
 );
 
-const allUsers = getLocalStorage("UserAccounts");
+const allUsers = getLocalStorage("UserAccounts") ?? [];
 const users = allUsers.filter((item) => item.isAdmin === false);
 const users_email = users.map((item) => item.email);
 const users_balance = users.map((item) => Number(item.accountBalance));

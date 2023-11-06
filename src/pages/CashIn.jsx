@@ -17,7 +17,7 @@ function CashInHistory({ amount }) {
 function CashIn() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentUser = getLocalStorage("CurrentUser") || {};
+  const currentUser = getLocalStorage("CurrentUser") || [];
   const email = currentUser.email || "";
 
   const cashInHistory = getLocalStorage("CashInHistory") || [];
