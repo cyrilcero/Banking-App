@@ -1,8 +1,7 @@
 import { Form } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { toastSuccess, toastError } from "../utils/toastify";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 
 const initialUserData = [
   {
@@ -107,6 +106,21 @@ export default function AdminSignUpForm() {
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
 
+      const history = getLocalStorage("CashInHistory");
+      const localDate = new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Manila",
+        hour12: false,
+      });
+      const newHistory = {
+        ...history,
+        amount: inputValue.accountBalance,
+        date: localDate,
+        deposit: true,
+        type: "Cash In",
+        userId: inputValue.email,
+      };
+   
+      setLocalStorage("CashInHistory", newHistory)
       toastSuccess(
         `Created account for ${newUser.firstName} ${newUser.lastName}`
       );
@@ -180,18 +194,6 @@ export default function AdminSignUpForm() {
 
         {errorMessage && <p className="errorMessage">{errorMessage}</p>}
       </Form>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-        theme="colored"
-      />
     </>
   );
 }
