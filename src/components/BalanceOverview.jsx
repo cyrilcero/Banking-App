@@ -1,23 +1,13 @@
 import React from 'react';
 import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
-import { calcSpentPerUser } from '../utils/helpers';
+import { calcSpentPerUser, formatCurrency } from '../utils/helpers';
 
 function BalanceOverview() {
-  const allAccounts = getLocalStorage('UserAccounts');
   const user = getLocalStorage('CurrentUser');
   const totalExpenses = calcSpentPerUser(user.email);
   const remainingBalance = user.accountBalance - totalExpenses; 
 
-  const updatedAllAccounts = allAccounts.map(account => {
-    if (account.email === user.email) {
-      account.accountBalance = remainingBalance;
-    }
-    return account;
-  });
-  
-  setLocalStorage('UserAccounts', updatedAllAccounts);
-
-  user.accountBalance = remainingBalance;
+  user.newBalance = remainingBalance;
   setLocalStorage('CurrentUser', user); 
     
   return (
@@ -28,7 +18,7 @@ function BalanceOverview() {
       </div>
       
       <div className='account-balance'>
-        <h3 className='current-balance'><span>PHP </span>{user.accountBalance}</h3>
+        <h3 className='current-balance'><span>PHP </span>{formatCurrency(user.newBalance)}</h3>
         <span>AVAILABLE BALANCE</span>
       </div>
     </div>

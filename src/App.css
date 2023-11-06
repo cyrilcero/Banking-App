@@ -141,7 +141,7 @@ body {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 5px solid white;
   object-fit: cover;
   font-size: 0.5rem;
 }
@@ -1502,9 +1502,8 @@ body {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  border: 5px solid #2f3a54;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1526,17 +1525,6 @@ body {
   opacity: 0.5;
 }
 
-.client-barchart {
-  grid-area: 2/1/2/6;
-}
-.client-barchart canvas {
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-.client-list-table {
-  overflow-x: auto;
-}
 .client-list-table h1 {
   text-align: center;
   padding: 1rem;
@@ -2073,6 +2061,7 @@ body {
 .budget-app-wrapper .forms-wrapper {
   grid-area: 1/2/2/3;
   flex-direction: column;
+  height: 100%;
 }
 .budget-app-wrapper .forms-wrapper h5 {
   padding: 0.5rem 1rem 1.5rem;
@@ -2364,7 +2353,7 @@ body {
 
 table {
   width: 100%;
-  display: flex;
+  display: table;
   justify-content: center;
 }
 table .table-expenses {
@@ -2678,7 +2667,7 @@ table .table-expenses .td-line {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 999999;
     height: 100%;
   }
   .navbar-closed {
@@ -2723,12 +2712,20 @@ table .table-expenses .td-line {
   }
   .budget-app-wrapper .forms-wrapper {
     grid-area: forms;
+    max-height: 55vh;
   }
   .budget-app-wrapper .overall-expenses {
     grid-area: overall;
   }
   .budget-app-wrapper .overall-expenses .expensesvsbalance {
-    flex-direction: row;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+  .budget-app-wrapper .overall-expenses .circprogress {
+    width: min(100%, 130px);
+  }
+  .budget-app-wrapper .overall-expenses h3, .budget-app-wrapper .overall-expenses h4, .budget-app-wrapper .overall-expenses h5 {
+    text-align: center;
   }
   .budget-app-wrapper .mywallets-wrapper {
     grid-area: wallets;
@@ -2740,15 +2737,33 @@ table .table-expenses .td-line {
     grid-area: expenses;
   }
   .budgetform-wrapper {
-    height: 250px;
+    margin: 0;
+    padding: 1.5rem;
   }
   .budgetform-wrapper .budgetapp-form {
     width: 100%;
+    height: 100%;
     gap: 1rem;
   }
   .budgetform-wrapper .budgetapp-form button {
     margin: 0;
     margin-top: 1rem;
+  }
+  .budgetform-wrapper .budgetapp-form .expense-inputs {
+    display: flex;
+    flex-direction: column;
+  }
+  .budgetform-wrapper .budgetapp-form .expense-inputs .budget-form-item {
+    height: 100%;
+  }
+  .budgetform-wrapper .budgetapp-form .wallet-categ {
+    display: flex;
+    flex-direction: column;
+  }
+  .budgetform-wrapper .budgetapp-form .wallet-categ select {
+    width: 100%;
+    font-size: clamp(0.72rem, 0.6798rem + 0.6433vw, 1.5rem);
+    margin: 0;
   }
   .budgetform-wrapper .budgetapp-form .budget-form-item {
     flex-direction: column;
@@ -2763,7 +2778,7 @@ table .table-expenses .td-line {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 999999;
     height: 100%;
   }
   .navbar-closed {

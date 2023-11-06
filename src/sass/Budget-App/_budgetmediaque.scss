@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2; 
+    z-index: 999999; 
     height: 100%;
   }
 
@@ -63,13 +63,23 @@
 
     .forms-wrapper {
       grid-area: forms;
+      max-height: 55vh;
     }
 
     .overall-expenses {
       grid-area: overall;
   
       .expensesvsbalance{
-        flex-direction: row;
+        flex-direction: column-reverse;
+        padding: 0;
+      }
+
+      .circprogress {
+        width: min(100%, 130px);
+      }
+
+      h3, h4, h5 {
+        text-align: center;
       }
     }
   
@@ -87,15 +97,38 @@
   }  
 
   .budgetform-wrapper {
-    height: 250px;
+    margin: 0;
+    padding: 1.5rem;
 
     .budgetapp-form {
       width: 100%;
+      height: 100%;
       gap: 1rem;
 
       button {
         margin: 0;
         margin-top: 1rem;
+      }
+
+      .expense-inputs {
+        display: flex;
+        flex-direction: column;
+
+        .budget-form-item {
+          height: 100%;
+        }
+      }
+
+      .wallet-categ {
+        
+        display: flex;
+        flex-direction: column;
+
+        select {
+          width: 100%;
+          font-size: $h3;
+          margin: 0;
+        }
       }
 
       .budget-form-item {
@@ -118,7 +151,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2; 
+    z-index: 999999; 
     height: 100%;
   }
 
