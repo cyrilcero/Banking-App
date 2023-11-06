@@ -3,31 +3,33 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Pages
-import App from "./App.jsx";
-import ClientOverview from "./pages/ClientOverview.jsx";
-import LogInPage from "./pages/LoginPage.jsx";
-import AdminDash from "./pages/AdminDash.jsx";
-import Signup from "./pages/Signup.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
-import Home from "./pages/Home.jsx";
-import Loans from "./pages/Loans.jsx";
-import Cards from "./pages/Cards.jsx";
-import Insurance from "./pages/Insurance.jsx";
-import Investments from "./pages/Investments.jsx";
-import PromAndRe from "./pages/PromAndRe.jsx";
-import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
-import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
-import CashIn from "./pages/CashIn.jsx";
-import Transfer from "./pages/Transfer.jsx";
+import {
+  ClientOverview,
+  Dashboard,
+  CashIn,
+  Transfer,
+  Signup,
+  LogInPage,
+  AdminDash,
+  AdminCreateAccount,
+  AdminOverviewContent,
+  AdminAllAccounts,
+  Home,
+  Loans,
+  Cards,
+  Insurance,
+  Investments,
+  PromAndRe,
+} from "./components";
+
+import App from "./App";
 
 import {
   LoggedInRoute,
   SecuredRoute,
   SecuredAdminRoute,
-} from "./components/SecuredRoute.jsx";
-
+} from "./components/SharedComponent/SecuredRoute";
 import "./App.css";
-import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
@@ -107,7 +109,6 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
-      
     ],
   },
 

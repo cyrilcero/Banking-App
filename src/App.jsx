@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { HomeNavBar } from "./components/HomeNavBar";
+import { HomeNavBar } from "./components";
 import { Outlet } from "react-router-dom";
 
 function App() {
