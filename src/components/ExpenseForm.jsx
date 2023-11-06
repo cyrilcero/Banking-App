@@ -61,14 +61,10 @@ function ExpenseForm({ wallets }) {
           </select>
         </div>
     
-        <input 
-          type="hidden" 
-          name="formAction"
-          value="addExpense"
-        />
-
         <button 
           type="submit" 
+          name="formAction"
+          value="addExpense"
         >
           <span className="btn-text">Add</span>
         </button>

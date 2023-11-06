@@ -53,11 +53,6 @@ function ExpenseItem({ expense, showWallet }) {
             method='post'
             onSubmit={handleSubmit}
           >
-            <input 
-              type="hidden" 
-              name='formAction' 
-              value='deleteExpense' 
-            />
 
             <input 
               type="hidden" 
@@ -67,6 +62,8 @@ function ExpenseItem({ expense, showWallet }) {
 
             <button 
               type='submit'
+              name='formAction' 
+              value='deleteExpense' 
               className='delete-btn'
             >
               <FaTrashCan />

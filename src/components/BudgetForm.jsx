@@ -34,14 +34,10 @@ function BudgetForm() {
           />
         </div>
 
-        <input 
-          type="hidden" 
-          name="formAction"
-          value="createWallet"
-        />
-
         <button 
           type="submit" 
+          name="formAction"
+          value="createWallet"
         >
           <span className="btn-text">Create</span>
         </button>

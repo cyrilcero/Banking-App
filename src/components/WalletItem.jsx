@@ -41,19 +41,18 @@ function WalletItem({ wallet }) {
           method='post'
           onSubmit={handleSubmit}
         >
-          <input 
-            type="hidden" 
-            name='formAction' 
-            value='deleteWallet' 
-          />
-
+          
           <input 
             type="hidden" 
             name='walletID'
             value={wallet.id}
           />  
 
-          <button type='submit'>
+          <button 
+            type='submit' 
+            name='formAction' 
+            value='deleteWallet' 
+          >
             <FaTrashCan />
           </button>
 
