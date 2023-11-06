@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -28,6 +27,7 @@ import BudgetApp, { budgetAppActions, budgetAppLoader } from "./pages/BudgetApp.
 import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
 import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
+import Settings from "./pages/Settings.jsx";
 
 import { LoggedInRoute, SecuredRoute, SecuredAdminRoute,} from "./components/SecuredRoute.jsx";
 
@@ -121,6 +121,15 @@ const router = createBrowserRouter([
         element: (
           <SecuredRoute>
             <Transfer />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
+      {
+        path: "settings/:id",
+        element: (
+          <SecuredRoute>
+            <Settings />
           </SecuredRoute>
         ),
         loader: ({ params }) => params.id,

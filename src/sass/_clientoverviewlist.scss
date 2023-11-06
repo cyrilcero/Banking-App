@@ -1,8 +1,14 @@
 @use "./format" as *;
 
+.client-barchart {
+    grid-area: 2/1/2/6;
+    // flex-grow: 1;
+    // height: fit-content;
+}
+
 .client-list-table {
     overflow-x: auto;
-    h1{
+    h1 {
         text-align: center;
         padding: 1rem;
     }
@@ -10,7 +16,7 @@
         font-weight: 600;
         color: $mainGray;
         background-color: $darkBlue;
-        padding: 0.5rem;
+        padding: 0.5rem 3rem;
     }
     tbody tr {
         text-align: center;

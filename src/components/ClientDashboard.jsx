@@ -1,5 +1,6 @@
 import BankCard from "./BankCard";
 import BalanceOverview from "./BalanceOverview";
+import ExchangeRate from "./ExchangeRate";
 // import { useLoaderData } from "react-router";
 
 function ClientDashboard() {
@@ -10,7 +11,7 @@ function ClientDashboard() {
     <section className="client-dashboard">
       <div className="panel1">
         <BalanceOverview />
-        <BankCard />
+        <ExchangeRate />
       </div>
     </section>
   );
