@@ -16,9 +16,8 @@ export function SecuredRoute({ children }) {
 }
 
 export function SecuredAdminRoute({ children }) {
-  const paramID = useLoaderData();
   const currentUser = getLocalStorage("CurrentUser");
-  console.log(paramID);
+
   if (!currentUser || currentUser.isAdmin === false) {
     // insert toast/alert here
     toastError("You are not allowed to access this link");
@@ -29,15 +28,13 @@ export function SecuredAdminRoute({ children }) {
 
 export function LoggedInRoute({ children }) {
   const currentUser = getLocalStorage("CurrentUser");
-  const paramID = useLoaderData();
-  console.log(paramID);
 
   if (currentUser && currentUser.isAdmin === true) {
     // insert toast/alert here
     toastInfo("You are already logged in");
     return <Navigate to={`/admin`} replace={true} />;
   } else if (currentUser && currentUser.isAdmin === false) {
-    toastInfo(`You are already logged in 2!`);
+    toastInfo(`You are already logged in!`);
     return (
       <Navigate to={`/overview/${currentUser.accountID}`} replace={true} />
     );
