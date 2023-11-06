@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import Select from "react-select";
+import { toastError, toastSuccess } from "../utils/toastify";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -31,7 +32,9 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
-  const dropDownOverAllSelection = JSON.parse(localStorage.getItem("UserAccounts"));
+  const dropDownOverAllSelection = JSON.parse(
+    localStorage.getItem("UserAccounts")
+  );
   const dropDownClientSelection = dropDownOverAllSelection.filter(
     (items) => items.isAdmin === false
   );
@@ -129,12 +132,14 @@ function CashInForm() {
 
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
+          toastError("Amount cannot be negative.")
           console.log("Amount cannot be negative.");
           return;
         }
 
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
+            toastError("Insufficient balance for withdrawal.")
             console.log("Insufficient balance for withdrawal.");
             return;
           }
@@ -173,9 +178,11 @@ function CashInForm() {
       }
 
       console.log("Account exists. Account balance has been updated.");
+      toastSuccess("Account balance has been updated.")
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
+      toastError("Account does not exist. Create a new account.")
     }
 
     setInputValue({
@@ -188,12 +195,7 @@ function CashInForm() {
   }
 
   return (
-    <Form
-      action="/dashboard"
-      method="GET"
-      className="cashin-form"
-      onSubmit={submitHandle}
-    >
+    <Form method="GET" className="cashin-form" onSubmit={submitHandle}>
       <h2>{isWithdrawal ? "Withdraw" : "Deposit"}</h2>
 
       <label htmlFor="accountSelector">Select Account</label>

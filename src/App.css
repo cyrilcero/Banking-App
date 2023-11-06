@@ -1506,20 +1506,10 @@ body {
   opacity: 0.5;
 }
 
-.client-barchart {
-  grid-area: 2/1/2/6;
-}
-.client-barchart canvas {
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-.client-list-table {
-  overflow-x: auto;
-}
 .client-list-table h1 {
   text-align: center;
   padding: 1rem;
+  width: 100%;
 }
 .client-list-table table {
   display: table;
