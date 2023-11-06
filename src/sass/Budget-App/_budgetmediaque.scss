@@ -1,5 +1,6 @@
 @use "../format" as *;
 
+// smaller screen
 @media screen and (max-width: 426px) {
   .navbar {
     position: fixed;
@@ -74,6 +75,10 @@
   
     .mywallets-wrapper {
       grid-area: wallets; 
+
+      .wallet-wrapper {
+        overflow-y: visible;
+      }
     }
   
     .recent-expenses-wrapper {

@@ -10,8 +10,7 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -143,8 +142,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -451,8 +449,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1392,7 +1389,6 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1480,8 +1476,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1507,7 +1502,6 @@ body {
   grid-area: 2/1/2/6;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1607,7 +1601,6 @@ body {
   }
   .transfer {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -1948,13 +1941,13 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   width: 50%;
-  font-size: clamp(0.75rem, 0.7113rem + 0.6186vw, 1.5rem);
+  font-size: clamp(0.72rem, 0.6798rem + 0.6433vw, 1.5rem);
   color: #2f3a54;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
   text-align: right;
 }
 .budget-app .welcome-budget-app .text-box p {
-  font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  font-size: clamp(0.7rem, 0.6742rem + 0.4124vw, 1.2rem);
   font-weight: 400;
 }
 .budget-app .welcome-budget-app .form-box {
@@ -1985,7 +1978,7 @@ body {
   color: #2f3a54;
   text-shadow: none;
   font-weight: 600;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -2007,7 +2000,7 @@ body {
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: clamp(0.75rem, 0.7113rem + 0.6186vw, 1.5rem);
+  font-size: clamp(0.72rem, 0.6798rem + 0.6433vw, 1.5rem);
   letter-spacing: 0.2rem;
   font-size: large;
 }
@@ -2036,7 +2029,7 @@ body {
 .budgetform-wrapper .budgetapp-form label {
   letter-spacing: 0.12rem;
   color: #2f3a54;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
   width: 100%;
   text-transform: capitalize;
 }
@@ -2090,7 +2083,7 @@ body {
   color: #2f3a54;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
   text-transform: capitalize;
-  font-size: clamp(0.85rem, 0.801rem + 0.7835vw, 1.8rem);
+  font-size: clamp(0.75rem, 0.6959rem + 0.866vw, 1.8rem);
   font-weight: 600;
   letter-spacing: 0.2rem;
 }
@@ -2161,10 +2154,10 @@ body {
   font-weight: 400;
   text-transform: lowercase;
   width: 100%;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
 }
 .wallet-card .progress-text h6 {
-  font-size: clamp(0.3rem, 0.2768rem + 0.3711vw, 0.75rem);
+  font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
 }
 .wallet-card .progress-text .align-left {
   text-align: end;
@@ -2222,10 +2215,10 @@ body {
 }
 .overall-expenses .expensesvsbalance .progress-text h4, .overall-expenses .expensesvsbalance .progress-text h5 {
   font-weight: 400;
-  font-size: clamp(0.3rem, 0.2768rem + 0.3711vw, 0.75rem);
+  font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
 }
 .overall-expenses .expensesvsbalance .progress-text h3 {
-  font-size: clamp(0.75rem, 0.7113rem + 0.6186vw, 1.5rem);
+  font-size: clamp(0.72rem, 0.6798rem + 0.6433vw, 1.5rem);
   margin: 0.5rem 0 0.8rem;
 }
 .overall-expenses .expensesvsbalance .progress-text h4 {
@@ -2245,7 +2238,7 @@ body {
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  font-size: clamp(0.7rem, 0.6742rem + 0.4124vw, 1.2rem);
   letter-spacing: 0.2rem;
 }
 .recent-expenses-wrapper .delete-btn {
@@ -2309,7 +2302,7 @@ table .table-expenses thead .table-header {
   display: flex;
   justify-content: space-around;
   gap: 1rem;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
 }
 table .table-expenses .table-body {
   display: flex;
@@ -2319,7 +2312,7 @@ table .table-expenses .table-body {
   height: 150px;
   padding: 0 1rem 0.5rem;
   font-weight: 400;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
   color: #2f3a54;
   text-transform: uppercase;
   overflow-y: scroll;
@@ -2486,7 +2479,7 @@ table .table-expenses .td-line {
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  font-size: clamp(0.7rem, 0.6742rem + 0.4124vw, 1.2rem);
   letter-spacing: 0.2rem;
 }
 .expenses-wrapper .delete-btn {
@@ -2545,7 +2538,7 @@ table .table-expenses .td-line {
   display: flex;
   justify-content: space-around;
   gap: 1rem;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
 }
 .expenses-wrapper table .table-expenses .table-body {
   display: flex;
@@ -2555,7 +2548,7 @@ table .table-expenses .td-line {
   height: 250px;
   padding: 0 1rem 0.5rem;
   font-weight: 400;
-  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
   color: #2f3a54;
   text-transform: uppercase;
   overflow-y: scroll;
@@ -2639,6 +2632,9 @@ table .table-expenses .td-line {
   .budget-app-wrapper .mywallets-wrapper {
     grid-area: wallets;
   }
+  .budget-app-wrapper .mywallets-wrapper .wallet-wrapper {
+    overflow-y: visible;
+  }
   .budget-app-wrapper .recent-expenses-wrapper {
     grid-area: expenses;
   }
@@ -2658,7 +2654,7 @@ table .table-expenses .td-line {
   }
   .budgetform-wrapper .budgetapp-form .budget-form-item input {
     width: 100%;
-    font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+    font-size: clamp(0.7rem, 0.6742rem + 0.4124vw, 1.2rem);
   }
 }
 @media screen and (max-width: 768px) and (min-width: 426px) {
@@ -2752,4 +2748,4 @@ table .table-expenses .td-line {
   font-weight: 300;
   font-style: italic;
   color: #2f3a54;
-}/*# sourceMappingURL=App.css.map */
+}
