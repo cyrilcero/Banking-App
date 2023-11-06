@@ -36,6 +36,7 @@
   list-style: none;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+  outline: 1px solid green;
 }
 
 :root {
@@ -413,6 +414,10 @@ body {
   padding: 1rem 2.5rem;
 }
 
+.client-overview {
+  display: block;
+}
+
 .panel2-overview {
   min-width: 100%;
   min-height: 50vh;
@@ -425,7 +430,7 @@ body {
 
 .transactions-widget {
   min-width: 60%;
-  max-height: 50vh;
+  min-height: 40vh;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -439,6 +444,14 @@ body {
   border: 2px solid;
 }
 
+.list-label {
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+}
+
 .transaction-list {
   min-width: 100%;
   min-height: 5vh;
@@ -447,6 +460,9 @@ body {
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.transaction-list li {
+  font-size: clamp(0.8rem, 1vw, 1rem);
 }
 
 .bank-card {
@@ -563,6 +579,10 @@ body {
   margin: 0 !important;
 }
 
+.cash-in {
+  display: block;
+}
+
 .panel2-cashin {
   min-width: 100%;
   min-height: 50vh;
@@ -575,7 +595,7 @@ body {
 
 .transactions-cashin {
   min-width: 60%;
-  max-height: 50vh;
+  min-height: 40vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -754,6 +774,10 @@ body {
   transform: scale(1.1);
 }
 
+.transfer {
+  display: block;
+}
+
 .transfer-page {
   min-width: 100%;
   min-height: auto;
@@ -765,7 +789,7 @@ body {
 }
 
 .transfer-form-container {
-  min-width: 25%;
+  min-width: 400px;
   min-height: 80vh;
 }
 
