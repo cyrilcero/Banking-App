@@ -1,4 +1,4 @@
-import { getLocalStorage } from "../utils/localStorage";
+import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -19,6 +19,17 @@ ChartJS.register(
   Legend
 );
 
+const adminAccount = [
+  {
+    email: "admin@email.com",
+    password: "admin00",
+    firstName: "Admin",
+    accountID: Date.now().toString().replace(/^\d{3}/, '00'),
+    isAdmin: true,
+  },
+];
+
+const createUsers = setLocalStorage("UserAccounts", adminAccount)
 const allUsers = getLocalStorage("UserAccounts");
 const users = allUsers.filter((item) => item.isAdmin === false);
 const users_email = users.map((item) => item.email);
