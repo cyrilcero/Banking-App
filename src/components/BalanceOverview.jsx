@@ -1,5 +1,5 @@
 import React from 'react';
-import { getLocalStorage, setLocalstorage } from '../utils/localStorage';
+import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 import { calcSpentPerUser } from '../utils/helpers';
 
 function BalanceOverview() {

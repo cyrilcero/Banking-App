@@ -1,5 +1,5 @@
 import { getLocalStorage } from "../utils/localStorage";
-import UsersBalanceChart from "./UsersBalanceChart";
+// import UsersBalanceChart from "./UsersBalanceChart";
 
 function AdminAllAccounts() {
   const allAccounts = getLocalStorage("UserAccounts");
@@ -8,7 +8,7 @@ function AdminAllAccounts() {
     <>
       <div className="panel-admindash">
         <div className="client-barchart">
-          <UsersBalanceChart />
+          {/* <UsersBalanceChart /> */}
         </div>
         <div className="client-list">
           <div className="client-list-table">

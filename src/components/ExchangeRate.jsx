@@ -1,5 +1,5 @@
-import setLocalStorage from "../utils/setLocalstorage";
-import getLocalStorage from "../utils/getLocalStorage";
+import { setLocalStorage, getLocalStorage }from "../utils/localStorage";
+
 
 import { useState } from "react";
 

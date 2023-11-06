@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ChangePassModal from "../components/changePassModal";
-import { Form } from "react-router-dom";
-import toastInfo from "../utils/toastInfo";
+import { toastInfo } from "../utils/toastify";
 
 function Settings() {
   const [showChangePassword, setShowChangePassword] = useState(false);
