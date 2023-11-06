@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 import { BiLogOutCircle } from "react-icons/bi";

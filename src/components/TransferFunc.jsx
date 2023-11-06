@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import toastSuccess from "../utils/toastSuccess";
-import toastError from "../utils/toastError";
+import { toastSuccess, toastError } from "../utils/toastify";
 
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {

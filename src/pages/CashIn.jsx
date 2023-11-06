@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { getLocalStorage } from '../utils/localStorage';
 import cashInIcon from "../assets/cashin-icon.png";
 import GreetingDash from "../components/GreetingDash";
 import ClientDashboard from "../components/ClientDashboard";
+
 
 function CashInHistory({ amount }) {
   return (
@@ -15,10 +17,10 @@ function CashInHistory({ amount }) {
 function CashIn() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentUser = JSON.parse(localStorage.getItem("CurrentUser")) || {};
+  const currentUser = getLocalStorage("CurrentUser") || {};
   const email = currentUser.email || "";
 
-  const cashInHistory = JSON.parse(localStorage.getItem("CashInHistory")) || [];
+  const cashInHistory = getLocalStorage("CashInHistory") || [];
 
   const userHistory = cashInHistory.filter((entry) => entry.userId === email && entry.deposit === false);
 

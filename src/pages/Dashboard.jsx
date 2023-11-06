@@ -6,7 +6,9 @@ function Dashboard() {
   return (
     <div className='dashboard-container'>
         <Navbar />
+      <main>
         <Outlet />
+      </main>
     </div>
   )
 }

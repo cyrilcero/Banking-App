@@ -1,11 +1,10 @@
 import { Navigate } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
-import getLocalstorage from "../utils/getLocalStorage";
-import toastError from "../utils/toastError";
-import toastInfo from "../utils/toastInfo";
+import { getLocalStorage } from "../utils/localStorage";
+import { toastInfo, toastError } from "../utils/toastify";
 
 export function SecuredRoute({ children }) {
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
   const paramID = useLoaderData();
 
   if (!currentUser || paramID !== currentUser.accountID) {
@@ -18,7 +17,7 @@ export function SecuredRoute({ children }) {
 
 export function SecuredAdminRoute({ children }) {
   const paramID = useLoaderData();
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
   console.log(paramID);
   if (!currentUser || currentUser.isAdmin === false) {
     // insert toast/alert here
@@ -29,7 +28,7 @@ export function SecuredAdminRoute({ children }) {
 }
 
 export function LoggedInRoute({ children }) {
-  const currentUser = getLocalstorage("CurrentUser");
+  const currentUser = getLocalStorage("CurrentUser");
   const paramID = useLoaderData();
   console.log(paramID);
 

@@ -1,4 +1,4 @@
-import getLocalStorage from "../utils/getLocalStorage";
+import { getLocalStorage } from "../utils/localStorage";
 import UsersBalanceChart from "./UsersBalanceChart";
 
 function AdminAllAccounts() {

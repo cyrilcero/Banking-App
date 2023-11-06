@@ -49,10 +49,6 @@
 
 
   //cashin
-  .navbar{
-    position: fixed;
-    z-index: 1;
-  }
   .cash-in {
     display: block;
   }
@@ -230,11 +226,10 @@
   .login-form {
     width: 90%;
   }
-
+}
 
 //cashin
 
-}
 
 //dashboard
 @media screen and (max-width: 1024px) {

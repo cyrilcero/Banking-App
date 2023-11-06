@@ -1,17 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .admin-create-account, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .admin-create-account, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.exchange-rate-container, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
+.exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -49,6 +48,24 @@ body {
   min-height: 100vh;
   max-width: 100%;
   max-height: 100vh;
+}
+
+.App {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+}
+
+:root {
+  --main-radius: 16px;
+  --main-padding: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
 }
 
 .App {
@@ -125,8 +142,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -433,8 +449,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -491,7 +506,7 @@ body {
 }
 
 .greeting-dash {
-  min-width: 100%;
+  width: 100%;
   padding: 0.5rem 2rem;
   color: #2f3a54;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1438,8 +1453,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1518,10 +1532,6 @@ body {
     position: absolute;
     bottom: -15rem;
   }
-  .navbar {
-    position: fixed;
-    z-index: 1;
-  }
   .cash-in {
     display: block;
   }
@@ -1550,7 +1560,6 @@ body {
   }
   .transfer {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -1830,6 +1839,846 @@ body {
     grid-gap: 1vw;
   }
 }
+.underconstruction {
+  position: fixed;
+  padding: 2rem;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  text-decoration: none;
+}
+.underconstruction .image-underconst {
+  width: max(25%, 180px);
+  aspect-ratio: 1;
+}
+.underconstruction h1 {
+  text-transform: uppercase;
+}
+.underconstruction button {
+  width: max(10%, 150px);
+  height: auto;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.underconstruction button:hover {
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+.underconstruction h5 {
+  color: #2f3a54;
+}
+.underconstruction h5:hover {
+  color: #eff1f4;
+}
+
+.budget-app-layout {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.budget-app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(63, 157, 208, 0.5), rgba(255, 255, 255, 0.8)), url("../src/assets/backgroundDash.png");
+  background-size: contain;
+}
+.budget-app .welcome-budget-app {
+  gap: 1rem;
+  padding: 2rem;
+  width: 70%;
+}
+.budget-app .welcome-budget-app .text-box {
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 50%;
+  font-size: clamp(0.75rem, 0.7113rem + 0.6186vw, 1.5rem);
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-align: right;
+}
+.budget-app .welcome-budget-app .text-box p {
+  font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  font-weight: 400;
+}
+.budget-app .welcome-budget-app .form-box {
+  border: 3px dotted #2f3a54;
+  border-radius: 1rem;
+  width: 50%;
+  padding-bottom: 1rem;
+}
+
+.budget-app-container {
+  height: 100%;
+}
+
+.budget-app-wrapper {
+  padding: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 0.8fr;
+  grid-template-rows: 0.8fr 1fr;
+  gap: 0.8rem;
+}
+.budget-app-wrapper .forms-wrapper {
+  grid-area: 1/2/2/3;
+  flex-direction: column;
+}
+.budget-app-wrapper .forms-wrapper h5 {
+  padding: 0.5rem 1rem 1.5rem;
+  color: #2f3a54;
+  text-shadow: none;
+  font-weight: 600;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.budget-app-wrapper .forms-wrapper h5:hover {
+  opacity: 0.65;
+  transform: scale(1.05);
+}
+
+.budgetform-wrapper {
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  height: auto;
+  padding: 2rem 2rem 0.5rem;
+  text-transform: uppercase;
+}
+.budgetform-wrapper h2 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.7113rem + 0.6186vw, 1.5rem);
+  letter-spacing: 0.2rem;
+  font-size: large;
+}
+.budgetform-wrapper .budgetapp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.budgetform-wrapper .budgetapp-form .budget-form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 2rem;
+  padding: 0.2rem;
+}
+.budgetform-wrapper .budgetapp-form .wallet-categ {
+  width: 100%;
+  height: 2rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.budgetform-wrapper .budgetapp-form label {
+  letter-spacing: 0.12rem;
+  color: #2f3a54;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  width: 100%;
+  text-transform: capitalize;
+}
+.budgetform-wrapper .budgetapp-form input, .budgetform-wrapper .budgetapp-form select {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #2f3a54;
+  font-size: 1.5vmin;
+  padding: 0.125rem;
+}
+.budgetform-wrapper .budgetapp-form select {
+  border: 2px solid #2f3a54;
+  width: 100%;
+  height: 2rem;
+  margin-left: -1rem;
+  cursor: pointer;
+}
+.budgetform-wrapper .budgetapp-form button {
+  width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  cursor: pointer;
+}
+.budgetform-wrapper .budgetapp-form button:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+
+.mywallets-wrapper {
+  grid-area: 1/1/4/2;
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mywallets-wrapper h2 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: capitalize;
+  font-size: clamp(0.85rem, 0.801rem + 0.7835vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+.mywallets-wrapper .wallet-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-y: scroll;
+}
+.mywallets-wrapper .wallet-wrapper::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+.mywallets-wrapper .wallet-wrapper::-webkit-scrollbar-track {
+  background: #eff1f4;
+  border-radius: 0.8rem;
+}
+.mywallets-wrapper .wallet-wrapper::-webkit-scrollbar-thumb {
+  background: #3f9dd0;
+  border-radius: 0.3rem;
+}
+.mywallets-wrapper .wallet-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #2f3a54;
+}
+
+.wallet-card {
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.5rem;
+  height: 165px;
+  opacity: 0.75;
+  transform: scale(0.9);
+}
+.wallet-card:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+.wallet-card progress {
+  width: 100%;
+  padding: 0.2rem;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.wallet-card progress::-webkit-progress-bar {
+  height: 0.5rem;
+  background-color: #d1ffbc;
+  border-radius: 0.5rem;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+}
+.wallet-card progress::-webkit-progress-value {
+  background-color: #2f3a54;
+  border-radius: 0.3rem;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+}
+.wallet-card .progress-text {
+  width: 100%;
+  padding: 0 0.5rem;
+  color: #2f3a54;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.wallet-card .progress-text h4, .wallet-card .progress-text h6 {
+  font-weight: 400;
+  text-transform: lowercase;
+  width: 100%;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+}
+.wallet-card .progress-text h6 {
+  font-size: clamp(0.3rem, 0.2768rem + 0.3711vw, 0.75rem);
+}
+.wallet-card .progress-text .align-left {
+  text-align: end;
+}
+.wallet-card .progress-text .wallet-name {
+  font-weight: 700;
+  text-transform: capitalize;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wallet-card .wallet-btns {
+  width: 100%;
+  margin-top: 0.5rem;
+  gap: 1rem;
+}
+.wallet-card .wallet-btns button {
+  width: 100%;
+  height: max(100%, 2rem);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  cursor: pointer;
+}
+.wallet-card .wallet-btns button:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+
+.overall-expenses {
+  grid-area: 1/3/2/4;
+  width: 100%;
+  height: min(100%, 280px);
+  padding: 1.5rem;
+}
+.overall-expenses .expensesvsbalance {
+  gap: 1rem;
+  padding: 2rem;
+  width: 100%;
+}
+.overall-expenses .expensesvsbalance .circprogress {
+  width: min(100%, 180px);
+}
+.overall-expenses .expensesvsbalance .progress-text {
+  color: #2f3a54;
+  letter-spacing: 0.2rem;
+}
+.overall-expenses .expensesvsbalance .progress-text h4, .overall-expenses .expensesvsbalance .progress-text h5 {
+  font-weight: 400;
+  font-size: clamp(0.3rem, 0.2768rem + 0.3711vw, 0.75rem);
+}
+.overall-expenses .expensesvsbalance .progress-text h3 {
+  font-size: clamp(0.75rem, 0.7113rem + 0.6186vw, 1.5rem);
+  margin: 0.5rem 0 0.8rem;
+}
+.overall-expenses .expensesvsbalance .progress-text h4 {
+  text-transform: uppercase;
+}
+
+.recent-expenses-wrapper {
+  grid-area: 2/2/4/4;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 2rem 1rem 1rem;
+  width: 100%;
+  height: auto;
+}
+.recent-expenses-wrapper h3 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  letter-spacing: 0.2rem;
+}
+.recent-expenses-wrapper .delete-btn {
+  width: 100%;
+  height: auto;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  cursor: pointer;
+}
+.recent-expenses-wrapper .delete-btn:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+
+table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+table .table-expenses {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+table .table-expenses th {
+  font-weight: 500;
+  color: #2f3a54;
+  text-transform: capitalize;
+}
+table .table-expenses td {
+  height: min(100%, 2rem);
+}
+table .table-expenses td .td-text {
+  height: min(100%, 2rem);
+  width: 100px;
+  padding: 0.3rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table .table-expenses td .td-numbers {
+  height: min(100%, 2rem);
+  padding: 0.3rem 0;
+}
+table .table-expenses td .td-btn {
+  padding-bottom: 0.3rem;
+}
+table .table-expenses thead {
+  width: 80%;
+}
+table .table-expenses thead .table-header {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+}
+table .table-expenses .table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+  height: 150px;
+  padding: 0 1rem 0.5rem;
+  font-weight: 400;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  color: #2f3a54;
+  text-transform: uppercase;
+  overflow-y: scroll;
+}
+table .table-expenses .table-body::-webkit-scrollbar {
+  width: 5px;
+}
+table .table-expenses .table-body::-webkit-scrollbar-track {
+  background: #eff1f4;
+  border-radius: 0.3rem;
+}
+table .table-expenses .table-body::-webkit-scrollbar-thumb {
+  background: #3f9dd0;
+  border-radius: 0.3rem;
+}
+table .table-expenses .table-body::-webkit-scrollbar-thumb:hover {
+  background: #2f3a54;
+}
+table .table-expenses .td-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  width: max(10%, 150px);
+  height: auto;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  cursor: pointer;
+}
+.back-btn:hover {
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+  transform: scale(1.1);
+}
+.back-btn h5 {
+  color: #2f3a54;
+}
+.back-btn h5:hover {
+  color: #eff1f4;
+}
+
+.expenses-modal {
+  background: rgba(255, 255, 255, 0.4);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.expenses-modal .expenses-modal-content {
+  flex-direction: column;
+  gap: 1rem;
+  border: 3px dotted #2f3a54;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(63, 157, 208, 0.5));
+  width: min(750px, 80%);
+  height: 70vh;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.expenses-modal .close-btn {
+  width: 20%;
+  height: auto;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  z-index: 2;
+  cursor: pointer;
+}
+.expenses-modal .close-btn:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+
+.expenses-overview {
+  background: transparent;
+  gap: 0.5rem;
+}
+.expenses-overview h2, .expenses-overview h4 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  letter-spacing: 0.25rem;
+}
+
+.wallet-page {
+  background: linear-gradient(180deg, rgba(63, 157, 208, 0.5), rgba(255, 255, 255, 0.8)), url("../src/assets/backgroundDash.png");
+  background-size: contain;
+  width: 100%;
+  height: 100vh;
+}
+.wallet-page::after {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(63, 157, 208, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0.7rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+.wallet-page .wallet-page-content, .wallet-page .no-wallet {
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999;
+  padding: 2rem;
+}
+.wallet-page .wallet-page-content h2, .wallet-page .wallet-page-content h4, .wallet-page .no-wallet h2, .wallet-page .no-wallet h4 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.wallet-page .wallet-page-content .close-btn, .wallet-page .no-wallet .close-btn {
+  width: min(2rem, 20%);
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50%;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  color: #2f3a54;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 999;
+}
+.wallet-page .wallet-page-content .close-btn:hover, .wallet-page .no-wallet .close-btn:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+
+.expenses-wrapper {
+  grid-area: 2/2/4/4;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  width: 50vw;
+  min-width: 280px;
+  height: min(100%, 45vh);
+}
+.expenses-wrapper h3 {
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  letter-spacing: 0.2rem;
+}
+.expenses-wrapper .delete-btn {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  cursor: pointer;
+}
+.expenses-wrapper .delete-btn:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
+}
+.expenses-wrapper table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.expenses-wrapper table .table-expenses {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.expenses-wrapper table .table-expenses td {
+  height: min(100%, 2rem);
+}
+.expenses-wrapper table .table-expenses td .td-text {
+  height: min(100%, 2rem);
+  width: 100px;
+  padding: 0.3rem 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.expenses-wrapper table .table-expenses td .td-numbers {
+  height: min(100%, 2rem);
+  padding: 0.3rem 0;
+}
+.expenses-wrapper table .table-expenses td .td-btn {
+  padding-bottom: 0.3rem;
+}
+.expenses-wrapper table .table-expenses thead {
+  width: 100%;
+  display: none;
+}
+.expenses-wrapper table .table-expenses thead .table-header {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+}
+.expenses-wrapper table .table-expenses .table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+  height: 250px;
+  padding: 0 1rem 0.5rem;
+  font-weight: 400;
+  font-size: clamp(0.5rem, 0.4742rem + 0.4124vw, 1rem);
+  color: #2f3a54;
+  text-transform: uppercase;
+  overflow-y: scroll;
+}
+.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar {
+  width: 5px;
+}
+.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar-track {
+  background: #eff1f4;
+  border-radius: 0.3rem;
+}
+.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar-thumb {
+  background: #3f9dd0;
+  border-radius: 0.3rem;
+}
+.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar-thumb:hover {
+  background: #2f3a54;
+}
+.expenses-wrapper table .table-expenses .td-line {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+}
+
+@media screen and (max-width: 426px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+  }
+  .navbar-closed {
+    left: -100%;
+  }
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(48, 59, 85, 0.8);
+    padding-left: 0;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+  }
+  .greeting-dash {
+    width: 80%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+  }
+  .budget-app .welcome-budget-app {
+    flex-direction: column;
+    width: 90%;
+  }
+  .budget-app .welcome-budget-app .text-box {
+    width: 100%;
+    text-align: left;
+  }
+  .budget-app .welcome-budget-app .form-box {
+    width: 100%;
+  }
+  .budget-app-wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "forms" "overall" "wallets" "expenses";
+  }
+  .budget-app-wrapper .forms-wrapper {
+    grid-area: forms;
+  }
+  .budget-app-wrapper .overall-expenses {
+    grid-area: overall;
+  }
+  .budget-app-wrapper .overall-expenses .expensesvsbalance {
+    flex-direction: row;
+  }
+  .budget-app-wrapper .mywallets-wrapper {
+    grid-area: wallets;
+  }
+  .budget-app-wrapper .recent-expenses-wrapper {
+    grid-area: expenses;
+  }
+  .budgetform-wrapper {
+    height: 250px;
+  }
+  .budgetform-wrapper .budgetapp-form {
+    width: 100%;
+    gap: 1rem;
+  }
+  .budgetform-wrapper .budgetapp-form button {
+    margin: 0;
+    margin-top: 1rem;
+  }
+  .budgetform-wrapper .budgetapp-form .budget-form-item {
+    flex-direction: column;
+  }
+  .budgetform-wrapper .budgetapp-form .budget-form-item input {
+    width: 100%;
+    font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+  }
+  .navbar-closed {
+    left: -100%;
+  }
+  .menu-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(48, 59, 85, 0.8);
+    padding-left: 0;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+  }
+  .greeting-dash {
+    width: 80%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+  }
+  .budget-app .welcome-budget-app {
+    flex-direction: column;
+    width: 90%;
+  }
+  .budget-app .welcome-budget-app .text-box {
+    width: 100%;
+    text-align: left;
+  }
+  .budget-app .welcome-budget-app .form-box {
+    width: 100%;
+  }
+  .budget-app-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    grid-template-rows: repeat(2, 1fr) 0.8fr;
+  }
+  .budget-app-wrapper .forms-wrapper {
+    grid-area: 1/1/2/2;
+  }
+  .budget-app-wrapper .overall-expenses {
+    grid-area: 1/2/2/3;
+  }
+  .budget-app-wrapper .overall-expenses .expensesvsbalance {
+    flex-direction: column-reverse;
+  }
+  .budget-app-wrapper .overall-expenses .circprogress {
+    width: min(100%, 130px);
+  }
+  .budget-app-wrapper .mywallets-wrapper {
+    grid-area: 2/1/3/3;
+  }
+  .budget-app-wrapper .recent-expenses-wrapper {
+    grid-area: 3/1/4/3;
+  }
+}
 .exchange-rate-container {
   display: flex;
   flex-direction: column;
@@ -1855,4 +2704,4 @@ body {
   font-weight: 300;
   font-style: italic;
   color: #2f3a54;
-}/*# sourceMappingURL=App.css.map */
+}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import Select from "react-select";
-import getLocalStorage from "../utils/getLocalStorage";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -32,7 +31,7 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
-  const dropDownOverAllSelection = getLocalStorage("UserAccounts");
+  const dropDownOverAllSelection = JSON.parse(localStorage.getItem("UserAccounts"));
   const dropDownClientSelection = dropDownOverAllSelection.filter(
     (items) => items.isAdmin === false
   );
