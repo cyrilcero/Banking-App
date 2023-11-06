@@ -3,7 +3,6 @@ import { toastError, toastSuccess } from "../utils/toastify";
 import { Form, Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
 import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
-import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
 
 
 const initialUserData = [
