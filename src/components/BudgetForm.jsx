@@ -11,7 +11,7 @@ function BudgetForm() {
         method="post"
         className="budgetapp-form"
       >
-        <div className='budget-form-item'>
+        <div className='budget-form-item name'>
           <label htmlFor="newWallet">Wallet Name</label>
           <input 
             type="text" 
@@ -21,7 +21,7 @@ function BudgetForm() {
             required
           />
         </div>
-        <div className="budget-form-item">
+        <div className="budget-form-item amount">
           <label htmlFor="newWalletAmount">Wallet Amount</label>
           <input 
             type="number" 

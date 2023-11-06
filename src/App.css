@@ -1898,6 +1898,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  height: auto;
   padding: 2rem 2rem 0.5rem;
   text-transform: uppercase;
 }
@@ -2503,6 +2504,22 @@ table .table-expenses .td-line {
     margin-left: 1rem;
     margin-top: 1rem;
   }
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+  }
+  .budget-app .welcome-budget-app {
+    flex-direction: column;
+    width: 90%;
+  }
+  .budget-app .welcome-budget-app .text-box {
+    width: 100%;
+    text-align: left;
+  }
+  .budget-app .welcome-budget-app .form-box {
+    width: 100%;
+  }
   .budget-app-wrapper {
     height: 100vh;
     display: grid;
@@ -2524,6 +2541,24 @@ table .table-expenses .td-line {
   }
   .budget-app-wrapper .recent-expenses-wrapper {
     grid-area: expenses;
+  }
+  .budgetform-wrapper {
+    height: 250px;
+  }
+  .budgetform-wrapper .budgetapp-form {
+    width: 100%;
+    gap: 1rem;
+  }
+  .budgetform-wrapper .budgetapp-form button {
+    margin: 0;
+    margin-top: 1rem;
+  }
+  .budgetform-wrapper .budgetapp-form .budget-form-item {
+    flex-direction: column;
+  }
+  .budgetform-wrapper .budgetapp-form .budget-form-item input {
+    width: 100%;
+    font-size: clamp(0.65rem, 0.6216rem + 0.4536vw, 1.2rem);
   }
 }
 @media screen and (max-width: 768px) and (min-width: 426px) {
@@ -2550,6 +2585,22 @@ table .table-expenses .td-line {
     width: 80%;
     margin-left: 1rem;
     margin-top: 1rem;
+  }
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+  }
+  .budget-app .welcome-budget-app {
+    flex-direction: column;
+    width: 90%;
+  }
+  .budget-app .welcome-budget-app .text-box {
+    width: 100%;
+    text-align: left;
+  }
+  .budget-app .welcome-budget-app .form-box {
+    width: 100%;
   }
   .budget-app-wrapper {
     height: 100%;

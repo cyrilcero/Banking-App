@@ -41,7 +41,7 @@
       }
     }
 
-    .form-box{
+    .form-box {
       border: 3px dotted $darkBlue;
       border-radius: 1rem;
       width: 50%;
@@ -91,6 +91,7 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  height: auto;
   padding: 2rem 2rem 0.5rem;
   text-transform: uppercase;
 

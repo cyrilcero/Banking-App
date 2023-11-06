@@ -29,6 +29,26 @@
     margin-top: 1rem;
   }
 
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+
+    .welcome-budget-app {
+      flex-direction: column;
+      width: 90%;
+
+      .text-box{
+        width: 100%;
+        text-align: left;
+      }
+
+      .form-box{
+        width: 100%;
+      }
+    }
+  }
+
   .budget-app-wrapper {
     height: 100vh;
     display: grid;
@@ -40,26 +60,48 @@
       'wallets'
       'expenses';
 
-      .forms-wrapper {
-        grid-area: forms;
+    .forms-wrapper {
+      grid-area: forms;
+    }
+
+    .overall-expenses {
+      grid-area: overall;
+  
+      .expensesvsbalance{
+        flex-direction: row;
+      }
+    }
+  
+    .mywallets-wrapper {
+      grid-area: wallets; 
+    }
+  
+    .recent-expenses-wrapper {
+      grid-area: expenses;
+    }
+  }  
+
+  .budgetform-wrapper {
+    height: 250px;
+
+    .budgetapp-form {
+      width: 100%;
+      gap: 1rem;
+
+      button {
+        margin: 0;
+        margin-top: 1rem;
       }
 
-      .overall-expenses {
-        grid-area: overall;
-    
-        .expensesvsbalance{
-          flex-direction: row;
+      .budget-form-item {
+        flex-direction: column;
+
+        input {
+          width: 100%;
+          font-size: $h4  ;
         }
       }
-    
-      .mywallets-wrapper {
-        grid-area: wallets; 
-      }
-    
-      .recent-expenses-wrapper {
-        grid-area: expenses;
-      }
-    
+    }
   }
 }
 
@@ -95,6 +137,26 @@
     margin-top: 1rem;
   }
 
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+
+    .welcome-budget-app {
+      flex-direction: column;
+      width: 90%;
+
+      .text-box{
+        width: 100%;
+        text-align: left;
+      }
+
+      .form-box{
+        width: 100%;
+      }
+    }
+  }
+
   .budget-app-wrapper {
     height: 100%;
     display: grid;
@@ -126,5 +188,3 @@
     }
   }
 }
-
-
