@@ -8,7 +8,7 @@ import TransferFunc from "../components/TransferFunc";
 function TransferHistory({ amount, receiver }) {
   return (
     <ul className="transfer-history-list">
-      <li>Money Transfered</li>
+      <li>Money Transferred</li>
       <li>{receiver}</li>
       <li>&#8369;{amount}</li>
     </ul>

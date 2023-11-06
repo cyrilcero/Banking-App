@@ -1,22 +1,11 @@
 @use "./format" as *;
 
-.client-barchart {
-    grid-area: 2/1/2/6;
-    // height: 70vh;
-    canvas{
-        // width: 100%;
-        height: fit-content;
-    }
-    // width: 100%;
-    // flex-grow: 1;
-    // max-height: max-content;
-}
-
 .client-list-table {
-    overflow-x: auto;
+    // overflow-x: auto;
     h1 {
         text-align: center;
         padding: 1rem;
+        width: 100%;
     }
     table {
         display: table;

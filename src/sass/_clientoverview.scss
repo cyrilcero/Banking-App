@@ -2,6 +2,7 @@
 
 .client-overview {
   @extend %clientDashboard;
+  display: block;
 }
 
 .panel2-overview {
@@ -16,24 +17,30 @@
 
 .transactions-widget {
   min-width: 60%;
-  max-height: 50vh;
+  min-height: 40vh;
   @extend %claymorph;
- display: flex;
- justify-content: flex-start;
- align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   color: $darkBlue;
   flex-direction: column;
   padding: 1.5rem;
 
- 
-  hr{
+  hr {
     border: none;
     width: 100%;
-  border: 2px solid;
+    border: 2px solid;
   }
 }
+.list-label {
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+}
 
-.transaction-list{
+.transaction-list {
   min-width: 100%;
   min-height: 5vh;
   display: flex;
@@ -41,4 +48,8 @@
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+
+  li{
+    font-size: clamp(0.8rem, 1vw, 1rem);
+  }
 }

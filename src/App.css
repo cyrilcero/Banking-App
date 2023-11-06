@@ -306,17 +306,18 @@ body {
 
 .login-page-container {
   width: 80%;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   align-items: stretch;
   justify-content: center;
   background-color: #2f3a54;
   border-radius: 2rem;
+  gap: 2rem;
 }
 
 .side-form-content {
   width: 50%;
-  margin: 1rem;
+  padding: 2rem;
   flex-direction: column;
   background-color: white;
   border-radius: 1rem;
@@ -335,8 +336,8 @@ body {
 }
 
 .login-form {
-  width: 50%;
-  margin: 1rem;
+  width: 100%;
+  padding: 2rem;
   flex-direction: column;
   background-color: white;
   border-radius: 1rem;
@@ -411,6 +412,10 @@ body {
   padding: 1rem 2.5rem;
 }
 
+.client-overview {
+  display: block;
+}
+
 .panel2-overview {
   min-width: 100%;
   min-height: 50vh;
@@ -423,7 +428,7 @@ body {
 
 .transactions-widget {
   min-width: 60%;
-  max-height: 50vh;
+  min-height: 40vh;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -437,6 +442,14 @@ body {
   border: 2px solid;
 }
 
+.list-label {
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+}
+
 .transaction-list {
   min-width: 100%;
   min-height: 5vh;
@@ -445,6 +458,9 @@ body {
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.transaction-list li {
+  font-size: clamp(0.8rem, 1vw, 1rem);
 }
 
 .bank-card {
@@ -560,6 +576,10 @@ body {
   margin: 0 !important;
 }
 
+.cash-in {
+  display: block;
+}
+
 .panel2-cashin {
   min-width: 100%;
   min-height: 50vh;
@@ -572,7 +592,7 @@ body {
 
 .transactions-cashin {
   min-width: 60%;
-  max-height: 50vh;
+  min-height: 40vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -751,6 +771,10 @@ body {
   transform: scale(1.1);
 }
 
+.transfer {
+  display: block;
+}
+
 .transfer-page {
   min-width: 100%;
   min-height: auto;
@@ -762,7 +786,7 @@ body {
 }
 
 .transfer-form-container {
-  min-width: 25%;
+  min-width: 400px;
   min-height: 80vh;
 }
 
@@ -1506,6 +1530,7 @@ body {
   grid-area: 2/1/2/6;
 }
 .client-barchart canvas {
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1515,6 +1540,7 @@ body {
 .client-list-table h1 {
   text-align: center;
   padding: 1rem;
+  width: 100%;
 }
 .client-list-table table {
   display: table;
@@ -1618,6 +1644,57 @@ body {
     padding: 0;
     min-height: 40vh;
   }
+}
+@media screen and (max-width: 768px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+  .side-form-content {
+    display: none;
+    width: 100%;
+  }
+  .login-form {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .client-overview {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .panel2-overview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
+    width: 370px;
+    height: 220px;
+  }
+}
+@media screen and (max-width: 768px) {
   #one {
     display: flex;
     align-items: center;
@@ -1633,8 +1710,36 @@ body {
     width: 10vw;
     padding: 1.5rem 0px;
   }
-  #two {
-    background-color: white;
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  .container {
+    margin-top: 1vw;
+    grid-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+}
+/* Add media queries if needed */
+@media screen and (min-width: 769px) and (max-width: 850px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
   }
   #six {
     display: none;
@@ -1643,12 +1748,170 @@ body {
     display: none;
   }
   .container {
-    margin-top: 13vh;
+    margin-top: 10vw;
     grid-gap: 0.5rem;
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
     grid-template-areas: "one" "three" "four" "two";
   }
+}
+@media screen and (min-width: 851px) and (max-width: 979px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 5rem, 5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #five, #six {
+    display: none;
+  }
+  #two {
+    display: none;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+  }
+  #two img {
+    height: 100%;
+    width: 100%;
+  }
+  #testimonials {
+    display: flex;
+    background: none;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+  }
+  #testimonials img {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+  }
+  #testimonialsText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #2F3A54;
+    font-family: "League Spartan", sans-serif;
+  }
+  #testimonialsText span {
+    margin-top: 10vw;
+  }
+  #tree {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #tree img {
+    height: 100%;
+  }
+  #tree span {
+    white-space: nowrap;
+    font-size: 1rem;
+    margin-right: 0vw;
+    font-family: "League Spartan", sans-serif;
+  }
+  .container {
+    gap: 0.5rem;
+    margin-top: 11vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one tree tree tree" "three tree tree tree" "four tree tree tree" "two tree tree tree" "testimonials testimonialsText testimonialsText testimonialsText";
+  }
+}
+@media screen and (min-width: 980px) and (max-width: 1300px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #two img {
+    width: 75%;
+    border-radius: 1rem;
+  }
+  #two span {
+    width: 75%;
+    margin-left: 5vw;
+  }
+  #five img {
+    margin-top: 0vh;
+    height: 42vh;
+    margin-left: -2vw;
+  }
+  .container {
+    gap: 0.5rem;
+    margin-top: 11vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
+    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
+  }
+}
+@media screen and (max-width: 1301px) {
+  #three span {
+    margin-left: 2.5vw;
+    font-size: 2rem;
+    line-height: 3.7vh;
+  }
+  #two span {
+    font-size: 1.2rem;
+  }
+  #four h1 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+  #four p {
+    font-size: 1.4vw;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .buttons1 {
+    display: none;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    position: absolute;
+    top: 85px;
+    background: #1f293b;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+  .home-nav-links {
+    font-size: 20px;
+    margin-left: 20px;
+    color: rgb(195, 196, 206);
+  }
+  .otherButton {
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    grid-gap: 1vw;
+  }
+}
+@media screen and (max-width: 768px) {
   .otherButton {
     display: none;
   }
@@ -1716,172 +1979,6 @@ body {
     background: #fff;
     color: #242424;
     transition: 250ms;
-  }
-}
-@media screen and (max-width: 425px) {
-  .login-page-container {
-    flex-direction: column;
-  }
-  .side-form-content {
-    display: none;
-    width: 90%;
-  }
-  .login-form {
-    width: 90%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .client-overview {
-    display: block;
-  }
-  .panel1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .balance-overview {
-    width: 370px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .balance-overview .account-details {
-    font-size: 0.5rem;
-  }
-  .balance-overview .account-details h1 {
-    font-size: 1rem;
-  }
-  .bank-card {
-    width: 370px;
-    height: 220px;
-    font-size: 0.5rem;
-  }
-  .panel2-overview {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
-    width: 370px;
-    height: 220px;
-  }
-}
-/* Add media queries if needed */
-@media screen and (min-width: 769px) and (max-width: 979px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  #two {
-    background-color: white;
-  }
-  .container {
-    grid-gap: 0.5rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-@media screen and (min-width: 980px) and (max-width: 1300px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #two img {
-    width: 75%;
-    border-radius: 1rem;
-  }
-  #two p {
-    width: 75%;
-    margin-left: 5vw;
-  }
-  #two {
-    background-color: white;
-  }
-  #five img {
-    margin-top: 0vh;
-    height: 42vh;
-    margin-left: -2vw;
-  }
-  #six {
-    height: 75%;
-    margin-top: 5vh;
-  }
-  .container {
-    gap: 0.5rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
-  }
-}
-@media screen and (max-width: 1301px) {
-  #three span {
-    margin-left: 2.5vw;
-    font-size: 2rem;
-    line-height: 3.7vh;
-  }
-  #four h1 {
-    font-size: 2vw;
-    margin-bottom: 1vw;
-  }
-  #four p {
-    font-size: 1.4vw;
-  }
-}
-@media screen and (max-width: 1100px) {
-  .buttons1 {
-    display: none;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    position: absolute;
-    top: 85px;
-    background: #1f293b;
-    left: 0;
-    opacity: 1;
-    z-index: 1;
-  }
-  .home-nav-links {
-    font-size: 20px;
-    margin-left: 20px;
-    color: rgb(195, 196, 206);
-  }
-  .otherButton {
-    display: grid;
-    grid-template-columns: repeat(9, auto);
-    grid-gap: 1vw;
   }
 }
 .underconstruction {
