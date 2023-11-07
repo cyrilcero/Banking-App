@@ -6,13 +6,13 @@ import { getLocalStorage } from "../utils/localStorage";
 
 
 function AdminOverviewContent() {
-  const clients = getLocalStorage('UserAccounts');;
+  const clients = getLocalStorage('UserAccounts');
   const nav = useNavigate();  
   
   const handleClick = () => {
     nav("/admin/create-new-account");
   };
-  
+
   return (
     <>
       <div className="panel-admindash">
