@@ -59,14 +59,21 @@ const TransferFunc = () => {
     }));
   };
 
-  const submitHandle = () => {
-    if (!isExistingAccount) {
+  const submitHandle = (e) => {
+    e.preventDefault();
+
+    if (inputValue.email.toLowerCase() === currentUser.email.toLowerCase()) {
       setMoneySended(false);
-      toastError("Transfer Failed.");
+      toastError("Transfer Failed. You cannot send money to yourself.");
+    } else if (!isExistingAccount) {
+      toastError("Transfer Failed. Account not existing.");
+      setMoneySended(false);
     } else {
       const recipientAccount = userAccounts.find(
         (user) => user.email === inputValue.email
       );
+
+      toastSuccess("Transfer Successful.");
 
       if (recipientAccount) {
         const amount = parseFloat(inputValue.amount);
@@ -77,9 +84,11 @@ const TransferFunc = () => {
           setAmountSufficient(true);
           const newCurrentUserBalance = currentUserBalance - amount;
           const newRecipientBalance = recipientBalance + amount;
-
-          currentUser.accountBalance = newCurrentUserBalance.toFixed(2);
-          recipientAccount.accountBalance = newRecipientBalance.toFixed(2);
+          
+          const userAccountNewBalance = userAccounts.find((user)=>user.email === currentUser);
+          userAccountNewBalance.accountBalance = newCurrentUserBalance;
+          currentUser.accountBalance = newCurrentUserBalance;
+          recipientAccount.accountBalance = newRecipientBalance;
 
           localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
           localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
@@ -90,10 +99,9 @@ const TransferFunc = () => {
           localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
 
           toastSuccess("Transfer Successful.");
-
           setMoneySended(true);
         } else {
-          toastError("Transfer Failed.");
+          toastError("Insufficient Balance.");
           setAmountSufficient(false);
         }
       }
@@ -111,7 +119,7 @@ const TransferFunc = () => {
         <Inputs
           type="number"
           name="amount"
-          placeholder="Amount"
+          placeholder="0.00"
           text="Amount"
           value={inputValue.amount}
           inputMode="decimal"
@@ -121,7 +129,7 @@ const TransferFunc = () => {
         <Inputs
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="juandelacruz@gmail.com"
           text="Email"
           value={inputValue.email}
           onChange={handleChange}
@@ -129,14 +137,12 @@ const TransferFunc = () => {
         <Inputs
           type="text"
           name="accountName"
-          placeholder="Account Name"
+          placeholder="Juan Dela Cruz"
           text="Account Name"
           value={inputValue.accountName}
           onChange={handleChange}
         />
         <button className="transfer-btn">Send Money</button>
-        {!moneySended ? <p>*Account not existing</p> : null}
-        {!amountSufficient ? <p>*Insufficient balance</p> : null}
       </Form>
       <ToastContainer
         position="top-center"

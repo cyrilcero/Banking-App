@@ -54,16 +54,17 @@ function ClientOverview() {
           <h3>Transaction Type</h3>
           <h3>Date</h3>
           <h3>Amount</h3>
-        </div>
+        </div> <div className="transaction-list-container">
           {transactionHistory.map((entry, index) => (
-            <AllTransaction
+              <AllTransaction
               key={index}
               amount={entry.amount}
               date={entry.date}
               type={entry.type}
               receiver={entry.accountName}
             />
-          ))}
+          ))} 
+          </div>
         </div>
       </div>
     </section>

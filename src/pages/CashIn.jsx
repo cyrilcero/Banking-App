@@ -9,11 +9,7 @@ function CashInHistory({ amount }) {
   return (
     <ul className="cashin-list">
       <li>Cash In</li>
-<<<<<<< Updated upstream
       <li>{formatCurrency(+amount)}</li>
-=======
-      <li>+{amount}</li>
->>>>>>> Stashed changes
     </ul>
   );
 }
@@ -51,9 +47,11 @@ function CashIn() {
             </button>
           </div>
           <hr className="cashin-lines" />
-          {userHistory.map((entry, index) => (
+          <div className="cashin-list-container">
+            {userHistory.map((entry, index) => (
             <CashInHistory key={index} amount={entry.amount} />
           ))}
+          </div>
         </div>
       </div>
       {isModalOpen && (

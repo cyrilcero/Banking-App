@@ -422,7 +422,7 @@ body {
 
 .panel2-overview {
   min-width: 100%;
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -432,7 +432,7 @@ body {
 
 .transactions-widget {
   min-width: 60%;
-  min-height: 40vh;
+  max-height: 45vh;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -465,6 +465,27 @@ body {
 }
 .transaction-list li {
   font-size: clamp(0.8rem, 1vw, 1rem);
+}
+
+.transaction-list-container {
+  min-width: 100%;
+  min-height: 30vh;
+  overflow: auto;
+}
+
+.transaction-list-container::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.transaction-list-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.transaction-list-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #2f3a54;
 }
 
 .bank-card {
@@ -587,7 +608,7 @@ body {
 
 .panel2-cashin {
   min-width: 100%;
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -597,7 +618,7 @@ body {
 
 .transactions-cashin {
   min-width: 60%;
-  min-height: 40vh;
+  max-height: 45vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -671,6 +692,27 @@ body {
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.cashin-list-container {
+  min-width: 100%;
+  max-height: 30vh;
+  overflow: auto;
+}
+
+.cashin-list-container::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.cashin-list-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cashin-list-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #2f3a54;
 }
 
 .cashin-modal {
@@ -823,9 +865,6 @@ body {
   color: #2f3a54;
   flex-direction: column;
 }
-.transfer-form p {
-  font-size: clamp(0.5rem, 1vw, 1rem);
-}
 
 .transfer-form-inputs {
   min-width: 80%;
@@ -897,10 +936,30 @@ body {
 
 .transfer-history-list {
   width: 100%;
-  height: 2vh;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+}
+
+.transfer-list-container {
+  min-width: 100%;
+  max-height: 30vh;
+  overflow: auto;
+}
+
+.transfer-list-container::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.transfer-list-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.transfer-list-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #2f3a54;
 }
 
 .logout-modal {
@@ -2786,5 +2845,5 @@ body {
   color: #2f3a54;
 }
 .exchange-rate-container .spinner {
-  width: 5rem;
+  width: 2rem;
 }/*# sourceMappingURL=App.css.map */
