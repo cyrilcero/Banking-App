@@ -1,8 +1,7 @@
-import React from "react";
 import { formatCurrency } from "../utils/helpers";
 
 const style = {
-  textTransform: 'capitalize',
+  textTransform: "capitalize",
 };
 
 function ClientList({ displayCount, clients }) {
@@ -17,25 +16,22 @@ function ClientList({ displayCount, clients }) {
         <thead>
           <tr>
             <th>First Name</th>
-            <th>Last Name</th>  
+            <th>Last Name</th>
             <th>Email Address</th>
             <th>Account ID</th>
             <th>Account Balance</th>
           </tr>
         </thead>
         <tbody>
-          {
-            displayClients
-              .map((user, index) => (
-              <tr key={index}>
-                <td style={style}>{user.firstName}</td>
-                <td style={style}>{user.lastName}</td>
-                <td>{user.email}</td>
-                <td>{user.accountID}</td>
-                <td>{formatCurrency(user.accountBalance)}</td>
-              </tr>
-            ))
-          }
+          {displayClients.map((user, index) => (
+            <tr key={index}>
+              <td style={style}>{user.firstName}</td>
+              <td style={style}>{user.lastName}</td>
+              <td>{user.email}</td>
+              <td>{user.accountID}</td>
+              <td>{formatCurrency(user.accountBalance)}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
