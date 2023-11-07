@@ -1,18 +1,47 @@
 import { getLocalStorage } from "../utils/localStorage";
 import UsersBalanceChart from "./UsersBalanceChart";
+import { useEffect, useState } from "react";
 
 const style = {
-  textTransform: 'capitalize',
+  textTransform: "capitalize",
 };
 
 function AdminAllAccounts() {
   const allAccounts = getLocalStorage("UserAccounts");
-  const clientAccounts = allAccounts.filter((item) => item.isAdmin === false);
+  const [accounts, setAccounts] = useState(allAccounts);
+  const clientAccounts = accounts.filter((item) => item.isAdmin === false);
+
+  const users = allAccounts.filter((item) => item.isAdmin === false);
+  const users_email = users.map((item) => item.email);
+  const users_balance = users.map((item) => Number(item.accountBalance));
+  
+  const labels = users_email;
+  const balance = users_balance;
+  
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+    },
+  };
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Account Balance",
+        data: balance,
+        backgroundColor: "rgba(62, 157, 208, 1)",
+      },
+    ],
+  };
+  
   return (
     <>
       <div className="panel-admindash">
         <div className="client-barchart">
-          <UsersBalanceChart />
+          <UsersBalanceChart data={data} options={options}/>
         </div>
         <div className="client-list">
           <div className="client-list-table">

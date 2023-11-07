@@ -3,14 +3,12 @@ import { formatCurrency } from "../utils/helpers";
 const style = {
   textTransform: "capitalize",
 };
-import { useState } from "react";
 
-function ClientList({ displayCount, clients }) {
+function ClientList({ displayCount, clients, totalExpenses }) {
   const clientList = clients.filter((item) => item.isAdmin === false);
   // sort and slice
   clientList.sort((a, b) => b.accountID - a.accountID);
   const displayClients = clientList.slice(0, displayCount);
-
   return (
     <div className="client-list-table">
       <table>
@@ -30,7 +28,7 @@ function ClientList({ displayCount, clients }) {
               <td style={style}>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.accountID}</td>
-              <td>{formatCurrency(user.accountBalance)}</td>
+              <td>{formatCurrency(user.accountBalance - totalExpenses)}</td>
             </tr>
           ))}
         </tbody>
