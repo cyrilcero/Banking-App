@@ -3,7 +3,7 @@ import { getLocalStorage } from "../utils/localStorage";
 import GreetingDash from "../components/GreetingDash";
 import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
-import {formatCurrency} from '../utils/helpers'
+
 
 
 function TransferHistory({ amount, receiver }) {
@@ -36,7 +36,7 @@ function Transfer() {
           <h1>Transfer In History</h1>
           <hr/>
             {transferHistory.map((entry, index) => (
-        <TransferHistory key={index} amount={formatCurrency(entry.amount)} receiver={entry.accountName}/>
+        <TransferHistory key={index} amount={entry.amount} receiver={entry.accountName}/>
       ))}</div>
         </div>
       </div>

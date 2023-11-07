@@ -812,13 +812,13 @@ body {
 }
 
 .transfer-form-container {
-  min-width: 400px;
+  min-width: 25%;
   min-height: 80vh;
 }
 
 .transfer-form {
-  min-width: 100%;
-  min-height: 70vh;
+  min-width: 400px;
+  min-height: 600px;
   color: #2f3a54;
   flex-direction: column;
 }
@@ -2766,4 +2766,7 @@ body {
   font-weight: 300;
   font-style: italic;
   color: #2f3a54;
+}
+.exchange-rate-container .spinner {
+  width: 5rem;
 }/*# sourceMappingURL=App.css.map */

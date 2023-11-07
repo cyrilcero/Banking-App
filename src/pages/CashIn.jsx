@@ -44,7 +44,7 @@ function CashIn() {
           </div>
           <hr className="cashin-lines" />
           {userHistory.map((entry, index) => (
-            <CashInHistory key={index} amount={formatCurrency(entry.amount)} />
+            <CashInHistory key={index} amount={entry.amount} />
           ))}
         </div>
       </div>
