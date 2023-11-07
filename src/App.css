@@ -2351,82 +2351,6 @@ body {
   box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
 }
 
-table {
-  width: 100%;
-  display: table;
-  justify-content: center;
-}
-table .table-expenses {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-table .table-expenses th {
-  font-weight: 500;
-  color: #2f3a54;
-  text-transform: capitalize;
-}
-table .table-expenses td {
-  height: min(100%, 2rem);
-}
-table .table-expenses td .td-text {
-  height: min(100%, 2rem);
-  width: 100px;
-  padding: 0.3rem 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-table .table-expenses td .td-numbers {
-  height: min(100%, 2rem);
-  padding: 0.3rem 0;
-}
-table .table-expenses td .td-btn {
-  padding-bottom: 0.3rem;
-}
-table .table-expenses thead {
-  width: 80%;
-}
-table .table-expenses thead .table-header {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
-}
-table .table-expenses .table-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  width: 100%;
-  height: 150px;
-  padding: 0 1rem 0.5rem;
-  font-weight: 400;
-  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
-  color: #2f3a54;
-  text-transform: uppercase;
-  overflow-y: scroll;
-}
-table .table-expenses .table-body::-webkit-scrollbar {
-  width: 5px;
-}
-table .table-expenses .table-body::-webkit-scrollbar-track {
-  background: #eff1f4;
-  border-radius: 0.3rem;
-}
-table .table-expenses .table-body::-webkit-scrollbar-thumb {
-  background: #3f9dd0;
-  border-radius: 0.3rem;
-}
-table .table-expenses .table-body::-webkit-scrollbar-thumb:hover {
-  background: #2f3a54;
-}
-table .table-expenses .td-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .back-btn {
   width: max(10%, 150px);
   height: auto;
@@ -2589,77 +2513,6 @@ table .table-expenses .td-line {
   color: #eff1f4;
   background: #3f9dd0;
   box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
-}
-.expenses-wrapper table {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-.expenses-wrapper table .table-expenses {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-.expenses-wrapper table .table-expenses td {
-  height: min(100%, 2rem);
-}
-.expenses-wrapper table .table-expenses td .td-text {
-  height: min(100%, 2rem);
-  width: 100px;
-  padding: 0.3rem 0;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.expenses-wrapper table .table-expenses td .td-numbers {
-  height: min(100%, 2rem);
-  padding: 0.3rem 0;
-}
-.expenses-wrapper table .table-expenses td .td-btn {
-  padding-bottom: 0.3rem;
-}
-.expenses-wrapper table .table-expenses thead {
-  width: 100%;
-  display: none;
-}
-.expenses-wrapper table .table-expenses thead .table-header {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
-}
-.expenses-wrapper table .table-expenses .table-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  width: 100%;
-  height: 250px;
-  padding: 0 1rem 0.5rem;
-  font-weight: 400;
-  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
-  color: #2f3a54;
-  text-transform: uppercase;
-  overflow-y: scroll;
-}
-.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar {
-  width: 5px;
-}
-.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar-track {
-  background: #eff1f4;
-  border-radius: 0.3rem;
-}
-.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar-thumb {
-  background: #3f9dd0;
-  border-radius: 0.3rem;
-}
-.expenses-wrapper table .table-expenses .table-body::-webkit-scrollbar-thumb:hover {
-  background: #2f3a54;
-}
-.expenses-wrapper table .table-expenses .td-line {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
 }
 
 @media screen and (max-width: 426px) {
@@ -2839,6 +2692,78 @@ table .table-expenses .td-line {
     grid-area: 3/1/4/3;
   }
 }
+.table-expenses {
+  width: 70%;
+  padding: 0.5rem 0 1rem;
+}
+.table-expenses table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #2f3a54;
+}
+.table-expenses table th {
+  background-color: #3f9dd0;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.table-expenses table td {
+  padding: 10px;
+  text-align: left;
+}
+.table-expenses table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #3f9dd0;
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
+}
+.table-expenses table tbody {
+  max-height: 250px;
+  overflow-y: auto;
+  font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
+}
+.table-expenses table tbody::-webkit-scrollbar {
+  width: 5px;
+}
+.table-expenses table tbody::-webkit-scrollbar-track {
+  background: #eff1f4;
+  border-radius: 0.3rem;
+}
+.table-expenses table tbody::-webkit-scrollbar-thumb {
+  background: #3f9dd0;
+  border-radius: 0.3rem;
+}
+.table-expenses table tbody::-webkit-scrollbar-thumb:hover {
+  background: #2f3a54;
+}
+.table-expenses table .delete-btn {
+  cursor: pointer;
+  background-color: #d1ffbc;
+  color: #2f3a54;
+  border: none;
+  padding: 0.3rem 1rem;
+  border-radius: 0.8rem;
+  transition: background-color 0.3s;
+}
+.table-expenses table .delete-btn:hover {
+  background-color: #3f9dd0;
+  color: #eff1f4;
+}
+.table-expenses table tbody {
+  display: block;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.table-expenses table thead, .table-expenses table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
 .exchange-rate-container {
   display: flex;
   flex-direction: column;

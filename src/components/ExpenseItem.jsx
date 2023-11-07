@@ -18,61 +18,37 @@ function ExpenseItem({ expense, showWallet }) {
   };
 
   return (
-    <div className='td-line'>
-      <td>
-      <div className='td-text'>
-        {expense.name}
-      </div>
-      </td>
-
-      <td>
-        <div className="td-numbers">
-          {formatCurrency(expense.amount)}
-        </div>
-      </td>
-
-      <td>
-        <div className="td-numbers">
-          {formatCreatedAt(expense.createdAt)}
-        </div>
-      </td>
-
+    <>
+      <td>{expense.name}</td>
+      <td>{formatCurrency(expense.amount)}</td>
+      <td>{formatCreatedAt(expense.createdAt)}</td>
       {
-        showWallet && (
-          <td>
-            <div className='td-text'>
-             {wallet.name}
-            </div>
-          </td>
-        )
+        showWallet && (<td>{wallet.name}</td>)
       }
 
       <td>
-        <div className="td-btn">
-          <Form
-            method='post'
-            onSubmit={handleSubmit}
+        <Form
+          method='post'
+          onSubmit={handleSubmit}
+        >
+
+          <input 
+            type="hidden" 
+            name='expenseID'
+            value={expense.id}
+          />
+
+          <button 
+            type='submit'
+            name='formAction' 
+            value='deleteExpense' 
+            className='delete-btn'
           >
-
-            <input 
-              type="hidden" 
-              name='expenseID'
-              value={expense.id}
-            />
-
-            <button 
-              type='submit'
-              name='formAction' 
-              value='deleteExpense' 
-              className='delete-btn'
-            >
-              <FaTrashCan />
-            </button>
-          </Form>
-        </div>
+            <FaTrashCan />
+          </button>
+        </Form>
       </td>
-
-    </div>
+    </>
   )
 }
 
