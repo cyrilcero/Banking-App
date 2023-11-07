@@ -3,6 +3,7 @@ import { formatCurrency } from "../utils/helpers";
 const style = {
   textTransform: "capitalize",
 };
+import { useState } from "react";
 
 function ClientList({ displayCount, clients }) {
   const clientList = clients.filter((item) => item.isAdmin === false);
