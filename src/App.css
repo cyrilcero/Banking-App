@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,7 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -144,8 +143,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -471,8 +469,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1442,7 +1439,6 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1463,7 +1459,16 @@ body {
   border: 0.5px solid rgba(65, 157, 208, 0.5);
   box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
   overflow-x: auto;
+  flex-direction: column;
   gap: 0.5rem;
+  padding: 0.5rem;
+}
+.client-list-createdaccount h1 {
+  font-size: clamp(0.75rem, 0.6959rem + 0.866vw, 1.8rem);
+  color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
 }
 
 .anavbar {
@@ -1530,8 +1535,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1553,6 +1557,10 @@ body {
   opacity: 0.5;
 }
 
+.client-list-table {
+  width: 100%;
+  flex-direction: column;
+}
 .client-list-table h1 {
   text-align: center;
   padding: 1rem;
@@ -1562,9 +1570,9 @@ body {
   display: table;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
 }
 .client-list-table thead tr th {
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
   font-weight: 600;
   color: #eff1f4;
   background-color: #2f3a54;
@@ -1572,6 +1580,7 @@ body {
 }
 .client-list-table tbody tr {
   text-align: center;
+  font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
 }
 .client-list-table tbody tr:nth-child(odd) {
   background-color: #eff1f4;
@@ -1647,7 +1656,6 @@ body {
   }
   .transfer {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -2768,5 +2776,5 @@ body {
   color: #2f3a54;
 }
 .exchange-rate-container .spinner {
-  width: 3rem;
-}/*# sourceMappingURL=App.css.map */
+  width: 5rem;
+}

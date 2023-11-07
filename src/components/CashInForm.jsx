@@ -87,7 +87,6 @@ function CashInForm({ setter }) {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify([]));
     }
-    console.log(inputValue);
   }, [inputValue]);
 
   //onclick
@@ -174,6 +173,7 @@ function CashInForm({ setter }) {
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
       setter(userAccounts)
+
       // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
         currentUser.accountBalance = userAccount.accountBalance;
@@ -181,11 +181,11 @@ function CashInForm({ setter }) {
       }
 
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.");
+      toastSuccess("Account balance has been updated.");;
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.");
+      toastError("Account does not exist. Create a new account.");;
     }
 
     setInputValue({

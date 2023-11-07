@@ -1,6 +1,10 @@
 import { getLocalStorage } from "../utils/localStorage";
 import UsersBalanceChart from "./UsersBalanceChart";
 
+const style = {
+  textTransform: 'capitalize',
+};
+
 function AdminAllAccounts() {
   const allAccounts = getLocalStorage("UserAccounts");
   const clientAccounts = allAccounts.filter((item) => item.isAdmin === false);
@@ -26,8 +30,8 @@ function AdminAllAccounts() {
               <tbody>
                 {clientAccounts.map((user, idx) => (
                   <tr key={idx}>
-                    <td>{user.firstName}</td>
-                    <td>{user.lastName}</td>
+                    <td style={style}>{user.firstName}</td>
+                    <td style={style}>{user.lastName}</td>
                     <td>{user.email}</td>
                     <td>{user.accountID}</td>
                     <td>{user.accountBalance}</td>
