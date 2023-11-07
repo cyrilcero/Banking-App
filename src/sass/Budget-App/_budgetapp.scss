@@ -68,6 +68,7 @@
     @extend %claymorph;
     @extend %flex;
     flex-direction: column;
+    height: 100%;
 
     h5 {
       padding: 0.5rem 1rem 1.5rem;
@@ -408,97 +409,97 @@
   }
 }
 
-table {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+// table {
+//   width: 100%;
+//   display: table;
+//   justify-content: center;
 
-  .table-expenses {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+//   .table-expenses {
+//     width: 80%;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
 
-    th {
-      font-weight: 500;
-      color: $darkBlue;
-      text-transform: capitalize;
-    }
+//     th {
+//       font-weight: 500;
+//       color: $darkBlue;
+//       text-transform: capitalize;
+//     }
 
-    td {
-      height: min(100%, 2rem);
+//     td {
+//       height: min(100%, 2rem);
 
-      .td-text {
-        height: min(100%, 2rem);
-        width: 100px;
-        padding: 0.3rem 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+//       .td-text {
+//         height: min(100%, 2rem);
+//         width: 100px;
+//         padding: 0.3rem 0;
+//         white-space: nowrap;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//       }
 
-      .td-numbers {
-        height: min(100%, 2rem);
-        padding: 0.3rem 0;
-      }
+//       .td-numbers {
+//         height: min(100%, 2rem);
+//         padding: 0.3rem 0;
+//       }
 
-      .td-btn {
-        padding-bottom: 0.3rem;
-      }
-    }
+//       .td-btn {
+//         padding-bottom: 0.3rem;
+//       }
+//     }
 
-    thead {
-      width: 80%;
+//     thead {
+//       width: 80%;
 
-      .table-header {
-        display: flex;
-        justify-content: space-around;
-        gap: 1rem;
-        font-size: $h5;
-      }
+//       .table-header {
+//         display: flex;
+//         justify-content: space-around;
+//         gap: 1rem;
+//         font-size: $h5;
+//       }
       
-    }
+//     }
 
-    .table-body {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      width: 100%;
-      height: 150px;
-      padding: 0 1rem 0.5rem;
-      font-weight: 400;
-      font-size: $h5;
-      color: $darkBlue;
-      text-transform: uppercase;
-      overflow-y: scroll;
+//     .table-body {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 0.2rem;
+//       width: 100%;
+//       height: 150px;
+//       padding: 0 1rem 0.5rem;
+//       font-weight: 400;
+//       font-size: $h5;
+//       color: $darkBlue;
+//       text-transform: uppercase;
+//       overflow-y: scroll;
     
-      &::-webkit-scrollbar {
-        width: 5px;
-      }
+//       &::-webkit-scrollbar {
+//         width: 5px;
+//       }
   
-      &::-webkit-scrollbar-track {
-        background: $mainGray;
-        border-radius: 0.3rem;
-      }
+//       &::-webkit-scrollbar-track {
+//         background: $mainGray;
+//         border-radius: 0.3rem;
+//       }
   
-      &::-webkit-scrollbar-thumb {
-        background: $lightBlue;
-        border-radius: 0.3rem;
-      }
+//       &::-webkit-scrollbar-thumb {
+//         background: $lightBlue;
+//         border-radius: 0.3rem;
+//       }
   
-      &::-webkit-scrollbar-thumb:hover {
-        background: $darkBlue;
-      }
-    }
+//       &::-webkit-scrollbar-thumb:hover {
+//         background: $darkBlue;
+//       }
+//     }
 
-    .td-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
+//     .td-line {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//     }
+//   }
 
-}
+// }
 
 .back-btn {
   width: max(10%, 150px);

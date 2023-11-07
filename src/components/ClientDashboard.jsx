@@ -1,4 +1,3 @@
-import BankCard from "./BankCard";
 import BalanceOverview from "./BalanceOverview";
 import ExchangeRate from "./ExchangeRate";
 // import { useLoaderData } from "react-router";
