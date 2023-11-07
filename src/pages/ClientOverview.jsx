@@ -5,6 +5,7 @@ import ClientDashboard from "../components/ClientDashboard";
 import GreetingDash from "../components/GreetingDash";
 import { formatCurrency } from "../utils/helpers";
 
+
 function AllTransaction({ amount, type, date }) {
   return (
     <>

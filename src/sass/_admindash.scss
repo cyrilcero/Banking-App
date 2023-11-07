@@ -94,6 +94,7 @@
     @extend %flex;
     flex-direction: column;
     gap: 0.5rem;
+    color: $darkBlue;
 
     span {
       width: 80%;
@@ -239,6 +240,7 @@
   @extend %flex;
   // flex-direction: column;
   gap: 0.5rem;
+  color: $darkBlue;
 }
 
 .client-list-createdaccount {
