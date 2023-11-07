@@ -1,16 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .client-list-createdaccount, .transfer-form-container, .transfer-form, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
+.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
+.exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -126,6 +127,7 @@ body {
   padding-left: 1.2rem;
   cursor: pointer;
   border: none;
+  outline: none;
 }
 .menu-btn:hover {
   opacity: 1;
@@ -142,7 +144,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -468,7 +471,8 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -724,6 +728,28 @@ body {
   align-items: center;
 }
 
+.changePass-wrapper {
+  gap: 1rem;
+  padding: 2rem;
+  width: 50%;
+  flex-direction: column;
+}
+.changePass-wrapper button {
+  width: 50%;
+  height: auto;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2f3a54;
+  cursor: pointer;
+}
+
 .changePass-modal {
   display: flex;
   justify-content: center;
@@ -786,13 +812,13 @@ body {
 }
 
 .transfer-form-container {
-  min-width: 400px;
+  min-width: 25%;
   min-height: 80vh;
 }
 
 .transfer-form {
-  min-width: 100%;
-  min-height: 70vh;
+  min-width: 400px;
+  min-height: 600px;
   color: #2f3a54;
   flex-direction: column;
 }
@@ -1149,7 +1175,7 @@ body {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   text-align: left;
-  line-height: 4.5vh;
+  line-height: 5vh;
   font-family: "League Spartan", sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -1159,7 +1185,7 @@ body {
   transition: transform 0.5s;
 }
 
-#three span {
+#three p {
   margin-left: 2.5vw;
   font-size: 2.3rem;
 }
@@ -1416,6 +1442,7 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1503,7 +1530,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1619,6 +1647,7 @@ body {
   }
   .transfer {
     display: block;
+    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -1713,7 +1742,7 @@ body {
   }
 }
 /* Add media queries if needed */
-@media screen and (min-width: 769px) and (max-width: 850px) {
+@media screen and (min-width: 769px) and (max-width: 979px) {
   #one {
     display: flex;
     align-items: center;
@@ -1729,6 +1758,9 @@ body {
     width: 10vw;
     padding: 1.5rem 0px;
   }
+  #two {
+    background: none;
+  }
   #six {
     display: none;
   }
@@ -1741,81 +1773,6 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
     grid-template-areas: "one" "three" "four" "two";
-  }
-}
-@media screen and (min-width: 851px) and (max-width: 979px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 5rem, 5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #five, #six {
-    display: none;
-  }
-  #two {
-    display: none;
-    align-items: center;
-    height: 50%;
-    width: 50%;
-  }
-  #two img {
-    height: 100%;
-    width: 100%;
-  }
-  #testimonials {
-    display: flex;
-    background: none;
-    align-items: center;
-    height: 80%;
-    width: 100%;
-  }
-  #testimonials img {
-    height: 100%;
-    width: 100%;
-    border-radius: 1rem;
-  }
-  #testimonialsText {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    color: #2F3A54;
-    font-family: "League Spartan", sans-serif;
-  }
-  #testimonialsText span {
-    margin-top: 10vw;
-  }
-  #tree {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  #tree img {
-    height: 100%;
-  }
-  #tree span {
-    white-space: nowrap;
-    font-size: 1rem;
-    margin-right: 0vw;
-    font-family: "League Spartan", sans-serif;
-  }
-  .container {
-    gap: 0.5rem;
-    margin-top: 11vw;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas: "one tree tree tree" "three tree tree tree" "four tree tree tree" "two tree tree tree" "testimonials testimonialsText testimonialsText testimonialsText";
   }
 }
 @media screen and (min-width: 980px) and (max-width: 1300px) {
@@ -1838,38 +1795,42 @@ body {
     width: 75%;
     border-radius: 1rem;
   }
-  #two span {
+  #two p {
     width: 75%;
     margin-left: 5vw;
+  }
+  #two {
+    background: none;
   }
   #five img {
     margin-top: 0vh;
     height: 42vh;
     margin-left: -2vw;
   }
+  #six {
+    height: 70%;
+    width: 77%;
+    margin-top: 5vh;
+    margin-left: 5vw;
+  }
   .container {
     gap: 0.5rem;
-    margin-top: 11vw;
+    margin-top: 12vh;
     grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
     grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
     grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
   }
 }
 @media screen and (max-width: 1301px) {
-  #three span {
-    margin-left: 2.5vw;
-    font-size: 2rem;
-    line-height: 3.7vh;
-  }
   #two span {
     font-size: 1.2rem;
   }
   #four h1 {
-    font-size: 2vw;
+    font-size: 1rem;
     margin-bottom: 1vw;
   }
   #four p {
-    font-size: 1.4vw;
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 1100px) {
@@ -1879,7 +1840,7 @@ body {
   .home-nav-menu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
     width: 100%;
     position: absolute;
     top: 85px;
@@ -1895,13 +1856,29 @@ body {
   }
   .otherButton {
     display: grid;
-    grid-template-columns: repeat(9, auto);
+    grid-template-columns: repeat(2, auto);
     grid-gap: 1vw;
   }
 }
+.container {
+  margin-top: 20vh;
+}
+
 @media screen and (max-width: 768px) {
+  #two {
+    background: none;
+  }
+  #four p {
+    font-size: 1rem;
+  }
+  .container {
+    margin-top: 12vh;
+  }
   .otherButton {
     display: none;
+  }
+  .buttons1 {
+    display: block;
   }
   .NavbarItems {
     position: relative;
@@ -2790,3 +2767,6 @@ body {
   font-style: italic;
   color: #2f3a54;
 }
+.exchange-rate-container .spinner {
+  width: 3rem;
+}/*# sourceMappingURL=App.css.map */

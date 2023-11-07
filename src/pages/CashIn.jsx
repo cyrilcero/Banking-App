@@ -3,7 +3,7 @@ import { getLocalStorage } from '../utils/localStorage';
 import cashInIcon from "../assets/cashin-icon.png";
 import GreetingDash from "../components/GreetingDash";
 import ClientDashboard from "../components/ClientDashboard";
-
+import {formatCurrency} from '../utils/helpers'
 
 function CashInHistory({ amount }) {
   return (

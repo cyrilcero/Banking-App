@@ -32,6 +32,8 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
+  const [selectedAccount, setSelectedAccount] = useState(null);
+
   const dropDownOverAllSelection = JSON.parse(
     localStorage.getItem("UserAccounts")
   );
@@ -64,14 +66,15 @@ function CashInForm() {
     setNegativeAmount(false);
   };
 
-  function handleSelect(inputValue) {
+  function handleSelect(selected) {
+    setSelectedAccount(selected)
     setInputValue((prev) => ({
       ...prev,
-      accountID: inputValue.value[0],
-      email: inputValue.value[1],
-      firstName: inputValue.value[2],
-      lastName: inputValue.value[3],
-      accountBalance: inputValue.value[4],
+      accountID: selected.value[0],
+      email: selected.value[1],
+      firstName: selected.value[2],
+      lastName: selected.value[3],
+      accountBalance: '',
     }));
   }
 
@@ -171,7 +174,7 @@ function CashInForm() {
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
 
-      // Update the `CurrentUser` if the user is not an admin
+      // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
         currentUser.accountBalance = userAccount.accountBalance;
         localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
@@ -192,6 +195,8 @@ function CashInForm() {
       email: "",
       accountBalance: "",
     });
+
+    setSelectedAccount(null);
   }
 
   return (
@@ -201,6 +206,7 @@ function CashInForm() {
       <label htmlFor="accountSelector">Select Account</label>
       <Select
         className="select-input"
+        value={selectedAccount}
         onChange={handleSelect}
         options={dropDownItems}
         isDisabled={false}

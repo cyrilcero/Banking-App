@@ -199,7 +199,7 @@
   }
 }
 /* Add media queries if needed */
-@media screen and (min-width: 769px) and (max-width: 850px) {
+@media screen and (min-width: 769px) and (max-width: 979px) {
   #one{
       display: flex;
       align-items: center;
@@ -217,6 +217,9 @@
           width:10vw;
           padding: 1.5rem 0px;
    
+      }
+      #two{
+        background: none;
       }
   #six{
       display: none;
@@ -238,106 +241,7 @@
       "two" ;
   }
 }
-@media screen and (min-width: 851px) and (max-width: 979px) {
-  #one{
-      display: flex;
-      align-items: center;
-     }
-      #one span{
-          white-space: nowrap;
-          font-size: clamp(1.5rem, 5rem, 5em);
-          margin-right: 0vw;   
-          font-size: clamp(1rem, 2.5rem, 3rem);
-   
-      }
-  
-      #one img{
-          margin-top: 0vw;
-          width:10vw;
-          padding: 1.5rem 0px;
-   
-      }
 
-    
-  
-     #five, #six{
-      display: none;
-     }
-
-     #two{
-      display: none;
-      align-items: center;
-      height: 50%;
-      width: 50%;
-      
-     }
-
-    
-     #two img{
-      height: 100%;
-      width: 100%;
-    }
-
-  
-    #testimonials{
-      display: flex;
-      background: none;
-      align-items: center;
-      height: 80%;
-      width: 100%;
-    }
-  
-     
-    #testimonials img{
-      height: 100%;
-      width: 100%;
-      border-radius: 1rem;
-    }
-
-    #testimonialsText{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      color: #2F3A54;
-      font-family: 'League Spartan', sans-serif;
-    }
-
-    #testimonialsText span{
-      margin-top: 10vw;
-    }
-     #tree{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-     
-     }
-     #tree img{
-      height: 100%;
-     }
-  #tree span{
-      white-space: nowrap;
-      font-size: 1rem;
-      margin-right: 0vw;  
-      font-family: 'League Spartan', sans-serif; 
-  }
-    
-      .container {
-          gap: .5rem;
-      margin-top: 11vw;
-   grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas:
-    "one tree tree tree" 
-    "three tree tree tree"
-    "four tree tree tree"
-    "two tree tree tree"
-    "testimonials testimonialsText testimonialsText testimonialsText"  ;
-  
-}
-
-}
 @media screen and (min-width: 980px) and (max-width: 1300px){
  #one{
   display: flex;
@@ -362,20 +266,31 @@
   width:75%;
  border-radius: 1rem;
 }
-#two span{
+#two p{
   width:75%;
   margin-left: 5vw;
+
 }
 
+#two{
+  background: none;
+}
   #five img{
       margin-top: 0vh;
       height: 42vh;
       margin-left: -2vw;
   }
+
+  #six{
+    height: 70%;
+    width: 77%;
+    margin-top: 5vh;
+    margin-left: 5vw;
+  }
  
   .container {
-      gap: .5rem;
-  margin-top: 11vw;
+  gap: .5rem;
+margin-top: 12vh;
 grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
 grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
 grid-template-areas:
@@ -391,23 +306,19 @@ grid-template-areas:
 }
 
 @media screen and (max-width: 1301px){
-  #three span{
-      margin-left: 2.5vw;
-      font-size: clamp(.5rem, 2rem, 3rem);
-      line-height: 3.7vh;
-    }
 
     #two span{
    
   font-size: 1.2rem;
   }
+ 
 
   #four h1{
-      font-size: 2vw;
+      font-size: 1rem;
       margin-bottom: 1vw;
   }
   #four p{
-      font-size: 1.4vw;
+      font-size: 1rem;
   }
 
  
@@ -422,7 +333,7 @@ grid-template-areas:
    .home-nav-menu{
        display: flex;
        flex-direction: row;
-       justify-content: flex-start;
+       justify-content: space-around;
        width:100%;
        position:absolute;
        top: 85px;
@@ -440,18 +351,38 @@ grid-template-areas:
 
    .otherButton{
        display: grid;
-       grid-template-columns: repeat(9,auto);
+       grid-template-columns: repeat(2,auto);
        grid-gap: 1vw;
-    
+     
    }
 
+  }
+  .container{
+    margin-top: 20vh;
   }
 
 
 @media screen and (max-width: 768px){
  
+  #two{
+    background: none;
+  }
+
+  #four p{
+    font-size: 1rem;
+  }
+  .container{
+  margin-top: 12vh;
+  }
+
+  
    .otherButton{
        display: none;
+   }
+   .buttons1{
+    display: block;
+
+
    }
 
    .NavbarItems{
@@ -532,3 +463,4 @@ grid-template-areas:
        transition: 250ms;
    }
 }
+

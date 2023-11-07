@@ -8,7 +8,6 @@ const initialUserData = [
     firstName: "admin",
     lastName: "",
     email: "admin@email.com",
-    mobile: "",
     password: "admin00",
     accountBalance: 0,
     accountID: "admin",
@@ -37,7 +36,6 @@ export default function AdminSignUpForm() {
     firstName: "",
     lastName: "",
     email: "",
-    mobile: "",
     password: "",
     accountBalance: 0,
     isAdmin: false,
@@ -91,7 +89,6 @@ export default function AdminSignUpForm() {
         firstName: "",
         lastName: "",
         email: "",
-        mobile: "",
         password: "",
         accountBalance: 0,
         isAdmin: false,
@@ -128,7 +125,6 @@ export default function AdminSignUpForm() {
         firstName: "",
         lastName: "",
         email: "",
-        mobile: "",
         password: "",
         accountBalance: 0,
         isAdmin: false,
@@ -163,14 +159,6 @@ export default function AdminSignUpForm() {
           placeholder="juandelacruz@gmail.com"
           name="email"
           value={inputValue.email}
-          onChange={handleChange}
-        />
-        <Inputs
-          text="Mobile Number"
-          type="number"
-          placeholder="+63"
-          name="mobile"
-          value={inputValue.mobile}
           onChange={handleChange}
         />
         <Inputs

@@ -10,7 +10,6 @@ const initialUserData = [
     firstName: "admin",
     lastName: "",
     email: "admin@email.com",
-    mobile: "",
     password: "admin00",
     accountBalance: 0,
     accountID: "admin",
