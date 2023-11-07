@@ -12,7 +12,6 @@ function AdminDash() {
 
         <div className="admindash-content">
           <GreetingDash />
-
           <Outlet />
         </div>
       </section>
