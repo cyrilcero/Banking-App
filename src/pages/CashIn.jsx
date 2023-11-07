@@ -3,7 +3,7 @@ import { getLocalStorage } from '../utils/localStorage';
 import cashInIcon from "../assets/cashin-icon.png";
 import GreetingDash from "../components/GreetingDash";
 import ClientDashboard from "../components/ClientDashboard";
-
+import {formatCurrency} from '../utils/helpers'
 
 function CashInHistory({ amount }) {
   return (
@@ -44,7 +44,7 @@ function CashIn() {
           </div>
           <hr className="cashin-lines" />
           {userHistory.map((entry, index) => (
-            <CashInHistory key={index} amount={entry.amount} />
+            <CashInHistory key={index} amount={formatCurrency(entry.amount)} />
           ))}
         </div>
       </div>
