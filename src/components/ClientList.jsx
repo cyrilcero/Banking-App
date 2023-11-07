@@ -19,7 +19,6 @@ function ClientList({ displayCount, clients }) {
             <th>First Name</th>
             <th>Last Name</th>  
             <th>Email Address</th>
-            <th>Mobile Number</th>
             <th>Account ID</th>
             <th>Account Balance</th>
           </tr>
