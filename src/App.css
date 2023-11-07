@@ -10,7 +10,8 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -143,7 +144,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -251,6 +253,7 @@ body {
   background-color: #d1ffbc;
   border: none;
   margin-top: 1rem;
+  color: #2f3a54;
 }
 .sign-up-form .errorMessage {
   font-size: clamp(0.5rem, 0.8vw, 0.8rem);
@@ -469,7 +472,8 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1333,6 +1337,7 @@ body {
   padding: 1.5rem 1rem;
   flex-direction: column;
   gap: 0.5rem;
+  color: #2f3a54;
 }
 .content1 .cashin-form span {
   width: 80%;
@@ -1439,6 +1444,7 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1450,6 +1456,7 @@ body {
   box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
   overflow-y: auto;
   gap: 0.5rem;
+  color: #2f3a54;
 }
 
 .client-list-createdaccount {
@@ -1535,7 +1542,8 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1565,6 +1573,7 @@ body {
   text-align: center;
   padding: 1rem;
   width: 100%;
+  color: #2f3a54;
 }
 .client-list-table table {
   display: table;
@@ -1656,6 +1665,7 @@ body {
   }
   .transfer {
     display: block;
+    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -2777,4 +2787,4 @@ body {
 }
 .exchange-rate-container .spinner {
   width: 5rem;
-}
+}/*# sourceMappingURL=App.css.map */
