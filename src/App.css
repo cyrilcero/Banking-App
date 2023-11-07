@@ -38,10 +38,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-a:visited, a:hover {
-  color: #2f3a54;
-}
-
 :root {
   --main-radius: 16px;
   --main-padding: 5px;
