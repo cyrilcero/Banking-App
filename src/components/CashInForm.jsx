@@ -32,6 +32,8 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
+  const [selectedAccount, setSelectedAccount] = useState(null);
+
   const dropDownOverAllSelection = JSON.parse(
     localStorage.getItem("UserAccounts")
   );
@@ -64,14 +66,15 @@ function CashInForm() {
     setNegativeAmount(false);
   };
 
-  function handleSelect(inputValue) {
+  function handleSelect(selected) {
+    setSelectedAccount(selected)
     setInputValue((prev) => ({
       ...prev,
-      accountID: inputValue.value[0],
-      email: inputValue.value[1],
-      firstName: inputValue.value[2],
-      lastName: inputValue.value[3],
-      accountBalance: inputValue.value[4],
+      accountID: selected.value[0],
+      email: selected.value[1],
+      firstName: selected.value[2],
+      lastName: selected.value[3],
+      accountBalance: '',
     }));
   }
 
@@ -132,14 +135,14 @@ function CashInForm() {
 
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
-          toastError("Amount cannot be negative.");
+          toastError("Amount cannot be negative.")
           console.log("Amount cannot be negative.");
           return;
         }
 
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
-            toastError("Insufficient balance for withdrawal.");
+            toastError("Insufficient balance for withdrawal.")
             console.log("Insufficient balance for withdrawal.");
             return;
           }
@@ -171,18 +174,18 @@ function CashInForm() {
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
 
-      // Update the `CurrentUser` if the user is not an admin
+      // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
         currentUser.accountBalance = userAccount.accountBalance;
         localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
       }
 
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.");
+      toastSuccess("Account balance has been updated.")
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.");
+      toastError("Account does not exist. Create a new account.")
     }
 
     setInputValue({
@@ -192,6 +195,8 @@ function CashInForm() {
       email: "",
       accountBalance: "",
     });
+
+    setSelectedAccount(null);
   }
 
   return (
@@ -201,6 +206,7 @@ function CashInForm() {
       <label htmlFor="accountSelector">Select Account</label>
       <Select
         className="select-input"
+        value={selectedAccount}
         onChange={handleSelect}
         options={dropDownItems}
         isDisabled={false}
@@ -216,8 +222,6 @@ function CashInForm() {
         placeholder="0.00"
         name="accountBalance"
         value={inputValue.accountBalance}
-        inputMode="decimal"
-        step="0.01"
         onChange={handleChange}
       />
       {negativeAmount && <span>*Amount must be a positive number.</span>}
