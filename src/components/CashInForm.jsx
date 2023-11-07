@@ -181,11 +181,11 @@ function CashInForm({ setter }) {
       }
 
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.");
+      toastSuccess("Account balance has been updated.");;
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.");
+      toastError("Account does not exist. Create a new account.");;
     }
 
     setInputValue({
