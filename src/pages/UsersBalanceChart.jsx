@@ -24,12 +24,16 @@ const adminAccount = [
     email: "admin@email.com",
     password: "admin00",
     firstName: "Admin",
-    accountID: Date.now().toString().replace(/^\d{3}/, '00'),
+    accountID: Date.now()
+      .toString()
+      .replace(/^\d{3}/, "00"),
     isAdmin: true,
   },
 ];
 
-setLocalStorage("UserAccounts", adminAccount)
+if (localStorage.getItem("UserAccounts") === null) {
+  setLocalStorage("UserAccounts", adminAccount);
+}
 
 const allUsers = getLocalStorage("UserAccounts");
 const users = allUsers.filter((item) => item.isAdmin === false);
