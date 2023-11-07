@@ -3,13 +3,15 @@ import { getLocalStorage } from '../utils/localStorage';
 import cashInIcon from "../assets/cashin-icon.png";
 import GreetingDash from "../components/GreetingDash";
 import ClientDashboard from "../components/ClientDashboard";
-import {formatCurrency} from '../utils/helpers'
+import { formatCurrency } from '../utils/helpers';
+
 
 function CashInHistory({ amount }) {
+
   return (
     <ul className="cashin-list">
       <li>Cash In</li>
-      <li>&#8369;+{amount}</li>
+      <li>{formatCurrency(+amount)}</li>
     </ul>
   );
 }
@@ -21,7 +23,6 @@ function CashIn() {
   const email = currentUser.email || "";
 
   const cashInHistory = getLocalStorage("CashInHistory") || [];
-
   const userHistory = cashInHistory.filter((entry) => entry.userId === email && entry.deposit === false);
 
   function toggleModal() {
