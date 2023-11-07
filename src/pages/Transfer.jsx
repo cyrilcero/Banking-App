@@ -4,6 +4,7 @@ import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
 import { formatCurrency } from "../utils/helpers";
 
+
 function TransferHistory({ amount, receiver }) {
   return (
     <ul className="transfer-history-list">

@@ -3,9 +3,11 @@ import { getLocalStorage } from "../utils/localStorage";
 import cashInIcon from "../assets/cashin-icon.png";
 import GreetingDash from "../components/GreetingDash";
 import ClientDashboard from "../components/ClientDashboard";
-import { formatCurrency } from "../utils/helpers";
+import { formatCurrency } from '../utils/helpers';
+
 
 function CashInHistory({ amount }) {
+
   return (
     <ul className="cashin-list">
       <li>Cash In</li>
@@ -21,10 +23,7 @@ function CashIn() {
   const email = currentUser.email || "";
 
   const cashInHistory = getLocalStorage("CashInHistory") || [];
-
-  const userHistory = cashInHistory.filter(
-    (entry) => entry.userId === email && entry.deposit === false
-  );
+  const userHistory = cashInHistory.filter((entry) => entry.userId === email && entry.deposit === false);
 
   function toggleModal() {
     setIsModalOpen(true);

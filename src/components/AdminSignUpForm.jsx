@@ -31,6 +31,20 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
+// disable numbers/special characters 
+function filterInput(input) {
+  let filtered = '';
+
+  for (let i = 0; i < input.length; i++) {
+    let char = input[i];
+    if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || char === '') {
+      filtered += char;
+    }
+  }
+
+  return filtered;
+}
+
 export default function AdminSignUpForm() {
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -50,12 +64,20 @@ export default function AdminSignUpForm() {
     }));
   };
 
+  const handleNameChange = (e) => {
+    setInputValue((prev) => ({
+      ...prev,
+      [e.target.name]: filterInput(e.target.value),
+    }));
+  };
+
   const handlePasswordChange = (e) => {
     setInputValue((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
-    if (inputValue.password.length >= 6) {
+    
+    if (e.target.value.length > 5) {
       setErrorMessage("");
     } else {
       setErrorMessage("Password is less than 6 characters");
@@ -63,12 +85,10 @@ export default function AdminSignUpForm() {
   };
 
   useEffect(() => {
-    const existingUserAccounts = JSON.parse(
-      localStorage.getItem("UserAccounts")
-    );
+    const existingUserAccounts = getLocalStorage("UserAccounts");
 
     if (!existingUserAccounts) {
-      localStorage.setItem("UserAccounts", JSON.stringify(initialUserData));
+      setLocalStorage("UserAccounts", initialUserData);
     }
   }, [inputValue]);
 
@@ -76,12 +96,14 @@ export default function AdminSignUpForm() {
     e.preventDefault();
 
     const newUser = { ...inputValue };
-    const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
+    const userAccounts = getLocalStorage("UserAccounts");
     const isEmailTaken = userAccounts.find(
       (user) => user.email === newUser.email
     );
 
-    if (isEmailTaken) {
+    if (newUser.password.length < 6) {
+      return toastError('Password is less than 6 characters.');
+    } else if (isEmailTaken) {
       toastError(`Email ${inputValue.email}
       is already taken. Please choose a different email.`);
       setInputValue({
@@ -100,13 +122,14 @@ export default function AdminSignUpForm() {
 
       newUser.accountID = accountID;
       userAccounts.push(newUser);
-      localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
+      setLocalStorage('UserAccounts', userAccounts)
 
       const history = getLocalStorage("CashInHistory") || [];
       const localDate = new Date().toLocaleString("en-US", {
         timeZone: "Asia/Manila",
         hour12: false,
       });
+
       const newHistory = {
         amount: inputValue.accountBalance,
         date: localDate,
@@ -114,6 +137,7 @@ export default function AdminSignUpForm() {
         type: "Cash In",
         userId: inputValue.email,
       };
+
       history.push(newHistory)
       setLocalStorage("CashInHistory", history)
       toastSuccess(
@@ -142,7 +166,7 @@ export default function AdminSignUpForm() {
           placeholder="juan"
           name="firstName"
           value={inputValue.firstName}
-          onChange={handleChange}
+          onChange={handleNameChange}
         />
         <Inputs
           text="Last Name"
@@ -150,7 +174,7 @@ export default function AdminSignUpForm() {
           placeholder="dela cruz"
           name="lastName"
           value={inputValue.lastName}
-          onChange={handleChange}
+          onChange={handleNameChange}
         />
         <Inputs
           text="Email"
@@ -170,8 +194,10 @@ export default function AdminSignUpForm() {
         />
         <Inputs
           text="Initial Balance"
-          type="text"
+          type="number"
           placeholder="0.00"
+          inputMode="decimal"
+          step="0.01"
           name="accountBalance"
           value={inputValue.accountBalance}
           onChange={handleChange}
