@@ -19,7 +19,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-function CashInForm() {
+function CashInForm({ setter }) {
   //useStates
   const [inputValue, setInputValue] = useState({
     lastTopUp: "",
@@ -67,14 +67,14 @@ function CashInForm() {
   };
 
   function handleSelect(selected) {
-    setSelectedAccount(selected)
+    setSelectedAccount(selected);
     setInputValue((prev) => ({
       ...prev,
       accountID: selected.value[0],
       email: selected.value[1],
       firstName: selected.value[2],
       lastName: selected.value[3],
-      accountBalance: '',
+      accountBalance: "",
     }));
   }
 
@@ -135,14 +135,14 @@ function CashInForm() {
 
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
-          toastError("Amount cannot be negative.")
+          toastError("Amount cannot be negative.");
           console.log("Amount cannot be negative.");
           return;
         }
 
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
-            toastError("Insufficient balance for withdrawal.")
+            toastError("Insufficient balance for withdrawal.");
             console.log("Insufficient balance for withdrawal.");
             return;
           }
@@ -173,7 +173,7 @@ function CashInForm() {
       }
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-
+      setter(userAccounts)
       // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
         currentUser.accountBalance = userAccount.accountBalance;
@@ -181,11 +181,11 @@ function CashInForm() {
       }
 
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.")
+      toastSuccess("Account balance has been updated.");
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.")
+      toastError("Account does not exist. Create a new account.");
     }
 
     setInputValue({

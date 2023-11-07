@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { getLocalStorage } from "../utils/localStorage";
 
-function ClientList() {
-  const userList = getLocalStorage("UserAccounts");
-  const [users, setUsers] = useState(userList);
-  const clientList = users.filter((item) => item.isAdmin === false);
+function ClientList({ appUsers, setAppUsers }) {
+  const [users, setUsers] = useState(appUsers);
+  const clientList = appUsers.filter((item) => item.isAdmin === false);
   const recentAccounts = clientList
-    .slice(userList.length - 10, userList.length)
+    .slice(users.length - 10, users.length)
     .slice()
     .reverse();
 
