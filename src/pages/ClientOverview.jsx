@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { getLocalStorage } from "../utils/localStorage";
 import ClientDashboard from "../components/ClientDashboard";
 import GreetingDash from "../components/GreetingDash";
+import { formatCurrency } from "../utils/helpers";
+
 
 function AllTransaction({ amount, type, date }) {
   return (
@@ -10,7 +12,7 @@ function AllTransaction({ amount, type, date }) {
       <ul className="transaction-list">
         <li>{type}</li>
         <li>{date}</li>
-        <li>&#8369;{amount}</li>
+        <li>{formatCurrency(+amount)}</li>
       </ul>
     </>
   );
