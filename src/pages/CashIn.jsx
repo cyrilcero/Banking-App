@@ -9,7 +9,7 @@ function CashInHistory({ amount }) {
   return (
     <ul className="cashin-list">
       <li>Cash In</li>
-      <li>&#8369;+{amount}</li>
+      <li>{formatCurrency(+amount)}</li>
     </ul>
   );
 }

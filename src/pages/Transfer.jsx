@@ -3,6 +3,7 @@ import { getLocalStorage } from "../utils/localStorage";
 import GreetingDash from "../components/GreetingDash";
 import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
+import { formatCurrency } from "../utils/helpers";
 
 
 
@@ -11,7 +12,7 @@ function TransferHistory({ amount, receiver }) {
     <ul className="transfer-history-list">
       <li>Money Transferred</li>
       <li>{receiver}</li>
-      <li>&#8369;{amount}</li>
+      <li>{formatCurrency(amount)}</li>
     </ul>
   );
 }

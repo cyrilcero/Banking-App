@@ -16,7 +16,7 @@ function ExchangeRate() {
 
   if (!exchangeRateData) {
   
-    return <img className="spinner" src={spinner} alt=""/>;
+    return <img className="spinner" src={spinner} alt="spinner"/>;
   }
 
   const timestamp = exchangeRateData.timestamp;
