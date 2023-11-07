@@ -1,4 +1,4 @@
-import { Form, useNavigate } from "react-router-dom";
+import { Link, Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toastSuccess, toastError } from "../utils/toastify";
 
@@ -99,8 +99,8 @@ export default function SignUpForm() {
         email: "",
         password: "",
       });
-      
-      toastSuccess('Created Account Successfully.');
+
+      toastSuccess("Created Account Successfully.");
       navigate("/login");
     }
   }
@@ -146,6 +146,9 @@ export default function SignUpForm() {
           value={inputValue.password}
           onChange={handleChange}
         />
+        <Link to={"/login"}>
+          <span className="redirect-link">Already have an account? Login Here</span>
+        </Link>
         <button type="submit">Sign up</button>
         {emailTaken && (
           <p className="errorMessage">

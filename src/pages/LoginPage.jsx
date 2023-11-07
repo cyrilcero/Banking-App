@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { toastError, toastSuccess } from "../utils/toastify";
 import { Form, Link, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 import { getLocalStorage, setLocalStorage } from "../utils/localStorage";
-
 
 const initialUserData = [
   {
@@ -34,9 +33,13 @@ function LogInForm() {
   }
 
   function handleSubmit(e) {
-    e.preventDefault()
-    const listOfUsers = getLocalStorage("UserAccounts")
-    const userExists = listOfUsers.find(user => user.email === loginData.username && user.password === loginData.password)
+    e.preventDefault();
+    const listOfUsers = getLocalStorage("UserAccounts");
+    const userExists = listOfUsers.find(
+      (user) =>
+        user.email === loginData.username &&
+        user.password === loginData.password
+    );
     console.log(userExists);
     if (userExists) {
       // setLoginData({...loginData, loginData.isLoggedIn=true})
@@ -61,11 +64,11 @@ function LogInForm() {
   }
 
   useEffect(() => {
-    console.log("LOGIN DATA", loginData)
+    console.log("LOGIN DATA", loginData);
     const existingUserAccounts = getLocalStorage("UserAccounts");
 
     if (!existingUserAccounts) {
-      setLocalStorage('UserAccounts', initialUserData)
+      setLocalStorage("UserAccounts", initialUserData);
     }
   }, [loginData]);
 
@@ -95,8 +98,11 @@ function LogInForm() {
           value={loginData.password}
           onChange={handleInputChange}
         />
+        <Link to={"/create-account"}>
+          <span className="redirect-link">No Account? Create Account Here</span>
+        </Link>
         <button type="submit" className="login-form-btn">
-          Log In
+          LOGIN
         </button>
         {errorMessage && <p className="login-form-alert">{errorMessage}</p>}
       </Form>

@@ -21,7 +21,7 @@
 }
 
 .login-page-container {
-  width: 80%;
+  width: 70%;
   padding: 2rem;
   display: flex;
   align-items: stretch;
@@ -33,9 +33,9 @@
 }
 
 .side-form-content {
-  width: 50%;
+  width: 100%;
   // height: 50vh;
-  padding: 2rem;
+  padding: 1rem;
   flex-direction: column;
   @extend %flex;
   background-color: white;
@@ -57,7 +57,7 @@
 .login-form {
   width: 100%;
   // height: 50vh;
-  padding: 2rem;
+  padding: 1rem;
   flex-direction: column;
 
   @extend %flex;
@@ -89,15 +89,14 @@
     border-radius: 0.5rem;
     border: none;
     background-color: $lightGreen;
-    font-weight: 600;
+    font-weight: bolder;
+    font-size: 1.25rem;
+    cursor: pointer;
   }
   .login-form-alert {
     color: red;
     padding: 1rem;
     text-align: center;
-  }
-  button{
-    cursor: pointer;
   }
 }
 
@@ -113,4 +112,9 @@
   bottom: 2%;
   right: 0;
   width: 30%;
+}
+
+.redirect-link{
+  padding: 0.5rem;
+  font-size: 0.75rem;
 }

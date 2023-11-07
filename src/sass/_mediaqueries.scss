@@ -4,23 +4,34 @@
 @media screen and (max-width: 768px) {
   .sign-up-logo {
     position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .sign-up-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 100%;
   }
   .sign-up-container {
     min-width: 100%;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    min-height: 100%;
+    
+    // padding-top: 8rem;
+    // padding-bottom: 8rem;
   }
 
   .signup-form-container {
-    min-width: 90%;
-    min-height: 120vh;
+    min-width: 80%;
+    // min-height: 120vh;
     display: flex;
     flex-direction: column;
   }
 
   .sign-up-form {
     min-width: 90%;
-    min-height: 50vh;
+    // min-height: 50vh;
     display: flex;
     justify-content: center;
   }
@@ -37,6 +48,7 @@
   }
 
   .sign-up-text {
+    display: none;
     min-width: 90%;
     min-height: 50vh;
   }
@@ -100,6 +112,7 @@
 @media screen and (max-width: 768px) {
   .login-page-container {
     flex-direction: column;
+    width: 80%;
   }
   .side-form-content {
     display: none;
