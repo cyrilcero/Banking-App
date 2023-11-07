@@ -36,13 +36,15 @@ function Transfer() {
           <div className="transfer-history">
             <h1>Transfer History</h1>
             <hr />
-            {transferHistory.map((entry, index) => (
+            <div className="transfer-list-container">
+               {transferHistory.map((entry, index) => (
               <TransferHistory
                 key={index}
                 amount={entry.amount}
                 receiver={entry.accountName}
               />
             ))}
+            </div>
           </div>
         </div>
       </div>
