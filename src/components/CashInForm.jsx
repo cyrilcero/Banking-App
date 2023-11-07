@@ -132,14 +132,14 @@ function CashInForm() {
 
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
-          toastError("Amount cannot be negative.")
+          toastError("Amount cannot be negative.");
           console.log("Amount cannot be negative.");
           return;
         }
 
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
-            toastError("Insufficient balance for withdrawal.")
+            toastError("Insufficient balance for withdrawal.");
             console.log("Insufficient balance for withdrawal.");
             return;
           }
@@ -178,11 +178,11 @@ function CashInForm() {
       }
 
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.")
+      toastSuccess("Account balance has been updated.");
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.")
+      toastError("Account does not exist. Create a new account.");
     }
 
     setInputValue({
@@ -216,6 +216,8 @@ function CashInForm() {
         placeholder="0.00"
         name="accountBalance"
         value={inputValue.accountBalance}
+        inputMode="decimal"
+        step="0.01"
         onChange={handleChange}
       />
       {negativeAmount && <span>*Amount must be a positive number.</span>}

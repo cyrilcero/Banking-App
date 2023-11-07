@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toastSuccess, toastError } from "../utils/toastify";
 
-
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
     <div className="transfer-form-inputs">
@@ -22,8 +21,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 }
 
 const TransferFunc = () => {
-
-    const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
+  const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
   const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
   const localDate = new Date().toLocaleString("en-US", {
     timeZone: "Asia/Manila",
@@ -41,8 +39,6 @@ const TransferFunc = () => {
     transfer: moneySended,
     type: "Money Transfer",
   });
-
-
 
   const isExistingAccount = userAccounts.some((user) => {
     const [firstName, lastName] = inputValue.accountName
@@ -66,7 +62,7 @@ const TransferFunc = () => {
   const submitHandle = () => {
     if (!isExistingAccount) {
       setMoneySended(false);
-      toastError('Transfer Failed.');
+      toastError("Transfer Failed.");
     } else {
       const recipientAccount = userAccounts.find(
         (user) => user.email === inputValue.email
@@ -93,13 +89,11 @@ const TransferFunc = () => {
           cashInHistory.push(inputValue);
           localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
 
-          toastSuccess(
-           "Transfer Successful."
-          );
+          toastSuccess("Transfer Successful.");
 
           setMoneySended(true);
         } else {
-          toastError('Transfer Failed.');
+          toastError("Transfer Failed.");
           setAmountSufficient(false);
         }
       }
@@ -113,36 +107,38 @@ const TransferFunc = () => {
 
   return (
     <>
-    <Form className="transfer-form" onSubmit={submitHandle}>
-      <Inputs
-        type="number"
-        name="amount"
-        placeholder="Amount"
-        text="Amount"
-        value={inputValue.amount}
-        onChange={handleChange}
-      />
-      <Inputs
-        type="email"
-        name="email"
-        placeholder="Email"
-        text="Email"
-        value={inputValue.email}
-        onChange={handleChange}
-      />
-      <Inputs
-        type="text"
-        name="accountName"
-        placeholder="Account Name"
-        text="Account Name"
-        value={inputValue.accountName}
-        onChange={handleChange}
-      />
-      <button className="transfer-btn">Send Money</button>
-      {!moneySended ? <p>*Account not existing</p> : null}
-      {!amountSufficient ? <p>*Insufficient balance</p> : null}
-    </Form>
-    <ToastContainer
+      <Form className="transfer-form" onSubmit={submitHandle}>
+        <Inputs
+          type="number"
+          name="amount"
+          placeholder="Amount"
+          text="Amount"
+          value={inputValue.amount}
+          inputMode="decimal"
+          step="0.01"
+          onChange={handleChange}
+        />
+        <Inputs
+          type="email"
+          name="email"
+          placeholder="Email"
+          text="Email"
+          value={inputValue.email}
+          onChange={handleChange}
+        />
+        <Inputs
+          type="text"
+          name="accountName"
+          placeholder="Account Name"
+          text="Account Name"
+          value={inputValue.accountName}
+          onChange={handleChange}
+        />
+        <button className="transfer-btn">Send Money</button>
+        {!moneySended ? <p>*Account not existing</p> : null}
+        {!amountSufficient ? <p>*Insufficient balance</p> : null}
+      </Form>
+      <ToastContainer
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}

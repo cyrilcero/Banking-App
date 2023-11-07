@@ -127,6 +127,7 @@ body {
   padding-left: 1.2rem;
   cursor: pointer;
   border: none;
+  outline: none;
 }
 .menu-btn:hover {
   opacity: 1;
@@ -733,8 +734,7 @@ body {
   width: 50%;
   flex-direction: column;
 }
-
-button {
+.changePass-wrapper button {
   width: 50%;
   height: auto;
   margin-top: 0.5rem;
@@ -812,13 +812,13 @@ button {
 }
 
 .transfer-form-container {
-  min-width: 400px;
+  min-width: 25%;
   min-height: 80vh;
 }
 
 .transfer-form {
-  min-width: 100%;
-  min-height: 70vh;
+  min-width: 400px;
+  min-height: 600px;
   color: #2f3a54;
   flex-direction: column;
 }
@@ -2766,4 +2766,7 @@ button {
   font-weight: 300;
   font-style: italic;
   color: #2f3a54;
+}
+.exchange-rate-container .spinner {
+  width: 5rem;
 }/*# sourceMappingURL=App.css.map */
