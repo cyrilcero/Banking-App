@@ -106,21 +106,20 @@ export default function AdminSignUpForm() {
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
 
-      const history = getLocalStorage("CashInHistory");
+      const history = getLocalStorage("CashInHistory") || [];
       const localDate = new Date().toLocaleString("en-US", {
         timeZone: "Asia/Manila",
         hour12: false,
       });
       const newHistory = {
-        ...history,
         amount: inputValue.accountBalance,
         date: localDate,
         deposit: true,
         type: "Cash In",
         userId: inputValue.email,
       };
-   
-      setLocalStorage("CashInHistory", newHistory)
+      history.push(newHistory)
+      setLocalStorage("CashInHistory", history)
       toastSuccess(
         `Created account for ${newUser.firstName} ${newUser.lastName}`
       );
