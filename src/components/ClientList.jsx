@@ -20,7 +20,6 @@ function ClientList() {
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email Address</th>
-              <th>Mobile Number</th>
               <th>Account ID</th>
               <th>Account Balance</th>
             </tr>
@@ -31,7 +30,6 @@ function ClientList() {
                 <td>{user.firstName}</td>
                 <td>{user.lastName}</td>
                 <td>{user.email}</td>
-                <td>{user.mobile}</td>
                 <td>{user.accountID}</td>
                 <td>{user.accountBalance}</td>
               </tr>
