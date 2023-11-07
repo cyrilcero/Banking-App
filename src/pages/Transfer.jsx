@@ -1,11 +1,8 @@
-import React from "react";
 import { getLocalStorage } from "../utils/localStorage";
 import GreetingDash from "../components/GreetingDash";
 import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
-import { formatCurrency } from "../utils/helpers";import { formatCurrency } from "../utils/helpers";
-
-
+import { formatCurrency } from "../utils/helpers";
 
 function TransferHistory({ amount, receiver }) {
   return (
