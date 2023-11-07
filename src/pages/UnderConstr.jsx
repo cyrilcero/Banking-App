@@ -7,7 +7,7 @@ function UnderConstr() {
 
   return (
     <section className='underconstruction'>
-      <img className='image-underconst' src={image} alt="" />
+      <img className='image-underconst' src={image} alt="under_construction img" />
       <h1>page under maintenance</h1>
       <span>This page is currently under maintenance. We should be back shortly.</span>
 
