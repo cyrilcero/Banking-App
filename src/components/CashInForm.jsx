@@ -87,7 +87,6 @@ function CashInForm() {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify([]));
     }
-    console.log(inputValue);
   }, [inputValue]);
 
   //onclick

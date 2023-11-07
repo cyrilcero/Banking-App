@@ -65,7 +65,6 @@ export default function AdminSignUpForm() {
   };
 
   useEffect(() => {
-    console.log(inputValue);
     const existingUserAccounts = JSON.parse(
       localStorage.getItem("UserAccounts")
     );

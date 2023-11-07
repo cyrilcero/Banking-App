@@ -64,8 +64,7 @@ function BudgetApp() {
               <div className='recent-expenses-wrapper'>
                 <h3>Recent Expenses</h3>
                 <TableExpenses
-                  expenses={expenses
-                    .sort((a, b) => b.createdAt - a.createdAt)}
+                  expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)}
                 />
               </div>
             )}
