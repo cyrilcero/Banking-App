@@ -12,7 +12,7 @@ function AdminAllAccounts() {
     <>
       <div className="panel-admindash">
         <div className="client-barchart">
-          {/* <UsersBalanceChart /> */}
+          <UsersBalanceChart />
         </div>
         <div className="client-list">
           <div className="client-list-table">
@@ -23,7 +23,6 @@ function AdminAllAccounts() {
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
-                  <th>Mobile</th>
                   <th>Account ID</th>
                   <th>Balance</th>
                 </tr>
@@ -34,7 +33,6 @@ function AdminAllAccounts() {
                     <td style={style}>{user.firstName}</td>
                     <td style={style}>{user.lastName}</td>
                     <td>{user.email}</td>
-                    <td>{user.mobile}</td>
                     <td>{user.accountID}</td>
                     <td>{user.accountBalance}</td>
                   </tr>

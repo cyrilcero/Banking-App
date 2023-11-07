@@ -32,7 +32,6 @@ function ClientList({ displayCount, clients }) {
                 <td style={style}>{user.firstName}</td>
                 <td style={style}>{user.lastName}</td>
                 <td>{user.email}</td>
-                <td>{user.mobile}</td>
                 <td>{user.accountID}</td>
                 <td>{formatCurrency(user.accountBalance)}</td>
               </tr>

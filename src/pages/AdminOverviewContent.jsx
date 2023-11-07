@@ -21,7 +21,7 @@ function AdminOverviewContent() {
         </div>
 
         <div className="client-list-createdaccount">
-        <h1>Recently Created Accounts</h1>
+          <h1>Recently Created Accounts</h1>
           <ClientList
             displayCount={3}
             clients={clients}
