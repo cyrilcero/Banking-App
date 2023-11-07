@@ -114,7 +114,7 @@
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
     text-align: left;
-    line-height: 4.5vh;
+    line-height: 5vh;
     font-family: 'League Spartan', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -124,7 +124,7 @@
     transition: transform 0.5s;
   
   }
-  #three span{
+  #three p{
     margin-left: 2.5vw;
     font-size: clamp(.5rem, 2.3rem, 3rem);
   }

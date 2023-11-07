@@ -22,7 +22,7 @@ export default function Home(){
         </div>
     
         <div id="three">
-        <span>Enjoy up to 10% interest p.a. daily with just 1 ID and no minimum balance</span>
+        <p>Enjoy up to 10% interest p.a. daily with just 1 ID and no minimum balance</p>
         <button>Apply Now!</button>
      
         </div>

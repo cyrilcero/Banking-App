@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ChangePassModal from "../components/changePassModal";
 import { toastInfo } from '../utils/toastify';
 
+
 function Settings() {
   const [showChangePassword, setShowChangePassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
@@ -27,6 +28,9 @@ function Settings() {
   function closeChangePassword() {
     setShowChangePassword(false);
     setPasswordChangeError("");
+    setCurrentPassword('');
+    setNewPassword('');
+    setConfirmPassword('');
   }
 
   function handleChangePassword() {
@@ -53,6 +57,7 @@ function Settings() {
       localStorage.setItem('UserAccounts', JSON.stringify(updatedUserAccounts));
       toastInfo("Password changed successfully"); 
 
+
       setTimeout(function() {
         closeChangePassword();
       }, 6000); 
@@ -74,6 +79,7 @@ function Settings() {
 
   return (
     <section className='settings'>
+      <div class="changePass-wrapper">
       <h1>Password and Security</h1>
       <button onClick={openChangePassword}>Change your password</button>
 
@@ -119,6 +125,7 @@ function Settings() {
         <button onClick={closeChangePassword}>Close</button>
         {passwordChangeError && <p className="errorMessage">{passwordChangeError}</p>}
       </ChangePassModal>
+      </div>
     </section>
   );
 }

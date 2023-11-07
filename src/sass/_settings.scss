@@ -7,3 +7,29 @@ flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.changePass-wrapper{
+  @extend %flex;
+  @extend %claymorph;
+  gap: 1rem;
+  padding: 2rem;
+  width: 50%;
+  flex-direction: column;
+}
+
+
+  button {
+    width: 50%;
+    height: auto;
+    margin-top: 0.5rem; 
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.8rem;
+    border: $lightGreen;
+    outline: none;
+    background: $lightGreen;
+    box-shadow: $txtShadLBlue;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $darkBlue;
+    cursor: pointer;
+}
