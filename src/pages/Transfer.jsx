@@ -12,7 +12,11 @@ function TransferHistory({ amount, receiver }) {
     <ul className="transfer-history-list">
       <li>Money Transferred</li>
       <li>{receiver}</li>
+<<<<<<< Updated upstream
       <li>{formatCurrency(amount)}</li>
+=======
+      <li>{amount}</li>
+>>>>>>> Stashed changes
     </ul>
   );
 }

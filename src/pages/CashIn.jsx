@@ -9,7 +9,11 @@ function CashInHistory({ amount }) {
   return (
     <ul className="cashin-list">
       <li>Cash In</li>
+<<<<<<< Updated upstream
       <li>{formatCurrency(+amount)}</li>
+=======
+      <li>+{amount}</li>
+>>>>>>> Stashed changes
     </ul>
   );
 }

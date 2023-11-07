@@ -4,6 +4,7 @@ import { getLocalStorage } from "../utils/localStorage";
 import ClientDashboard from "../components/ClientDashboard";
 import GreetingDash from "../components/GreetingDash";
 import { formatCurrency } from "../utils/helpers";
+import { formatCurrency } from "../utils/helpers";
 
 function AllTransaction({ amount, type, date }) {
   return (
