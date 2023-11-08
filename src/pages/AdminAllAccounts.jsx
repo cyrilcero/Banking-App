@@ -1,8 +1,7 @@
 import { formatCurrency } from "../utils/helpers";
 import { getLocalStorage } from "../utils/localStorage";
 import UsersBalanceChart from "./UsersBalanceChart";
-import { useEffect, useState } from "react";
-import {formatCurrency} from '../utils/helpers';
+import { useState } from "react";
 
 const style = {
   textTransform: "capitalize",
@@ -16,10 +15,10 @@ function AdminAllAccounts() {
   const users = allAccounts.filter((item) => item.isAdmin === false);
   const users_email = users.map((item) => item.email);
   const users_balance = users.map((item) => Number(item.accountBalance));
-  
+
   const labels = users_email;
   const balance = users_balance;
-  
+
   const options = {
     responsive: true,
     plugins: {
@@ -38,12 +37,12 @@ function AdminAllAccounts() {
       },
     ],
   };
-  
+
   return (
     <>
       <div className="panel-admindash">
         <div className="client-barchart">
-          <UsersBalanceChart data={data} options={options}/>
+          <UsersBalanceChart data={data} options={options} />
         </div>
         <div className="client-list">
           <div className="client-list-table">

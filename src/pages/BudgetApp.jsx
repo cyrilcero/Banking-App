@@ -16,7 +16,7 @@ import ExpensesVsBalance from "../components/ExpensesVsBalance";
 export function budgetAppLoader() {
   const wallets = getLocalStorage("wallets");
   const expenses = getLocalStorage("expenses");
-  const user = getLocalStorage('CurrentUser');
+  const user = getLocalStorage("CurrentUser");
 
   return { wallets, expenses, user };
 }
@@ -29,13 +29,14 @@ export function budgetAppActions({ request }) {
 function BudgetApp() {
   const { wallets, expenses, user } = useLoaderData();
   const [isBudgetForm, setIsBudgetForm] = useState(false);
-  const userWallets = wallets.filter(wallet => wallet.email === user.email);
-  const userExpenses = expenses.filter(expense => expense.email === user.email);
+  const userWallets = (wallets || []).filter((wallet) => wallet.email === user.email);
+  const userExpenses = (expenses || []).filter(
+    (expense) => expense.email === user.email
+  );
 
   const changeFormType = () => {
     setIsBudgetForm(!isBudgetForm);
   };
-
 
   return (
     <section className="budget-app">
@@ -45,7 +46,9 @@ function BudgetApp() {
           <div className="budget-app-wrapper">
             <div className="mywallets-wrapper">
               <h2>
-                {userWallets && userWallets.length > 1 ? "My Wallets" : "My Wallet"}
+                {userWallets && userWallets.length > 1
+                  ? "My Wallets"
+                  : "My Wallet"}
               </h2>
 
               <div className="wallet-wrapper">
@@ -74,7 +77,9 @@ function BudgetApp() {
               <div className="recent-expenses-wrapper">
                 <h3>Recent Expenses</h3>
                 <TableExpenses
-                  expenses={userExpenses.sort((a, b) => b.createdAt - a.createdAt)}
+                  expenses={userExpenses.sort(
+                    (a, b) => b.createdAt - a.createdAt
+                  )}
                 />
               </div>
             )}
