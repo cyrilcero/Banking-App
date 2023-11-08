@@ -42,7 +42,6 @@ function LogInForm() {
     );
     console.log(userExists);
     if (userExists) {
-      // setLoginData({...loginData, loginData.isLoggedIn=true})
       setLocalStorage("CurrentUser", userExists);
       if (userExists.isAdmin === true) {
         toastSuccess("Welcome Admin!");
@@ -57,7 +56,6 @@ function LogInForm() {
       }
     } else {
       setErrorMessage("Invalid credentials");
-      // alert("Invalid credentials")
       toastError("Invalid credentials");
       setLoginData({ username: "", password: "" });
     }
