@@ -20,7 +20,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-const TransferFunc = () => {
+const TransferFunc = ({ setter }) => {
   const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
   const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
   const localDate = new Date().toLocaleString("en-US", {
@@ -33,7 +33,7 @@ const TransferFunc = () => {
   const [inputValue, setInputValue] = useState({
     sender: currentUser.email,
     amount: "",
-    email: "",
+    recipientEmail: "",
     accountName: "",
     date: localDate,
     transfer: moneySended,
@@ -44,8 +44,12 @@ const TransferFunc = () => {
     const [firstName, lastName] = inputValue.accountName
       .toLowerCase()
       .split(" ");
+    console.log("Input Email:", inputValue.recipientEmail);
+    console.log("User Email:", user.email);
+    console.log("First Name:", user.firstName);
+    console.log("Last Name:", user.lastName);
     return (
-      user.email.toLowerCase() === inputValue.email.toLowerCase() &&
+      user.email.toLowerCase() === inputValue.recipientEmail.toLowerCase() &&
       user.firstName.toLowerCase().includes(firstName) &&
       user.lastName.toLowerCase().includes(lastName) &&
       !user.isAdmin
@@ -59,8 +63,9 @@ const TransferFunc = () => {
     }));
   };
 
-  const submitHandle = () => {
-    if(inputValue.email === currentUser.email){
+  const submitHandle = (e) => {
+    e.preventDefault();
+    if (inputValue.recipientEmail === currentUser.email) {
       setMoneySended(false);
       toastError("Transfer Failed. You cannot send money to yourself.");
     } else if (!isExistingAccount) {
@@ -68,49 +73,57 @@ const TransferFunc = () => {
       toastError("Transfer Failed. Account not existing");
     } else {
       const recipientAccount = userAccounts.find(
-        (user) => user.email === inputValue.email
+        (user) => user.email === inputValue.recipientEmail
       );
       if (recipientAccount) {
         const amount = parseFloat(inputValue.amount);
-        const currentUserBalance = parseFloat(currentUser.accountBalance) ;
-       
+        const currentUserBalance = parseFloat(currentUser.accountBalance);
+
         const recipientBalance = parseFloat(recipientAccount.accountBalance);
 
-        const senderIndex = userAccounts.findIndex(user => user.email === currentUser.email);
-        const recipientIndex = userAccounts.findIndex(user => user.email === inputValue.email);
+        const senderIndex = userAccounts.findIndex(
+          (user) => user.email === currentUser.email
+        );
+        const recipientIndex = userAccounts.findIndex(
+          (user) => user.email === inputValue.recipientEmail
+        );
 
         if (senderIndex !== -1 && recipientIndex !== -1) {
           const newCurrentUserBalance = currentUserBalance - amount;
           const newRecipientBalance = recipientBalance + amount;
 
           // Deduct the amount from the sender's account balance in userAccounts
-          userAccounts[senderIndex].accountBalance = newCurrentUserBalance.toFixed(2);
-          userAccounts[recipientIndex].accountBalance = newRecipientBalance.toFixed(2);
+          userAccounts[senderIndex].accountBalance =
+            newCurrentUserBalance.toFixed(2);
+          userAccounts[recipientIndex].accountBalance =
+            newRecipientBalance.toFixed(2);
 
           localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
         }
 
         if (currentUserBalance >= amount && amount > 0) {
           setAmountSufficient(true);
+
+          toastSuccess("Transfer Successful.");
+
+          setMoneySended(true);
+
           const newCurrentUserBalance = currentUserBalance - amount;
-  
+
           const newRecipientBalance = recipientBalance + amount;
 
           currentUser.accountBalance = newCurrentUserBalance.toFixed(2);
-         
-          recipientAccount.accountBalance = newRecipientBalance.toFixed(2);
 
-          localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
-          localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
+          recipientAccount.accountBalance = newRecipientBalance.toFixed(2);
 
           const cashInHistory =
             JSON.parse(localStorage.getItem("CashInHistory")) || [];
           cashInHistory.push(inputValue);
           localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
 
-          toastSuccess("Transfer Successful.");
-
-          setMoneySended(true);
+          localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
+          localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
+          setter(userAccounts);
         } else {
           toastError("Transfer Failed. Insufficient Balance.");
           setAmountSufficient(false);
@@ -118,9 +131,13 @@ const TransferFunc = () => {
       }
     }
     setInputValue({
+      sender: currentUser.email,
       amount: "",
-      email: "",
+      recipientEmail: "",
       accountName: "",
+      date: localDate,
+      transfer: moneySended,
+      type: "Money Transfer",
     });
   };
 
@@ -139,17 +156,17 @@ const TransferFunc = () => {
         />
         <Inputs
           type="email"
-          name="email"
+          name="recipientEmail"
           placeholder="juandelacruz@gmail.com"
-          text="Email"
-          value={inputValue.email}
+          text="Recipient Email"
+          value={inputValue.recipientEmail}
           onChange={handleChange}
         />
         <Inputs
           type="text"
           name="accountName"
           placeholder="juan dela cruz"
-          text="Account Name"
+          text="Recipient Name"
           value={inputValue.accountName}
           onChange={handleChange}
         />

@@ -3,6 +3,7 @@ import GreetingDash from "../components/GreetingDash";
 import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
 import { formatCurrency } from "../utils/helpers";
+import { useState } from "react";
 
 
 function TransferHistory({ amount, receiver }) {
@@ -16,7 +17,7 @@ function TransferHistory({ amount, receiver }) {
 }
 
 function Transfer() {
-  const currentUser = getLocalStorage("CurrentUser") || {};
+  const currentUser = getLocalStorage("CurrentUser") || [];
   const email = currentUser.email || "";
 
   const cashInHistory = getLocalStorage("CashInHistory") || [];
@@ -24,12 +25,14 @@ function Transfer() {
     (entry) => entry.sender === email && entry.transfer === true
   );
 
+  const [userList, setUserList] = useState(currentUser.accountBalance);
+
   return (
     <section className="transfer">
       <GreetingDash />
       <div className="transfer-page">
         <div className="transfer-form-container">
-          <TransferFunc />
+          <TransferFunc  setter={setUserList}/>
         </div>
         <div className="panel2-transfer">
           <BalanceOverview />

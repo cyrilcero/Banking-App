@@ -898,6 +898,10 @@ body {
   color: #2f3a54;
   font-weight: bold;
 }
+.transfer-form-inputs input::-webkit-outer-spin-button,
+.transfer-form-inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .transfer-form-inputs label {
   font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: bolder;
@@ -1884,6 +1888,10 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
   .client-overview {
     display: block;
   }
@@ -1917,7 +1925,7 @@ body {
   }
   .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
     width: 370px;
-    height: 220px;
+    height: 500px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -2987,6 +2995,7 @@ body {
   font-style: italic;
   color: #2f3a54;
 }
-.exchange-rate-container .spinner {
-  width: 2rem;
+
+.spinner {
+  width: 15rem;
 }

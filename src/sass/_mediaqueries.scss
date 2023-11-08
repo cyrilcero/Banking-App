@@ -128,6 +128,10 @@
 
 //dashboard
 @media screen and (max-width: 1024px) {
+  .navbar{
+    position: fixed;
+    z-index: 1;
+  }
   .client-overview {
     display: block;
   }
@@ -162,7 +166,7 @@
     align-items: center;
     .expenses-widget, .transactions-widget{
         width: 370px;
-        height: 220px;
+        height: 500px;
     }
 
   }

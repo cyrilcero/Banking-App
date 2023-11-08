@@ -2,6 +2,7 @@ import { formatCurrency } from "../utils/helpers";
 import { getLocalStorage } from "../utils/localStorage";
 import UsersBalanceChart from "./UsersBalanceChart";
 import { useEffect, useState } from "react";
+import {formatCurrency} from '../utils/helpers';
 
 const style = {
   textTransform: "capitalize",
