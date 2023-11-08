@@ -247,6 +247,11 @@ body {
   border: none;
   margin: 1rem;
   color: #2f3a54;
+  cursor: pointer;
+}
+.sign-up-form button:hover {
+  background-color: #3f9dd0;
+  color: #eff1f4;
 }
 .sign-up-form .errorMessage {
   font-size: clamp(0.5rem, 0.8vw, 0.8rem);

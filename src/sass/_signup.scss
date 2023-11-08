@@ -107,7 +107,14 @@
     border: none;
     margin: 1rem;
     color: $darkBlue;
+    cursor: pointer;
+    &:hover {
+      background-color: $lightBlue;
+      color: $mainGray;
+      // transform: scale(1.1);
+    }
   }
+
   .errorMessage {
     font-size: clamp(0.5rem, 0.8vw, 0.8rem);
     color: red;
