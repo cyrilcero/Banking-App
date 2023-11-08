@@ -1253,7 +1253,7 @@ body {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   text-align: left;
-  line-height: 5vh;
+  line-height: clamp(2.5rem, 5vh, 3rem);
   font-family: "League Spartan", sans-serif;
   font-style: normal;
   font-weight: 600;
