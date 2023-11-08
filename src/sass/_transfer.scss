@@ -47,7 +47,11 @@
     border-bottom: 3px solid $darkBlue;
     color: $darkBlue;
     font-weight: bold;
- 
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
   label{
     font-size: clamp(0.8rem, 1vw, 1rem);

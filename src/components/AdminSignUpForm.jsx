@@ -55,7 +55,7 @@ export default function AdminSignUpForm() {
     lastName: "",
     email: "",
     password: "",
-    accountBalance: 0,
+    accountBalance: "",
     isAdmin: false,
     accountID: "",
   });
@@ -115,7 +115,7 @@ export default function AdminSignUpForm() {
         lastName: "",
         email: "",
         password: "",
-        accountBalance: 0,
+        accountBalance: "",
         isAdmin: false,
         accountID: "",
       });
@@ -154,7 +154,7 @@ export default function AdminSignUpForm() {
         lastName: "",
         email: "",
         password: "",
-        accountBalance: 0,
+        accountBalance: "",
         isAdmin: false,
         accountID: "",
       });

@@ -902,6 +902,10 @@ body {
   color: #2f3a54;
   font-weight: bold;
 }
+.transfer-form-inputs input::-webkit-outer-spin-button,
+.transfer-form-inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .transfer-form-inputs label {
   font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: bolder;
@@ -2870,6 +2874,7 @@ body {
   font-style: italic;
   color: #2f3a54;
 }
-.exchange-rate-container .spinner {
-  width: 2rem;
+
+.spinner {
+  width: 15rem;
 }/*# sourceMappingURL=App.css.map */
