@@ -121,6 +121,7 @@ export default function AdminSignUpForm() {
         .replace(/^\d{3}/, "00");
 
       newUser.accountID = accountID;
+      newUser.newBalance =  newUser.accountBalance;
       userAccounts.push(newUser);
       setLocalStorage('UserAccounts', userAccounts)
 

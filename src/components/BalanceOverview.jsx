@@ -1,6 +1,8 @@
 import React from 'react';
 import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
 import { calcSpentPerUser, formatCurrency } from '../utils/helpers';
+import { getLocalStorage, setLocalStorage } from '../utils/localStorage';
+import { calcSpentPerUser, formatCurrency } from '../utils/helpers';
 
 function BalanceOverview() {
   const user = getLocalStorage('CurrentUser');

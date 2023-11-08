@@ -28,7 +28,7 @@ function ClientList({ displayCount, clients, totalExpenses }) {
               <td style={style}>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.accountID}</td>
-              <td>{formatCurrency(user.accountBalance - totalExpenses)}</td>
+              <td>{formatCurrency(+user.newBalance)}</td>
             </tr>
           ))}
         </tbody>

@@ -13,7 +13,7 @@ function AdminAllAccounts() {
 
   const users = allAccounts.filter((item) => item.isAdmin === false);
   const users_email = users.map((item) => item.email);
-  const users_balance = users.map((item) => Number(item.accountBalance));
+  const users_balance = users.map((item) => Number(item.newBalance));
   
   const labels = users_email;
   const balance = users_balance;
@@ -63,7 +63,7 @@ function AdminAllAccounts() {
                     <td style={style}>{user.lastName}</td>
                     <td>{user.email}</td>
                     <td>{user.accountID}</td>
-                    <td>{user.accountBalance}</td>
+                    <td>{formatCurrency(+user.newBalance)}</td>
                   </tr>
                 ))}
               </tbody>
