@@ -30,7 +30,7 @@ export const HomeNavBar = () => {
       <>
         <nav className="home-navbar">
           <div className="home-navbar-container">
-            <Link to="/" className="navbar-logo">
+            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
               <img src={logo} alt="Logo" />
             </Link>
             <div className="menu-icon" onClick={handleClick}>
@@ -78,12 +78,26 @@ export const HomeNavBar = () => {
               {button && (
                 <>
                   <li className="buttons1">
-                    <Button link="/login" buttonStyle="btn--outline">
+                    <Button link="/login" buttonStyle="btn--outline"  onClick={closeMobileMenu}>
                       LOGIN TO WIND ONLINE
                     </Button>
                   </li>
                   <li className="buttons1">
-                    <Button link="/create-account" buttonStyle="btn--outline">CREATE ACCOUNT</Button>
+                    <Button link="/create-account" buttonStyle="btn--outline" onClick={closeMobileMenu}>CREATE ACCOUNT</Button>
+                  </li>
+                </>
+              )}
+                {button && (
+                <>
+                  <li className="burgerMobileButton">
+                    <Button link="/login" buttonStyle="burger-button"   onClick={closeMobileMenu}>
+                    <span className="btn-text-large">LOGIN TO WIND ONLINE</span>
+                    </Button>
+                  </li>
+                  <li className="burgerMobileButton">
+                    <Button link="/create-account" buttonStyle="burger-button"   onClick={closeMobileMenu}>
+                    <span className="btn-text-large">CREATE ACCOUNT</span>
+                      </Button>
                   </li>
                 </>
               )}
