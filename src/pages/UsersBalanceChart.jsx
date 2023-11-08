@@ -34,23 +34,7 @@ const adminAccount = [
 if (localStorage.getItem("UserAccounts") === null) {
   setLocalStorage("UserAccounts", adminAccount);
 }
-
-const adminAccount = [
-  {
-    email: "admin@email.com",
-    password: "admin00",
-    firstName: "Admin",
-    accountID: Date.now()
-      .toString()
-      .replace(/^\d{3}/, "00"),
-    isAdmin: true,
-  },
-];
-
-if (localStorage.getItem("UserAccounts") === null) {
-  setLocalStorage("UserAccounts", adminAccount);
-}
-
+const allUsers = getLocalStorage('UserAccounts');
 const users = allUsers.filter((item) => item.isAdmin === false);
 const users_email = users.map((item) => item.email);
 const users_balance = users.map((item) => Number(item.accountBalance));
@@ -77,7 +61,6 @@ const data = {
   ],
 };
 
-function UsersBalanceChart() {
 function UsersBalanceChart({ options, data }) {
   return <Bar options={options} data={data} />;
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import Select from "react-select";
 import { toastError, toastSuccess } from "../utils/toastify";
+import { getLocalStorage } from "../utils/localStorage";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -32,8 +33,6 @@ function CashInForm({ setter }) {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
-  const [selectedAccount, setSelectedAccount] = useState(null);
-
   const [selectedAccount, setSelectedAccount] = useState(null);
 
   const dropDownOverAllSelection = JSON.parse(
