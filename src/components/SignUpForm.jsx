@@ -14,6 +14,23 @@ const initialUserData = [
   },
 ];
 
+function filterInput(input) {
+  let filtered = "";
+
+  for (let i = 0; i < input.length; i++) {
+    let char = input[i];
+    if (
+      (char >= "a" && char <= "z") ||
+      (char >= "A" && char <= "Z") ||
+      char === ""
+    ) {
+      filtered += char;
+    }
+  }
+
+  return filtered;
+}
+
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
     <div className="signup-input-container">
@@ -32,7 +49,6 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 
 export default function SignUpForm() {
   const navigate = useNavigate();
-  const [emailTaken, setEmailTaken] = useState(false);
   const [inputValue, setInputValue] = useState({
     firstName: "",
     lastName: "",
@@ -44,14 +60,32 @@ export default function SignUpForm() {
       .replace(/^\d{3}/, "00"),
     isAdmin: false,
   });
-
+  const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (e) => {
     setInputValue((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
+  };
 
-    setEmailTaken(false);
+  const handleNameChange = (e) => {
+    setInputValue((prev) => ({
+      ...prev,
+      [e.target.name]: filterInput(e.target.value),
+    }));
+  };
+
+  const handlePasswordChange = (e) => {
+    setInputValue((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+
+    if (e.target.value.length > 5) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Password is less than 6 characters");
+    }
   };
 
   useEffect(() => {
@@ -73,15 +107,21 @@ export default function SignUpForm() {
       (user) => user.email === newUser.email
     );
 
-    if (isEmailTaken) {
-      setEmailTaken(true);
-      console.log("Email is already taken. Please choose a different email.");
-      toastError("Email Taken.");
+    if (newUser.password.length < 6) {
+      return toastError("Password is less than 6 characters.");
+    } else if (isEmailTaken) {
+      setErrorMessage(`Email ${inputValue.email}
+      is already taken. Please choose a different email.`);
+      toastError(`Email ${inputValue.email}
+      is already taken. Please choose a different email.`);
       setInputValue({
         firstName: "",
         lastName: "",
         email: "",
         password: "",
+        accountBalance: 0,
+        isAdmin: false,
+        accountID: "",
       });
     } else {
       const accountID = Date.now()
@@ -98,9 +138,14 @@ export default function SignUpForm() {
         lastName: "",
         email: "",
         password: "",
+        accountBalance: 0,
+        isAdmin: false,
+        accountID: "",
       });
 
-      toastSuccess("Created Account Successfully.");
+      toastSuccess(
+        `Created account for ${newUser.firstName} ${newUser.lastName}`
+      );
       navigate("/login");
     }
   }
@@ -120,7 +165,7 @@ export default function SignUpForm() {
           placeholder="juan"
           name="firstName"
           value={inputValue.firstName}
-          onChange={handleChange}
+          onChange={handleNameChange}
         />
         <Inputs
           text="Last Name"
@@ -128,7 +173,7 @@ export default function SignUpForm() {
           placeholder="dela cruz"
           name="lastName"
           value={inputValue.lastName}
-          onChange={handleChange}
+          onChange={handleNameChange}
         />
         <Inputs
           text="Email"
@@ -144,17 +189,15 @@ export default function SignUpForm() {
           placeholder="***********"
           name="password"
           value={inputValue.password}
-          onChange={handleChange}
+          onChange={handlePasswordChange}
         />
         <Link to={"/login"}>
-          <span className="redirect-link">Already have an account? Login Here</span>
+          <span className="redirect-link">
+            Already have an account? Login Here
+          </span>
         </Link>
         <button type="submit">Sign up</button>
-        {emailTaken && (
-          <p className="errorMessage">
-            *Email is already taken. Please choose a different email.
-          </p>
-        )}
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
       </Form>
     </>
   );
