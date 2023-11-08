@@ -136,6 +136,7 @@ export default function AdminSignUpForm() {
         deposit: true,
         type: "Cash In",
         userId: inputValue.email,
+        fromAdmin: true,
       };
 
       history.push(newHistory)

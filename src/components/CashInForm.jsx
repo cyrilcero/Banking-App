@@ -163,6 +163,7 @@ function CashInForm({ setter }) {
           amount: inputValue.accountBalance,
           deposit: isWithdrawal,
           type: type,
+          fromAdmin: true,
         };
 
         const cashInHistory =
