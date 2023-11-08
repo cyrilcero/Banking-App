@@ -143,7 +143,9 @@ export default function SignUpForm() {
         accountID: "",
       });
 
-      toastSuccess(`Created account for ${newUser.firstName} ${newUser.lastName}`);
+      toastSuccess(
+        `Created account for ${newUser.firstName} ${newUser.lastName}`
+      );
       navigate("/login");
     }
   }
