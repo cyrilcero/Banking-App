@@ -1,11 +1,14 @@
+import React from 'react';
+import { CircularProgressbar } from 'react-circular-progressbar';
 import { getLocalStorage } from '../utils/localStorage';
 import { calcSpentPerUser, formatCurrency, formatPercentage } from '../utils/helpers';
-import { CircularProgressbar } from 'react-circular-progressbar';
+
 
 function ExpensesVsBalance() {
   const user = getLocalStorage('CurrentUser');
   const totalExpenses = calcSpentPerUser(user.email);
   const remainingBalance = user.accountBalance - totalExpenses; 
+  
   const isOverspent = remainingBalance < 0;
   const percentage = (totalExpenses / user.accountBalance) * 100;
   const customStyles = {
@@ -21,6 +24,9 @@ function ExpensesVsBalance() {
       stroke: isOverspent ? '#2f3a54' :'#d1ffbc',
     },
   };
+
+  user.newBalance = remainingBalance;
+  setLocalStorage('CurrentUser', user); 
 
   return (
     <div className='expensesvsbalance'>

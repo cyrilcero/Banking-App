@@ -16,8 +16,9 @@ import ExpensesVsBalance from "../components/ExpensesVsBalance";
 export function budgetAppLoader() {
   const wallets = getLocalStorage("wallets");
   const expenses = getLocalStorage("expenses");
+  const user = getLocalStorage('CurrentUser');
 
-  return { wallets, expenses };
+  return { wallets, expenses, user };
 }
 
 // Actions
@@ -26,26 +27,29 @@ export function budgetAppActions({ request }) {
 }
 
 function BudgetApp() {
-  const { wallets, expenses } = useLoaderData();
+  const { wallets, expenses, user } = useLoaderData();
   const [isBudgetForm, setIsBudgetForm] = useState(false);
+  const userWallets = wallets.filter(wallet => wallet.email === user.email);
+  const userExpenses = expenses.filter(expense => expense.email === user.email);
 
   const changeFormType = () => {
     setIsBudgetForm(!isBudgetForm);
   };
 
+
   return (
     <section className="budget-app">
       <GreetingDash />
       <div className="budget-app-container">
-        {wallets && wallets.length > 0 ? (
+        {userWallets && userWallets.length > 0 ? (
           <div className="budget-app-wrapper">
             <div className="mywallets-wrapper">
               <h2>
-                {wallets && wallets.length > 1 ? "My Wallets" : "My Wallet"}
+                {userWallets && userWallets.length > 1 ? "My Wallets" : "My Wallet"}
               </h2>
 
               <div className="wallet-wrapper">
-                {wallets.map((wallet) => (
+                {userWallets.map((wallet) => (
                   <WalletItem key={wallet.id} wallet={wallet} />
                 ))}
               </div>
@@ -70,7 +74,7 @@ function BudgetApp() {
               <div className="recent-expenses-wrapper">
                 <h3>Recent Expenses</h3>
                 <TableExpenses
-                  expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)}
+                  expenses={userExpenses.sort((a, b) => b.createdAt - a.createdAt)}
                 />
               </div>
             )}

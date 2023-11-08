@@ -1,3 +1,4 @@
+import { formatCurrency } from "../utils/helpers";
 import { getLocalStorage } from "../utils/localStorage";
 import UsersBalanceChart from "./UsersBalanceChart";
 import { useEffect, useState } from "react";
@@ -63,7 +64,7 @@ function AdminAllAccounts() {
                     <td style={style}>{user.lastName}</td>
                     <td>{user.email}</td>
                     <td>{user.accountID}</td>
-                    <td>{user.accountBalance}</td>
+                    <td>{formatCurrency(+user.accountBalance)}</td>
                   </tr>
                 ))}
               </tbody>
