@@ -68,7 +68,7 @@ function BudgetApp() {
               </h5>
             </div>
             <div className="overall-expenses">
-              {/* <ExpensesVsBalance /> */}
+              <ExpensesVsBalance />
             </div>
             {expenses && expenses.length > 0 && (
               <div className="recent-expenses-wrapper">
