@@ -4,7 +4,7 @@ const style = {
   textTransform: "capitalize",
 };
 
-function ClientList({ displayCount, clients, totalExpenses }) {
+function ClientList({ displayCount, clients }) {
   const clientList = clients.filter((item) => item.isAdmin === false);
   // sort and slice
   clientList.sort((a, b) => b.accountID - a.accountID);
@@ -28,7 +28,7 @@ function ClientList({ displayCount, clients, totalExpenses }) {
               <td style={style}>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.accountID}</td>
-              <td>{formatCurrency(user.accountBalance - totalExpenses)}</td>
+              <td>{formatCurrency(+user.accountBalance)}</td>
             </tr>
           ))}
         </tbody>

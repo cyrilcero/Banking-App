@@ -102,11 +102,11 @@ function CashInForm({ setter }) {
   //onSubmit form
   function submitHandle(e) {
     e.preventDefault();
-
+  
     if (!validateInput(inputValue)) {
       return;
     }
-
+  
     const userAccount = { ...inputValue };
     const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
     const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
@@ -117,13 +117,13 @@ function CashInForm({ setter }) {
         user.lastName.toLowerCase() === userAccount.lastName.toLowerCase() &&
         user.isAdmin === false
     );
-
+  
     if (isExistingAccount) {
       setExistingAccount(true);
       const focusedUser = userAccounts.find(
         (user) => user.email === userAccount.email
       );
-
+  
       if (focusedUser) {
         const existingBalance = parseFloat(focusedUser.accountBalance);
         const inputBalance = parseFloat(userAccount.accountBalance);
@@ -131,63 +131,63 @@ function CashInForm({ setter }) {
           timeZone: "Asia/Manila",
           hour12: false,
         });
-
+  
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
-          toastError("Amount cannot be negative.");
-          console.log("Amount cannot be negative.");
+          toastError("Amount cannot be negative");
+          console.log("Amount cannot be negative");
           return;
         }
-
+  
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
-            toastError("Insufficient balance for withdrawal.");
-            console.log("Insufficient balance for withdrawal.");
+            toastError("Insufficient balance for withdrawal");
+            console.log("Insufficient balance for withdrawal");
             return;
           }
-
-          focusedUser.accountBalance = (existingBalance - inputBalance).toFixed(
-            2
-          );
+  
+          focusedUser.accountBalance = (existingBalance - inputBalance).toFixed(2);
         } else {
-          focusedUser.accountBalance = (existingBalance + inputBalance).toFixed(
-            2
-          );
+          focusedUser.accountBalance = (existingBalance + inputBalance).toFixed(2);
         }
-
+  
+        // Calculate and update the newBalance field
+        focusedUser.newBalance = focusedUser.accountBalance;
+  
         const type = !isWithdrawal ? "Cash In" : "Withdrawal";
-
+  
         const transaction = {
           userId: inputValue.email,
           date: localDate,
           amount: inputValue.accountBalance,
           deposit: isWithdrawal,
           type: type,
+          fromAdmin: true,
         };
-
+  
         const cashInHistory =
           JSON.parse(localStorage.getItem("CashInHistory")) || [];
         cashInHistory.push(transaction);
         localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
       }
-
+  
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-      setter(userAccounts)
-
+      setter(userAccounts);
+  
       // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
         currentUser.accountBalance = userAccount.accountBalance;
         localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
       }
-
+  
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.");;
+      toastSuccess("Account balance has been updated");
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.");;
+      toastError("Account does not exist. Create a new account");
     }
-
+  
     setInputValue({
       lastTopUp: "",
       firstName: "",
@@ -195,9 +195,9 @@ function CashInForm({ setter }) {
       email: "",
       accountBalance: "",
     });
-
+  
     setSelectedAccount(null);
-  }
+  }  
 
   return (
     <Form method="GET" className="cashin-form" onSubmit={submitHandle}>

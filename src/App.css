@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-page, .sign-up-logo, .sign-up-form {
+.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .overall-expenses .expensesvsbalance .progress-text, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .admin-transfer-money, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-page, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,7 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -144,8 +143,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -229,10 +227,9 @@ body {
 }
 
 .sign-up-form {
-  width: 100%;
+  width: 70%;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: white;
 }
 .sign-up-form button {
   min-width: 60%;
@@ -487,8 +484,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -902,6 +898,10 @@ body {
   color: #2f3a54;
   font-weight: bold;
 }
+.transfer-form-inputs input::-webkit-outer-spin-button,
+.transfer-form-inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .transfer-form-inputs label {
   font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: bolder;
@@ -915,11 +915,17 @@ body {
   border-radius: 10px;
   text-transform: uppercase;
   font-weight: bolder;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(0.7rem, 0.6742rem + 0.4124vw, 1.2rem);
   background-color: #d1ffbc;
   color: #2f3a54;
   border: none;
   margin-top: 1rem;
+  cursor: pointer;
+}
+.transfer-btn:hover {
+  color: #eff1f4;
+  background: #3f9dd0;
+  box-shadow: 0.3rem 0.3rem 1rem 0 #3f9dd0;
 }
 
 .panel2-transfer {
@@ -1058,6 +1064,21 @@ body {
   transition: all 0.3s ease-out;
 }
 
+.burger-button {
+  background-color: #D1FFBC;
+  width: 100%;
+  color: black;
+  padding: 0.5rem 1rem;
+  border: 1 px solid var(--primary);
+  margin-right: 1rem;
+  transition: all 0.3s ease-out;
+  height: 5rem;
+}
+
+.btn-text-large {
+  font-size: 1.2rem;
+}
+
 .btn--medium {
   padding: 8px 20px;
   margin-top: 2.5vh;
@@ -1113,7 +1134,7 @@ body {
 }
 
 .home-nav-item {
-  height: 80px;
+  height: 5rem;
 }
 
 .home-nav-links {
@@ -1143,6 +1164,10 @@ body {
 }
 
 .otherButton {
+  display: none;
+}
+
+.burgerMobileButton {
   display: none;
 }
 
@@ -1253,7 +1278,7 @@ body {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   text-align: left;
-  line-height: 5vh;
+  line-height: clamp(2.5rem, 5vh, 3rem);
   font-family: "League Spartan", sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -1358,6 +1383,80 @@ body {
   z-index: -1;
 }
 
+.panel-cashin {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: 10px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.admin-cashin-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  width: 70%;
+  height: 50vh; /* This will make the container take up the full viewport height */
+  padding: 1.5rem 1rem;
+  gap: 0.5rem;
+  color: #2f3a54;
+}
+.admin-cashin-account span {
+  width: 80%;
+  color: #3f9dd0;
+  font-size: small;
+  text-align: justify;
+  padding: 1rem 0.5rem 0;
+}
+.admin-cashin-account label {
+  text-align: left;
+}
+.admin-cashin-account button {
+  margin-top: 1.2rem;
+  width: 80%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  color: #2f3a54;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.admin-cashin-account h5 {
+  color: #2f3a54;
+  font-size: small;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 1rem 0;
+  cursor: pointer;
+}
+.admin-cashin-account h5:hover {
+  color: #3f9dd0;
+  transform: scale(1.1);
+}
+.admin-cashin-account .cashin-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 80%;
+  font-size: small;
+  color: gray;
+}
+.admin-cashin-account .cashin-input-container input {
+  height: 1.75rem;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #2f3a54;
+  padding-left: 0.2rem;
+}
+
 .admindash-content {
   height: 90vh;
   width: 100%;
@@ -1434,6 +1533,9 @@ body {
 .content1 .cashin-form h5:hover {
   color: #3f9dd0;
   transform: scale(1.1);
+}
+.content1 .cashin-form .form-labels {
+  text-align: left;
 }
 .content1 .cashin-form .cashin-input-container {
   display: flex;
@@ -1521,11 +1623,21 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
 .admin-create-account {
+  grid-area: 1/1/3/6;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+  overflow-y: auto;
+  gap: 0.5rem;
+  color: #2f3a54;
+}
+
+.admin-transfer-money {
   grid-area: 1/1/3/6;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
@@ -1619,8 +1731,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1698,7 +1809,7 @@ body {
     flex-direction: column;
   }
   .sign-up-form {
-    min-width: 90%;
+    min-width: 70%;
     display: flex;
     justify-content: center;
   }
@@ -1749,7 +1860,6 @@ body {
   }
   .transfer {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -1778,6 +1888,10 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
   .client-overview {
     display: block;
   }
@@ -1811,7 +1925,7 @@ body {
   }
   .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
     width: 370px;
-    height: 220px;
+    height: 500px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1980,7 +2094,7 @@ body {
   .otherButton {
     display: none;
   }
-  .buttons1 {
+  .burgerMobileButton {
     display: block;
   }
   .NavbarItems {
@@ -2311,6 +2425,11 @@ body {
   border-radius: 0.3rem;
   box-shadow: 1.2px 1.2px 3px #3f9dd0;
 }
+.wallet-card .isOverSpent::-webkit-progress-value {
+  background-color: red;
+  border-radius: 0.3rem;
+  box-shadow: 1.2px 1.2px 3px #3f9dd0;
+}
 .wallet-card .progress-text {
   width: 100%;
   padding: 0 0.5rem;
@@ -2331,6 +2450,9 @@ body {
 }
 .wallet-card .progress-text .align-left {
   text-align: end;
+}
+.wallet-card .progress-text .isOverSpent {
+  color: red;
 }
 .wallet-card .progress-text .wallet-name {
   font-weight: 700;
@@ -2373,26 +2495,29 @@ body {
 }
 .overall-expenses .expensesvsbalance {
   gap: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   width: 100%;
 }
-.overall-expenses .expensesvsbalance .circprogress {
-  width: min(100%, 180px);
-}
 .overall-expenses .expensesvsbalance .progress-text {
+  flex-direction: column;
   color: #2f3a54;
   letter-spacing: 0.2rem;
 }
-.overall-expenses .expensesvsbalance .progress-text h4, .overall-expenses .expensesvsbalance .progress-text h5 {
+.overall-expenses .expensesvsbalance .progress-text h5 {
   font-weight: 400;
   font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
 }
 .overall-expenses .expensesvsbalance .progress-text h3 {
-  font-size: clamp(0.72rem, 0.6798rem + 0.6433vw, 1.5rem);
+  font-size: clamp(0.75rem, 0.6959rem + 0.866vw, 1.8rem);
   margin: 0.5rem 0 0.8rem;
 }
 .overall-expenses .expensesvsbalance .progress-text h4 {
   text-transform: uppercase;
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
+  font-weight: 400;
+}
+.overall-expenses .expensesvsbalance .isOverSpent {
+  color: red;
 }
 
 .recent-expenses-wrapper {
@@ -2870,6 +2995,7 @@ body {
   font-style: italic;
   color: #2f3a54;
 }
-.exchange-rate-container .spinner {
-  width: 2rem;
-}/*# sourceMappingURL=App.css.map */
+
+.spinner {
+  width: 15rem;
+}

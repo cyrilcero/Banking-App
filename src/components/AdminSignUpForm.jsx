@@ -31,13 +31,17 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-// disable numbers/special characters 
+// disable numbers/special characters
 function filterInput(input) {
-  let filtered = '';
+  let filtered = "";
 
   for (let i = 0; i < input.length; i++) {
     let char = input[i];
-    if ((char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') || char === '') {
+    if (
+      (char >= "a" && char <= "z") ||
+      (char >= "A" && char <= "Z") ||
+      char === ""
+    ) {
       filtered += char;
     }
   }
@@ -51,7 +55,7 @@ export default function AdminSignUpForm() {
     lastName: "",
     email: "",
     password: "",
-    accountBalance: 0,
+    accountBalance: "",
     isAdmin: false,
     accountID: "",
   });
@@ -76,7 +80,7 @@ export default function AdminSignUpForm() {
       ...prev,
       [e.target.name]: e.target.value,
     }));
-    
+
     if (e.target.value.length > 5) {
       setErrorMessage("");
     } else {
@@ -98,11 +102,11 @@ export default function AdminSignUpForm() {
     const newUser = { ...inputValue };
     const userAccounts = getLocalStorage("UserAccounts");
     const isEmailTaken = userAccounts.find(
-      (user) => user.email === newUser.email
+      (user) => user.email.toLowerCase() === newUser.email.toLowerCase()
     );
 
     if (newUser.password.length < 6) {
-      return toastError('Password is less than 6 characters.');
+      return toastError("Password is less than 6 characters.");
     } else if (isEmailTaken) {
       toastError(`Email ${inputValue.email}
       is already taken. Please choose a different email.`);
@@ -111,7 +115,7 @@ export default function AdminSignUpForm() {
         lastName: "",
         email: "",
         password: "",
-        accountBalance: 0,
+        accountBalance: "",
         isAdmin: false,
         accountID: "",
       });
@@ -121,8 +125,9 @@ export default function AdminSignUpForm() {
         .replace(/^\d{3}/, "00");
 
       newUser.accountID = accountID;
+      newUser.newBalance = newUser.accountBalance;
       userAccounts.push(newUser);
-      setLocalStorage('UserAccounts', userAccounts)
+      setLocalStorage("UserAccounts", userAccounts);
 
       const history = getLocalStorage("CashInHistory") || [];
       const localDate = new Date().toLocaleString("en-US", {
@@ -136,10 +141,11 @@ export default function AdminSignUpForm() {
         deposit: true,
         type: "Cash In",
         userId: inputValue.email,
+        fromAdmin: true,
       };
 
-      history.push(newHistory)
-      setLocalStorage("CashInHistory", history)
+      history.push(newHistory);
+      setLocalStorage("CashInHistory", history);
       toastSuccess(
         `Created account for ${newUser.firstName} ${newUser.lastName}`
       );
@@ -149,7 +155,7 @@ export default function AdminSignUpForm() {
         lastName: "",
         email: "",
         password: "",
-        accountBalance: 0,
+        accountBalance: "",
         isAdmin: false,
         accountID: "",
       });

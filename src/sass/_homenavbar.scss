@@ -24,8 +24,26 @@
     border: 1 px solid var(--primary);   
     margin-right: 1rem;
     transition: all 0.3s ease-out;
+   
   
 }
+
+.burger-button{
+    background-color: #D1FFBC;
+    width: 100%;
+    color: black;
+    padding: 0.5rem 1rem;
+    border: 1 px solid var(--primary);   
+    margin-right: 1rem;
+    transition: all 0.3s ease-out;
+   height: 5rem;
+   
+}
+
+
+.btn-text-large {
+    font-size: 1.2rem;
+  }
 
 .btn--medium{
     padding: 8px 20px;
@@ -86,7 +104,7 @@
 }
 
 .home-nav-item{
-    height: 80px;
+    height: 5rem;
 }
 
 .home-nav-links{
@@ -116,5 +134,9 @@
 }
 
 .otherButton{
+    display: none;
+}
+
+.burgerMobileButton{
     display: none;
 }

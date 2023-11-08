@@ -31,6 +31,7 @@ import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
 import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 import Settings from "./pages/Settings.jsx";
 import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
+import AdminSendMoney from "./pages/AdminSendMoney.jsx";
 
 
 
@@ -200,8 +201,19 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "send-money",
+        element: (
+          <SecuredAdminRoute>
+            <AdminSendMoney />
+          </SecuredAdminRoute>
+        ),
+    
+      },
     ],
   },
+
+  
 
   // Budget App Test Route
   // {

@@ -263,6 +263,14 @@
       box-shadow: $txtShadLBlue;
     }
   }
+
+  .isOverSpent {
+    &::-webkit-progress-value {
+      background-color: red;
+      border-radius: 0.3rem;
+      box-shadow: $txtShadLBlue;
+    }
+}
  
   .progress-text {
     width: 100%;
@@ -287,6 +295,10 @@
 
     .align-left {
       text-align: end;
+    }
+
+    .isOverSpent {
+      color: red;
     }
 
     .wallet-name {
@@ -340,30 +352,34 @@
   .expensesvsbalance{
     @extend %flex; 
     gap: 1rem;
-    padding: 2rem;  
+    padding: 1rem;  
     width: 100%;  
 
-    .circprogress {
-      width: min(100%, 180px);
-    }
-
     .progress-text{
+      @extend %flex; 
+      flex-direction: column;
       color: $darkBlue;
       letter-spacing: 0.2rem;
 
-      h4, h5 {
+      h5 {
         font-weight: 400;
         font-size: $h6;
       }
 
       h3 {
-        font-size: $h3;
+        font-size: $h2;
         margin: 0.5rem 0 0.8rem;
       }
 
       h4 {
-        text-transform: uppercase;
+        text-transform: uppercase; 
+        font-size: $h5;
+        font-weight: 400;
       }
+    }
+
+    .isOverSpent {
+      color: red;
     }
   }
 }
