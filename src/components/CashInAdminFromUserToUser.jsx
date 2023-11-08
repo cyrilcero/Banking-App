@@ -177,9 +177,9 @@ function CashInAdminFromUserToUser() {
 
   return (
     <Form method="GET" className="admin-cashin-account" onSubmit={submitHandle}>
-      <h2>{ "Send Money"}</h2>
+      <h2>Transfer Money</h2>
 
-      <label htmlFor="accountSelector">From:</label>
+      <label className="form-labels" htmlFor="accountSelector">From:</label>
       <Select
        className="select-input"
        value={fromSelectedAccount}
@@ -192,7 +192,7 @@ function CashInAdminFromUserToUser() {
        isSearchable={true}
        name="fromAccountID"
      />
-    <label htmlFor="accountSelector">To:</label>
+    <label className="form-labels" htmlFor="accountSelector">To:</label>
       <Select
         className="select-input"
         value={toSelectedAccount}
@@ -215,7 +215,7 @@ function CashInAdminFromUserToUser() {
       />
       {negativeAmount && <span>*Amount must be a positive number.</span>}
       <button type="submit">
-        <h3>{"Send Money"}</h3>
+        <h3>Send</h3>
       </button>
       {!existingAccount && (
         <span>*Account does not exist. Create a new account.</span>
