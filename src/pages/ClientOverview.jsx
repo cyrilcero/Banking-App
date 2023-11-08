@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { getLocalStorage } from "../utils/localStorage";
 import ClientDashboard from "../components/ClientDashboard";
 import GreetingDash from "../components/GreetingDash";
+import { formatCurrency } from "../utils/helpers";
+
 
 function AllTransaction({ amount, type, date }) {
   return (
@@ -10,7 +12,7 @@ function AllTransaction({ amount, type, date }) {
       <ul className="transaction-list">
         <li>{type}</li>
         <li>{date}</li>
-        <li>&#8369;{amount}</li>
+        <li>{formatCurrency(+amount)}</li>
       </ul>
     </>
   );
@@ -52,16 +54,17 @@ function ClientOverview() {
           <h3>Transaction Type</h3>
           <h3>Date</h3>
           <h3>Amount</h3>
-        </div>
+        </div> <div className="transaction-list-container">
           {transactionHistory.map((entry, index) => (
-            <AllTransaction
+              <AllTransaction
               key={index}
               amount={entry.amount}
               date={entry.date}
               type={entry.type}
               receiver={entry.accountName}
             />
-          ))}
+          ))} 
+          </div>
         </div>
       </div>
     </section>

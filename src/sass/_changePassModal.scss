@@ -47,3 +47,19 @@
   background-color: $lightBlue;
   transform: scale(1.1);
 }
+
+.password-input-container {
+  position: relative;
+}
+
+.password-input-container input {
+  padding-right: 30px; 
+}
+
+.password-input-container i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px; 
+  cursor: pointer;
+}

@@ -1,23 +1,27 @@
-import { ToastContainer } from "react-toastify";
 import { HomeNavBar } from "./components/HomeNavBar";
 import { Outlet } from "react-router-dom";
+import { setLocalStorage } from "./utils/localStorage";
+
+const adminAccount = [
+  {
+    email: "admin@email.com",
+    password: "admin00",
+    firstName: "Admin",
+    accountID: Date.now()
+      .toString()
+      .replace(/^\d{3}/, "00"),
+    isAdmin: true,
+  },
+];
+
+if (localStorage.getItem("UserAccounts") === null) {
+  setLocalStorage("UserAccounts", adminAccount);
+}
 
 function App() {
   return (
     <>
       <HomeNavBar />
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-        theme="colored"
-      />
       <Outlet />
     </>
   );

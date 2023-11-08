@@ -19,7 +19,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-function CashInForm() {
+function CashInForm({ setter }) {
   //useStates
   const [inputValue, setInputValue] = useState({
     lastTopUp: "",
@@ -32,6 +32,8 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
+  const [selectedAccount, setSelectedAccount] = useState(null);
+
   const [selectedAccount, setSelectedAccount] = useState(null);
 
   const dropDownOverAllSelection = JSON.parse(
@@ -87,7 +89,6 @@ function CashInForm() {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify([]));
     }
-    console.log(inputValue);
   }, [inputValue]);
 
   //onclick
@@ -135,14 +136,14 @@ function CashInForm() {
 
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
-          toastError("Amount cannot be negative.")
+          toastError("Amount cannot be negative.");
           console.log("Amount cannot be negative.");
           return;
         }
 
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
-            toastError("Insufficient balance for withdrawal.")
+            toastError("Insufficient balance for withdrawal.");
             console.log("Insufficient balance for withdrawal.");
             return;
           }
@@ -173,6 +174,7 @@ function CashInForm() {
       }
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
+      setter(userAccounts)
 
       // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
@@ -181,11 +183,11 @@ function CashInForm() {
       }
 
       console.log("Account exists. Account balance has been updated.");
-      toastSuccess("Account balance has been updated.")
+      toastSuccess("Account balance has been updated.");;
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
-      toastError("Account does not exist. Create a new account.")
+      toastError("Account does not exist. Create a new account.");;
     }
 
     setInputValue({

@@ -7,7 +7,7 @@
 
 .panel2-overview {
   min-width: 100%;
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -17,7 +17,7 @@
 
 .transactions-widget {
   min-width: 60%;
-  min-height: 40vh;
+  max-height: 45vh;
   @extend %claymorph;
   display: flex;
   justify-content: flex-start;
@@ -25,6 +25,7 @@
   color: $darkBlue;
   flex-direction: column;
   padding: 1.5rem;
+
 
   hr {
     border: none;
@@ -49,7 +50,27 @@
   padding-left: 2rem;
   padding-right: 2rem;
 
-  li{
+  li {
     font-size: clamp(0.8rem, 1vw, 1rem);
   }
+  
 }
+.transaction-list-container {
+    min-width: 100%;
+    min-height: 30vh;
+    overflow: auto;
+
+  }   
+  .transaction-list-container::-webkit-scrollbar {
+      height: 5px;
+      width: 5px;
+    }
+    .transaction-list-container::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      
+    }
+    .transaction-list-container::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: $darkBlue;
+    }

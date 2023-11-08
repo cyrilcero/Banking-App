@@ -6,6 +6,18 @@
 flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(63, 157, 208, 0.5),
+    rgba(255, 255, 255, 0.8)
+  ),
+  url("../src/assets/backgroundDash.png");
+  background-size: contain;
+}
+.errorMessage-Modal {
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+  color: red;
+  padding: 0.5rem;
 }
 
 .changePass-wrapper{
@@ -15,10 +27,8 @@ flex-direction: column;
   padding: 2rem;
   width: 50%;
   flex-direction: column;
-}
-
-
-  button {
+  
+   button {
     width: 50%;
     height: auto;
     margin-top: 0.5rem; 
@@ -33,3 +43,7 @@ flex-direction: column;
     color: $darkBlue;
     cursor: pointer;
 }
+}
+
+
+ 

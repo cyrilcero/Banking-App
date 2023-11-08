@@ -78,6 +78,7 @@ const data = {
 };
 
 function UsersBalanceChart() {
+function UsersBalanceChart({ options, data }) {
   return <Bar options={options} data={data} />;
 }
 

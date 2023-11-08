@@ -1,8 +1,8 @@
-import React from "react";
 import { getLocalStorage } from "../utils/localStorage";
 import GreetingDash from "../components/GreetingDash";
 import BalanceOverview from "../components/BalanceOverview";
 import TransferFunc from "../components/TransferFunc";
+import { formatCurrency } from "../utils/helpers";
 
 
 function TransferHistory({ amount, receiver }) {
@@ -10,7 +10,7 @@ function TransferHistory({ amount, receiver }) {
     <ul className="transfer-history-list">
       <li>Money Transferred</li>
       <li>{receiver}</li>
-      <li>&#8369;{amount}</li>
+      <li>{formatCurrency(+amount)}</li>
     </ul>
   );
 }
@@ -20,23 +20,32 @@ function Transfer() {
   const email = currentUser.email || "";
 
   const cashInHistory = getLocalStorage("CashInHistory") || [];
-  const transferHistory = cashInHistory.filter((entry) => entry.sender === email && entry.transfer === true);
+  const transferHistory = cashInHistory.filter(
+    (entry) => entry.sender === email && entry.transfer === true
+  );
 
   return (
     <section className="transfer">
       <GreetingDash />
       <div className="transfer-page">
         <div className="transfer-form-container">
-          <TransferFunc/>
+          <TransferFunc />
         </div>
         <div className="panel2-transfer">
-            <BalanceOverview />
+          <BalanceOverview />
           <div className="transfer-history">
-          <h1>Transfer In History</h1>
-          <hr/>
-            {transferHistory.map((entry, index) => (
-        <TransferHistory key={index} amount={entry.amount} receiver={entry.accountName}/>
-      ))}</div>
+            <h1>Transfer History</h1>
+            <hr />
+            <div className="transfer-list-container">
+               {transferHistory.map((entry, index) => (
+              <TransferHistory
+                key={index}
+                amount={entry.amount}
+                receiver={entry.accountName}
+              />
+            ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
