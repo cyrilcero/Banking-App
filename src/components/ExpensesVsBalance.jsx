@@ -1,4 +1,3 @@
-import React from 'react';
 import { getLocalStorage } from '../utils/localStorage';
 import { calcSpentPerUser, formatCurrency, formatPercentage } from '../utils/helpers';
 import { CircularProgressbar } from 'react-circular-progressbar';
