@@ -4,12 +4,9 @@ import ClientList from "../components/ClientList";
 import addUserImg from "../assets/admindashAddUser.png";
 import { getLocalStorage } from "../utils/localStorage";
 import { useState } from "react";
-import { calcSpentPerUser } from "../utils/helpers";
 
 function AdminOverviewContent() {
   const clients = getLocalStorage("UserAccounts");
-  const currentUser = getLocalStorage("CurrentUser");
-  const totalExpenses = calcSpentPerUser(currentUser.email);
   const [userList, setUserList] = useState(clients);
   const nav = useNavigate();
   const handleClick = () => {
@@ -28,7 +25,6 @@ function AdminOverviewContent() {
           <ClientList
             displayCount={3}
             clients={userList}
-            totalExpenses={totalExpenses}
           />
         </div>
 
