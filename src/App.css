@@ -1358,6 +1358,78 @@ body {
   z-index: -1;
 }
 
+.panel-cashin {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: 10px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.admin-cashin-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  width: 100%;
+  height: 50vh; /* This will make the container take up the full viewport height */
+  padding: 1.5rem 1rem;
+  gap: 0.5rem;
+  color: #2f3a54;
+  margin-left: 15vw;
+}
+.admin-cashin-account span {
+  width: 80%;
+  color: #3f9dd0;
+  font-size: small;
+  text-align: justify;
+  padding: 1rem 0.5rem 0;
+}
+.admin-cashin-account button {
+  margin-top: 1.2rem;
+  width: 80%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  border: #d1ffbc;
+  outline: none;
+  background: #d1ffbc;
+  color: #2f3a54;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.admin-cashin-account h5 {
+  color: #2f3a54;
+  font-size: small;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 1rem 0;
+  cursor: pointer;
+}
+.admin-cashin-account h5:hover {
+  color: #3f9dd0;
+  transform: scale(1.1);
+}
+.admin-cashin-account .cashin-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 80%;
+  font-size: small;
+  color: gray;
+}
+.admin-cashin-account .cashin-input-container input {
+  height: 1.75rem;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #2f3a54;
+  padding-left: 0.2rem;
+}
+
 .admindash-content {
   height: 90vh;
   width: 100%;
