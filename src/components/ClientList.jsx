@@ -1,37 +1,34 @@
-import { useState } from "react";
-import getLocalStorage from "../utils/getLocalStorage";
+import { formatCurrency } from "../utils/helpers";
 
-function ClientList() {
-  const userList = getLocalStorage("UserAccounts");
-  const clientList = userList.filter((item) => item.isAdmin === false);
-  const recentAccounts = clientList
-    .slice(userList.length - 10, userList.length)
-    .slice()
-    .reverse();
-    
+const style = {
+  textTransform: "capitalize",
+};
+
+function ClientList({ displayCount, clients, totalExpenses }) {
+  const clientList = clients.filter((item) => item.isAdmin === false);
+  // sort and slice
+  clientList.sort((a, b) => b.accountID - a.accountID);
+  const displayClients = clientList.slice(0, displayCount);
   return (
     <div className="client-list-table">
-      <h1>Newly Created Accounts</h1>
       <table>
         <thead>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
+            <th>Email Address</th>
             <th>Account ID</th>
-            <th>Balance</th>
+            <th>Account Balance</th>
           </tr>
         </thead>
         <tbody>
-          {recentAccounts.map((user, idx) => (
-            <tr key={idx}>
-              <td>{user.firstName}</td>
-              <td>{user.lastName}</td>
+          {displayClients.map((user, index) => (
+            <tr key={index}>
+              <td style={style}>{user.firstName}</td>
+              <td style={style}>{user.lastName}</td>
               <td>{user.email}</td>
-              <td>{user.mobile}</td>
               <td>{user.accountID}</td>
-              <td>{user.accountBalance}</td>
+              <td>{formatCurrency(user.accountBalance - totalExpenses)}</td>
             </tr>
           ))}
         </tbody>

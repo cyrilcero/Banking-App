@@ -1,14 +1,12 @@
-export default function PromAndRe(){
+import React from 'react';
+import UnderConstr from './UnderConstr';
 
-    const centerStyles = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center', 
-        height: '100vh',     
-      };
+function PromAndRe() {
+  return (
+    <section>
+      <UnderConstr />
+    </section>
+  )
+}
 
-      return (
-        <h1 style={centerStyles}>Promos and Rewards</h1>
-      );
-    }
-    
+export default PromAndRe

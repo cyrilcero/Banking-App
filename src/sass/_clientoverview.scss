@@ -1,16 +1,13 @@
 @use "./format" as *;
 
-// * {
-//   border: 1px solid red;
-// }
-
 .client-overview {
   @extend %clientDashboard;
+  display: block;
 }
 
 .panel2-overview {
   min-width: 100%;
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -18,27 +15,33 @@
   padding: 1rem 2.5rem;
 }
 
-
 .transactions-widget {
   min-width: 60%;
-  max-height: 50vh;
+  max-height: 45vh;
   @extend %claymorph;
- display: flex;
- justify-content: flex-start;
- align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   color: $darkBlue;
   flex-direction: column;
   padding: 1.5rem;
 
- 
-  hr{
+
+  hr {
     border: none;
     width: 100%;
-  border: 2px solid;
+    border: 2px solid;
   }
 }
+.list-label {
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+}
 
-.transaction-list{
+.transaction-list {
   min-width: 100%;
   min-height: 5vh;
   display: flex;
@@ -46,4 +49,28 @@
   align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+
+  li {
+    font-size: clamp(0.8rem, 1vw, 1rem);
+  }
+  
 }
+.transaction-list-container {
+    min-width: 100%;
+    min-height: 30vh;
+    overflow: auto;
+
+  }   
+  .transaction-list-container::-webkit-scrollbar {
+      height: 5px;
+      width: 5px;
+    }
+    .transaction-list-container::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.2);
+      
+    }
+    .transaction-list-container::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: $darkBlue;
+    }

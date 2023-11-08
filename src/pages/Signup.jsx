@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import image from "../assets/piggybank.png";
@@ -8,11 +8,9 @@ import SignUpForm from "../components/SignUpForm";
 function Signup() {
   return (
     <div className="sign-up-page">
-      <div className="sign-up-logo">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-      </div>
+      <Link className="login-page-nav-bar" to={"/"}>
+        <img src={logo} alt="bank_logo" className="login-page-nav-bar-logo" />
+      </Link>
       <div className="sign-up-container">
         <div className="signup-form-container">
           <SignUpForm />
@@ -20,7 +18,6 @@ function Signup() {
             <h3>Welcome to the newest version of WindBank Online</h3>
             <p>
               Deposits are insured by PDIC up to PHP 500,000.00 per depositor.
-
             </p>
             <p>
               WindBank is supervised by the Bangko Sentral ng Pilipinas (+632
@@ -32,6 +29,6 @@ function Signup() {
       </div>
     </div>
   );
-};
+}
 
-export default Signup
+export default Signup;

@@ -1,18 +1,12 @@
-import React from "react";
-import { Form, useNavigate } from "react-router-dom";
+import { Link, Form, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../App.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import toastSuccess from "../utils/toastSuccess";
-import toastError from "../utils/toastError";
+import { toastSuccess, toastError } from "../utils/toastify";
 
 const initialUserData = [
   {
     firstName: "admin",
     lastName: "",
     email: "admin@email.com",
-    mobile: "",
     password: "admin00",
     accountBalance: 0,
     accountID: "admin",
@@ -43,7 +37,6 @@ export default function SignUpForm() {
     firstName: "",
     lastName: "",
     email: "",
-    mobile: "",
     password: "",
     accountBalance: 0,
     accountID: Date.now()
@@ -88,7 +81,6 @@ export default function SignUpForm() {
         firstName: "",
         lastName: "",
         email: "",
-        mobile: "",
         password: "",
       });
     } else {
@@ -99,18 +91,17 @@ export default function SignUpForm() {
       newUser.accountID = accountID;
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-      localStorage.setItem("CurrentUser", JSON.stringify(newUser));
+      // localStorage.setItem("CurrentUser", JSON.stringify(newUser));
 
       setInputValue({
         firstName: "",
         lastName: "",
         email: "",
-        mobile: "",
         password: "",
       });
 
+      toastSuccess("Created Account Successfully.");
       navigate("/login");
-      toastSuccess('Created Account Successfully.');
     }
   }
 
@@ -148,14 +139,6 @@ export default function SignUpForm() {
           onChange={handleChange}
         />
         <Inputs
-          text="Mobile Number"
-          type="number"
-          placeholder="+63"
-          name="mobile"
-          value={inputValue.mobile}
-          onChange={handleChange}
-        />
-        <Inputs
           text="Password"
           type="password"
           placeholder="***********"
@@ -163,6 +146,9 @@ export default function SignUpForm() {
           value={inputValue.password}
           onChange={handleChange}
         />
+        <Link to={"/login"}>
+          <span className="redirect-link">Already have an account? Login Here</span>
+        </Link>
         <button type="submit">Sign up</button>
         {emailTaken && (
           <p className="errorMessage">
@@ -170,18 +156,6 @@ export default function SignUpForm() {
           </p>
         )}
       </Form>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-        theme="colored"
-      />
     </>
   );
 }

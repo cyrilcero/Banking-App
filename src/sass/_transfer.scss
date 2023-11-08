@@ -2,6 +2,7 @@
 
 .transfer {
   @extend %clientDashboard;
+  display: block;
 }
 
 .transfer-page {
@@ -21,16 +22,13 @@
 }
 
 .transfer-form {
-  min-width: 100%;
-  min-height: 70vh;
+  min-width: 400px;
+  min-height: 600px;
   @extend %claymorph;
   @extend %flex;
   color: $darkBlue;
   flex-direction: column;
 
-  p{
-    font-size: clamp(0.5rem, 1vw, 1rem);
-  }
 }
 .transfer-form-inputs {
   min-width: 80%;
@@ -104,8 +102,29 @@
 
 .transfer-history-list{
   width: 100%;
-  height: 2vh;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
+}
+
+.transfer-list-container{
+  min-width: 100%;
+  max-height: 30vh;
+  overflow: auto;
+}
+
+.transfer-list-container::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.transfer-list-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  
+}
+
+.transfer-list-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: $darkBlue;
 }

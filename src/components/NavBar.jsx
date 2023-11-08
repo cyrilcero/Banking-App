@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
-import { Button } from "./Button";
 import { BiLogOutCircle } from "react-icons/bi";
-
+import profile from '../assets/profile.png';
 import { NavData } from "./NavData";
 import LogoutModal from "./LogoutModal";
 import '../App.css'
@@ -35,23 +34,28 @@ export default function Navbar() {
 
       <div className="side-item-wrapper">
         <div className="img-wrapper">
-          <img src="../src/assets/react.svg" alt="" className="navbar-img" />
+          <img src={profile} alt="profile picture" className="client-navbar-img" />
         </div>
 
-        {NavData.map((item) => {
-          return (
-            <Link
-              key={item.id}
-              className="side-item"
-              to={`${item.link}/${accountID}`}
-            >
-              <i className="navbar-icons">{item.icon}</i>
-              <span className={isNavbarOpen ? "link-text" : "link-text-closed"}>
-                {item.text}
-              </span>
-            </Link>
-          );
-        })}
+        <div className="side-items">
+          {NavData.map((item) => {
+            return (
+              <Link
+                key={item.id}
+                className="side-item"
+                to={`${item.link}/${accountID}`}
+              >
+                <i className="navbar-icons">{item.icon}</i>
+                <span className={isNavbarOpen ? "link-text" : "link-text-closed"}>
+                  {item.text}
+                </span>
+              </Link>
+            );
+          })}
+
+        </div>
+
+        
 
         {/* Logout */}
         <button className="logout-btn" onClick={openLogoutModal}>

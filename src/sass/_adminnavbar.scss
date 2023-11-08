@@ -64,7 +64,7 @@
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1px solid $darkBlue;
+  border: 5px solid $darkBlue;
   object-fit: cover;
   font-size: 0.5rem;
 }
@@ -76,4 +76,13 @@
   outline: none;
   position: absolute;
   bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
 }

@@ -1,0 +1,228 @@
+@use "../format" as *;
+
+// smaller screen
+@media screen and (max-width: 426px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999; 
+    height: 100%;
+  }
+
+  .navbar-closed {
+    left: -100%; 
+  }
+
+  .menu-btn{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(48, 59, 85, 0.8);
+    padding-left: 0;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+  }
+
+  .greeting-dash {
+    width: 80%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+
+    .welcome-budget-app {
+      flex-direction: column;
+      width: 90%;
+
+      .text-box{
+        width: 100%;
+        text-align: left;
+      }
+
+      .form-box{
+        width: 100%;
+      }
+    }
+  }
+
+  .budget-app-wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: 
+      'forms'
+      'overall'
+      'wallets'
+      'expenses';
+
+    .forms-wrapper {
+      grid-area: forms;
+      max-height: 55vh;
+    }
+
+    .overall-expenses {
+      grid-area: overall;
+  
+      .expensesvsbalance{
+        flex-direction: column-reverse;
+        padding: 0;
+      }
+
+      .circprogress {
+        width: min(100%, 130px);
+      }
+
+      h3, h4, h5 {
+        text-align: center;
+      }
+    }
+  
+    .mywallets-wrapper {
+      grid-area: wallets; 
+
+      .wallet-wrapper {
+        overflow-y: visible;
+      }
+    }
+  
+    .recent-expenses-wrapper {
+      grid-area: expenses;
+    }
+  }  
+
+  .budgetform-wrapper {
+    margin: 0;
+    padding: 1.5rem;
+
+    .budgetapp-form {
+      width: 100%;
+      height: 100%;
+      gap: 1rem;
+
+      button {
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      .expense-inputs {
+        display: flex;
+        flex-direction: column;
+
+        .budget-form-item {
+          height: 100%;
+        }
+      }
+
+      .wallet-categ {
+        
+        display: flex;
+        flex-direction: column;
+
+        select {
+          width: 100%;
+          font-size: $h3;
+          margin: 0;
+        }
+      }
+
+      .budget-form-item {
+        flex-direction: column;
+
+        input {
+          width: 100%;
+          font-size: $h4  ;
+        }
+      }
+    }
+  }
+}
+
+//  for Tablet
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999; 
+    height: 100%;
+  }
+
+  .navbar-closed {
+    left: -100%; 
+  }
+
+  .menu-btn{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(48, 59, 85, 0.8);
+    padding-left: 0;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+  }
+
+  .greeting-dash {
+    width: 80%;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .budget-app {
+    height: 100%;
+    padding: 1rem;
+    gap: 2rem;
+
+    .welcome-budget-app {
+      flex-direction: column;
+      width: 90%;
+
+      .text-box{
+        width: 100%;
+        text-align: left;
+      }
+
+      .form-box{
+        width: 100%;
+      }
+    }
+  }
+
+  .budget-app-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    grid-template-rows: repeat(2, 1fr) 0.8fr;
+
+    .forms-wrapper {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .overall-expenses {
+      grid-area: 1 / 2 / 2 / 3;
+
+      .expensesvsbalance{
+        flex-direction: column-reverse;
+      }
+
+      .circprogress {
+        width: min(100%, 130px);
+      }
+    }
+
+    .mywallets-wrapper {
+      grid-area: 2 / 1 / 3 / 3;
+    }
+
+    .recent-expenses-wrapper {
+      grid-area: 3 / 1 / 4 / 3;
+    }
+  }
+}

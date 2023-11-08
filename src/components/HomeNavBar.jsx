@@ -83,14 +83,14 @@ export const HomeNavBar = () => {
                     </Button>
                   </li>
                   <li className="buttons1">
-                    <Button link="/create-account" buttonStyle="btn--outline">Create Account</Button>
+                    <Button link="/create-account" buttonStyle="btn--outline">CREATE ACCOUNT</Button>
                   </li>
                 </>
               )}
             </ul>
             <div className="otherButton">
               <Button link="/login" buttonStyle="btn--outline">LOGIN TO WIND ONLINE</Button>
-              <Button link="/create-account" buttonStyle="btn--outline">Create Account</Button>
+              <Button link="/create-account" buttonStyle="btn--outline">CREATE ACCOUNT</Button>
             </div>
           </div>
         </nav>

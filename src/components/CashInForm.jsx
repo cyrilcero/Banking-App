@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import Select from "react-select";
-import getLocalStorage from "../utils/getLocalStorage";
-import { flushSync } from "react-dom";
+import { toastError, toastSuccess } from "../utils/toastify";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -20,7 +19,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
   );
 }
 
-function CashInForm() {
+function CashInForm({ setter }) {
   //useStates
   const [inputValue, setInputValue] = useState({
     lastTopUp: "",
@@ -33,7 +32,11 @@ function CashInForm() {
   const [existingAccount, setExistingAccount] = useState(true);
   const [negativeAmount, setNegativeAmount] = useState(false);
   const [isWithdrawal, setIsWithdrawal] = useState(false);
-  const dropDownOverAllSelection = getLocalStorage("UserAccounts");
+  const [selectedAccount, setSelectedAccount] = useState(null);
+
+  const dropDownOverAllSelection = JSON.parse(
+    localStorage.getItem("UserAccounts")
+  );
   const dropDownClientSelection = dropDownOverAllSelection.filter(
     (items) => items.isAdmin === false
   );
@@ -63,14 +66,15 @@ function CashInForm() {
     setNegativeAmount(false);
   };
 
-  function handleSelect(inputValue) {
+  function handleSelect(selected) {
+    setSelectedAccount(selected);
     setInputValue((prev) => ({
       ...prev,
-      accountID: inputValue.value[0],
-      email: inputValue.value[1],
-      firstName: inputValue.value[2],
-      lastName: inputValue.value[3],
-      accountBalance: inputValue.value[4],
+      accountID: selected.value[0],
+      email: selected.value[1],
+      firstName: selected.value[2],
+      lastName: selected.value[3],
+      accountBalance: "",
     }));
   }
 
@@ -83,7 +87,6 @@ function CashInForm() {
     if (!existingUserAccounts) {
       localStorage.setItem("UserAccounts", JSON.stringify([]));
     }
-    console.log(inputValue);
   }, [inputValue]);
 
   //onclick
@@ -131,12 +134,14 @@ function CashInForm() {
 
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
+          toastError("Amount cannot be negative.");
           console.log("Amount cannot be negative.");
           return;
         }
 
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
+            toastError("Insufficient balance for withdrawal.");
             console.log("Insufficient balance for withdrawal.");
             return;
           }
@@ -167,17 +172,20 @@ function CashInForm() {
       }
 
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
+      setter(userAccounts)
 
-      // Update the `CurrentUser` if the user is not an admin
+      // Update the CurrentUser if the user is not an admin
       if (!currentUser.isAdmin) {
         currentUser.accountBalance = userAccount.accountBalance;
         localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
       }
 
       console.log("Account exists. Account balance has been updated.");
+      toastSuccess("Account balance has been updated.");;
     } else {
       setExistingAccount(false);
       console.log("Account does not exist. Create a new account.");
+      toastError("Account does not exist. Create a new account.");;
     }
 
     setInputValue({
@@ -187,20 +195,18 @@ function CashInForm() {
       email: "",
       accountBalance: "",
     });
+
+    setSelectedAccount(null);
   }
 
   return (
-    <Form
-      action="/dashboard"
-      method="GET"
-      className="cashin-form"
-      onSubmit={submitHandle}
-    >
+    <Form method="GET" className="cashin-form" onSubmit={submitHandle}>
       <h2>{isWithdrawal ? "Withdraw" : "Deposit"}</h2>
 
       <label htmlFor="accountSelector">Select Account</label>
       <Select
         className="select-input"
+        value={selectedAccount}
         onChange={handleSelect}
         options={dropDownItems}
         isDisabled={false}

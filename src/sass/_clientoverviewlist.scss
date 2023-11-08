@@ -1,19 +1,32 @@
 @use "./format" as *;
 
 .client-list-table {
-    overflow-x: auto;
-    h1{
+    width: 100%;
+    @extend %flex;
+    flex-direction: column;
+
+    h1 {
         text-align: center;
         padding: 1rem;
+        width: 100%;
+        color: $darkBlue;
+    }
+    table {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        // width: 80%;
     }
     thead tr th {
+        font-size: $h5;
         font-weight: 600;
         color: $mainGray;
         background-color: $darkBlue;
-        padding: 0.5rem;
+        padding: 0.5rem 2.5rem;
     }
     tbody tr {
         text-align: center;
+        font-size: $h6;
     }
 
     tbody tr:nth-child(odd) {

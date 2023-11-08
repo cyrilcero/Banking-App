@@ -1,12 +1,19 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
+import { ToastContainer } from "react-toastify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App.jsx";
+import "./App.css";
+import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-circular-progressbar/dist/styles.css';
+
+// Components
+import CashInAdmin from "./components/CashInAdmin.jsx";
+import { LoggedInRoute, SecuredRoute, SecuredAdminRoute,} from "./components/SecuredRoute.jsx";
 
 // Pages
-import App from "./App.jsx";
 import ClientOverview from "./pages/ClientOverview.jsx";
 import LogInPage from "./pages/LoginPage.jsx";
-import AdminDash from "./pages/AdminDash.jsx";
+import AdminDash from "./pages/AdminDash.jsx"; 
 import Signup from "./pages/Signup.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Home from "./pages/Home.jsx";
@@ -16,20 +23,19 @@ import Insurance from "./pages/Insurance.jsx";
 import Investments from "./pages/Investments.jsx";
 import PromAndRe from "./pages/PromAndRe.jsx";
 import AdminCreateAccount from "./pages/AdminCreateAccount.jsx";
-import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
 import CashIn from "./pages/CashIn.jsx";
 import Transfer from "./pages/Transfer.jsx";
-
-import {
-  LoggedInRoute,
-  SecuredRoute,
-  SecuredAdminRoute,
-} from "./components/SecuredRoute.jsx";
-
-import "./App.css";
+import BudgetApp, { budgetAppActions, budgetAppLoader } from "./pages/BudgetApp.jsx";
+import BudgetAppLayout from "./layout/BudgetAppLayout.jsx";
+import WalletPage, { walletAction, walletLoader } from "./pages/WalletPage.jsx";
+import AdminOverviewContent from "./pages/AdminOverviewContent.jsx";
+import Settings from "./pages/Settings.jsx";
 import AdminAllAccounts from "./pages/AdminAllAccounts.jsx";
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -107,12 +113,47 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => params.id,
       },
-      
+      {
+        path: "settings/:id",
+        element: (
+          <SecuredRoute>
+            <Settings />
+          </SecuredRoute>
+        ),
+        loader: ({ params }) => params.id,
+      },
+      {
+        path: 'budget-app/:id',
+        element: <BudgetAppLayout />,
+        children: [
+          {
+            index: true,
+            element: <BudgetApp />,
+            loader: budgetAppLoader,
+            action: budgetAppActions,
+          },
+          {
+            path: 'wallet/:id',
+            element: <WalletPage />,
+            loader: walletLoader,
+            action: walletAction,
+          },
+        ],
+      },
     ],
   },
 
   // ADMIN SIDE
-
+  {
+    path: "cash-in/:id",
+    element: <CashIn />,
+    loader: ({ params }) => params.id,
+  },
+  {
+    path: "transfer/:id",
+    element: <Transfer/>,
+    loader: ({ params }) => params.id,
+  },
   {
     path: "/admin",
     element: (
@@ -144,13 +185,50 @@ const router = createBrowserRouter([
             <AdminAllAccounts />
           </SecuredAdminRoute>
         ),
+        children: [
+          {
+            path: "create-new-account",
+            element: (
+              <SecuredAdminRoute>
+                <AdminCreateAccount />
+              </SecuredAdminRoute>
+            ),
+          },
+          {
+            path: 'cashinadmin',
+            element: <CashInAdmin />
+          },
+        ],
       },
     ],
   },
+
+  // Budget App Test Route
+  // {
+  //   path: 'budget-app', // mother page
+  //   element: <BudgetAppLayout />,
+  //   children: [
+  //     {
+  //       index: true,
+  //       element: <BudgetApp />,
+  //       loader: budgetAppLoader,
+  //       action: budgetAppActions,
+  //     },
+  //     {
+  //       path: 'wallet/:id',
+  //       element: <WalletPage />,
+  //       loader: walletLoader,
+  //       action: walletAction,
+  //     },
+  //   ],
+  // },
+
 ]);
 
 root.render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
-  </React.StrictMode>
+    <ToastContainer />
+  </>
+
 );

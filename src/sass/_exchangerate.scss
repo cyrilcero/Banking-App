@@ -1,0 +1,35 @@
+@use "./format" as *;
+
+.exchange-rate-container {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    @extend %claymorph;
+    
+    .exchange-rate-title {
+        letter-spacing: 0.2rem;
+        text-align: center;
+        font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+        color: $darkBlue;
+        padding: 1rem 2rem;
+        font-weight: 300;
+    }
+    .exchange-rate-value {
+        text-align: center;
+        padding: 1rem 2rem;
+        font-size: 3rem;
+        color: $darkBlue;
+    }
+    .exchange-rate-update {
+        padding: 1rem 2rem;
+        text-align: right;
+        font-weight: 300;
+        font-style: italic;
+        color: $darkBlue;
+    }
+    .spinner{
+        width: 2rem;
+        
+    }
+}

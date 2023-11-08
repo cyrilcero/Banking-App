@@ -11,6 +11,7 @@
 @use './sass/balanceoverview';
 @use "./sass/cashin";
 @use "./sass/settings";
+@use "./sass/changePassModal";
 @use "./sass/transfer";
 @use "./sass/logoutmodal";
 @use "./sass/dashboardcontainer";
@@ -20,4 +21,11 @@
 @use "./sass/adminnavbar";
 @use "./sass/clientoverviewlist";
 @use './sass/mediaqueries';
+@use "./sass/underconstruction";
+@use "./sass/Budget-App/budgetapp";
+@use "./sass/Budget-App/expensesmodal";
+@use "./sass/Budget-App/walletpage";
+@use "./sass/Budget-App/budgetmediaque";
+@use "./sass/Budget-App/tableexpenses";
+@use './sass/exchangerate';
 
