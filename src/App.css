@@ -763,6 +763,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(180deg, rgba(63, 157, 208, 0.5), rgba(255, 255, 255, 0.8)), url("../src/assets/backgroundDash.png");
+  background-size: contain;
+}
+
+.errorMessage-Modal {
+  font-size: clamp(0.5rem, 0.8vw, 0.8rem);
+  color: red;
+  padding: 0.5rem;
 }
 
 .changePass-wrapper {
@@ -832,6 +840,22 @@ body {
 .changePass-modal button:hover {
   background-color: #3f9dd0;
   transform: scale(1.1);
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-input-container input {
+  padding-right: 30px;
+}
+
+.password-input-container i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  cursor: pointer;
 }
 
 .transfer {

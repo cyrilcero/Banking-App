@@ -59,36 +59,44 @@ const TransferFunc = () => {
     }));
   };
 
-  const submitHandle = (e) => {
-    e.preventDefault();
-
-    if (inputValue.email.toLowerCase() === currentUser.email.toLowerCase()) {
+  const submitHandle = () => {
+    if (!isExistingAccount) {
       setMoneySended(false);
-      toastError("Transfer Failed. You cannot send money to yourself.");
-    } else if (!isExistingAccount) {
-      toastError("Transfer Failed. Account not existing.");
-      setMoneySended(false);
+      toastError("Transfer Failed.");
     } else {
       const recipientAccount = userAccounts.find(
         (user) => user.email === inputValue.email
       );
 
-      toastSuccess("Transfer Successful.");
-
       if (recipientAccount) {
         const amount = parseFloat(inputValue.amount);
-        const currentUserBalance = parseFloat(currentUser.accountBalance);
+        const currentUserBalance = parseFloat(currentUser.accountBalance) ;
+       
         const recipientBalance = parseFloat(recipientAccount.accountBalance);
+
+        const senderIndex = userAccounts.findIndex(user => user.email === currentUser.email);
+        const recipientIndex = userAccounts.findIndex(user => user.email === inputValue.email);
+
+        if (senderIndex !== -1 && recipientIndex !== -1) {
+          const newCurrentUserBalance = currentUserBalance - amount;
+          const newRecipientBalance = recipientBalance + amount;
+
+          // Deduct the amount from the sender's account balance in userAccounts
+          userAccounts[senderIndex].accountBalance = newCurrentUserBalance.toFixed(2);
+          userAccounts[recipientIndex].accountBalance = newRecipientBalance.toFixed(2);
+
+          localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
+        }
 
         if (currentUserBalance >= amount && amount > 0) {
           setAmountSufficient(true);
           const newCurrentUserBalance = currentUserBalance - amount;
+  
           const newRecipientBalance = recipientBalance + amount;
-          
-          const userAccountNewBalance = userAccounts.find((user)=>user.email === currentUser);
-          userAccountNewBalance.accountBalance = newCurrentUserBalance;
-          currentUser.accountBalance = newCurrentUserBalance;
-          recipientAccount.accountBalance = newRecipientBalance;
+
+          currentUser.accountBalance = newCurrentUserBalance.toFixed(2);
+         
+          recipientAccount.accountBalance = newRecipientBalance.toFixed(2);
 
           localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
           localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
@@ -99,9 +107,10 @@ const TransferFunc = () => {
           localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
 
           toastSuccess("Transfer Successful.");
+
           setMoneySended(true);
         } else {
-          toastError("Insufficient Balance.");
+          toastError("Transfer Failed.");
           setAmountSufficient(false);
         }
       }
@@ -119,7 +128,7 @@ const TransferFunc = () => {
         <Inputs
           type="number"
           name="amount"
-          placeholder="0.00"
+          placeholder="Amount"
           text="Amount"
           value={inputValue.amount}
           inputMode="decimal"
@@ -129,7 +138,7 @@ const TransferFunc = () => {
         <Inputs
           type="email"
           name="email"
-          placeholder="juandelacruz@gmail.com"
+          placeholder="Email"
           text="Email"
           value={inputValue.email}
           onChange={handleChange}
@@ -137,12 +146,14 @@ const TransferFunc = () => {
         <Inputs
           type="text"
           name="accountName"
-          placeholder="Juan Dela Cruz"
+          placeholder="Account Name"
           text="Account Name"
           value={inputValue.accountName}
           onChange={handleChange}
         />
         <button className="transfer-btn">Send Money</button>
+        {!moneySended ? <p>*Account not existing</p> : null}
+        {!amountSufficient ? <p>*Insufficient balance</p> : null}
       </Form>
       <ToastContainer
         position="top-center"
