@@ -104,7 +104,7 @@ export default function SignUpForm() {
     const newUser = { ...inputValue };
     const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
     const isEmailTaken = userAccounts.find(
-      (user) => user.email === newUser.email
+      (user) => user.email.toLowerCase() === newUser.email.toLowerCase()
     );
 
     if (newUser.password.length < 6) {

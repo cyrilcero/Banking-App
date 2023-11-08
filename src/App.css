@@ -1782,6 +1782,10 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
   .client-overview {
     display: block;
   }
@@ -1815,7 +1819,7 @@ body {
   }
   .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
     width: 370px;
-    height: 220px;
+    height: 500px;
   }
 }
 @media screen and (max-width: 768px) {

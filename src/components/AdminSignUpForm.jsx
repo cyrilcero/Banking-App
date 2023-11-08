@@ -102,7 +102,7 @@ export default function AdminSignUpForm() {
     const newUser = { ...inputValue };
     const userAccounts = getLocalStorage("UserAccounts");
     const isEmailTaken = userAccounts.find(
-      (user) => user.email === newUser.email
+      (user) => user.email.toLowerCase() === newUser.email.toLowerCase()
     );
 
     if (newUser.password.length < 6) {
