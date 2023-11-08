@@ -31,18 +31,9 @@ export const AdminNavData = [
   {
     id: 3,
     icon: <FaMoneyBillTransfer />,
-    text: "All Accounts",
+    text: "Transfer Money",
     link: "/admin/send-money", 
     elementLabel: "",
   },
-
-  // {
-  //   id: 3,
-  //   icon: <FaGear />,
-  //   text: "Settings",
-  //   link: "/admin/settings", 
-  //   elementLabel: "",
-  // },
-
 ];
 
