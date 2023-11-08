@@ -9,8 +9,8 @@ function WalletItem({ wallet }) {
   const { id, name, amount } = wallet;
   const spent = calcSpentPerWallet(id);
   const navigate = useNavigate();
-  const user = getLocalStorage('CurrentUser');
-  const accountID = user.accountID;
+  let isOverSpent = spent > amount; 
+  
 
   function handleSubmit(e) {
     if (!confirm("Are you sure you want to permanently delete this item?")) {
@@ -22,21 +22,24 @@ function WalletItem({ wallet }) {
     navigate(`wallet/${id}`);
   };
 
-  return (
-    
+  return (    
     <div className='wallet-card'>
       <div className="progress-text" onClick={goToWalletPage}>
         <h4 className='wallet-name'>{name}</h4>
         <h4 className='align-left'>{formatCurrency(amount)} alloted</h4>
       </div>
 
-      <progress max={amount} value={spent} onClick={goToWalletPage}>
+      <progress className={isOverSpent ? 'isOverSpent' : ''} max={amount} value={spent} onClick={goToWalletPage} >
         {formatPercentage(spent / amount)}
       </progress>
 
       <div className="progress-text" onClick={goToWalletPage}>
         <h6>{formatCurrency(spent)} spent</h6>
-        <h6 className='align-left'>{formatCurrency(amount - spent)} left</h6>
+        <h6 className={`align-left ${isOverSpent ? 'isOverSpent' : ''}`}>
+          {isOverSpent
+            ? formatCurrency(amount - spent) + ' overspent'
+            : formatCurrency(amount - spent) + ' left'}
+        </h6>        
       </div>
 
       <div className='wallet-btns'>

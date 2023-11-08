@@ -36,12 +36,14 @@ function LogInForm() {
     e.preventDefault();
     const listOfUsers = getLocalStorage("UserAccounts");
     const userExists = listOfUsers.find(
-      (user) =>
-        user.email === loginData.username &&
-        user.password === loginData.password
+      (user) => user.email.toLowerCase() === loginData.username.toLowerCase()
     );
-    console.log(userExists);
-    if (userExists) {
+
+    // login validations
+    if (!userExists) {
+      toastError("Account not found. Please create account.");
+      setLoginData({ username: "", password: "" });
+    } else if (userExists && loginData.password === userExists.password) {
       // setLoginData({...loginData, loginData.isLoggedIn=true})
       setLocalStorage("CurrentUser", userExists);
       if (userExists.isAdmin === true) {
@@ -53,12 +55,10 @@ function LogInForm() {
           `Welcome to WindBank ${userExists.firstName} ${userExists.lastName}`
         );
         navigate(`/overview/${userExists.accountID}`);
-        setLoginData("");
+        setLoginData({ username: "", password: "" });
       }
-    } else {
-      setErrorMessage("Invalid credentials");
-      // alert("Invalid credentials")
-      toastError("Invalid credentials");
+    } else if (userExists && loginData.password !== userExists.password) {
+      toastError("Incorrect Password");
       setLoginData({ username: "", password: "" });
     }
   }

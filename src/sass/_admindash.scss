@@ -30,6 +30,87 @@
   }
 }
 
+.panel-cashin {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: 10px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.admin-cashin-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  width: 70%;
+  height: 50vh; /* This will make the container take up the full viewport height */
+  padding: 1.5rem 1rem;
+  gap: 0.5rem;
+  color: $darkBlue;
+
+  // margin-left: 15vw;
+
+  span {
+    width: 80%;
+    color: $lightBlue;
+    font-size: small;
+    text-align: justify;
+    padding: 1rem 0.5rem 0;
+  }
+  label {
+    text-align: left;
+  }
+  button {
+    margin-top: 1.2rem;
+    width: 80%;
+    height: auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    border: $lightGreen;
+    outline: none;
+    background: $lightGreen;
+    color: $darkBlue;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+
+  h5 {
+    color: $darkBlue;
+    font-size: small;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 1rem 1rem 0;
+    cursor: pointer;
+
+    &:hover {
+      color: $lightBlue;
+      transform: scale(1.1);
+    }
+  }
+
+  .cashin-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    width: 80%;
+    font-size: small;
+    color: gray;
+
+    input {
+      height: 1.75rem;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid $darkBlue;
+      padding-left: 0.2rem;
+    }
+  }
+}
+
 .admindash-content {
   // border: 1px solid pink;
   height: 90vh;
@@ -95,7 +176,6 @@
     flex-direction: column;
     gap: 0.5rem;
     color: $darkBlue;
-
     span {
       width: 80%;
       color: $lightBlue;
@@ -103,7 +183,6 @@
       text-align: justify;
       padding: 1rem 0.5rem 0;
     }
-
     h5 {
       color: $darkBlue;
       font-size: small;
@@ -117,7 +196,9 @@
         transform: scale(1.1);
       }
     }
-
+    .form-labels{
+      text-align: left;
+    }
     .cashin-input-container {
       display: flex;
       flex-direction: column;
@@ -222,8 +303,8 @@
   gap: 0.5rem;
   // height: 70vh;
   canvas {
-      // width: 100%;
-      height: fit-content;
+    // width: 100%;
+    height: fit-content;
   }
   // width: 100%;
   // flex-grow: 1;
@@ -231,6 +312,19 @@
 }
 
 .admin-create-account {
+  grid-area: 1 / 1 / 3 / 6;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border: 0.5px solid rgba(65, 157, 208, 0.5);
+  box-shadow: 0.3rem 0.3rem 0.8rem 0 rgba(65, 157, 208, 0.5);
+  overflow-y: auto;
+  @extend %flex;
+  // flex-direction: column;
+  gap: 0.5rem;
+  color: $darkBlue;
+}
+
+.admin-transfer-money {
   grid-area: 1 / 1 / 3 / 6;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
@@ -262,5 +356,4 @@
     text-transform: uppercase;
     letter-spacing: 0.2rem;
   }
-
 }

@@ -88,11 +88,11 @@
   // min-height: 60vh;
   // max-width: 40%;
   // max-height: auto;
-  width: 100%;
+  width: 70%;
   @extend %flex;
   flex-direction: column;
   border-radius: 1rem;
-  background-color: white;
+  // background-color: white;
 
   button {
     min-width: 60%;

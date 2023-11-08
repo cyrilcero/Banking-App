@@ -1,7 +1,7 @@
 import React from 'react';
 import { HiUserPlus, HiUserGroup } from "react-icons/hi2";
 import { MdSpaceDashboard } from "react-icons/md";
-import { FaGear } from "react-icons/fa6";
+import { FaMoneyBillTransfer } from "react-icons/fa6";
 
 import AdminCreateAccount from '../pages/AdminCreateAccount.jsx'
 
@@ -27,13 +27,13 @@ export const AdminNavData = [
     link: "/admin/all-accounts", 
     elementLabel: "",
   },
-  // {
-  //   id: 3,
-  //   icon: <FaGear />,
-  //   text: "Settings",
-  //   link: "/admin/settings", 
-  //   elementLabel: "",
-  // },
 
+  {
+    id: 3,
+    icon: <FaMoneyBillTransfer />,
+    text: "Transfer Money",
+    link: "/admin/send-money", 
+    elementLabel: "",
+  },
 ];
 

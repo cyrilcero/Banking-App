@@ -129,6 +129,7 @@ export default function SignUpForm() {
         .replace(/^\d{3}/, "00");
 
       newUser.accountID = accountID;
+      newUser.newBalance = newUser.accountBalance;
       userAccounts.push(newUser);
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
       // localStorage.setItem("CurrentUser", JSON.stringify(newUser));

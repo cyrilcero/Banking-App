@@ -66,11 +66,18 @@
     border-radius: 10px;
     text-transform: uppercase;
     font-weight: bolder;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    font-size: $h4;
     background-color: $lightGreen;
     color: $darkBlue;
     border: none;
     margin-top: 1rem;
+    cursor: pointer;
+
+    &:hover{
+      color: $mainGray;
+      background: $lightBlue;
+      box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+    }
 }
 
 .panel2-transfer {
