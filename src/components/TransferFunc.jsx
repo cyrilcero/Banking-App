@@ -60,14 +60,16 @@ const TransferFunc = () => {
   };
 
   const submitHandle = () => {
-    if (!isExistingAccount) {
+    if(inputValue.email === currentUser.email){
       setMoneySended(false);
-      toastError("Transfer Failed.");
+      toastError("Transfer Failed. You cannot send money to yourself.");
+    } else if (!isExistingAccount) {
+      setMoneySended(false);
+      toastError("Transfer Failed. Account not existing");
     } else {
       const recipientAccount = userAccounts.find(
         (user) => user.email === inputValue.email
       );
-
       if (recipientAccount) {
         const amount = parseFloat(inputValue.amount);
         const currentUserBalance = parseFloat(currentUser.accountBalance) ;
@@ -110,7 +112,7 @@ const TransferFunc = () => {
 
           setMoneySended(true);
         } else {
-          toastError("Transfer Failed.");
+          toastError("Transfer Failed. Insufficient Balance.");
           setAmountSufficient(false);
         }
       }
@@ -128,7 +130,7 @@ const TransferFunc = () => {
         <Inputs
           type="number"
           name="amount"
-          placeholder="Amount"
+          placeholder="0.00"
           text="Amount"
           value={inputValue.amount}
           inputMode="decimal"
@@ -138,7 +140,7 @@ const TransferFunc = () => {
         <Inputs
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="juandelacruz@gmail.com"
           text="Email"
           value={inputValue.email}
           onChange={handleChange}
@@ -146,14 +148,12 @@ const TransferFunc = () => {
         <Inputs
           type="text"
           name="accountName"
-          placeholder="Account Name"
+          placeholder="juan dela cruz"
           text="Account Name"
           value={inputValue.accountName}
           onChange={handleChange}
         />
         <button className="transfer-btn">Send Money</button>
-        {!moneySended ? <p>*Account not existing</p> : null}
-        {!amountSufficient ? <p>*Insufficient balance</p> : null}
       </Form>
       <ToastContainer
         position="top-center"
