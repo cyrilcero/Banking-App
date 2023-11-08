@@ -32,7 +32,7 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 }
 
 // disable numbers/special characters 
-function filterInput(input) {
+export function filterInput(input) {
   let filtered = '';
 
   for (let i = 0; i < input.length; i++) {
