@@ -28,7 +28,7 @@ function ClientList({ displayCount, clients }) {
               <td style={style}>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.accountID}</td>
-              <td>{formatCurrency(+user.newBalance)}</td>
+              <td>{formatCurrency(+user.accountBalance)}</td>
             </tr>
           ))}
         </tbody>

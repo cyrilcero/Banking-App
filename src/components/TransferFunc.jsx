@@ -3,7 +3,6 @@ import { Form } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toastSuccess, toastError } from "../utils/toastify";
-import { getLocalStorage } from "../utils/localStorage";
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -22,8 +21,8 @@ function Inputs({ type, name, placeholder, text, value, onChange }) {
 }
 
 const TransferFunc = () => {
-  const currentUser = getLocalStorage("CurrentUser");
-  const userAccounts = getLocalStorage("UserAccounts");
+  const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
+  const userAccounts = JSON.parse(localStorage.getItem("UserAccounts"));
   const localDate = new Date().toLocaleString("en-US", {
     timeZone: "Asia/Manila",
     hour12: false,
