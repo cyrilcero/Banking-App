@@ -198,7 +198,7 @@
   }
 
   .container {
-     margin-top: 10%;
+    margin-top: 10%;
     grid-gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr;
@@ -388,6 +388,7 @@
 
   .home-navbar {
 position: fixed;
+top: 0;
  }
   .home-nav-menu {
     display: flex;
@@ -395,8 +396,8 @@ position: fixed;
     width: 100%;
   position: fixed;
    //position: absolute;
-    //top: 10vh;
-   // left: -100%;
+    top: 10vh;
+   left: -100%;
     // padding-right: 1rem;
   }
 
@@ -404,6 +405,7 @@ position: fixed;
     background: #1f293b;
     left: 0;
     z-index: 1;
+    
   }
 
   .home-nav-links {
