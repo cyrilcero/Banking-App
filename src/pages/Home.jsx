@@ -32,7 +32,7 @@ export default function Home() {
           Enjoy up to 10% interest p.a. daily with just 1 ID and no minimum
           balance
         </p>
-        <button onClick={handleClick}>Apply Now!</button>
+        <button onClick={handleClick}>APPLY NOW!</button>
       </div>
       <div id="four">
         <h1>With Real-Time Expense Monitoring:</h1>
