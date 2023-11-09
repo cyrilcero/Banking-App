@@ -34,6 +34,21 @@ function ClientOverview() {
     (entry) => entry.recipientEmail === email
   );
 
+  receivedTransactions.forEach((entry) => {
+    entry.type = "Received"; 
+  });
+
+  const combinedTransactions = [
+    ...cashInTransactions,
+    ...sentTransactions,
+    ...receivedTransactions,
+  ];
+
+  const sortedTransactions = combinedTransactions.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+
+
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -64,28 +79,12 @@ function ClientOverview() {
             <h3>Amount</h3>
           </div>{" "}
           <div className="transaction-list-container">
-            {sentTransactions.map((entry, index) => (
+            {sortedTransactions.map((entry, index) => (
               <AllTransaction
                 key={index}
                 amount={entry.amount}
                 date={entry.date}
                 type={entry.type}
-              />
-            ))}
-            {cashInTransactions.map((entry, index) => (
-              <AllTransaction
-                key={index}
-                amount={entry.amount}
-                date={entry.date}
-                type={entry.type}
-              />
-            ))}
-            {receivedTransactions.map((entry, index) => (
-              <AllTransaction
-                key={index}
-                amount={entry.amount}
-                date={entry.date}
-                type="Received"
               />
             ))}
           </div>
