@@ -1087,13 +1087,13 @@ body {
 }
 
 .btn--medium {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: 8px 20px;
+  font-size: clamp(0.5rem, 1vw, 2rem);
 }
 
 .btn--large {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: 8px 20px;
+  font-size: 20px;
 }
 
 .btn--medium:hover,
@@ -1926,6 +1926,7 @@ body {
     display: none;
   }
   .container {
+    margin-top: 10%;
     grid-gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr;
@@ -2063,13 +2064,14 @@ body {
   .NavbarItems {
     position: relative;
   }
+  .home-navbar {
+    position: fixed;
+  }
   .home-nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    position: absolute;
-    top: 10vh;
-    left: -100%;
+    position: fixed;
   }
   .home-nav-menu.active {
     background: #1f293b;
@@ -2123,6 +2125,14 @@ body {
     background: #fff;
     color: #242424;
     transition: 250ms;
+  }
+}
+@media screen and (max-width: 425px) {
+  .transaction-list li {
+    font-size: 1rem;
+  }
+  .transactions-cashin {
+    width: 100%;
   }
 }
 .underconstruction {

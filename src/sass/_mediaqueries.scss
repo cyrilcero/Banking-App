@@ -167,6 +167,7 @@
       height: 500px;
     }
   }
+
 }
 
 //home
@@ -197,7 +198,7 @@
   }
 
   .container {
-    // margin-top: 1vw;
+     margin-top: 10%;
     grid-gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr;
@@ -385,13 +386,17 @@
     position: relative;
   }
 
+  .home-navbar {
+position: fixed;
+ }
   .home-nav-menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    position: absolute;
-    top: 10vh;
-    left: -100%;
+  position: fixed;
+   //position: absolute;
+    //top: 10vh;
+   // left: -100%;
     // padding-right: 1rem;
   }
 
@@ -459,5 +464,16 @@
     background: #fff;
     color: #242424;
     transition: 250ms;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .transaction-list{
+    li{
+      font-size: 1rem;
+    } 
+  }
+  .transactions-cashin{
+    width: 100%;
   }
 }
