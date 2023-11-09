@@ -142,7 +142,7 @@ function CashInAdminFromUserToUser() {
     const amount = parseFloat(userAccount.accountBalance);
 
     if (amount > senderAccount.accountBalance) {
-        toastError("Insufficient balance for withdrawal.");
+        toastError("Insufficient balance for money transferring.");
         return;
       }
 
