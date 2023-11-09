@@ -5,11 +5,9 @@ import { calcSpentPerUser, formatCurrency, formatPercentage } from '../utils/hel
 
 function ExpensesVsBalance() {
   const user = getLocalStorage('CurrentUser');
-  const totalExpenses = calcSpentPerUser(user.email);
-
-  
+  const totalExpenses = calcSpentPerUser(user.email);  
   const isOverspent = user.accountBalance < 0;
-
+  
   return (
     <div className='expensesvsbalance'>
       <div className='progress-text'>

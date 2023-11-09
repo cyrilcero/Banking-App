@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./localStorage";
+import { getAllItems, getLocalStorage, setLocalStorage } from "./localStorage";
 
 // delete item
 export const deleteItem = ({ key, id }) => {
@@ -20,13 +20,9 @@ export function deleteWallet(walletID) {
   const updatedWallets = wallets.filter((w) => w.id !== walletID);
   const updatedExpenses = expenses.filter((e) => e.walletID !== walletID);
 
-  localStorage.setItem("wallets", JSON.stringify(updatedWallets));
-  localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+  setLocalStorage('wallets', updatedWallets);
+  setLocalStorage("expenses", updatedExpenses);
 }
-
-// wait for response effect
-export const wait = () =>
-  new Promise((response) => setTimeout(response, Math.random() * 1000));
 
 // create wallet
 export const createWallet = ({ email, name, amount }) => {
@@ -39,9 +35,9 @@ export const createWallet = ({ email, name, amount }) => {
   };
 
   const existingWallets = getLocalStorage("wallets") ?? [];
-  return localStorage.setItem(
+  return setLocalStorage(
     "wallets",
-    JSON.stringify([...existingWallets, newItem])
+    [...existingWallets, newItem]
   );
 };
 
@@ -57,20 +53,20 @@ export const addExpense = ({ email, name, amount, walletID }) => {
   };
 
   const existingExpenses = getLocalStorage("expenses") ?? [];
-  return localStorage.setItem(
+  return setLocalStorage(
     "expenses",
-    JSON.stringify([...existingExpenses, newItem])
+    [...existingExpenses, newItem]
   );
 };
 
 // total spent per budget
 export const calcSpentPerWallet = (walletID) => {
   const expenses = getLocalStorage("expenses") ?? [];
-  const walletSpent = expenses.reduce((acc, expense) => {
+  const walletSpent = expenses.reduce((total, expense) => {
     if (expense.walletID !== walletID) {
-      return acc;
+      return total;
     } else {
-      return (acc += expense.amount); 
+      return (total + expense.amount); 
     }
   }, 0);
 
@@ -80,12 +76,49 @@ export const calcSpentPerWallet = (walletID) => {
 // total spent per user
 export const calcSpentPerUser = (email) => {
   const expenses = getLocalStorage("expenses") ?? [];
-  const totalExpenses = expenses
-    .filter((expense) => expense.email === email)
-    .reduce((acc, expense) => acc + expense.amount, 0);
+  const totalExpenses = expenses.reduce((total, expense) => {
+      if (expense.email === email) {
+        return (total + expense.amount);
+      }      
+    }, 0);
 
   return totalExpenses;
 };
+
+// balance update
+export const balanceUpdateFromAdd = (user, values) => {    
+  const allAccounts = getLocalStorage("UserAccounts");    
+  user.accountBalance -= values.newExpenseAmount;  
+
+  setLocalStorage("CurrentUser", user);  
+  const updatedAccounts = allAccounts.map((item) => {
+    if (user.email === item.email) {
+      return { ...item, accountBalance: user.accountBalance };
+    }
+    return item;
+  });
+  setLocalStorage("UserAccounts", updatedAccounts);
+}
+
+export const balanceUpdateFromDelete = (user, values) => {
+  const allAccounts = getLocalStorage("UserAccounts");
+  const expenseItem = getAllItems({
+    category: "expenses",
+    key: "id",
+    value: values.expenseID,
+  });
+  user.accountBalance += expenseItem[0].amount;
+  setLocalStorage("CurrentUser", user);
+
+  const updatedAccounts = allAccounts.map((item) => {
+    if (user.email === item.email) {
+      return { ...item, accountBalance: user.accountBalance };
+    }
+    return item;
+  });
+
+  setLocalStorage("UserAccounts", updatedAccounts);
+}
 
 // Format percentage
 export const formatPercentage = (amt) => {
