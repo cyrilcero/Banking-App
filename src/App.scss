@@ -19,7 +19,6 @@
 @use './sass/admindash';
 @use "./sass/adminnavbar";
 @use "./sass/clientoverviewlist";
-@use './sass/mediaqueries';
 @use "./sass/underconstruction";
 @use "./sass/Budget-App/budgetapp";
 @use "./sass/Budget-App/expensesmodal";
@@ -27,4 +26,4 @@
 @use "./sass/Budget-App/budgetmediaque";
 @use "./sass/Budget-App/tableexpenses";
 @use './sass/exchangerate';
-
+@use './sass/mediaqueries';
