@@ -166,6 +166,7 @@ function CashInAdminFromUserToUser() {
         date: localDate,
         transfer: true,
         type: "Money Transfer",
+        accountName:"Admin",
       };
 
       const cashInHistory =
