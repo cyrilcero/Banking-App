@@ -69,6 +69,7 @@
   color: #2f3a54;
   text-align: left;
   pointer-events: none;
+  font-size: $h5;
 }
 
 #three {
@@ -127,7 +128,7 @@
 #four p {
   text-align: left;
   pointer-events: none;
-  font-size: $h4;
+  font-size: $h5;
 }
 
 #five {
@@ -158,10 +159,10 @@
   max-height: 100%;
 }
 
-#tree {
-  display: none;
-  background: none;
-  grid-area: tree;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
+// #tree {
+//   display: none;
+//   background: none;
+//   grid-area: tree;
+//   border-radius: var(--main-radius);
+//   padding-top: var(--main-padding);
+// }
