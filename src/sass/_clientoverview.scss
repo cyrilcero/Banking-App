@@ -25,7 +25,7 @@
   color: $darkBlue;
   flex-direction: column;
   padding: 1.5rem;
-
+  text-transform: capitalize;
 
   hr {
     border: none;
@@ -53,24 +53,21 @@
   li {
     font-size: clamp(0.8rem, 1vw, 1rem);
   }
-  
 }
 .transaction-list-container {
-    min-width: 100%;
-    max-height: 30vh;
-    overflow: auto;
-
-  }   
-  .transaction-list-container::-webkit-scrollbar {
-      height: 5px;
-      width: 5px;
-    }
-    .transaction-list-container::-webkit-scrollbar-track {
-      border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.2);
-      
-    }
-    .transaction-list-container::-webkit-scrollbar-thumb {
-      border-radius: 5px;
-      background-color: $darkBlue;
-    }
+  min-width: 100%;
+  max-height: 30vh;
+  overflow: auto;
+}
+.transaction-list-container::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+.transaction-list-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.transaction-list-container::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: $darkBlue;
+}
