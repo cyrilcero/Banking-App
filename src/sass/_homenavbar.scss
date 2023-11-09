@@ -41,14 +41,13 @@
 }
 
 .btn--medium {
-    padding: 8px 20px;
-    // margin-top: 2.5vh;
-    font-size: clamp(0.5rem, 1vw, 2rem);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
 }
 
 .btn--large {
-    padding: 8px 20px;
-    font-size: 20px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
 }
 
 .btn--medium:hover,
@@ -95,6 +94,7 @@
     list-style: none;
     text-align: center;
     padding: 1rem;
+    // height: 10vw;
     // width: 60vw;
     // justify-content: end;
     // place-items: cente;

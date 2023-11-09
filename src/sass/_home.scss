@@ -8,7 +8,7 @@
   // margin-right: 3vw;
   padding: 2rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.8fr 1.2fr 1.2fr 1.5fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
     "one two three three"
     "one two three three"
@@ -18,7 +18,7 @@
   // grid-row-gap: 2rem;
   color: #004d40;
   // text-align: center;
-  height: 60vh;
+  height: 80%;
 }
 
 /* Styles for individual elements go here */
@@ -29,6 +29,10 @@
   border-radius: var(--main-radius);
   // padding-top: var(--main-padding);
   transition: transform 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 #one span {
@@ -46,6 +50,7 @@
   // width: clamp(100px, 1vw, 200px);
   // margin-left: 2vw;
   // margin-top: 1.5vw;
+  padding: 1rem;
 }
 
 #two {
@@ -84,6 +89,7 @@
   // font-style: normal;
   // font-weight: 400;
   text-align: left;
+
   // margin-left: 1vw;
   // margin-top: -0.1vw;
 }
@@ -116,6 +122,8 @@
   border-radius: 16px;
   width: 20vw;
   padding: 10px 30px;
+  font-weight: bold;
+  border: 0;
 }
 #four {
   background: #f3dbc6;
