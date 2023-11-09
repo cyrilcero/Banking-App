@@ -9,8 +9,11 @@
     color: $darkBlue;
 
     th {
-      background-color: $lightBlue;
-      border: 1px solid #ddd;
+      background-color: $darkBlue;
+      text-shadow: none;
+      color: $mainGray;
+      font-weight: 600;
+      border: 1px solid $mainGray;
       padding: 10px;
       text-align: left;
       position: sticky;
