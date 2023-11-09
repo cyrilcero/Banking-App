@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <div className="container">
       {" "}
-      {/* Apply the CSS class directly */}
       <div id="one">
         <img src={wing} alt="logo" />
         <span>Welcome to WindBank!</span>
@@ -48,10 +47,10 @@ export default function Home() {
       <div id="six">
         <img src={hands} alt="hand with coins" />
       </div>
-      <div id="tree">
+      {/* <div id="tree">
         <img src={tree} alt="tree" />
         <span>Grow your money with us!</span>
-      </div>
+      </div> */}
     </div>
   );
 }

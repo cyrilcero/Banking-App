@@ -1,11 +1,10 @@
 @use "./format" as *;
 
 .container {
+  width: 100%;
+  max-height: 90vh;
   display: grid;
   line-height: 1.4;
-  // margin-top: 5%;
-  // margin-left: 3vw;
-  // margin-right: 3vw;
   padding: 2rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -15,19 +14,14 @@
     "five two six four"
     "five two six four";
   grid-gap: 1rem;
-  // grid-row-gap: 2rem;
   color: #004d40;
-  // text-align: center;
-  height: 80%;
 }
 
-/* Styles for individual elements go here */
 #one {
   background: #f8eecd;
   grid-area: one;
   padding: 2rem;
   border-radius: var(--main-radius);
-  // padding-top: var(--main-padding);
   transition: transform 0.25s;
   display: flex;
   justify-content: center;
@@ -40,25 +34,18 @@
   font-weight: 800;
   font-style: normal;
   display: flex;
-  // margin-left: 2vw;
   color: #2f3a54;
-  // margin-top: 1vw;
+  pointer-events: none;
 }
 
 #one img {
-  // display: none;
-  // width: clamp(100px, 1vw, 200px);
-  // margin-left: 2vw;
-  // margin-top: 1.5vw;
   padding: 1rem;
 }
 
 #two {
   background: #cde3de;
   grid-area: two;
-  // padding: 2rem;
   border-radius: var(--main-radius);
-  // padding-top: var(--main-padding);
   transition: transform 0.25s;
 }
 
@@ -72,33 +59,23 @@
 }
 
 #two img {
-  // margin-top: -0.4vw;
-  // height: 70%;
   width: 100%;
   max-height: 80%;
-  // height: 80%;
 }
 
 #two p {
   display: flex;
-  // margin-top: 1vh;
   padding: 0.5rem 2rem;
   color: #2f3a54;
-  // font-family: "League Spartan", sans-serif;
-  // font-size: 1.2rem;
-  // font-style: normal;
-  // font-weight: 400;
   text-align: left;
-
-  // margin-left: 1vw;
-  // margin-top: -0.1vw;
+  pointer-events: none;
+  font-size: $h5;
 }
 
 #three {
   background: #daccef;
   grid-area: three;
   border-radius: var(--main-radius);
-  // padding-top: var(--main-padding);
   text-align: left;
   line-height: clamp(2.5rem, 5vh, 3rem);
   font-family: "League Spartan", sans-serif;
@@ -111,57 +88,58 @@
   padding: 2rem;
 }
 #three p {
-  // margin-left: 2.5vw;
   font-size: 2.3rem;
+  pointer-events: none;
 }
 
 #three button {
-  // margin-right: clamp(2vw, 3vw, 10vw);
-  // margin-top: 10vh;
-  background: #d1ffbc;
+  background: $lightGreen;
   border-radius: 16px;
   width: 20vw;
   padding: 10px 30px;
   font-weight: bold;
   border: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: $mainGray;
+    background: $lightBlue;
+    box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+  }
 }
 #four {
   background: #f3dbc6;
   grid-area: four;
   padding: 2rem;
   border-radius: var(--main-radius);
-  // padding-top: var(--main-padding);
-  // font-family: "League Spartan", sans-serif;
   color: #2f3a54;
   transition: transform 0.25s;
+  @extend %flex;
+  flex-direction: column;
 }
 
 #four h1 {
-  // margin-top: 1vw;
-  // margin-left: 1vw;
-  // line-height: 2vw;
   margin-bottom: 0.5rem;
   font-weight: 600;
   text-align: left;
+  pointer-events: none;
 }
 
 #four p {
   text-align: left;
-  // margin-left: 1vw;
+  pointer-events: none;
+  font-size: $h5;
 }
 
 #five {
   background: #caddf0;
   grid-area: five;
   border-radius: var(--main-radius);
-  // padding-top: var(--main-padding);
   transition: transform 0.25s;
 }
 
 #five img {
   position: relative;
-  // top: -10%;
-  // left: 10%;
   width: 80%;
   height: 100%;
   max-height: 100%;
@@ -171,22 +149,20 @@
   background: #edc7de;
   grid-area: six;
   border-radius: var(--main-radius);
-  // padding-top: var(--main-padding);
   transition: transform 0.25s;
 }
 
 #six img {
-  // height: 100%;
   position: relative;
   width: 100%;
   height: 100%;
   max-height: 100%;
 }
 
-#tree {
-  display: none;
-  background: none;
-  grid-area: tree;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
+// #tree {
+//   display: none;
+//   background: none;
+//   grid-area: tree;
+//   border-radius: var(--main-radius);
+//   padding-top: var(--main-padding);
+// }
