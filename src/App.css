@@ -44,7 +44,6 @@
 }
 
 body {
-  display: flex;
   min-width: 100%;
   min-height: 100vh;
   max-width: 100%;
@@ -1168,7 +1167,7 @@ body {
 
 .container {
   width: 100%;
-  height: 100vh;
+  max-height: 90vh;
   display: grid;
   line-height: 1.4;
   padding: 2rem;
@@ -1177,7 +1176,6 @@ body {
   grid-template-areas: "one two three three" "one two three three" "five two six four" "five two six four";
   grid-gap: 1rem;
   color: #004d40;
-  height: 80%;
 }
 
 #one {

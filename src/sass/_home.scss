@@ -2,7 +2,7 @@
 
 .container {
   width: 100%;
-  height: 100vh;
+  max-height: 90vh;
   display: grid;
   line-height: 1.4;
   padding: 2rem;
@@ -15,7 +15,6 @@
     "five two six four";
   grid-gap: 1rem;
   color: #004d40;
-  height: 80%;
 }
 
 #one {
@@ -101,7 +100,7 @@
   border: 0;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     color: $mainGray;
     background: $lightBlue;
     box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
