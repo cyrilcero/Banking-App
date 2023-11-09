@@ -1064,22 +1064,20 @@ body {
 }
 
 .btn--outline {
-  background-color: #D1FFBC;
+  background-color: #d1ffbc;
   width: 100%;
   color: black;
   padding: 0.5rem 1rem;
   border: 1 px solid var(--primary);
-  margin-right: 1rem;
   transition: all 0.3s ease-out;
 }
 
 .burger-button {
-  background-color: #D1FFBC;
+  background-color: #d1ffbc;
   width: 100%;
   color: black;
   padding: 0.5rem 1rem;
   border: 1 px solid var(--primary);
-  margin-right: 1rem;
   transition: all 0.3s ease-out;
   height: 5rem;
 }
@@ -1090,7 +1088,6 @@ body {
 
 .btn--medium {
   padding: 8px 20px;
-  margin-top: 2.5vh;
   font-size: clamp(0.5rem, 1vw, 2rem);
 }
 
@@ -1099,15 +1096,14 @@ body {
   font-size: 20px;
 }
 
-.btn--medium:hover, .btn--large:hover {
+.btn--medium:hover,
+.btn--large:hover {
   background: #fff;
   color: #242424;
   transition: all 0.3s ease-out;
 }
 
 .home-navbar {
-  position: fixed;
-  top: 0;
   background-color: #313953;
   height: 10vh;
   width: 100%;
@@ -1120,9 +1116,7 @@ body {
 }
 
 .home-navbar img {
-  margin-left: 2vw;
-  margin-right: 20vw; /*clamp(10vw, 15vw, 20vw);*/
-  width: 50%;
+  padding-left: 1rem;
 }
 
 /*width: */
@@ -1130,16 +1124,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  height: 10vh;
 }
 
 .home-nav-menu {
   display: grid;
-  grid-template-columns: repeat(9, auto);
-  grid-gap: 1vw;
+  grid-template-columns: repeat(7, auto);
+  place-items: center;
+  grid-gap: 1rem;
   list-style: none;
   text-align: center;
-  width: 60vw;
-  justify-content: end;
+  padding: 1rem;
 }
 
 .home-nav-item {
@@ -1180,182 +1176,141 @@ body {
   display: none;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   display: grid;
-  margin-top: 22vh;
-  margin-left: 3vw;
-  margin-right: 3vw;
+  line-height: 1.4;
+  padding: 2rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 0.8fr 1.2fr 1.2fr 1.5fr;
   grid-template-areas: "one two three three" "one two three three" "five two six four" "five two six four";
   grid-gap: 1rem;
-  grid-row-gap: 2rem;
   color: #004d40;
-  text-align: center;
   height: 60vh;
 }
 
 /* Styles for individual elements go here */
 #one {
-  background: #F8EECD;
+  background: #f8eecd;
   grid-area: one;
+  padding: 2rem;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  transition: transform 0.5s;
+  transition: transform 0.25s;
 }
 
 #one span {
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 2.5vh, 5rem);
   font-weight: 800;
   font-style: normal;
-  line-height: 2rem;
   display: flex;
-  margin-left: 2vw;
-  color: #2F3A54;
-  margin-top: 1vw;
-}
-
-#one img {
-  display: flex;
-  width: clamp(100px, 1vw, 200px);
-  margin-left: 2vw;
-  margin-top: 1.5vw;
+  color: #2f3a54;
 }
 
 #two {
-  background: #CDE3DE;
+  background: #cde3de;
   grid-area: two;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  transition: transform 0.5s;
+  transition: transform 0.25s;
 }
 
-#one:hover {
-  transform: scale(0.9);
-}
-
-#two:hover {
-  transform: scale(0.9);
-}
-
-#three:hover {
-  transform: scale(0.9);
-}
-
-#four:hover {
-  transform: scale(0.9);
-}
-
-#five:hover {
-  transform: scale(0.9);
-}
-
+#one:hover,
+#two:hover,
+#three:hover,
+#four:hover,
+#five:hover,
 #six:hover {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 #two img {
-  margin-top: -0.4vw;
-  height: 70%;
   width: 100%;
+  max-height: 80%;
 }
 
 #two p {
   display: flex;
-  margin-top: 1vh;
-  color: #2F3A54;
-  font-family: "League Spartan", sans-serif;
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 400;
+  padding: 0.5rem 2rem;
+  color: #2f3a54;
   text-align: left;
-  margin-left: 1vw;
-  margin-top: -0.1vw;
-}
-
-#two span {
-  margin-top: 1vh;
-  font-size: 0.7rem;
-  font-style: italic;
-  color: #2F3A54;
-  font-family: "League Spartan", sans-serif;
 }
 
 #three {
-  background: #DACCEF;
+  background: #daccef;
   grid-area: three;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
   text-align: left;
   line-height: clamp(2.5rem, 5vh, 3rem);
   font-family: "League Spartan", sans-serif;
   font-style: normal;
   font-weight: 600;
-  color: #2F3A54;
+  color: #2f3a54;
   display: flex;
   align-items: center;
-  transition: transform 0.5s;
+  transition: transform 0.25s;
+  padding: 2rem;
 }
 
 #three p {
-  margin-left: 2.5vw;
   font-size: 2.3rem;
 }
 
 #three button {
-  margin-right: 3vw;
-  margin-top: 10vh;
-  background: #D1FFBC;
+  background: #d1ffbc;
   border-radius: 16px;
   width: 20vw;
   padding: 10px 30px;
 }
 
 #four {
-  background: #F3DBC6;
+  background: #f3dbc6;
   grid-area: four;
+  padding: 2rem;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  font-family: "League Spartan", sans-serif;
-  color: #2F3A54;
-  transition: transform 0.5s;
+  color: #2f3a54;
+  transition: transform 0.25s;
 }
 
 #four h1 {
-  margin-top: 1vw;
-  margin-left: 1vw;
-  line-height: 2vw;
-  margin-bottom: 3vw;
+  margin-bottom: 0.5rem;
   font-weight: 600;
   text-align: left;
 }
 
 #four p {
   text-align: left;
-  margin-left: 1vw;
 }
 
 #five {
-  background: #CADDF0;
+  background: #caddf0;
   grid-area: five;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  transition: transform 0.5s;
+  transition: transform 0.25s;
 }
 
 #five img {
-  display: flex;
-  margin-top: -10.7vh;
-  height: 42vh;
-  margin-left: -2vw;
+  position: relative;
+  width: 80%;
+  height: 100%;
+  max-height: 100%;
 }
 
 #six {
-  background: #EDC7DE;
+  background: #edc7de;
   grid-area: six;
   border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  transition: transform 0.5s;
+  transition: transform 0.25s;
+}
+
+#six img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
 }
 
 #tree {
@@ -1364,11 +1319,6 @@ body {
   grid-area: tree;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
-}
-
-#six img {
-  height: 100%;
-  width: 100%;
 }
 
 .admindash {
@@ -1935,7 +1885,8 @@ body {
     flex-direction: row;
     align-items: center;
   }
-  .panel2-overview .expenses-widget, .panel2-overview .transactions-widget {
+  .panel2-overview .expenses-widget,
+  .panel2-overview .transactions-widget {
     width: 370px;
     height: 500px;
   }
@@ -2021,15 +1972,14 @@ body {
     padding: 1.5rem 0px;
   }
   #two img {
-    width: 75%;
-    border-radius: 1rem;
+    max-height: 100%;
+    border-radius: 1rem 1rem 0 0;
   }
   #two p {
-    width: 75%;
-    margin-left: 5vw;
+    width: 100%;
   }
   #two {
-    background: none;
+    background: rgb(208, 227, 222);
   }
   #five img {
     margin-top: 0vh;
@@ -2037,14 +1987,11 @@ body {
     margin-left: -2vw;
   }
   #six {
-    height: 70%;
-    width: 77%;
-    margin-top: 5vh;
-    margin-left: 5vw;
+    width: 100%;
   }
   .container {
-    gap: 0.5rem;
-    margin-top: 12vh;
+    gap: 1rem;
+    margin-top: 9vh;
     grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
     grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
     grid-template-areas: "one two two two" "three two two two" "four two two two" "five six six six";
@@ -2072,7 +2019,7 @@ body {
     justify-content: space-around;
     width: 100%;
     position: absolute;
-    top: 85px;
+    top: 10vh;
     background: #1f293b;
     left: 0;
     opacity: 1;
@@ -2080,19 +2027,15 @@ body {
   }
   .home-nav-links {
     font-size: 20px;
-    margin-left: 20px;
     color: rgb(195, 196, 206);
   }
   .otherButton {
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-gap: 1vw;
+    padding-right: 2%;
   }
 }
-.container {
-  margin-top: 20vh;
-}
-
 @media screen and (max-width: 768px) {
   #two {
     background: none;
@@ -2100,14 +2043,17 @@ body {
   #four p {
     font-size: 1rem;
   }
-  .container {
-    margin-top: 12vh;
-  }
   .otherButton {
     display: none;
   }
   .burgerMobileButton {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .burgerMobileButton a {
+    width: 100%;
   }
   .NavbarItems {
     position: relative;
@@ -2117,7 +2063,7 @@ body {
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 80px;
+    top: 10vh;
     left: -100%;
   }
   .home-nav-menu.active {
@@ -2143,11 +2089,10 @@ body {
     transform: translate(25%, 50%);
   }
   .menu-icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5%;
     font-size: 1.8rem;
     cursor: pointer;
   }

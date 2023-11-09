@@ -17,17 +17,15 @@ export default function Home() {
       {/* Apply the CSS class directly */}
       <div id="one">
         <img src={wing} alt="logo" />
-        <span>Welcome to </span>
-        <span>WindBank!</span>
+        <span>Welcome to WindBank!</span>
       </div>
       <div id="two">
         <img src={guy} alt="erwan-img" />
         <p>
           “You need a bank partner who believes in you and is able to keep up
           with your financial needs. Wind Bank believed in me through the years.
-          To me, that’s BetterBanking”
+          To me, that’s BetterBanking” - Erwan Heussaff
         </p>
-        <span> {"\n"} Erwan Heussaff </span>
       </div>
       <div id="three">
         <p>
