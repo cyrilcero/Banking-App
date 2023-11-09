@@ -44,10 +44,6 @@ const TransferFunc = ({ setter }) => {
     const [firstName, lastName] = inputValue.accountName
       .toLowerCase()
       .split(" ");
-    console.log("Input Email:", inputValue.recipientEmail);
-    console.log("User Email:", user.email);
-    console.log("First Name:", user.firstName);
-    console.log("Last Name:", user.lastName);
     return (
       user.email.toLowerCase() === inputValue.recipientEmail.toLowerCase() &&
       user.firstName.toLowerCase().includes(firstName) &&

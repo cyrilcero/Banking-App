@@ -85,7 +85,7 @@ function ClientOverview() {
                 key={index}
                 amount={entry.amount}
                 date={entry.date}
-                type= "Received"
+                type="Received"
               />
             ))}
           </div>
