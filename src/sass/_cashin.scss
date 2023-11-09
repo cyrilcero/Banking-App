@@ -17,7 +17,7 @@
 
 .panel2-cashin {
   min-width: 100%;
-  min-height: 45vh;
+  min-height: 40vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -27,7 +27,7 @@
 
 .transactions-cashin {
   min-width: 60%;
-  max-height: 45vh;
+  max-height: 40vh;
   @extend %claymorph;
   display: flex;
   justify-content: flex-start;

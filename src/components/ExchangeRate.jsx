@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import spinner from '../assets/spinner.gif'
+import spinner from '../assets/spinner.gif';
+import image from '../assets/currency.png';
 
 const API_KEY = "032687021c8940b7865c86f833f34523";
 
@@ -32,7 +33,9 @@ function ExchangeRate() {
   return (
     <>
       <div className="exchange-rate-container">
-        <h1 className="exchange-rate-title">USD to PHP Exchange Rate</h1>
+        <img src={image} alt="forex-img" className="forex-img" />       
+        <h1 className="exchange-rate-title">USD to PHP</h1>        
+        <p>Exchange Rate</p>
         <h1 className="exchange-rate-value">{`1$ = ₱${exchangeRate}`}</h1>
         <span className="exchange-rate-update">{`Last Updated: ${year}-${month}-${day} ${hours}:${minutes}`}</span>
       </div>

@@ -3,6 +3,7 @@ import { Form } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toastSuccess, toastError } from "../utils/toastify";
+import image from '../assets/sendmoney.png';
 
 function Inputs({ type, name, placeholder, text, value, onChange }) {
   return (
@@ -120,7 +121,14 @@ const TransferFunc = ({ setter }) => {
           localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
           localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
           setter(userAccounts);
-        } else {
+        } 
+
+        else if (amount < 0) {
+          toastError("Transfer Failed. Cannot send negative amount.");
+          setAmountSufficient(false);
+        }
+        
+        else {
           toastError("Transfer Failed. Insufficient Balance.");
           setAmountSufficient(false);
         }
@@ -140,6 +148,7 @@ const TransferFunc = ({ setter }) => {
   return (
     <>
       <Form className="transfer-form" onSubmit={submitHandle}>
+        <img src={image} alt="sendmoney-img" className="sendmoney-img" /> 
         <Inputs
           type="number"
           name="amount"

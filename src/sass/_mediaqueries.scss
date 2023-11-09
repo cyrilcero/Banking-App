@@ -167,6 +167,7 @@
       height: 500px;
     }
   }
+
 }
 
 //home
@@ -197,10 +198,10 @@
   }
 
   .container {
-    margin-top: 1vw;
-    grid-gap: 0.5rem;
+    // margin-top: 1vw;
+    grid-gap: 1rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr;
     grid-template-areas:
       "one"
       "three"
@@ -227,7 +228,7 @@
     padding: 1.5rem 0px;
   }
   #two {
-    background: none;
+    // background: none;
   }
 
   #six {
@@ -240,9 +241,9 @@
 
   .container {
     margin-top: 10vw;
-    grid-gap: 0.5rem;
+    grid-gap: 1rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr;
     grid-template-areas:
       "one"
       "three"
@@ -286,25 +287,28 @@
   }
 
   #five img {
-    margin-top: 0vh;
+    // margin-top: 0vh;
     height: 42vh;
-    margin-left: -2vw;
+    // margin-left: -2vw;
   }
 
+  #five{
+    display: none;
+  }
   #six {
+    display: none;
     width: 100%;
   }
 
   .container {
-    gap: 1rem;
-    margin-top: 9vh;
+    margin-top: 10vh;
+    // height: 90vh;
     grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-rows: 0.4fr 2.2fr 1.2fr;
     grid-template-areas:
       "one two two two"
       "three two two two"
-      "four two two two"
-      "five six six six";
+      "four four four four";
   }
 }
 
@@ -314,7 +318,7 @@
   }
 
   #four h1 {
-    font-size: 1rem;
+    // font-size: 1rem;
     margin-bottom: 1vw;
   }
   #four p {
@@ -324,7 +328,7 @@
 
 //homeNavbar
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1300px) {
   .buttons1 {
     display: none;
   }
@@ -354,21 +358,16 @@
     padding-right: 2%;
   }
 }
-.container {
-  // margin-top: 20vh;
-}
 
 @media screen and (max-width: 768px) {
   #two {
-    background: none;
+    // background: none;
   }
 
   #four p {
     font-size: 1rem;
   }
-  .container {
-    // margin-top: 12vh;
-  }
+
 
   .otherButton {
     display: none;
@@ -461,5 +460,16 @@
     background: #fff;
     color: #242424;
     transition: 250ms;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .transaction-list{
+    li{
+      font-size: 1rem;
+    } 
+  }
+  .transactions-cashin{
+    width: 100%;
   }
 }
