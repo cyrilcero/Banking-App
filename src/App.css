@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .overall-expenses .expensesvsbalance .progress-text, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .admin-transfer-money, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-page, .sign-up-logo, .sign-up-form {
+.exchange-rate-container, .wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .overall-expenses .expensesvsbalance .progress-text, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .admin-transfer-money, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-page, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,7 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -126,8 +125,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -474,8 +472,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -869,6 +866,14 @@ body {
   min-height: 600px;
   color: #2f3a54;
   flex-direction: column;
+  position: relative;
+}
+.transfer-form .sendmoney-img {
+  width: 90%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0.15;
+  z-index: -1;
 }
 
 .transfer-form-inputs {
@@ -1574,7 +1579,6 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1683,8 +1687,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1741,6 +1744,372 @@ body {
   background-color: white;
 }
 
+@media screen and (max-width: 768px) {
+  .sign-up-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .sign-up-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .sign-up-container {
+    min-width: 100%;
+    min-height: 100%;
+  }
+  .signup-form-container {
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+  .sign-up-form {
+    min-width: 70%;
+    display: flex;
+    justify-content: center;
+  }
+  .signup-input-container {
+    min-width: 80%;
+    min-height: 5vh;
+    font-size: 1rem;
+  }
+  .signup-input-container input {
+    min-width: 100%;
+    min-height: 0.5vh;
+  }
+  .sign-up-text {
+    display: none;
+    min-width: 90%;
+    min-height: 50vh;
+  }
+  .sign-up-img {
+    width: clamp(1rem, 30vw, 30rem);
+    position: absolute;
+    bottom: -15rem;
+  }
+  .cash-in {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .transfer {
+    display: block;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .transfer-page {
+    display: flex;
+    flex-direction: column;
+  }
+  .transfer-form-container {
+    width: 60%;
+  }
+  .panel2-transfer {
+    padding: 0;
+    min-height: 40vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .login-page-container {
+    flex-direction: column;
+    width: 80%;
+  }
+  .side-form-content {
+    display: none;
+    width: 100%;
+  }
+  .login-form {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
+  .client-overview {
+    display: block;
+  }
+  .panel1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .balance-overview {
+    width: 370px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .balance-overview .account-details {
+    font-size: 0.5rem;
+  }
+  .balance-overview .account-details h1 {
+    font-size: 1rem;
+  }
+  .bank-card {
+    width: 370px;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .panel2-overview {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .panel2-overview .expenses-widget,
+  .panel2-overview .transactions-widget {
+    width: 370px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  .container {
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+}
+/* Add media queries if needed */
+@media screen and (min-width: 769px) and (max-width: 979px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #six {
+    display: none;
+  }
+  #five {
+    display: none;
+  }
+  .container {
+    margin-top: 10vw;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr;
+    grid-template-areas: "one" "three" "four" "two";
+  }
+}
+@media screen and (min-width: 980px) and (max-width: 1300px) {
+  #one {
+    display: flex;
+    align-items: center;
+  }
+  #one span {
+    white-space: nowrap;
+    font-size: clamp(1.5rem, 2rem, 2.5em);
+    margin-right: 0vw;
+    font-size: 2.5rem;
+  }
+  #one img {
+    margin-top: 0vw;
+    width: 10vw;
+    padding: 1.5rem 0px;
+  }
+  #two img {
+    max-height: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+  #two p {
+    width: 100%;
+  }
+  #two {
+    background: rgb(208, 227, 222);
+  }
+  #five img {
+    height: 42vh;
+  }
+  #five {
+    display: none;
+  }
+  #six {
+    display: none;
+    width: 100%;
+  }
+  .container {
+    margin-top: 10vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
+    grid-template-rows: 0.4fr 2.2fr 1.2fr;
+    grid-template-areas: "one two two two" "three two two two" "four four four four";
+  }
+}
+@media screen and (max-width: 1301px) {
+  #two span {
+    font-size: 1.2rem;
+  }
+  #four h1 {
+    margin-bottom: 1vw;
+  }
+  #four p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .buttons1 {
+    display: none;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    background: #1f293b;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+  .home-nav-links {
+    font-size: 20px;
+    color: rgb(195, 196, 206);
+  }
+  .otherButton {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 1vw;
+    padding-right: 2%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #four p {
+    font-size: 1rem;
+  }
+  .otherButton {
+    display: none;
+  }
+  .burgerMobileButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .burgerMobileButton a {
+    width: 100%;
+  }
+  .NavbarItems {
+    position: relative;
+  }
+  .home-nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: -100%;
+  }
+  .home-nav-menu.active {
+    background: #1f293b;
+    left: 0;
+    z-index: 1;
+  }
+  .home-nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+  .home-nav-links:hover {
+    background-color: #fff;
+    color: #242424;
+    border-radius: 0;
+  }
+  .home-navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  .menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5%;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #fff;
+    padding: 14px 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-out;
+  }
+  .nav-links-mobile:hover {
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
+  }
+}
 .underconstruction {
   position: fixed;
   padding: 2rem;
@@ -2551,407 +2920,49 @@ body {
 }
 
 .exchange-rate-container {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 3.5rem;
+  position: relative;
+}
+.exchange-rate-container .forex-img {
+  z-index: -1;
+  position: absolute;
+  width: 80%;
+  opacity: 0.3;
+  padding: 1rem;
+}
+.exchange-rate-container p {
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
+  color: #2f3a54;
+  letter-spacing: 0.3rem;
 }
 .exchange-rate-container .exchange-rate-title {
   letter-spacing: 0.2rem;
   text-align: center;
-  font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+  font-size: clamp(0.75rem, 0.6959rem + 0.866vw, 1.8rem);
   color: #2f3a54;
-  padding: 1rem 2rem;
-  font-weight: 300;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
 }
 .exchange-rate-container .exchange-rate-value {
   text-align: center;
-  padding: 1rem 2rem;
   font-size: 3rem;
   color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  padding: 2rem 0;
 }
 .exchange-rate-container .exchange-rate-update {
-  padding: 1rem 2rem;
+  width: 100%;
   text-align: right;
   font-weight: 300;
+  font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
   font-style: italic;
   color: #2f3a54;
 }
 
 .spinner {
   width: 15rem;
-}
-
-@media screen and (max-width: 768px) {
-  .sign-up-logo {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  .sign-up-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 100%;
-    min-height: 100%;
-  }
-  .sign-up-container {
-    min-width: 100%;
-    min-height: 100%;
-  }
-  .signup-form-container {
-    min-width: 80%;
-    display: flex;
-    flex-direction: column;
-  }
-  .sign-up-form {
-    min-width: 70%;
-    display: flex;
-    justify-content: center;
-  }
-  .signup-input-container {
-    min-width: 80%;
-    min-height: 5vh;
-    font-size: 1rem;
-  }
-  .signup-input-container input {
-    min-width: 100%;
-    min-height: 0.5vh;
-  }
-  .sign-up-text {
-    display: none;
-    min-width: 90%;
-    min-height: 50vh;
-  }
-  .sign-up-img {
-    width: clamp(1rem, 30vw, 30rem);
-    position: absolute;
-    bottom: -15rem;
-  }
-  .cash-in {
-    display: block;
-  }
-  .panel1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .balance-overview {
-    width: 370px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .balance-overview .account-details {
-    font-size: 0.5rem;
-  }
-  .balance-overview .account-details h1 {
-    font-size: 1rem;
-  }
-  .bank-card {
-    width: 370px;
-    height: 220px;
-    font-size: 0.5rem;
-  }
-  .transfer {
-    display: block;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .transfer-page {
-    display: flex;
-    flex-direction: column;
-  }
-  .transfer-form-container {
-    width: 60%;
-  }
-  .panel2-transfer {
-    padding: 0;
-    min-height: 40vh;
-  }
-}
-@media screen and (max-width: 768px) {
-  .login-page-container {
-    flex-direction: column;
-    width: 80%;
-  }
-  .side-form-content {
-    display: none;
-    width: 100%;
-  }
-  .login-form {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .navbar {
-    position: fixed;
-    z-index: 1;
-  }
-  .client-overview {
-    display: block;
-  }
-  .panel1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .balance-overview {
-    width: 370px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .balance-overview .account-details {
-    font-size: 0.5rem;
-  }
-  .balance-overview .account-details h1 {
-    font-size: 1rem;
-  }
-  .bank-card {
-    width: 370px;
-    height: 220px;
-    font-size: 0.5rem;
-  }
-  .panel2-overview {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .panel2-overview .expenses-widget,
-  .panel2-overview .transactions-widget {
-    width: 370px;
-    height: 500px;
-  }
-}
-@media screen and (max-width: 768px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  .container {
-    grid-gap: 1rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 0.5fr 0.5fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-/* Add media queries if needed */
-@media screen and (min-width: 769px) and (max-width: 979px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #six {
-    display: none;
-  }
-  #five {
-    display: none;
-  }
-  .container {
-    margin-top: 10vw;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr;
-    grid-template-areas: "one" "three" "four" "two";
-  }
-}
-@media screen and (min-width: 980px) and (max-width: 1300px) {
-  #one {
-    display: flex;
-    align-items: center;
-  }
-  #one span {
-    white-space: nowrap;
-    font-size: clamp(1.5rem, 2rem, 2.5em);
-    margin-right: 0vw;
-    font-size: 2.5rem;
-  }
-  #one img {
-    margin-top: 0vw;
-    width: 10vw;
-    padding: 1.5rem 0px;
-  }
-  #two img {
-    max-height: 100%;
-    border-radius: 1rem 1rem 0 0;
-  }
-  #two p {
-    width: 100%;
-  }
-  #two {
-    background: rgb(208, 227, 222);
-  }
-  #five img {
-    height: 42vh;
-  }
-  #five {
-    display: none;
-  }
-  #six {
-    display: none;
-    width: 100%;
-  }
-  .container {
-    margin-top: 10vh;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define two columns */
-    grid-template-rows: 0.4fr 2.2fr 1.2fr;
-    grid-template-areas: "one two two two" "three two two two" "four four four four";
-  }
-}
-@media screen and (max-width: 1301px) {
-  #two span {
-    font-size: 1.2rem;
-  }
-  #four h1 {
-    margin-bottom: 1vw;
-  }
-  #four p {
-    font-size: 1rem;
-  }
-}
-@media screen and (max-width: 1300px) {
-  .buttons1 {
-    display: none;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    position: absolute;
-    top: 10vh;
-    background: #1f293b;
-    left: 0;
-    opacity: 1;
-    z-index: 1;
-  }
-  .home-nav-links {
-    font-size: 20px;
-    color: rgb(195, 196, 206);
-  }
-  .otherButton {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 1vw;
-    padding-right: 2%;
-  }
-}
-@media screen and (max-width: 768px) {
-  #four p {
-    font-size: 1rem;
-  }
-  .otherButton {
-    display: none;
-  }
-  .burgerMobileButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  .burgerMobileButton a {
-    width: 100%;
-  }
-  .NavbarItems {
-    position: relative;
-  }
-  .home-nav-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 10vh;
-    left: -100%;
-  }
-  .home-nav-menu.active {
-    background: #1f293b;
-    left: 0;
-    z-index: 1;
-  }
-  .home-nav-links {
-    text-align: center;
-    padding: 2rem;
-    width: 100%;
-    display: table;
-  }
-  .home-nav-links:hover {
-    background-color: #fff;
-    color: #242424;
-    border-radius: 0;
-  }
-  .home-navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
-  }
-  .menu-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-right: 5%;
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-  .fa-times {
-    color: #fff;
-    font-size: 2rem;
-  }
-  .nav-links-mobile {
-    display: block;
-    text-align: center;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    text-decoration: none;
-    font-size: 1.5rem;
-    background-color: transparent;
-    color: #fff;
-    padding: 14px 20px;
-    border: 1px solid #fff;
-    transition: all 0.3s ease-out;
-  }
-  .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
-    transition: 250ms;
-  }
-}
-@media screen and (max-width: 425px) {
-  .transaction-list li {
-    font-size: 1rem;
-  }
-  .transactions-cashin {
-    width: 100%;
-  }
 }/*# sourceMappingURL=App.css.map */

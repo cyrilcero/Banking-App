@@ -1,30 +1,49 @@
 @use "./format" as *;
 
 .exchange-rate-container {
-    display: flex;
+    @extend %flex;
     flex-direction: column;
-    // align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 3.5rem;
     @extend %claymorph;
+    position: relative;
+
+    .forex-img {
+        z-index: -1;
+        position: absolute;
+        width: 80%;
+        opacity: 0.3;
+        padding: 1rem;
+    }
     
+    p {
+        letter-spacing: 0.2rem;
+        text-align: center;
+        font-size: $h5;
+        color: $darkBlue;
+        letter-spacing: 0.3rem;
+    }
+
     .exchange-rate-title {
         letter-spacing: 0.2rem;
         text-align: center;
-        font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+        font-size: $h2;
         color: $darkBlue;
-        padding: 1rem 2rem;
-        font-weight: 300;
-    }
+        font-weight: 600;
+        letter-spacing: 0.3rem;
+    }   
     .exchange-rate-value {
         text-align: center;
-        padding: 1rem 2rem;
         font-size: 3rem;
         color: $darkBlue;
+        text-shadow: $txtShadLBlue;
+        padding: 2rem 0;
     }
     .exchange-rate-update {
-        padding: 1rem 2rem;
+        width: 100%;
         text-align: right;
         font-weight: 300;
+        font-size: $h6;
         font-style: italic;
         color: $darkBlue;
     }
