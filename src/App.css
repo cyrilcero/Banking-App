@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://db.onlinewebfonts.com/c/fd6fa80f1e3345834599de891cca3f4c?family=OCR+A+Extended");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
-.wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .overall-expenses .expensesvsbalance .progress-text, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .admin-transfer-money, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-page, .sign-up-logo, .sign-up-form {
+.exchange-rate-container, .wallet-page, .wallet-page .wallet-page-content, .wallet-page .no-wallet, .expenses-wrapper, .expenses-modal, .expenses-modal .expenses-modal-content, .expenses-overview, .budget-app .welcome-budget-app, .budget-app .welcome-budget-app .text-box, .budget-app-container, .budget-app-wrapper .forms-wrapper, .budgetform-wrapper, .wallet-card, .wallet-card .wallet-btns, .overall-expenses, .overall-expenses .expensesvsbalance, .overall-expenses .expensesvsbalance .progress-text, .recent-expenses-wrapper, .underconstruction, .client-list-table, .admindash-content, .content1, .content1 .cashin-form, .content2, .content3, .content3 .text-box, .client-list, .client-barchart, .admin-create-account, .admin-transfer-money, .client-list-createdaccount, .transfer-form-container, .transfer-form, .changePass-wrapper, .cashin-modal .cashin-modal-content, .login-page, .login-page-nav-bar, .side-form-content, .login-form, .sign-up-page, .sign-up-logo, .sign-up-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2926,28 +2926,45 @@ body {
 }
 
 .exchange-rate-container {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 3.5rem;
+  position: relative;
+}
+.exchange-rate-container .forex-img {
+  z-index: -1;
+  position: absolute;
+  width: 80%;
+  opacity: 0.3;
+  padding: 1rem;
+}
+.exchange-rate-container p {
+  letter-spacing: 0.2rem;
+  text-align: center;
+  font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
+  color: #2f3a54;
+  letter-spacing: 0.3rem;
 }
 .exchange-rate-container .exchange-rate-title {
   letter-spacing: 0.2rem;
   text-align: center;
-  font-size: clamp(0.8rem, 0.7485rem + 0.8247vw, 1.8rem);
+  font-size: clamp(0.75rem, 0.6959rem + 0.866vw, 1.8rem);
   color: #2f3a54;
-  padding: 1rem 2rem;
-  font-weight: 300;
+  font-weight: 600;
+  letter-spacing: 0.3rem;
 }
 .exchange-rate-container .exchange-rate-value {
   text-align: center;
-  padding: 1rem 2rem;
   font-size: 3rem;
   color: #2f3a54;
+  text-shadow: 1.2px 1.2px 3px #3f9dd0;
+  padding: 2rem 0;
 }
 .exchange-rate-container .exchange-rate-update {
-  padding: 1rem 2rem;
+  width: 100%;
   text-align: right;
   font-weight: 300;
+  font-size: clamp(0.65rem, 0.6397rem + 0.1649vw, 0.85rem);
   font-style: italic;
   color: #2f3a54;
 }
