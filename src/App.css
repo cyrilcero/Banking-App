@@ -10,8 +10,7 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -144,8 +143,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -492,8 +490,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -1582,7 +1579,6 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1691,8 +1687,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1717,6 +1712,7 @@ body {
 .client-list-table {
   width: 100%;
   flex-direction: column;
+  padding: 1rem 2.5rem;
 }
 .client-list-table h1 {
   text-align: center;
@@ -1728,6 +1724,7 @@ body {
   display: table;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 .client-list-table thead tr th {
   font-size: clamp(0.68rem, 0.6635rem + 0.2639vw, 1rem);
@@ -1821,7 +1818,6 @@ body {
   }
   .transfer {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -2864,8 +2860,11 @@ body {
   color: #2f3a54;
 }
 .table-expenses table th {
-  background-color: #3f9dd0;
-  border: 1px solid #ddd;
+  background-color: #2f3a54;
+  text-shadow: none;
+  color: #eff1f4;
+  font-weight: 600;
+  border: 1px solid #eff1f4;
   padding: 10px;
   text-align: left;
   position: sticky;
@@ -2955,4 +2954,4 @@ body {
 
 .spinner {
   width: 15rem;
-}/*# sourceMappingURL=App.css.map */
+}
