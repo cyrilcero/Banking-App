@@ -1,8 +1,6 @@
 @use "./format" as *;
 
 .container {
-  width: 100%;
-  height: 100vh;
   display: grid;
   line-height: 1.4;
   padding: 2rem;
@@ -15,7 +13,7 @@
     "five two six four";
   grid-gap: 1rem;
   color: #004d40;
-  height: 80%;
+  height: 100%;
 }
 
 #one {
@@ -70,6 +68,7 @@
   color: #2f3a54;
   text-align: left;
   pointer-events: none;
+  font-size: $h5;
 }
 
 #three {
@@ -128,7 +127,7 @@
 #four p {
   text-align: left;
   pointer-events: none;
-  font-size: $h4;
+  font-size: $h5;
 }
 
 #five {
@@ -159,10 +158,10 @@
   max-height: 100%;
 }
 
-#tree {
-  display: none;
-  background: none;
-  grid-area: tree;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-}
+// #tree {
+//   display: none;
+//   background: none;
+//   grid-area: tree;
+//   border-radius: var(--main-radius);
+//   padding-top: var(--main-padding);
+// }
