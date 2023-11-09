@@ -29,8 +29,8 @@ export function budgetAppActions({ request }) {
 function BudgetApp() {
   const { wallets, expenses, user } = useLoaderData();
   const [isBudgetForm, setIsBudgetForm] = useState(false);
-  const userWallets = wallets.filter(wallet => wallet.email === user.email);
-  const userExpenses = expenses.filter(expense => expense.email === user.email);
+  const userWallets = (wallets || []).filter(wallet => wallet.email === user.email || "[]") ;
+  const userExpenses = (expenses || []).filter(expense => expense.email === user.email || "[]") ;
 
   const changeFormType = () => {
     setIsBudgetForm(!isBudgetForm);
