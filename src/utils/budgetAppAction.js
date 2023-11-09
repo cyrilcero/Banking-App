@@ -1,7 +1,7 @@
 import { getLocalStorage } from "./localStorage";
 import { addExpense, createWallet, deleteItem, deleteWallet } from "./helpers";
 import { toastError, toastSuccess } from "./toastify";
-import { balanceUpdateFromAdd, balanceUpdateFromDelete } from "./helpers"; // Import the functions from the helpers module
+import { balanceUpdateFromAdd, balanceUpdateFromDelete } from "./helpers"; 
 
 export async function budgetAppAction({ request }) {
   const data = await request.formData();
@@ -33,7 +33,7 @@ export async function budgetAppAction({ request }) {
         amount: values.newExpenseAmount,
         walletID: values.newExpenseWallet,
       });
-      balanceUpdateFromAdd(user, values); // Use the imported function
+      balanceUpdateFromAdd(user, values); 
       return toastSuccess(`Expense ${values.newExpense.toLowerCase()} added!`);
     }
 
@@ -42,7 +42,7 @@ export async function budgetAppAction({ request }) {
     }
 
     if (formAction === "deleteExpense") {
-      balanceUpdateFromDelete(user, values); // Use the imported function
+      balanceUpdateFromDelete(user, values); 
       deleteItem({
         key: "expenses",
         id: values.expenseID,

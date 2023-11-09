@@ -20,8 +20,8 @@ export function deleteWallet(walletID) {
   const updatedWallets = wallets.filter((w) => w.id !== walletID);
   const updatedExpenses = expenses.filter((e) => e.walletID !== walletID);
 
-  localStorage.setItem("wallets", JSON.stringify(updatedWallets));
-  localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+  setLocalStorage('wallets', updatedWallets);
+  setLocalStorage("expenses", updatedExpenses);
 }
 
 // create wallet
@@ -35,9 +35,9 @@ export const createWallet = ({ email, name, amount }) => {
   };
 
   const existingWallets = getLocalStorage("wallets") ?? [];
-  return localStorage.setItem(
+  return setLocalStorage(
     "wallets",
-    JSON.stringify([...existingWallets, newItem])
+    [...existingWallets, newItem]
   );
 };
 
@@ -53,9 +53,9 @@ export const addExpense = ({ email, name, amount, walletID }) => {
   };
 
   const existingExpenses = getLocalStorage("expenses") ?? [];
-  return localStorage.setItem(
+  return setLocalStorage(
     "expenses",
-    JSON.stringify([...existingExpenses, newItem])
+    [...existingExpenses, newItem]
   );
 };
 
