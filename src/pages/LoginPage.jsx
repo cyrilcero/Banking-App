@@ -64,7 +64,6 @@ function LogInForm() {
   }
 
   useEffect(() => {
-    console.log("LOGIN DATA", loginData);
     const existingUserAccounts = getLocalStorage("UserAccounts");
 
     if (!existingUserAccounts) {

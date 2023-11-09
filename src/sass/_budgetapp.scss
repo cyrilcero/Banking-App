@@ -389,41 +389,6 @@
       box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
     }
   }
-
-  table {
-    border-spacing: 1.3rem 0;
-    padding-bottom: 1.25rem;
-
-    th {
-      font-weight: 500;
-      color: $darkBlue;
-      text-transform: uppercase;
-      padding: 1rem;
-    }
-
-    tr {
-      font-weight: 300;
-      color: $darkBlue;
-      text-transform: capitalize;
-      padding: 1rem;
-    }
-
-    td {
-      padding: 0 0.2rem;
-      font-size: small;
-      text-align: center;
-
-      .link-text {
-        color: $darkBlue;
-        font-weight: 400;
-
-        &:hover {
-          font-weight: 600;
-          opacity: 0.45;
-        }
-      }
-    }
-  }
 }
 
 .expenses-overview {
