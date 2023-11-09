@@ -24,7 +24,7 @@ function Transfer() {
     (entry) => entry.sender === email && entry.transfer === true
   );
 
-  const [userList, setUserList] = useState(currentUser.accountBalance);
+  const [userList, setUserList] = useState(currentUser);
 
   return (
     <section className="transfer">
