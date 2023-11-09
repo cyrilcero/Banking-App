@@ -943,6 +943,7 @@ body {
   flex-direction: column;
   overflow: auto;
   padding: 1.5rem;
+  text-transform: capitalize;
 }
 .transfer-history h1 {
   font-size: clamp(0.8rem, 1vw, 1rem);
