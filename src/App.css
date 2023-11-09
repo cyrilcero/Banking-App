@@ -1172,7 +1172,7 @@ body {
   grid-template-areas: "one two three three" "one two three three" "five two six four" "five two six four";
   grid-gap: 1rem;
   color: #004d40;
-  height: 100%;
+  height: 80%;
 }
 
 #one {
