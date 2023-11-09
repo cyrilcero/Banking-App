@@ -10,8 +10,7 @@
 .exchange-rate-container, .expenses-wrapper, .budget-app .welcome-budget-app, .budget-app-wrapper .forms-wrapper, .wallet-card, .overall-expenses, .recent-expenses-wrapper, .logout-modal-content, .transfer-form, .transfer-history, .changePass-modal-content, .changePass-wrapper, .transactions-cashin, .cashin-modal .cashin-modal-content, .balance-overview, .transactions-widget {
   background-color: rgba(255, 255, 255, 0);
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -144,8 +143,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid white;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -492,8 +490,7 @@ body {
   height: 250px;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 50px;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   box-shadow: 35px 35px 68px 0 rgba(65, 157, 208, 0.5), inset -2px -2px 16px 0 rgba(65, 157, 208, 0.6), inset 0px 11px 28px 0 rgb(255, 255, 255);
   color: #eff1f4;
   text-shadow: 1.2px 1.2px 3px #3f9dd0;
@@ -887,6 +884,14 @@ body {
   min-height: 600px;
   color: #2f3a54;
   flex-direction: column;
+  position: relative;
+}
+.transfer-form .sendmoney-img {
+  width: 90%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0.15;
+  z-index: -1;
 }
 
 .transfer-form-inputs {
@@ -1592,7 +1597,6 @@ body {
   gap: 0.5rem;
 }
 .client-barchart canvas {
-  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -1701,8 +1705,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid #2f3a54;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-size: 0.5rem;
 }
 
@@ -1833,7 +1836,6 @@ body {
   }
   .transfer {
     display: block;
-    height: -moz-fit-content;
     height: fit-content;
   }
   .transfer-page {
@@ -2980,4 +2982,4 @@ body {
 
 .spinner {
   width: 15rem;
-}/*# sourceMappingURL=App.css.map */
+}
