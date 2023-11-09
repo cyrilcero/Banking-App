@@ -135,14 +135,12 @@ function CashInForm({ setter }) {
         if (isNaN(inputBalance) || inputBalance < 0) {
           setNegativeAmount(true);
           toastError("Amount cannot be negative");
-          console.log("Amount cannot be negative");
           return;
         }
   
         if (isWithdrawal) {
           if (existingBalance < inputBalance) {
             toastError("Insufficient balance for withdrawal");
-            console.log("Insufficient balance for withdrawal");
             return;
           }
   
@@ -180,11 +178,10 @@ function CashInForm({ setter }) {
         localStorage.setItem("CurrentUser", JSON.stringify(currentUser));
       }
   
-      console.log("Account exists. Account balance has been updated.");
+
       toastSuccess("Account balance has been updated");
     } else {
       setExistingAccount(false);
-      console.log("Account does not exist. Create a new account.");
       toastError("Account does not exist. Create a new account");
     }
   

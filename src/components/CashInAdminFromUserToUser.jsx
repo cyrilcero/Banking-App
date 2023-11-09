@@ -143,7 +143,6 @@ function CashInAdminFromUserToUser() {
 
     if (amount > senderAccount.accountBalance) {
         toastError("Insufficient balance for withdrawal.");
-        console.log("Insufficient balance for withdrawal.");
         return;
       }
 

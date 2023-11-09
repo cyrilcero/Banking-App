@@ -50,9 +50,6 @@ function CashInAdmin() {
     setBalance(selectedUser.accountBalance);
   };
 
-  useEffect(() => {
-    console.log(balance);
-  }, [balance]);
 
   return (
     <div>

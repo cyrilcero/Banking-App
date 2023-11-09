@@ -6,7 +6,7 @@ import { calcSpentPerUser, formatCurrency, formatPercentage } from '../utils/hel
 function ExpensesVsBalance() {
   const user = getLocalStorage('CurrentUser');
   const totalExpenses = calcSpentPerUser(user.email);
-    console.log(totalExpenses);
+
   
   const isOverspent = user.accountBalance < 0;
 
