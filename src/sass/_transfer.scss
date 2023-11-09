@@ -37,7 +37,6 @@
     opacity: 0.15;
     z-index: -1;
   }
-
 }
 .transfer-form-inputs {
   min-width: 80%;
@@ -45,7 +44,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
+
   input {
     min-width: 100%;
     min-height: 4vh;
@@ -62,31 +61,31 @@
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
-  label{
+  label {
     font-size: clamp(0.8rem, 1vw, 1rem);
     font-weight: bolder;
   }
 }
-.transfer-btn{
+.transfer-btn {
   min-width: 60%;
-    min-height: 5vh;
-    max-width: 60%;
-    max-height: auto;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: $h4;
-    background-color: $lightGreen;
-    color: $darkBlue;
-    border: none;
-    margin-top: 1rem;
-    cursor: pointer;
+  min-height: 5vh;
+  max-width: 60%;
+  max-height: auto;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: $h4;
+  background-color: $lightGreen;
+  color: $darkBlue;
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
 
-    &:hover{
-      color: $mainGray;
-      background: $lightBlue;
-      box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
-    }
+  &:hover {
+    color: $mainGray;
+    background: $lightBlue;
+    box-shadow: 0.3rem 0.3rem 1rem 0 $lightBlue;
+  }
 }
 
 .panel2-transfer {
@@ -110,24 +109,25 @@
   color: $darkBlue;
   flex-direction: column;
   overflow: auto;
- padding: 1.5rem;
-  h1{
+  padding: 1.5rem;
+  text-transform: capitalize;
+  h1 {
     font-size: clamp(0.8rem, 1vw, 1rem);
   }
-  hr{
+  hr {
     width: 100%;
     border: 2px solid;
   }
 }
 
-.transfer-history-list{
+.transfer-history-list {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
 }
 
-.transfer-list-container{
+.transfer-list-container {
   min-width: 100%;
   max-height: 30vh;
   overflow: auto;
@@ -141,7 +141,6 @@
 .transfer-list-container::-webkit-scrollbar-track {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
-  
 }
 
 .transfer-list-container::-webkit-scrollbar-thumb {
