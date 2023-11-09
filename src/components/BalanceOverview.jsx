@@ -2,7 +2,8 @@ import { getLocalStorage } from "../utils/localStorage";
 import { formatCurrency } from "../utils/helpers";
 
 function BalanceOverview() {
-  const user = getLocalStorage("CurrentUser");
+  const user = getLocalStorage('CurrentUser');
+
   return (
     <div className="balance-overview">
       <div className="account-details">

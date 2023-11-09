@@ -154,7 +154,27 @@ function CashInAdminFromUserToUser() {
   
    
       localStorage.setItem("UserAccounts", JSON.stringify(userAccounts));
-  
+
+      const localDate = new Date().toLocaleString("en-US", {
+        timeZone: "Asia/Manila",
+        hour12: false,
+      });  
+
+      const transaction = {
+        sender: senderAccount.email,
+        amount: inputValue.accountBalance,
+        recipientEmail: receiverAccount.email,
+        date: localDate,
+        transfer: true,
+        type: "Money Transfer",
+      };
+
+      const cashInHistory =
+        JSON.parse(localStorage.getItem("CashInHistory")) || [];
+      cashInHistory.push(transaction);
+      localStorage.setItem("CashInHistory", JSON.stringify(cashInHistory));
+
+
       toastSuccess("Money sent successfully!");
     } else {
     

@@ -5,7 +5,6 @@ import ClientDashboard from "../components/ClientDashboard";
 import GreetingDash from "../components/GreetingDash";
 import { formatCurrency } from "../utils/helpers";
 
-
 function AllTransaction({ amount, type, date }) {
   return (
     <>
@@ -19,11 +18,20 @@ function AllTransaction({ amount, type, date }) {
 }
 
 function ClientOverview() {
-  const currentUser = getLocalStorage("CurrentUser") || {};
+  const currentUser = getLocalStorage("CurrentUser") || [];
   const email = currentUser.email || "";
   const cashInHistory = getLocalStorage("CashInHistory") || [];
-  const transactionHistory = cashInHistory.filter(
-    (entry) => entry.userId === email || entry.sender === email
+
+  const sentTransactions = cashInHistory.filter(
+    (entry) => entry.sender === email
+  );
+
+  const cashInTransactions = cashInHistory.filter(
+    (entry) => entry.userId === email && entry.fromAdmin === true
+  );
+
+  const receivedTransactions = cashInHistory.filter(
+    (entry) => entry.recipientEmail === email
   );
 
   const [user, setUser] = useState(null);
@@ -51,19 +59,35 @@ function ClientOverview() {
           <h1>Transaction History</h1>
           <hr />
           <div className="list-label">
-          <h3>Transaction Type</h3>
-          <h3>Date</h3>
-          <h3>Amount</h3>
-        </div> <div className="transaction-list-container">
-          {transactionHistory.map((entry, index) => (
+            <h3>Transaction Type</h3>
+            <h3>Date</h3>
+            <h3>Amount</h3>
+          </div>{" "}
+          <div className="transaction-list-container">
+            {sentTransactions.map((entry, index) => (
               <AllTransaction
-              key={index}
-              amount={entry.amount}
-              date={entry.date}
-              type={entry.type}
-              receiver={entry.accountName}
-            />
-          ))} 
+                key={index}
+                amount={entry.amount}
+                date={entry.date}
+                type={entry.type}
+              />
+            ))}
+            {cashInTransactions.map((entry, index) => (
+              <AllTransaction
+                key={index}
+                amount={entry.amount}
+                date={entry.date}
+                type={entry.type}
+              />
+            ))}
+            {receivedTransactions.map((entry, index) => (
+              <AllTransaction
+                key={index}
+                amount={entry.amount}
+                date={entry.date}
+                type= "Received"
+              />
+            ))}
           </div>
         </div>
       </div>
